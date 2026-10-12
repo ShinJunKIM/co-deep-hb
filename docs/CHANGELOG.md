@@ -2,6 +2,10 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-13 — R61 stopped (Part B no verdict); Step 15 pre-registered
+
+- **Step 15.** Orientation sweep R63–R71 (1 µm, elastic, cell 6 w) and Monte Carlo contact analysis. See docs/step15_orientation_contact.md.
+
 ## 2026-10-13 — Step 14 Part B: gates pass, R59 diverges; B2 pre-registered
 
 - **Gates.** B0 PASS (AELS reads rotated constants like ANEL, error 4e-8). R60 identical to R35.

@@ -187,3 +187,10 @@
   2. R61 fails and R62 converges → AELS + MISO is numerically unusable in the 300 nm deck. **Stop and list options** (isotropic-elastic + plastic for low-E pads; TB,XTAL crystal plasticity; elastic Cu plus a post-hoc yield-volume check). The user decides.
   3. Both fail → the bonded sharp corner (stress singularity) is the cause. **Stop and list options.**
 - R01–R39, R59 and R60 decks are unchanged (byte-compared).
+
+### B2 outcome
+- **R61 stopped by the user** (paper deadline).
+  - R61 ran from 00:30 to 01:48, about 78 min, and reached t = 0.249 of LS1. It was still converging step by step.
+  - The time step was at its minimum (1/300). The plastic-strain-step ratio was up to 487, against a criterion of 0.15, which points to localized corner plasticity.
+  - Projected total run time: 1–2 days. R62 was never run.
+- **Part B: NO VERDICT.** Stage 2 / Step 15 use elastic Cu as a **working assumption**, not as the outcome of the Part B rule. It is a stated limitation.

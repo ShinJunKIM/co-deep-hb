@@ -146,3 +146,6 @@ Primary: R40 (9 µm), R41 (3 µm), R43–R45 (1 µm [001]/[101]/[111]). Controls
 Part A: one-element cases A01–A32 (`python src\stage1\step14.py --partA`). Part C: R57 (9 µm plastic), R58 (1 µm cell 9 w) via `lin13.py --case R57,R58`, evaluated with `step14.py --partC`. Part B: R59 (pad 3 plastic), built after Part A.
 Part B: R60 (pad 3 elastic AELS, gate vs R35) and R59 (pad 3 plastic v1 AELS) via `stage1_pipeline.py --case R60,R59`; gate B0 via `step14.py --partB0`.
 Part B2: R61 (R59 + LNSRCH/NEQIT) and R62 (isotropic Hill diagnostic) via `stage1_pipeline.py --case R61,R62`.
+
+## Step 15 — orientation contact (docs/step15_orientation_contact.md)
+R63–R70 (1 µm, 8 orientations, cell 6 w) and R71 (isotropic Hill), via `lin13.py --case R63,R64,R65,R66,R67,R68,R69,R70,R71`.

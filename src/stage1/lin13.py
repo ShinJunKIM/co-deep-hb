@@ -51,6 +51,9 @@ PADS_LIN = {9: dict(w=9.0, h=1.15), 3: dict(w=3.0, h=1.5), 1: dict(w=1.0, h=1.5)
 MEASURED = {9: dict(du=6.4, tol=0.4, kind="single"), 3: dict(du=4.1, lo=3.6, hi=4.9, kind="array"),
             1: dict(du=2.3, tol=0.4, kind="single")}
 ORIENT = {"001": (0.0, 0.0, 1.0), "101": (1.0, 0.0, 1.0), "111": (1.0, 1.0, 1.0)}
+# step 15 (docs/step15_orientation_contact.md): Ayoub Table-1 orientations spanning E_z 68-188 GPa
+ORIENT.update({"ay3": (1.0, 0.1, 0.02), "ay6": (1.0, 0.24, 0.47), "ay1": (1.0, 0.6, 0.37),
+               "ay4": (1.0, 0.9, 0.6), "ay5": (1.0, 0.89, 0.87)})
 AFM_FIELD = {9: 25.0, 3: 8.0, 1: 3.5}               # AFM scan field (Fig. 5), report-only reference
 
 
@@ -102,6 +105,10 @@ RUNS = [
     _run("R57", 9, 2, "LIN 9 um bonded PLASTIC (Ludwick v1, E_Hill mapping), 2D", plastic=True, role="plastic"),
     _run("R58", 1, 3, "LIN 1 um bonded [001], cell x3 (9 w) - next cell step", cu="aniso", orient="001",
          cell_factor=9.0, role="cell"),
+    # step 15: orientation sweep, 1 um bonded elastic, converged cell (6 w; 9 w changes du by +0.39 %)
+    *[_run(f"R{63 + i}", 1, 3, f"S15 1 um bonded elastic [{o}] cell 6w", cu="aniso", orient=o, cell_factor=6.0,
+           role="s15") for i, o in enumerate(("001", "101", "111", "ay3", "ay6", "ay1", "ay4", "ay5"))],
+    _run("R71", 1, 3, "S15 1 um bonded elastic ISOTROPIC Hill ('average Cu') cell 6w", cell_factor=6.0, role="s15"),
 ]
 RUN_BY_ID = {r["id"]: r for r in RUNS}
 

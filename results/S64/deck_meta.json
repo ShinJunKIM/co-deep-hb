@@ -1,0 +1,65 @@
+{
+ "run": {
+  "id": "S64",
+  "group": "D",
+  "ds": "nycu",
+  "w": 1.0,
+  "h": 1.5,
+  "note": "D NYCU 1 um 2D Hill PLASTIC (Okoro) cell12w [adopted params]",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": true,
+  "cell_factor": 12.0,
+  "taper": 18.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.05,
+  "diel": "SiO2",
+  "E_d": 59000.0,
+  "a_d": 1e-06,
+  "temps": [
+   25.0,
+   50.0,
+   100.0,
+   150.0,
+   200.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 3.5
+ },
+ "geometry": {
+  "w": 1.0,
+  "h": 1.5,
+  "A": 0.5,
+  "L": 12.0,
+  "R": 6.0,
+  "t_si": 12.0,
+  "zpb": 0.5,
+  "zpt": 2.0,
+  "theta": 0.3141592653589793,
+  "a_bot": 0.012620455650640572,
+  "t_l": 0.05
+ },
+ "n_nodes": 7519,
+ "n_elems": 7344,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  50.0,
+  100.0,
+  150.0,
+  200.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "plastic": "Okoro 2008 isotropic, T-dependent",
+  "E_d": 59000.0,
+  "a_d": 1e-06,
+  "nu_d": 0.17,
+  "t_liner": 0.05
+ },
+ "physics_sha256": "acddc19daa4be9c20978b743f65faf9a48ee3e1ffc612267800da0a6ab89c6b3"
+}

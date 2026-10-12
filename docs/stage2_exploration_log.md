@@ -92,3 +92,37 @@
 
 ### 결정 3 (02:50) — V3의 테이퍼
 - 채택 테이퍼 18°를 1 µm 패드(h 1.5 µm)에 적용하면 바닥 반경 13 nm(거의 원뿔)로 Lin Table 1의 1 µm 부피(0.77 µm³ → 7.6°)와 모순된다. 그래도 커밋된 규칙대로 V3 1차 판정은 18°(S56–S58; 바닥 임계를 lin13과 같은 0.02A로 완화해 생성)로 한다. 부피 일관 7.6°(S56b–S58b)는 **문서화된 대안**으로 함께 보고하되 판정에 쓰지 않는다. 이유: 테이퍼가 범위 끝에 걸린 것은 다른 모델 오차를 흡수한 신호이므로 두 값을 모두 보여야 한다.
+- 2026-10-13 02:43 **S51** (B) V1 imec 1.26 2D Hill bonded cell12w [adopted params] -> exit 0, wall 18 s, LS ok True; du_c50 4.761 | du_ctr 5.219 | du_full 4.219 nm
+- 2026-10-13 02:43 **S52** (B) V2 imec 0.54 2D Hill bonded cell12w [adopted params] -> exit 0, wall 18 s, LS ok True; du_c50 2.832 | du_ctr 3.112 | du_full 2.550 nm
+- 2026-10-13 02:44 **S59** (B) V4 imec 0.54 2D Hill SLIDING control cell12w [adopted params] -> exit 0, wall 18 s, LS ok True; du_c50 4.776 | du_ctr 4.809 | du_full 4.767 nm
+- 2026-10-13 02:44 **S49** (A2) NYCU 9 um thickness 0.8 um (Table-1 volume alternative), adopted params cell12w [adopted params] -> exit 0, wall 18 s, LS ok True; du_c50 5.250 | du_ctr 5.524 | du_full 4.586 nm
+- 2026-10-13 02:44 **S50** (A2) NYCU 3 um Cu alpha +7 % (30-400 C mean), adopted params cell12w [adopted params] -> exit 0, wall 18 s, LS ok True; du_c50 4.908 | du_ctr 5.710 | du_full 4.220 nm
+- 2026-10-13 02:45 **S53** (B) V2 imec 0.54 3D [001] bonded cell 6w cell12w [adopted params] -> exit 0, wall 43 s, LS ok True; du_c50 2.826 | du_ctr 3.081 | du_full 2.556 nm
+- 2026-10-13 02:46 **S54** (B) V2 imec 0.54 3D [101] bonded cell 6w cell12w [adopted params] -> exit 0, wall 44 s, LS ok True; du_c50 2.863 | du_ctr 3.126 | du_full 2.571 nm
+- 2026-10-13 02:47 **S55** (B) V2 imec 0.54 3D [111] bonded cell 6w cell12w [adopted params] -> exit 0, wall 43 s, LS ok True; du_c50 2.864 | du_ctr 3.118 | du_full 2.570 nm
+- 2026-10-13 02:47 **S56** (B) V3 NYCU 1 um 3D [001] bonded cell 6w cell12w [adopted params] -> exit 0, wall 34 s, LS ok True; du_c50 1.785 | du_ctr 2.078 | du_full 1.565 nm
+- 2026-10-13 02:48 **S57** (B) V3 NYCU 1 um 3D [101] bonded cell 6w cell12w [adopted params] -> exit 0, wall 34 s, LS ok True; du_c50 1.888 | du_ctr 2.228 | du_full 1.627 nm
+- 2026-10-13 02:48 **S58** (B) V3 NYCU 1 um 3D [111] bonded cell 6w cell12w [adopted params] -> exit 0, wall 34 s, LS ok True; du_c50 1.940 | du_ctr 2.317 | du_full 1.655 nm
+- 2026-10-13 02:49 **S60** (B) V4 NYCU 1 um 3D [001] SLIDING control cell 6w cell12w [adopted params] -> exit 0, wall 35 s, LS ok True; du_c50 3.656 | du_ctr 3.708 | du_full 3.630 nm
+- 2026-10-13 02:49 **S56b** (Balt) V3-alt NYCU 1 um 3D [001] bonded, taper 7.6 (volume-consistent) cell12w [adopted params] -> exit 0, wall 35 s, LS ok True; du_c50 2.098 | du_ctr 2.533 | du_full 1.886 nm
+- 2026-10-13 02:50 **S57b** (Balt) V3-alt NYCU 1 um 3D [101] bonded, taper 7.6 cell12w [adopted params] -> exit 0, wall 34 s, LS ok True; du_c50 2.301 | du_ctr 2.783 | du_full 2.045 nm
+- 2026-10-13 02:51 **S58b** (Balt) V3-alt NYCU 1 um 3D [111] bonded, taper 7.6 cell12w [adopted params] -> exit 0, wall 34 s, LS ok True; du_c50 2.403 | du_ctr 2.916 | du_full 2.119 nm
+- 2026-10-13 02:51 **S64** (D) D NYCU 1 um 2D Hill PLASTIC (Okoro) cell12w [adopted params] -> exit 0, wall 35 s, LS ok True; du_c50 1.871 | du_ctr 2.166 | du_full 1.628 nm, eppl_max 2.80e-03
+- 2026-10-13 02:52 **S65** (D) D imec 0.54 2D Hill PLASTIC (Okoro) cell12w [adopted params] -> exit 0, wall 35 s, LS ok True; du_c50 4.786 | du_ctr 5.111 | du_full 4.305 nm, eppl_max 1.48e-01
+- 2026-10-13 02:52 **S66** (D) D imec 3.06 2D Hill PLASTIC (Okoro) cell12w [adopted params] -> exit 0, wall 27 s, LS ok True; du_c50 8.727 | du_ctr 8.713 | du_full 7.670 nm, eppl_max 2.61e-02
+- 2026-10-13 02:53 **E29** (E) contact 0.54 um r2 T300 ELASTIC reference -> exit 0, wall 44 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=0.438 p=679MPa; T25: Ac/A=0.000 p=0MPa
+
+### 검증(validation) 결과 1차 (03:00; 커밋된 규칙 그대로; `results/stage2/validation.csv`)
+- V1 imec 1.26 µm: 100/300/400 °C 통과, **200 °C 실패**(모델 2.22 vs 측정 1.60; 측정 곡선이 200→300 °C에서 초선형). 3/4.
+- V2 imec 0.54 µm: **실패**. Hill 2.83 nm @400 °C vs 측정 1.40 ± 0.5 (+100 %); 3방위 2.83–2.86(방위 의존 1 %). 200·300 °C도 실패.
+- V3 NYCU 1 µm(테이퍼 18°): 1.79–1.94 vs 2.1 ± 0.4 → **통과**. 대안 7.6°: 2.10–2.40 → 통과.
+- V4: sliding 대조군 0.54 µm 4.78(측정 1.4), 1 µm 3.66(측정 2.1) → 둘 다 실패 → 측벽 bonded가 판별됨.
+- **VERDICT 1차: NOT VALIDATED** (V2 실패, V1 1점 실패).
+- 소성(D, Okoro 등방, 파라미터 고정): 0.54 µm 소성 4.79 vs 탄성 2.83(+69 %, εp,max 0.15) — 작은 패드에서 벌크 항복응력 소성은 u를 **키워** 측정과 더 멀어진다. 3.06 µm 소성 8.73 vs 탄성 6.65 vs 측정 7.85 — 큰 패드의 초선형은 소성 방향과 일치. 1 µm NYCU 소성 1.87 vs 탄성(3D [101]) 1.89: 영향 없음.
+- 접촉 시험 E29(탄성, r 2 nm/패드, 300 °C): 접촉면적비 0.44, 평균 압력 679 MPa(탄성이라 상한), 냉각 후 0. 덱·후처리 정상.
+
+### 결정 4 (03:05) — 단 한 번의 문서화된 개정: "고립 패드" → "실험 구조의 배열 피치"
+- 근거(모델 외부 사실): imec Fig 1의 패드는 배열 시험 구조에서 측정됐다(DM2023 §II: 200/500 nm → 850 nm 피치, 300/600 nm → 1200 nm 피치, 즉 **피치 ≈ 2 w**; Kim 2020/IRPS: 하부 패드 Cu 밀도 25 % → 정사각 격자 피치 1.77 w). Lin 3 µm 어레이도 3×3, 피치 ≈ 2.2 w(Fig 12). 우리 셀 12w는 "고립 패드 + 먼 기준면"이다. bonded 측벽은 이웃 유전체 표면을 끌어올리므로(셀 수렴 연구: 3w에서 −20 %), 배열에서는 AFM 기준면(패드 사이 유전체)이 함께 올라가 측정 u가 작아진다. 이것은 조정 파라미터가 아니라 **실험 조건(피치)의 반영**이다.
+- 개정 내용: imec 데이터(보정 3.06/1.80, 검증 1.26/0.54) 모두 셀 = 피치 2 w(2D 등면적 원통 셀: 2.26 w; 3D 정사각 셀 2.0 w, 평벽 = 주기 대칭). NYCU 3 µm 어레이(4.1 nm)는 셀 2.5 w(피치 2.2 w 등면적). NYCU 9 µm·1 µm는 고립(12w) 유지. 기준면 = 셀 안 유전체 표면 평균(= 배열 안 AFM 기준면).
+- 재보정 → 재검증을 같은 규칙으로 다시 하고 **두 결과를 모두 보고**한다. 피치 가정(2 w)의 민감도로 1.7 w와 3 w도 돌린다(보고용).
+- 소성은 채택하지 않는다: 벌크 항복(Okoro)은 0.54 µm를 더 과대예측하고, sub-µm Cu의 항복은 벌크보다 훨씬 높다(Tsau 2022 §3.1 인용: 수백 nm Cu 항복은 1.28 MPa보다 2자릿수 큼; Ayoub 0.32 µm 패드 σy 140–190 MPa는 bonded 모서리 응력 577 MPa보다 낮지만 체적평균 응력 130 MPa보다 높음). 큰 패드(≥ 3 µm)의 초선형은 소성으로 설명 가능함을 보고에 적는다.

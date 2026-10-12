@@ -3,7 +3,7 @@
  "exec": {
   "method": "batch",
   "exit_code": 0,
-  "wall_s": 44.80645039997762,
+  "wall_s": 44.498437100002775,
   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\E29 -j E29 -i C:\\Users\\USER\\co-deep-hb\\results\\E29\\E29_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\E29\\E29.out"
  },
  "deck": {
@@ -26,7 +26,7 @@
    "t_liner": 0.006,
    "diel": "SiCN",
    "E_d": 95000.0,
-   "a_d": 3.6e-06,
+   "a_d": 2e-06,
    "temps": [
     25.0,
     300.0,
@@ -63,7 +63,7 @@
   "mat": {
    "Ez_GPa": 128.31337324652407,
    "E_d": 95000.0,
-   "a_d": 3.6e-06,
+   "a_d": 2e-06,
    "nu_d": 0.2,
    "t_liner": 0.006
   },
@@ -397,7 +397,7 @@
     1.1
    ]
   },
-  "physics_sha256": "5cf00a9ac09cb8faa020d54e161379b61a7f822f2263c222920d15cd625a5ac9"
+  "physics_sha256": "523ec19d9993099164f408b5b8e7b6fa5988e918d602cd4a77bfb697ff528a59"
  },
  "check": {
   "load_steps": [
@@ -408,6 +408,47 @@
   "all_ok": true,
   "failures": []
  },
- "ok": false,
- "error": "KeyError: np.int64(4235)"
+ "ok": true,
+ "result": {
+  "steps": [
+   {
+    "T": 25.0,
+    "area_frac": 0.0,
+    "p_mean_MPa": 0.0,
+    "p_max_MPa": 0.0,
+    "r_contact_um": [
+     0.0,
+     0.0
+    ],
+    "gap_centre_nm": -3.9987501222999997,
+    "n_contact_elems": 0
+   },
+   {
+    "T": 300.0,
+    "area_frac": 0.4375000000000001,
+    "p_mean_MPa": 678.9302776696594,
+    "p_max_MPa": 2079.8148804,
+    "r_contact_um": [
+     0.20587500000000003,
+     0.266625
+    ],
+    "gap_centre_nm": -1.0155048221,
+    "n_contact_elems": 10
+   },
+   {
+    "T": 25.0,
+    "area_frac": 0.0,
+    "p_mean_MPa": 0.0,
+    "p_max_MPa": 0.0,
+    "r_contact_um": [
+     0.0,
+     0.0
+    ],
+    "gap_centre_nm": -3.9987501222999997,
+    "n_contact_elems": 0
+   }
+  ],
+  "eppl_max": 0.0,
+  "A_pad_um2": 0.22902210444669593
+ }
 }

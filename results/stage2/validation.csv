@@ -1,0 +1,14 @@
+test,item,model,measured,tol,pass
+V1,imec 1.26 um @100 C,0.9521722402318078,0.7,0.5 nm or 15 %,True
+V1,imec 1.26 um @200 C,2.2217352272077253,1.6,0.5 nm or 15 %,False
+V1,imec 1.26 um @300 C,3.491298214183992,3.65,0.5 nm or 15 %,True
+V1,imec 1.26 um @400 C,4.76086120115804,5.0,0.5 nm or 15 %,True
+V2,imec 0.54 um Hill @100 C,0.5664019441366379,0.25,0.4 nm,True
+V2,imec 0.54 um Hill @200 C,1.3216045363187487,0.6,0.4 nm,False
+V2,imec 0.54 um Hill @300 C,2.076807128500584,1.0,0.4 nm,False
+V2,imec 0.54 um Hill @400 C,2.8320097206826507,1.4,0.4 nm,False
+V2,imec 0.54 um 3 orientations @400 C range,2.826-2.864,1.4,+/-0.3 overlap,False
+V3,NYCU 1 um 3 orientations @200 C range,1.785-1.940,2.1,+/-0.4 overlap,True
+V4,imec 0.54 sliding @400 C (must fail),4.775668068639897,1.4,0.4 nm,fails=True
+V4,NYCU 1 um [001] sliding @200 C (must fail),3.6561403597900366,2.1,0.4 nm,fails=True
+VERDICT,baseline VALIDATED (V1-V4),False,,,

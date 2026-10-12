@@ -1,0 +1,66 @@
+{
+ "run": {
+  "id": "S56b",
+  "group": "Balt",
+  "ds": "nycu",
+  "w": 1.0,
+  "h": 1.5,
+  "note": "V3-alt NYCU 1 um 3D [001] bonded, taper 7.6 (volume-consistent) cell12w [adopted params]",
+  "dim": 3,
+  "cu": "aniso",
+  "orient": "001",
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 12.0,
+  "taper": 7.6,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.05,
+  "diel": "SiO2",
+  "E_d": 59000.0,
+  "a_d": 1e-06,
+  "temps": [
+   25.0,
+   50.0,
+   100.0,
+   150.0,
+   200.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 3.5,
+  "grow3d": 1.5,
+  "hmax3d": 1.0
+ },
+ "geometry": {
+  "w": 1.0,
+  "h": 1.5,
+  "A": 0.5,
+  "L": 12.0,
+  "R": 6.0,
+  "t_si": 12.0,
+  "zpb": 0.5,
+  "zpt": 2.0,
+  "theta": 0.13264502315156904,
+  "a_bot": 0.2998572688485701,
+  "t_l": 0.05
+ },
+ "n_nodes": 35937,
+ "n_elems": 32768,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  50.0,
+  100.0,
+  150.0,
+  200.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 66.68875086266391,
+  "E_d": 59000.0,
+  "a_d": 1e-06,
+  "nu_d": 0.17,
+  "t_liner": 0.05
+ },
+ "physics_sha256": "ff4f4169879037045b677ef9ce01279c2081a9f72712cd667a2b138bc6fe361f"
+}

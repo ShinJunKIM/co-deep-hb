@@ -100,3 +100,52 @@ if _AD.exists():
             elif _r["ds"] == "nycu":
                 _r["taper"] = 7.6
             _r["note"] += " [adopted params]"
+
+# ---- P: prediction runs (imec process, adopted params): 0.30 um and extra 0.54 um orientations for the Monte Carlo fit
+_AY = {"ay3": (1.0, 0.1, 0.02), "ay6": (1.0, 0.24, 0.47), "ay1": (1.0, 0.6, 0.37), "ay4": (1.0, 0.9, 0.6), "ay5": (1.0, 0.89, 0.87)}
+_P3 = dict(cell_factor=12.0, grow3d=1.5, hmax3d=1.0)
+runs_P = [
+    _run("S67", "P", "imec", 0.30, 0.6, "P imec 0.30 um 2D Hill bonded", cell_factor=12.0, **MID_SICN),
+    _run("S68", "P", "imec", 0.30, 0.6, "P imec 0.30 um 3D [001] bonded", cu="aniso", orient="001", **_P3, **MID_SICN),
+    _run("S69", "P", "imec", 0.30, 0.6, "P imec 0.30 um 3D [101] bonded", cu="aniso", orient="101", **_P3, **MID_SICN),
+    _run("S70", "P", "imec", 0.30, 0.6, "P imec 0.30 um 3D [111] bonded", cu="aniso", orient="111", **_P3, **MID_SICN),
+    _run("S71", "P", "imec", 0.30, 0.6, "P imec 0.30 um 2D Hill SLIDING (relaxed-sidewall bound)", side="sliding", cell_factor=12.0, **MID_SICN),
+    _run("S72", "P", "imec", 0.54, 0.6, "P imec 0.54 um 3D [ay3] bonded", cu="aniso", orient="ay3", **_P3, **MID_SICN),
+    _run("S73", "P", "imec", 0.54, 0.6, "P imec 0.54 um 3D [ay6] bonded", cu="aniso", orient="ay6", **_P3, **MID_SICN),
+    _run("S74", "P", "imec", 0.54, 0.6, "P imec 0.54 um 3D [ay1] bonded", cu="aniso", orient="ay1", **_P3, **MID_SICN),
+    _run("S75", "P", "imec", 0.54, 0.6, "P imec 0.54 um 3D [ay4] bonded", cu="aniso", orient="ay4", **_P3, **MID_SICN),
+    _run("S76", "P", "imec", 0.54, 0.6, "P imec 0.54 um 3D [ay5] bonded", cu="aniso", orient="ay5", **_P3, **MID_SICN),
+    _run("S77", "P", "imec", 0.30, 0.6, "P imec 0.30 um 3D [ay6] bonded", cu="aniso", orient="ay6", **_P3, **MID_SICN),
+    _run("S78", "P", "imec", 0.30, 0.6, "P imec 0.30 um 3D [ay4] bonded", cu="aniso", orient="ay4", **_P3, **MID_SICN),
+]
+if _AD.exists():
+    for _r in runs_P:
+        _r["E_d"], _r["a_d"] = _ad["imec"]["E_d"], _ad["imec"]["a_d"]; _r["note"] += " [adopted params]"
+register(runs_P)
+
+# ---- Revision 1 (decision 4, exploration log): array pitch instead of isolated pad for array-measured data
+CELL_IMEC_2D, CELL_IMEC_3D, CELL_NYCU3 = 2.26, 2.0, 2.5     # equal-area cells for pitch 2 w (imec) and 2.2 w (Lin 3 um array)
+_IM = dict(cell_factor=CELL_IMEC_2D)
+runs_R = []
+k = 81
+for w in (3.06, 1.80):
+    for E in E_SICN:
+        for a in A_SICN:
+            runs_R.append(_run(f"S{k}", "Ar", "imec", w, 0.6, f"REV1 imec {w:g} um calib E{E/1000:g} a{a*1e6:g} cell2.26w", E_d=E, a_d=a, **_IM)); k += 1
+for E in E_SIO2:
+    for a in A_SIO2:
+        for tp in TAPER:
+            runs_R.append(_run(f"S{k}", "Ar", "nycu", 3.0, 1.5, f"REV1 NYCU 3 um calib E{E/1000:g} a{a*1e6:g} taper{tp:g} cell2.5w",
+                               taper=tp, E_d=E, a_d=a, cell_factor=CELL_NYCU3)); k += 1
+assert k == 111
+runs_R += [
+    _run("S111", "Br", "imec", 1.26, 0.6, "REV1 V1 imec 1.26 2D Hill bonded cell2.26w", **_IM, **MID_SICN),
+    _run("S112", "Br", "imec", 0.54, 0.6, "REV1 V2 imec 0.54 2D Hill bonded cell2.26w", **_IM, **MID_SICN),
+    _run("S113", "Br", "imec", 0.54, 0.6, "REV1 V2 imec 0.54 3D [001] bonded cell2.0w", cu="aniso", orient="001", cell_factor=CELL_IMEC_3D, **MID_SICN),
+    _run("S114", "Br", "imec", 0.54, 0.6, "REV1 V2 imec 0.54 3D [101] bonded cell2.0w", cu="aniso", orient="101", cell_factor=CELL_IMEC_3D, **MID_SICN),
+    _run("S115", "Br", "imec", 0.54, 0.6, "REV1 V2 imec 0.54 3D [111] bonded cell2.0w", cu="aniso", orient="111", cell_factor=CELL_IMEC_3D, **MID_SICN),
+    _run("S116", "Br", "imec", 0.54, 0.6, "REV1 V4 imec 0.54 2D Hill SLIDING cell2.26w", side="sliding", **_IM, **MID_SICN),
+    _run("S117", "Br", "imec", 0.54, 0.6, "REV1 pitch sensitivity 1.7w (2D cell 1.92w)", cell_factor=1.92, **MID_SICN),
+    _run("S118", "Br", "imec", 0.54, 0.6, "REV1 pitch sensitivity 3w (2D cell 3.39w)", cell_factor=3.39, **MID_SICN),
+]
+register(runs_R)

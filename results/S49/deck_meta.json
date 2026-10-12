@@ -1,0 +1,64 @@
+{
+ "run": {
+  "id": "S49",
+  "group": "A2",
+  "ds": "nycu",
+  "w": 9.0,
+  "h": 0.8,
+  "note": "NYCU 9 um thickness 0.8 um (Table-1 volume alternative), adopted params cell12w [adopted params]",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 12.0,
+  "taper": 18.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.05,
+  "diel": "SiO2",
+  "E_d": 59000.0,
+  "a_d": 1e-06,
+  "temps": [
+   25.0,
+   50.0,
+   100.0,
+   150.0,
+   200.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 25.0
+ },
+ "geometry": {
+  "w": 9.0,
+  "h": 0.8,
+  "A": 4.5,
+  "L": 108.0,
+  "R": 54.0,
+  "t_si": 108.0,
+  "zpb": 0.5,
+  "zpt": 1.3,
+  "theta": 0.3141592653589793,
+  "a_bot": 4.240064243013675,
+  "t_l": 0.05
+ },
+ "n_nodes": 4526,
+ "n_elems": 4392,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  50.0,
+  100.0,
+  150.0,
+  200.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 59000.0,
+  "a_d": 1e-06,
+  "nu_d": 0.17,
+  "t_liner": 0.05
+ },
+ "physics_sha256": "effcc5db83b9f751f7c1c70f51154395fa23a87c5e5f9c79627bde4f2db1ae29"
+}

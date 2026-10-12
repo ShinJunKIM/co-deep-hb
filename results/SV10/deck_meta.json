@@ -1,0 +1,64 @@
+{
+ "run": {
+  "id": "SV10",
+  "group": "SV",
+  "ds": "imec",
+  "w": 0.54,
+  "h": 0.6,
+  "note": "imec 0.54 2D Hill, cell 20w (cell check)",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 20.0,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 95000.0,
+  "a_d": 3.6e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0
+ },
+ "geometry": {
+  "w": 0.54,
+  "h": 0.6,
+  "A": 0.27,
+  "L": 10.8,
+  "R": 5.4,
+  "t_si": 10.8,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.27,
+  "t_l": 0.006
+ },
+ "n_nodes": 7854,
+ "n_elems": 7676,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 95000.0,
+  "a_d": 3.6e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "4daa0fca464cffd3c2ab063baa39d003cf0fc11fa9ffa31787ded3d3df163788"
+}

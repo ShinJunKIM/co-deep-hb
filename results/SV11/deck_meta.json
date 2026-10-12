@@ -1,0 +1,64 @@
+{
+ "run": {
+  "id": "SV11",
+  "group": "SV",
+  "ds": "imec",
+  "w": 3.06,
+  "h": 0.6,
+  "note": "imec 3.06 2D Hill, cell 6w (cell check large pad)",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 6.0,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 95000.0,
+  "a_d": 3.6e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0
+ },
+ "geometry": {
+  "w": 3.06,
+  "h": 0.6,
+  "A": 1.53,
+  "L": 18.36,
+  "R": 9.18,
+  "t_si": 18.36,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 1.53,
+  "t_l": 0.006
+ },
+ "n_nodes": 4088,
+ "n_elems": 3960,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 95000.0,
+  "a_d": 3.6e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "ca771815c7ea50c637e01a11ccf16181f161f98278b341d1c03009ee7349982e"
+}

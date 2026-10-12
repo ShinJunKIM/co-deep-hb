@@ -125,3 +125,45 @@
 - The large-pad miss stays unexplained by plasticity. The remaining candidates are geometry (taper sensitivity −17 %) and the Si/SiO2 constraint.
 
 **1 µm cell check.** R53 (6 w) 2.346 nm → R58 (9 w) 2.355 nm, a **+0.39 %** change. The < 2 % criterion is **met**. The converged 1 µm [001] value is 2.35 nm, which passes against 2.3 ± 0.4 nm.
+
+### A (final, commit 1eb83c2): `step14_partA_fix.csv`, `step14_partA_modecheck.csv`
+
+| case | input | KEYOPT(2) | MISO | thermal | αΔT err | E_z err | flow err |
+|---|---|---|---|---|---|---|---|
+| A10f / A14f | AELS | 0 / 3 | T1 | on | 2e-13 | 5e-9 | −7e-7 |
+| A12f / A16f | AELS | 0 / 3 | T2 | on | 2e-13 | 5e-9 | −2.3e-4 |
+| A18f / A22f | ORTHO | 0 / 3 | T1 | on | 2e-13 | 5e-9 | −7e-7 |
+| A20f / A24f | ORTHO | 0 / 3 | T2 | on | 2e-13 | 5e-9 | −2.3e-4 |
+
+- With the LS2 load fixed, every thermal-on case passes all three checks.
+- **Pre-registered recommendation: AELS (TB,ELAS,,,,AELS) with KEYOPT(2)=3.** The two-temperature table (variants ②/③) also works.
+- AELS takes the same 21-constant prerotated matrix, so the ESYS route is not needed.
+
+**Run-mode check (X1–X3).**
+
+| id | deck | mode | ANEL+PLAS error printed | result file |
+|---|---|---|---|---|
+| X1 | cp_check | batch | yes | no (stops) |
+| X2 | A25 | PyMAPDL | yes | **yes** |
+| X3 | cp_check | PyMAPDL | yes | **yes** |
+
+- **The rejection is the same in both modes.** In batch the step-data error stops the run. In an interactive (PyMAPDL) session the same ERROR is printed but the solve continues.
+- The earlier cp_check "ANEL + MISO pass" was therefore obtained **through an ERROR that the interactive session did not stop on**. Its numbers are close to AELS (X2 flow stress −0.07 % vs A09), but they come from an unsupported combination. The cp_check Ludwick result is **superseded** by Part A AELS.
+- Consequence: every registry plastic run with the default ANEL input (R05–R07, R09–R17, R19, R21, R23) would stop in batch. Plastic runs must use `el_input="AELS"` under new run IDs; the old decks stay unchanged.
+- The A prediction (ANEL fails only at KEYOPT(2)=3; ORTHO works) was **wrong** for ANEL and **right** for ORTHO.
+
+## Part B addendum (pre-registered before R59/R60 and the B0 runs; the addendum commit hash is in git)
+
+- **Input:** the Part A recommendation, `el_input="AELS"`.
+  - New, non-default parameter in `stage1_pipeline.material_block`. The default "ANEL" leaves all R01–R39 decks byte-identical (checked: 38 decks equal; R09 is not buildable without NIST data, as before).
+- **Gate B0** (`step14.py --partB0`): AELS must read the *rotated* 21 constants in the same order as ANEL.
+  - Setup: one element, all nodes prescribed u = ε·x with a general strain (all six components non-zero), elastic only.
+  - Orientations: pad 3, pad 10, [111]; each with ANEL and AELS.
+  - Pass if |σ_FE − D·ε| / max|D·ε| < 1e-4 for all 6 cases.
+- **Gate R60:** pad 3 elastic, paper-literal, AELS. The decks differ from R35 only in the TB line (checked). Required: |u_center(400) R60 − R35| < 1e-3 nm.
+- **R59:** pad 3, plastic variant ① (pad-3 Ludwick curve, T-independent), paper-literal (circle, no cap, bonded), AELS, same history as R35.
+- **Rule (unchanged):** Δ = u_center(h400)[R59] − u_center(h400)[R35].
+  - Pad 10 has Δ = 0 by the mapping rule.
+  - If both gates pass and |Δ| < 0.1 nm → Stage 2 uses elastic Cu. If |Δ| ≥ 0.1 nm → plastic Cu. If either gate fails → no verdict.
+  - Reported in addition, not ruled on: max εp, and the residual u at 30 °C after the cycle.
+- **Prediction (unchanged):** |Δ| < 0.1 nm, i.e. elastic Cu for Stage 2.

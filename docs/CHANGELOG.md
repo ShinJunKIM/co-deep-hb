@@ -2,6 +2,13 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-12 — Step 14 Part A final; Part B pre-registered
+
+- **Part A recommendation: AELS + KEYOPT(2)=3.** All thermal-on AELS and ORTHO cases pass after the LS2 fix.
+- **ANEL + PLAS is rejected in batch and in PyMAPDL.** PyMAPDL continues past the ERROR, which is how cp_check "passed". The cp_check Ludwick result is superseded.
+- **`stage1_pipeline.py`.** New non-default `el_input` ("ANEL" default; R01–R39 decks byte-identical). R59 and R60 added.
+- **`step14.py`.** New `--partB0` (rotated AELS vs ANEL stiffness gate) and `--partB`.
+
 ## 2026-10-12 — Step 14 first results and two disclosed deviations
 
 - **Part A.** ANEL + PLAS is rejected in batch at every setting.

@@ -93,3 +93,4 @@ reproduce the numbers above exactly), then the first commit and push. See `docs/
 
 **Step 14 (2026-10-12):** pre-registered in docs/stage1_step14_plasticity.md. Part A A01–A32, Part C R57 and R58 pending; Part B R59 is built after Part A.
 **Step 14 status:** Part C done (NOT SUPPORTED) and R58 converged. Part A first run is done, but the thermal-on checks were invalid (test-deck ramp). Pending: `step14.py --partA-fix`, then the Part A recommendation, then Part B (R59).
+**Step 14 status (update):** Part A is done, with recommendation AELS + KEYOPT(2)=3. Part B is pre-registered; pending runs: `step14.py --partB0`, then `stage1_pipeline.py --case R60,R59`, then `step14.py --partB`. Use `el_input="AELS"` for all future plastic runs (ANEL+PLAS stops in batch).

@@ -337,6 +337,11 @@ RUNS = [
     _run("R37", 5, 12, "SIGN pad 5 elastic, paper-literal (circle, no cap, bonded)", shape="circle", cap=False, layers=True),
     _run("R38", 7, 12, "SIGN pad 7 elastic, paper-literal (circle, no cap, bonded)", shape="circle", cap=False, layers=True),
     _run("R39", 9, 12, "SIGN pad 9 elastic, paper-literal (circle, no cap, bonded)", shape="circle", cap=False, layers=True),
+    # step 14 Part B (docs/stage1_step14_plasticity.md): plasticity threshold at 300 nm, Part-A input (AELS)
+    _run("R59", 3, 14, "PLAS-B pad 3 plastic v1, paper-literal (circle, no cap, bonded), AELS input",
+         model="plastic", variant=1, shape="circle", cap=False, layers=True, el_input="AELS"),
+    _run("R60", 3, 14, "PLAS-B gate: pad 3 elastic, paper-literal, AELS input (must equal R35)",
+         shape="circle", cap=False, layers=True, el_input="AELS"),
 ]
 RUN_BY_ID = {r["id"]: r for r in RUNS}
 E_ELASTIC_ABOVE = _fitted_E(2)       # 130.34 GPa: above -> elastic; also the G4a cooling-scope split
@@ -355,7 +360,9 @@ def material_block(run, Tsf):
     D = rotated_D(hkl, run["angle"])
     L, info = [], dict(hkl_sorted=hkl, Ez_GPa=Ez / 1000.0, sources=[])
     L += ["! ---- MAT 1: Cu, anisotropic elastic (paper constants), rotated to global frame",
-          "TB,ANEL,1,1,,0", "TBTEMP,25"]
+          ("TB,ELAS,1,1,21,AELS" if run.get("el_input", "ANEL") == "AELS" else "TB,ANEL,1,1,,0"), "TBTEMP,25"]
+    # el_input (step 14): batch MAPDL v261 rejects TB,ANEL + TB,PLAS at every setting; TB,ELAS AELS takes the
+    # same 21 constants (gate: step14.py --partB0 and R60 == R35).  Default "ANEL" keeps R01-R39 decks unchanged.
     vals = [D[i, j] for j in range(6) for i in range(j, 6)]
     for s in range(0, 21, 6):
         L.append(f"TBDATA,{s + 1}," + ",".join(_f(v) for v in vals[s:s + 6]))

@@ -295,12 +295,106 @@ def part_a_fix():
     return 0
 
 
+# ---------------------------------------------------------------- Part B
+# B0 gate: is TB,ELAS AELS read with the same 21-constant order as TB,ANEL for a ROTATED crystal?
+# One element, every node prescribed u = eps.x (uniform general strain incl. shears), elastic only.
+# Check sigma_FE = D eps (all 6 components, < 1e-4 of max|sigma|) for ANEL and AELS.
+B0_EPS = np.array([1e-4, -2e-4, 3e-4, 1.5e-4, -1e-4, 2.5e-4])      # x y z xy yz xz, engineering shear
+OUT_B0 = S.RESULTS / "step14_partB0"
+
+
+def _b0_cases():
+    out = []
+    for lab, hkl in (("pad3", S.sorted_hkl(S.PADS[3]["hkl"])), ("pad10", S.sorted_hkl(S.PADS[10]["hkl"])),
+                     ("111", (1.0, 1.0, 1.0))):
+        for el in ("ANEL", "AELS"):
+            out.append(dict(id=f"B0_{lab}_{el}", hkl=hkl, el=el))
+    return out
+
+
+def b0_deck(c):
+    D = S.rotated_D(c["hkl"], 0.0)
+    vals = [D[i, j] for j in range(6) for i in range(j, 6)]
+    tb = "TB,ELAS,1,1,21,AELS" if c["el"] == "AELS" else "TB,ANEL,1,1,,0"
+    e = B0_EPS
+    H = np.array([[e[0], e[3] / 2, e[5] / 2], [e[3] / 2, e[1], e[4] / 2], [e[5] / 2, e[4] / 2, e[2]]])
+    d = [f"/TITLE,Step14 {c['id']}", "/PREP7", "ET,1,SOLID185", tb, "TBTEMP,25"]
+    d += [f"TBDATA,{s + 1}," + ",".join(_f(v) for v in vals[s:s + 6]) for s in range(0, 21, 6)]
+    d += ["BLOCK,0,1,0,1,0,1", "ESIZE,1", "VMESH,ALL", "FINISH", "/SOLU", "ANTYPE,STATIC"]
+    for x in (0, 1):
+        for y in (0, 1):
+            for z in (0, 1):
+                u = H @ np.array([x, y, z], float)
+                d.append(f"NN_=NODE({x},{y},{z})")
+                d += [f"D,NN_,{lab},{_f(v)}" for lab, v in zip(("UX", "UY", "UZ"), u)]
+    d += ["SOLVE", "FINISH", "/POST1", "SET,LAST"]
+    for k in ("X", "Y", "Z", "XY", "YZ", "XZ"):
+        d += [f"ETABLE,S{k},S,{k}", f"*GET,S{k}_,ELEM,1,ETAB,S{k}"]
+    d += ["*CFOPEN,b0,txt", "*VWRITE,SX_,SY_,SZ_,SXY_,SYZ_,SXZ_", "(6E22.13)", "*CFCLOS", "FINISH", ""]
+    return "\n".join(d) + "\n"
+
+
+def part_b0():
+    OUT_B0.mkdir(parents=True, exist_ok=True)
+    lines = ["id,el,orientation,runs,max_rel_err,pass"]
+    allok = True
+    for c in _b0_cases():
+        od = OUT_B0 / c["id"]; od.mkdir(exist_ok=True)
+        (od / f"{c['id']}.dat").write_text(b0_deck(c))
+        (od / "b0.txt").unlink(missing_ok=True)
+        S.run_batch(dict(id=c["id"]), od, 1)
+        ref = S.rotated_D(c["hkl"], 0.0) @ B0_EPS
+        if (od / "b0.txt").exists():
+            fe = np.loadtxt(od / "b0.txt")[:6]
+            err = float(np.max(np.abs(fe - ref)) / np.max(np.abs(ref)))
+            ok = err < 1e-4
+        else:
+            err, ok = float("nan"), False
+        allok &= ok
+        lines.append(f"{c['id']},{c['el']},{c['id'].split('_')[1]},{(od / 'b0.txt').exists()},{err:.3e},{ok}")
+        print(lines[-1])
+    lines.append(f"GATE,,,,,{'PASS' if allok else 'FAIL'}")
+    (S.RESULTS / "diagnostics" / "step14_partB0.csv").write_text("\n".join(lines) + "\n")
+    print("PART B0 GATE:", "PASS" if allok else "FAIL")
+    return 0 if allok else 1
+
+
+def part_b():
+    def rec(rid):
+        f = S.RESULTS / rid / "record.json"
+        return json.loads(f.read_text()) if f.exists() else None
+    def u(r, tag):
+        return next(x["u_center_nm"] for x in r["rows"] if x["tag"] == tag)
+    r35, r59, r60 = rec("R35"), rec("R59"), rec("R60")
+    if not (r35 and r59 and r60):
+        print("missing R35/R59/R60"); return 1
+    out = []
+    g = abs(u(r60, "h400") - u(r35, "h400"))
+    gate = g < 1e-3
+    out.append(f"gate R60 (AELS elastic) vs R35 (ANEL elastic) at 400 C: |diff| = {g:.2e} nm -> {'PASS' if gate else 'FAIL'}")
+    e, pl = u(r35, "h400"), u(r59, "h400")
+    d3 = pl - e
+    epmax = max(x.get("eppl_eqv_max", 0.0) or 0.0 for x in r59["rows"])
+    out.append(f"pad 3: elastic {e:.4f}  plastic {pl:.4f}  diff {d3:+.4f} nm  (max EPPL {epmax:.2e}; "
+               f"all converged {r59.get('all_converged')})")
+    out.append(f"pad 3 residual at 30 C after the cycle: elastic {u(r35, 'c030'):+.4f}  plastic {u(r59, 'c030'):+.4f} nm")
+    out.append("pad 10: E_z 189.5 GPa > 130.34 GPa -> elastic by mapping rule, diff = 0 (no solve)")
+    elastic = gate and abs(d3) < 0.1
+    out.append("PART B RULE: " + ("|diff| < 0.1 nm for both pads -> Stage 2 uses ELASTIC Cu" if elastic else
+               ("gate failed -> no verdict" if not gate else "|diff| >= 0.1 nm -> Stage 2 uses PLASTIC Cu")))
+    print("\n".join(out))
+    (S.RESULTS / "diagnostics" / "step14_partB.txt").write_text("\n".join(out) + "\n")
+    return 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--partA", action="store_true")
     ap.add_argument("--evalA", action="store_true")
     ap.add_argument("--partC", action="store_true")
     ap.add_argument("--partA-fix", dest="partA_fix", action="store_true")
+    ap.add_argument("--partB0", action="store_true")
+    ap.add_argument("--partB", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
     if a.partA:
@@ -309,6 +403,10 @@ def main(argv=None):
         eval_a()
     if a.partA_fix:
         part_a_fix()
+    if a.partB0:
+        return part_b0()
+    if a.partB:
+        return part_b()
     if a.partC:
         return part_c()
     return 0

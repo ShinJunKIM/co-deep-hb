@@ -1,0 +1,64 @@
+{
+ "run": {
+  "id": "S96",
+  "group": "Ar",
+  "ds": "nycu",
+  "w": 3.0,
+  "h": 1.5,
+  "note": "REV1 NYCU 3 um calib E59 a1 taper7.6 cell2.5w",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 2.5,
+  "taper": 7.6,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.05,
+  "diel": "SiO2",
+  "E_d": 59000.0,
+  "a_d": 1e-06,
+  "temps": [
+   25.0,
+   50.0,
+   100.0,
+   150.0,
+   200.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0
+ },
+ "geometry": {
+  "w": 3.0,
+  "h": 1.5,
+  "A": 1.5,
+  "L": 7.5,
+  "R": 3.75,
+  "t_si": 7.5,
+  "zpb": 0.5,
+  "zpt": 2.0,
+  "theta": 0.13264502315156904,
+  "a_bot": 1.2998572688485701,
+  "t_l": 0.05
+ },
+ "n_nodes": 3300,
+ "n_elems": 3186,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  50.0,
+  100.0,
+  150.0,
+  200.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 59000.0,
+  "a_d": 1e-06,
+  "nu_d": 0.17,
+  "t_liner": 0.05
+ },
+ "physics_sha256": "d68de3d29133b0f24c1485b9482ee599fccd67b5ab86863211fa9bdcfffe5882"
+}

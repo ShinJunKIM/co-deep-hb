@@ -126,3 +126,39 @@
 - 개정 내용: imec 데이터(보정 3.06/1.80, 검증 1.26/0.54) 모두 셀 = 피치 2 w(2D 등면적 원통 셀: 2.26 w; 3D 정사각 셀 2.0 w, 평벽 = 주기 대칭). NYCU 3 µm 어레이(4.1 nm)는 셀 2.5 w(피치 2.2 w 등면적). NYCU 9 µm·1 µm는 고립(12w) 유지. 기준면 = 셀 안 유전체 표면 평균(= 배열 안 AFM 기준면).
 - 재보정 → 재검증을 같은 규칙으로 다시 하고 **두 결과를 모두 보고**한다. 피치 가정(2 w)의 민감도로 1.7 w와 3 w도 돌린다(보고용).
 - 소성은 채택하지 않는다: 벌크 항복(Okoro)은 0.54 µm를 더 과대예측하고, sub-µm Cu의 항복은 벌크보다 훨씬 높다(Tsau 2022 §3.1 인용: 수백 nm Cu 항복은 1.28 MPa보다 2자릿수 큼; Ayoub 0.32 µm 패드 σy 140–190 MPa는 bonded 모서리 응력 577 MPa보다 낮지만 체적평균 응력 130 MPa보다 높음). 큰 패드(≥ 3 µm)의 초선형은 소성으로 설명 가능함을 보고에 적는다.
+- 2026-10-13 02:56 **S81** (Ar) REV1 imec 3.06 um calib E70 a2 cell2.26w -> exit 0, wall 18 s, LS ok True; du_c50 6.096 | du_ctr 7.172 | du_full 5.309 nm
+- 2026-10-13 02:56 **S82** (Ar) REV1 imec 3.06 um calib E70 a5.2 cell2.26w -> exit 0, wall 18 s, LS ok True; du_c50 5.104 | du_ctr 6.031 | du_full 4.426 nm
+- 2026-10-13 02:57 **S83** (Ar) REV1 imec 3.06 um calib E95 a2 cell2.26w -> exit 0, wall 18 s, LS ok True; du_c50 6.235 | du_ctr 7.280 | du_full 5.445 nm
+- 2026-10-13 02:57 **S84** (Ar) REV1 imec 3.06 um calib E95 a5.2 cell2.26w -> exit 0, wall 18 s, LS ok True; du_c50 5.221 | du_ctr 6.106 | du_full 4.550 nm
+- 2026-10-13 02:57 **S85** (Ar) REV1 imec 3.06 um calib E120 a2 cell2.26w -> exit 0, wall 19 s, LS ok True; du_c50 6.323 | du_ctr 7.337 | du_full 5.530 nm
+- 2026-10-13 02:58 **S86** (Ar) REV1 imec 3.06 um calib E120 a5.2 cell2.26w -> exit 0, wall 18 s, LS ok True; du_c50 5.287 | du_ctr 6.129 | du_full 4.623 nm
+- 2026-10-13 02:58 **S87** (Ar) REV1 imec 1.8 um calib E70 a2 cell2.26w -> exit 0, wall 18 s, LS ok True; du_c50 4.668 | du_ctr 5.827 | du_full 4.050 nm
+- 2026-10-13 02:58 **S88** (Ar) REV1 imec 1.8 um calib E70 a5.2 cell2.26w -> exit 0, wall 18 s, LS ok True; du_c50 3.864 | du_ctr 4.846 | du_full 3.339 nm
+- 2026-10-13 02:59 **S89** (Ar) REV1 imec 1.8 um calib E95 a2 cell2.26w -> exit 0, wall 18 s, LS ok True; du_c50 4.856 | du_ctr 5.996 | du_full 4.190 nm
+- 2026-10-13 02:59 **S90** (Ar) REV1 imec 1.8 um calib E95 a5.2 cell2.26w -> exit 0, wall 18 s, LS ok True; du_c50 4.048 | du_ctr 5.007 | du_full 3.486 nm
+- 2026-10-13 02:59 **S91** (Ar) REV1 imec 1.8 um calib E120 a2 cell2.26w -> exit 0, wall 18 s, LS ok True; du_c50 4.989 | du_ctr 6.107 | du_full 4.286 nm
+- 2026-10-13 02:59 **S92** (Ar) REV1 imec 1.8 um calib E120 a5.2 cell2.26w -> exit 0, wall 18 s, LS ok True; du_c50 4.178 | du_ctr 5.108 | du_full 3.587 nm
+- 2026-10-13 03:00 **S93** (Ar) REV1 NYCU 3 um calib E59 a0.5 taper7.6 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.601 | du_ctr 5.763 | du_full 3.984 nm
+- 2026-10-13 03:00 **S94** (Ar) REV1 NYCU 3 um calib E59 a0.5 taper12.8 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.498 | du_ctr 5.586 | du_full 3.860 nm
+- 2026-10-13 03:00 **S95** (Ar) REV1 NYCU 3 um calib E59 a0.5 taper18 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.374 | du_ctr 5.392 | du_full 3.717 nm
+- 2026-10-13 03:01 **S96** (Ar) REV1 NYCU 3 um calib E59 a1 taper7.6 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.484 | du_ctr 5.618 | du_full 3.880 nm
+- 2026-10-13 03:01 **S97** (Ar) REV1 NYCU 3 um calib E59 a1 taper12.8 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.383 | du_ctr 5.446 | du_full 3.760 nm
+- 2026-10-13 03:01 **S98** (Ar) REV1 NYCU 3 um calib E59 a1 taper18 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.263 | du_ctr 5.257 | du_full 3.621 nm
+- 2026-10-13 03:02 **S99** (Ar) REV1 NYCU 3 um calib E68 a0.5 taper7.6 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.679 | du_ctr 5.849 | du_full 4.032 nm
+- 2026-10-13 03:02 **S100** (Ar) REV1 NYCU 3 um calib E68 a0.5 taper12.8 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.571 | du_ctr 5.672 | du_full 3.900 nm
+- 2026-10-13 03:02 **S101** (Ar) REV1 NYCU 3 um calib E68 a0.5 taper18 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.441 | du_ctr 5.476 | du_full 3.750 nm
+- 2026-10-13 03:02 **S102** (Ar) REV1 NYCU 3 um calib E68 a1 taper7.6 cell2.5w -> exit 0, wall 19 s, LS ok True; du_c50 4.563 | du_ctr 5.706 | du_full 3.929 nm
+- 2026-10-13 03:03 **S103** (Ar) REV1 NYCU 3 um calib E68 a1 taper12.8 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.458 | du_ctr 5.532 | du_full 3.801 nm
+- 2026-10-13 03:03 **S104** (Ar) REV1 NYCU 3 um calib E68 a1 taper18 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.331 | du_ctr 5.341 | du_full 3.655 nm
+- 2026-10-13 03:03 **S105** (Ar) REV1 NYCU 3 um calib E77 a0.5 taper7.6 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.749 | du_ctr 5.925 | du_full 4.073 nm
+- 2026-10-13 03:04 **S106** (Ar) REV1 NYCU 3 um calib E77 a0.5 taper12.8 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.636 | du_ctr 5.747 | du_full 3.935 nm
+- 2026-10-13 03:04 **S107** (Ar) REV1 NYCU 3 um calib E77 a0.5 taper18 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.500 | du_ctr 5.550 | du_full 3.778 nm
+- 2026-10-13 03:04 **S108** (Ar) REV1 NYCU 3 um calib E77 a1 taper7.6 cell2.5w -> exit 0, wall 19 s, LS ok True; du_c50 4.634 | du_ctr 5.782 | du_full 3.972 nm
+- 2026-10-13 03:05 **S109** (Ar) REV1 NYCU 3 um calib E77 a1 taper12.8 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.524 | du_ctr 5.609 | du_full 3.838 nm
+- 2026-10-13 03:05 **S110** (Ar) REV1 NYCU 3 um calib E77 a1 taper18 cell2.5w -> exit 0, wall 18 s, LS ok True; du_c50 4.391 | du_ctr 5.416 | du_full 3.685 nm
+- 2026-10-13 03:06 **S111** (Br) REV1 V1 imec 1.26 2D Hill bonded cell2.26w [adopted_rev] -> exit 0, wall 18 s, LS ok True; du_c50 4.037 | du_ctr 5.110 | du_full 3.440 nm
+
+### 개정 1 재보정 (03:15; `results/stage2/calibration_grid_Ar.csv`, `adopted_rev.json`)
+- NYCU(9 µm 고립 12w 재사용 + 3 µm 배열 셀 2.5w): 채택 불변 E 59 / α 1.0 / 테이퍼 18°(모두 경계), J 1.53. 3 µm 4.26 vs 4.1 ± 0.4(개선, 고립 셀 4.58).
+- imec(셀 2.26w): 채택 **E_SiCN 120 GPa(경계), α_SiCN 2.0(경계)**, J 23.2. 1.80 µm 4점 통과(5.0 vs 5.4 @400). 3.06 µm 300·400 °C 과소(4.64/6.05, 6.32/7.85) → 보정 실패 유지(초선형 측정). E가 경계에 걸린 이유: 배열 셀에서는 유전체가 뻣뻣할수록 u가 커져(이웃 구속이 Poisson 밀어올림을 키움) 큰 패드의 과소를 줄이려는 방향. 범위를 넓히지 않는다.
+- 코드 사고 기록: 패치 실수로 `adopted.json`·`calibration_grid.csv`가 잠시 덮어써졌고 git에서 복원했다(b33b106 상태). 개정 결과는 `_rev`/`_Ar` 파일에만 쓴다.

@@ -1,0 +1,15 @@
+
+
+
+ SOLUTION HISTORY INFORMATION FOR JOB: S94.mntr                                                                                                                                                                                                                                                            
+ ANSYS RELEASE 2026 R1          BUILD 26.1        03:00:21    10/13/2026
+
+  LOAD   SUB-  NO.  NO.    TOTL  INCREMENT    TOTAL         VARIAB 1     VARIAB 2     VARIAB 3     VARIAB 4     VARIAB 5
+  STEP   STEP ATTMP ITER   ITER  TIME/LFACT   TIME/LFACT    MONITOR      MONITOR      MONITOR      MONITOR      MONITOR
+                                                             Elap(s)      Mem(GB)      MxDs         MxPl         MxRe   
+
+     1      1    1     1      1    1.0000       1.0000      0.11828       1.2727       0.0000      0.78886E-30   0.0000    
+     2      1    1     1      2    1.0000       2.0000      0.22256       1.2734      0.12577E-02  0.78886E-30   0.0000    
+     3      1    1     1      3    1.0000       3.0000      0.34429       1.2734      0.37730E-02  0.78886E-30   0.0000    
+     4      1    1     1      4    1.0000       4.0000      0.47206       1.2734      0.62884E-02  0.78886E-30   0.0000    
+     5      1    1     1      5    1.0000       5.0000      0.59752       1.2734      0.88038E-02  0.78886E-30   0.0000    

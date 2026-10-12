@@ -148,9 +148,10 @@ def calibrate(key=U_KEY, group="A", out_file=ADOPTED):
         kcs = ",".join(f"{v:g}" for v in kc) + ("" if ds == "nycu" else ",")
         pts = " | ".join(f"{w:g}um@{T:g}:{m:.2f}/{um:.2f}" for w, T, m, um, sg in parts)
         lines.append(f"{ds},{kcs},{J:.3f},{n},{pts}")
-    (OUT / "calibration_grid.csv").write_text("\n".join(lines) + "\n")
+    (OUT / ("calibration_grid.csv" if group == "A" else f"calibration_grid_{group}.csv")).write_text(chr(10).join(lines) + chr(10))
     out["u_key"] = key
-    ADOPTED.write_text(json.dumps(out, indent=1))
+    out["group"] = group
+    out_file.write_text(json.dumps(out, indent=1))
     print(json.dumps(out, indent=1))
     return out
 
@@ -202,7 +203,7 @@ def validate(rev=False):
     lines.append(f"VERDICT,baseline VALIDATED (V1-V4),{validated},,,")
     (OUT / "validation.csv").write_text("\n".join(lines) + "\n")
     print("\n".join(lines))
-    json.dump(dict(verdict=verdict, validated=validated), open(OUT / "validation.json", "w"), indent=1)
+    json.dump(dict(verdict=verdict, validated=validated), open(OUT / f"validation{tag}.json", "w"), indent=1)
     return verdict
 
 

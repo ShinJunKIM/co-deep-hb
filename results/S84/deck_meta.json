@@ -1,0 +1,64 @@
+{
+ "run": {
+  "id": "S84",
+  "group": "Ar",
+  "ds": "imec",
+  "w": 3.06,
+  "h": 0.6,
+  "note": "REV1 imec 3.06 um calib E95 a5.2 cell2.26w",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 2.26,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 95000.0,
+  "a_d": 5.2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0
+ },
+ "geometry": {
+  "w": 3.06,
+  "h": 0.6,
+  "A": 1.53,
+  "L": 6.9155999999999995,
+  "R": 3.4577999999999998,
+  "t_si": 6.9155999999999995,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 1.53,
+  "t_l": 0.006
+ },
+ "n_nodes": 3213,
+ "n_elems": 3100,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 95000.0,
+  "a_d": 5.2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "451c20b7ef82e3cf9d4899acf00f39ff436411924e0a7cfeb5d5813fc9dd38d8"
+}

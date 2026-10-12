@@ -85,6 +85,7 @@ def fig_size_scaling():
     if p30 is not None:
         ax.plot([0.30], [p30[-1]], "^", color=C["rev"], ms=5, mfc="none", label="prediction 0.30 µm")
     ax.set_xscale("log"); ax.set_xlabel("pad width (µm)"); ax.set_ylabel("u at 400 °C (nm)")
+    ax.set_xticks([0.3, 0.54, 1.26, 1.8, 3.06]); ax.set_xticklabels(["0.3", "0.54", "1.26", "1.8", "3.06"]); ax.minorticks_off()
     ax.legend(frameon=False, fontsize=6.5); fig.tight_layout(); fig.savefig(FIG / "s2_size_scaling.png", dpi=300); plt.close(fig)
 
 

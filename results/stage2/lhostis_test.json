@@ -1,0 +1,47 @@
+{
+ "0.72": {
+  "points": [
+   [
+    2.0,
+    1.0
+   ],
+   [
+    4.0,
+    1.0
+   ],
+   [
+    6.0,
+    0.984375
+   ],
+   [
+    8.0,
+    0.7743749999999999
+   ]
+  ],
+  "r_open_nm": NaN,
+  "r50_nm": NaN
+ },
+ "0.4": {
+  "points": [
+   [
+    2.0,
+    1.0
+   ],
+   [
+    4.0,
+    0.91
+   ],
+   [
+    6.0,
+    0.669375
+   ],
+   [
+    8.0,
+    0.51
+   ]
+  ],
+  "r_open_nm": NaN,
+  "r50_nm": NaN
+ },
+ "pass": "undetermined (A_c did not reach 0 inside the recess grid 2-8 nm; pre-registered metric r_open not available)"
+}

@@ -121,7 +121,7 @@ def fig_contact_fem():
     f = OUT / "contact_summary.csv"
     if not f.exists():
         return
-    rows = [r for r in csv.DictReader(open(f)) if r["status"] == "ok" and abs(float(r["w"]) - 0.54) < 1e-6]
+    rows = [r for r in csv.DictReader(open(f)) if r["status"] == "ok" and abs(float(r["w"]) - 0.54) < 1e-6 and r["plastic"] == "True"]
     if not rows:
         return
     fig, axs = plt.subplots(1, 2, figsize=(7, 2.8))

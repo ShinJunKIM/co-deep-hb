@@ -220,3 +220,21 @@
 ### 접촉 런 판정 기준 수정 (03:45)
 - E06 이후 "LS ok False"는 `*** ERROR ***`(UY > 1e6: 소성 반복 중 일시 발산)을 치명으로 센 탓이다. 실제로는 MAPDL이 이분법으로 하중 증분을 줄여 같은 substep을 다시 수렴시켰고(e14.out: LS2 substep 5 NOT COMPLETED → COMPLETED), 모든 하중단계가 완료됐다(RUN COMPLETED). 기준을 "하중단계 완료 + 비수렴/종료 메시지 없음 + RUN COMPLETED"로 바꾸고 ERROR 개수는 따로 기록한다. 재해석 없이 record.json의 check 필드만 다시 수집한다.
 - 함께 기록: 접촉 후 Cu 소성 변형률이 MISO 표 범위(εp 0.2)를 넘는 적분점이 많다(E14: 38k점). Okoro 벌크 항복(400 °C에서 119 MPa)은 sub-µm Cu에 과소하다(§5.3). 접촉압력은 σy(T) 수준으로 포화하므로 "압력 ≈ 항복응력(하한)"으로 해석한다.
+- 2026-10-13 03:39 **E19** (E) contact Lhostis w0.72 um r6 nm/pad T400 -> exit 1, wall 73 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.984 p=335MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:40 **E20** (E) contact Lhostis w0.72 um r8 nm/pad T400 -> exit 1, wall 99 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.774 p=342MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:42 **E21** (E) contact Lhostis w0.4 um r2 nm/pad T400 -> exit 1, wall 81 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=1.000 p=442MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:44 **E22** (E) contact Lhostis w0.4 um r4 nm/pad T400 -> exit 1, wall 125 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.910 p=352MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:47 **E23** (E) contact Lhostis w0.4 um r6 nm/pad T400 -> exit 1, wall 165 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.669 p=346MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:50 **E24** (E) contact Lhostis w0.4 um r8 nm/pad T400 -> exit 1, wall 182 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.510 p=330MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:51 **E25** (E) contact 0.30 um r1 nm/pad T350 -> exit 0, wall 73 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T350: Ac/A=1.000 p=403MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:53 **E26** (E) contact 0.30 um r2 nm/pad T350 -> exit 1, wall 103 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T350: Ac/A=0.949 p=312MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:56 **E27** (E) contact 0.30 um r3 nm/pad T350 -> exit 1, wall 212 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T350: Ac/A=0.698 p=319MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:59 **E28** (E) contact 0.30 um r4 nm/pad T350 -> exit 1, wall 157 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T350: Ac/A=0.544 p=317MPa; T25: Ac/A=0.000 p=0MPa
+
+### 연결 단계(접촉) 결과 (04:05; E01-E29; contact_summary.csv, lhostis_test.json)
+- 29런 모두 전 하중단계 수렴(E26-E28은 MAPDL exit 1이나 RUN COMPLETED; 일시 발산은 이분법으로 해소).
+- 0.54 um, 등방 소성, 배열 셀, 편향 보정 전 u: A_c/A at T. r 1 nm: 250 C부터 1.0. r 2: 0.67(250) -> 1.0(>=300). r 3: 0.44/0.72/1.0/1.0. r 4: 0.32/0.54/0.82/1.0 (250/300/350/400 C).
+- 평균 접촉압력 210-540 MPa(소성 포화, T와 함께 증가). 탄성 기준 E29는 679 MPa(상한). 냉각 후 접촉면적 0(마찰 접촉만, 접합 미모델).
+- Lhostis 상대 시험: 400 C에서 r 2-8 nm 격자 안에서 A_c가 0에 이르지 않음(720 nm: 1.0/1.0/0.98/0.77, 400 nm: 1.0/0.91/0.67/0.51) -> 사전등록 지표 r_open 미결정. 정성적으로 작은 패드가 recess에 더 민감(Lhostis beta(w) 경향과 같은 방향).
+- 0.30 um @350 C: r 1/2/3/4 -> 1.0/0.95/0.70/0.54.
+- 해석 주의: 접촉 FEM의 탄성 u는 편향 보정 전(모델/측정 1.46)이므로, 모델 recess r은 실제 recess 약 0.69 r에 해당한다.

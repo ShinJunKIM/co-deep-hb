@@ -131,10 +131,19 @@ def contact():
                 r_open = x0 + (x1 - x0) * y0 / (y0 - y1 + 1e-30)
             else:
                 r_open = float("nan") if (ys > 1e-6).all() else xs[0]
-            res[w] = dict(points=pts, r_open_nm=float(r_open))
+            # exploratory (post hoc, not pre-registered): recess at which Ac = 0.5, linear interpolation inside the grid
+            r50 = float("nan")
+            if (ys >= 0.5).any() and (ys < 0.5).any():
+                i = int(np.argmax(ys < 0.5)); x0, y0, x1, y1 = xs[i - 1], ys[i - 1], xs[i], ys[i]
+                r50 = x0 + (x1 - x0) * (y0 - 0.5) / (y0 - y1)
+            res[w] = dict(points=pts, r_open_nm=float(r_open), r50_nm=r50)
+    if 0.72 in res and 0.40 in res and np.isfinite(res[0.72]["r50_nm"]) and np.isfinite(res[0.40]["r50_nm"]):
+        res["ratio50_400_over_720_exploratory"] = res[0.40]["r50_nm"] / res[0.72]["r50_nm"]
     if 0.72 in res and 0.40 in res and np.isfinite(res[0.72]["r_open_nm"]) and np.isfinite(res[0.40]["r_open_nm"]):
         ratio = res[0.40]["r_open_nm"] / res[0.72]["r_open_nm"]
         res["ratio_400_over_720"] = ratio; res["lhostis_ratio"] = 0.79; res["pass"] = abs(ratio - 0.79) <= 0.15
+    if "pass" not in res:
+        res["pass"] = "undetermined (A_c did not reach 0 inside the recess grid 2-8 nm; pre-registered metric r_open not available)"
     json.dump(res, open(OUT / "lhostis_test.json", "w"), indent=1, default=float)
     print(json.dumps(res, indent=1, default=float))
     return rows, res

@@ -1,0 +1,55 @@
+{
+ "run": {
+  "id": "R46",
+  "pad": 9,
+  "dim": 2,
+  "note": "LIN 9 um SLIDING control, 2D",
+  "side": "sliding",
+  "cu": "iso",
+  "orient": null,
+  "plastic": false,
+  "cell_factor": 3.0,
+  "taper": 7.6,
+  "refine": 1,
+  "role": "control"
+ },
+ "geometry": {
+  "w": 9.0,
+  "h": 1.15,
+  "A": 4.5,
+  "L": 27.0,
+  "R": 13.5,
+  "t_si": 27.0,
+  "zpb": 0.5,
+  "zpt": 1.65,
+  "theta": 0.13264502315156904,
+  "a_bot": 4.34655723945057
+ },
+ "n_nodes": 3003,
+ "n_elems": 2880,
+ "n_ce": 14,
+ "temps": [
+  25.0,
+  50.0,
+  100.0,
+  150.0,
+  200.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "hill": {
+   "E_MPa": 128313.37324652406,
+   "nu": 0.34540557440177816,
+   "G_GPa": 47.68575947947049,
+   "K_GPa": 138.33333333333334,
+   "T_used": 26.85,
+   "C": [
+    170.0,
+    122.5,
+    75.8
+   ]
+  },
+  "Ez_GPa": 128.31337324652407
+ },
+ "physics_sha256": "aab98acb3d4d95fe6748e07543360300a0d2bbfab97f1726e48fab092752dde5"
+}

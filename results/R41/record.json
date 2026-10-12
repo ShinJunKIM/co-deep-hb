@@ -1,0 +1,119 @@
+{
+ "id": "R41",
+ "exec": {
+  "method": "batch",
+  "exit_code": 0,
+  "wall_s": 17.90873179999471,
+  "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R41 -j R41 -i C:\\Users\\USER\\co-deep-hb\\results\\R41\\R41_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R41\\R41.out"
+ },
+ "deck": {
+  "run": {
+   "id": "R41",
+   "pad": 3,
+   "dim": 2,
+   "note": "LIN 3 um bonded, 2D axisym, iso Hill",
+   "side": "bonded",
+   "cu": "iso",
+   "orient": null,
+   "plastic": false,
+   "cell_factor": 3.0,
+   "taper": 7.6,
+   "refine": 1,
+   "role": "primary"
+  },
+  "geometry": {
+   "w": 3.0,
+   "h": 1.5,
+   "A": 1.5,
+   "L": 9.0,
+   "R": 4.5,
+   "t_si": 9.0,
+   "zpb": 0.5,
+   "zpt": 2.0,
+   "theta": 0.13264502315156904,
+   "a_bot": 1.2998572688485701
+  },
+  "n_nodes": 3355,
+  "n_elems": 3240,
+  "n_ce": 0,
+  "temps": [
+   25.0,
+   50.0,
+   100.0,
+   150.0,
+   200.0
+  ],
+  "T_ref": 25.0,
+  "mat": {
+   "hill": {
+    "E_MPa": 128313.37324652406,
+    "nu": 0.34540557440177816,
+    "G_GPa": 47.68575947947049,
+    "K_GPa": 138.33333333333334,
+    "T_used": 26.85,
+    "C": [
+     170.0,
+     122.5,
+     75.8
+    ]
+   },
+   "Ez_GPa": 128.31337324652407
+  },
+  "physics_sha256": "99c46963b1f577e446976a767482cc5c90ad9114c3d7239f7d3a66ac6d3cd0e6"
+ },
+ "check": {
+  "load_steps": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "all_ok": true,
+  "failures": []
+ },
+ "ok": true,
+ "result": {
+  "hist": [
+   {
+    "T": 25.0,
+    "u_cu": 0.0,
+    "u_ref": 0.0,
+    "u": 0.0,
+    "u_afm": 0.0
+   },
+   {
+    "T": 50.0,
+    "u_cu": 1.3461438538419708,
+    "u_ref": 0.55304622402,
+    "u": 0.7930976298219707,
+    "u_afm": 0.7223363323140909
+   },
+   {
+    "T": 100.0,
+    "u_cu": 4.038431561525922,
+    "u_ref": 1.65913867206,
+    "u": 2.3792928894659218,
+    "u_afm": 2.1670089969423705
+   },
+   {
+    "T": 150.0,
+    "u_cu": 6.730719269209936,
+    "u_ref": 2.7652311201,
+    "u": 3.9654881491099356,
+    "u_afm": 3.6116816615705627
+   },
+   {
+    "T": 200.0,
+    "u_cu": 9.423006976893946,
+    "u_ref": 3.8713235681400002,
+    "u": 5.551683408753946,
+    "u_afm": 5.056354326198878
+   }
+  ],
+  "du": 5.551683408753946,
+  "du_afm_ref": 5.056354326198878,
+  "eppl_max": 0.0,
+  "Ez": 128.31337324652407
+ }
+}

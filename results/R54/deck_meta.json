@@ -1,0 +1,55 @@
+{
+ "run": {
+  "id": "R54",
+  "pad": 1,
+  "dim": 2,
+  "note": "LIN 1 um bonded iso 2D, taper 18 deg (108 deg annotation) - sensitivity",
+  "side": "bonded",
+  "cu": "iso",
+  "orient": null,
+  "plastic": false,
+  "cell_factor": 3.0,
+  "taper": 18.0,
+  "refine": 1,
+  "role": "taper"
+ },
+ "geometry": {
+  "w": 1.0,
+  "h": 1.5,
+  "A": 0.5,
+  "L": 3.0,
+  "R": 1.5,
+  "t_si": 3.0,
+  "zpb": 0.5,
+  "zpt": 2.0,
+  "theta": 0.3141592653589793,
+  "a_bot": 0.012620455650640572
+ },
+ "n_nodes": 5795,
+ "n_elems": 5640,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  50.0,
+  100.0,
+  150.0,
+  200.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "hill": {
+   "E_MPa": 128313.37324652406,
+   "nu": 0.34540557440177816,
+   "G_GPa": 47.68575947947049,
+   "K_GPa": 138.33333333333334,
+   "T_used": 26.85,
+   "C": [
+    170.0,
+    122.5,
+    75.8
+   ]
+  },
+  "Ez_GPa": 128.31337324652407
+ },
+ "physics_sha256": "e41d1f7e6b505a951b6c2022a427f680fc3b27454695d267abf091d1faa30992"
+}

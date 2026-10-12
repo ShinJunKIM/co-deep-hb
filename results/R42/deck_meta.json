@@ -1,0 +1,55 @@
+{
+ "run": {
+  "id": "R42",
+  "pad": 1,
+  "dim": 2,
+  "note": "LIN 1 um bonded, 2D axisym, iso Hill (3D-verification + taper reference)",
+  "side": "bonded",
+  "cu": "iso",
+  "orient": null,
+  "plastic": false,
+  "cell_factor": 3.0,
+  "taper": 7.6,
+  "refine": 1,
+  "role": "check"
+ },
+ "geometry": {
+  "w": 1.0,
+  "h": 1.5,
+  "A": 0.5,
+  "L": 3.0,
+  "R": 1.5,
+  "t_si": 3.0,
+  "zpb": 0.5,
+  "zpt": 2.0,
+  "theta": 0.13264502315156904,
+  "a_bot": 0.2998572688485701
+ },
+ "n_nodes": 5795,
+ "n_elems": 5640,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  50.0,
+  100.0,
+  150.0,
+  200.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "hill": {
+   "E_MPa": 128313.37324652406,
+   "nu": 0.34540557440177816,
+   "G_GPa": 47.68575947947049,
+   "K_GPa": 138.33333333333334,
+   "T_used": 26.85,
+   "C": [
+    170.0,
+    122.5,
+    75.8
+   ]
+  },
+  "Ez_GPa": 128.31337324652407
+ },
+ "physics_sha256": "6f92a2779b64eb2315bb92445bd9dc421a845bc929e7097a859747ef1a27adab"
+}

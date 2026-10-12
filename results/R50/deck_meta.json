@@ -1,0 +1,56 @@
+{
+ "run": {
+  "id": "R50",
+  "pad": 3,
+  "dim": 2,
+  "note": "LIN 3 um bonded PLASTIC (Ludwick v1, E_Hill mapping), 2D",
+  "side": "bonded",
+  "cu": "iso",
+  "orient": null,
+  "plastic": true,
+  "cell_factor": 3.0,
+  "taper": 7.6,
+  "refine": 1,
+  "role": "plastic"
+ },
+ "geometry": {
+  "w": 3.0,
+  "h": 1.5,
+  "A": 1.5,
+  "L": 9.0,
+  "R": 4.5,
+  "t_si": 9.0,
+  "zpb": 0.5,
+  "zpt": 2.0,
+  "theta": 0.13264502315156904,
+  "a_bot": 1.2998572688485701
+ },
+ "n_nodes": 3355,
+ "n_elems": 3240,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  50.0,
+  100.0,
+  150.0,
+  200.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "hill": {
+   "E_MPa": 128313.37324652406,
+   "nu": 0.34540557440177816,
+   "G_GPa": 47.68575947947049,
+   "K_GPa": 138.33333333333334,
+   "T_used": 26.85,
+   "C": [
+    170.0,
+    122.5,
+    75.8
+   ]
+  },
+  "Ez_GPa": 128.31337324652407,
+  "flow_rule": "pointwise interpolation, w = 0.3331 between pad 1 (E 127.30) and pad 2 (E 130.34)"
+ },
+ "physics_sha256": "f62e833c4d27120f72d55a3341477b2d8e9dbed44d5c3916f4a05e9225072546"
+}

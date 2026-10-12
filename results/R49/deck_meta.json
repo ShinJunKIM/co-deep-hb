@@ -1,0 +1,56 @@
+{
+ "run": {
+  "id": "R49",
+  "pad": 1,
+  "dim": 3,
+  "note": "LIN 1 um bonded PLASTIC (Ludwick v1), 3D, Cu [001]",
+  "side": "bonded",
+  "cu": "aniso",
+  "orient": "001",
+  "plastic": true,
+  "cell_factor": 3.0,
+  "taper": 7.6,
+  "refine": 1,
+  "role": "plastic"
+ },
+ "geometry": {
+  "w": 1.0,
+  "h": 1.5,
+  "A": 0.5,
+  "L": 3.0,
+  "R": 1.5,
+  "t_si": 3.0,
+  "zpb": 0.5,
+  "zpt": 2.0,
+  "theta": 0.13264502315156904,
+  "a_bot": 0.2998572688485701
+ },
+ "n_nodes": 18515,
+ "n_elems": 16456,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  50.0,
+  100.0,
+  150.0,
+  200.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "hill": {
+   "E_MPa": 128313.37324652406,
+   "nu": 0.34540557440177816,
+   "G_GPa": 47.68575947947049,
+   "K_GPa": 138.33333333333334,
+   "T_used": 26.85,
+   "C": [
+    170.0,
+    122.5,
+    75.8
+   ]
+  },
+  "Ez_GPa": 66.68875086266391,
+  "flow_rule": "66.6<=E<68.04: pad 3 curve"
+ },
+ "physics_sha256": "ef51802489d56f7f035f6051a61c92a1d4f8f2ff7deb3d058e277749962a200a"
+}

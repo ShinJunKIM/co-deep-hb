@@ -1,0 +1,15 @@
+
+
+
+ SOLUTION HISTORY INFORMATION FOR JOB: R52.mntr                                                                                                                                                                                                                                                            
+ ANSYS RELEASE 2026 R1          BUILD 26.1        20:16:10    10/12/2026
+
+  LOAD   SUB-  NO.  NO.    TOTL  INCREMENT    TOTAL         VARIAB 1     VARIAB 2     VARIAB 3     VARIAB 4     VARIAB 5
+  STEP   STEP ATTMP ITER   ITER  TIME/LFACT   TIME/LFACT    MONITOR      MONITOR      MONITOR      MONITOR      MONITOR
+                                                             Elap(s)      Mem(GB)      MxDs         MxPl         MxRe   
+
+     1      1    1     1      1    1.0000       1.0000      0.17361       1.2752       0.0000      0.78886E-30   0.0000    
+     2      1    1     1      2    1.0000       2.0000      0.34362       1.2760      0.19891E-02  0.78886E-30   0.0000    
+     3      1    1     1      3    1.0000       3.0000      0.51695       1.2760      0.59674E-02  0.78886E-30   0.0000    
+     4      1    1     1      4    1.0000       4.0000      0.73330       1.2760      0.99457E-02  0.78886E-30   0.0000    
+     5      1    1     1      5    1.0000       5.0000      0.91061       1.2760      0.13924E-01  0.78886E-30   0.0000    

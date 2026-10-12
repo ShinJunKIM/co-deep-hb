@@ -1,0 +1,17 @@
+pad,orientation,bonded_du_nm,sliding_du_nm,measured,pass_bonded
+9 um,iso (Hill),7.3612,7.3719,6.4 +/- 0.4,False
+3 um,iso (Hill),5.5517,6.6076,3.6-4.9,False
+1 um,[001],2.2279,5.9291,2.3 +/- 0.4,True
+1 um,[101],2.4719,nan,2.3 +/- 0.4,True
+1 um,[111],2.5898,nan,2.3 +/- 0.4,True
+# R42,check,2.3763
+# R50,plastic,5.5820
+# R51,cell,7.3394
+# R52,cell,5.6071
+# R53,cell,2.3457
+# R54,taper,1.9754
+# R55,check,2.4213
+# R56,mesh,5.5515
+# verdict_bonded,FAIL
+# trend,True
+# sliding_passes,False

@@ -62,6 +62,10 @@ runs += [
     _run("S59", "B", "imec", 0.54, 0.6, "V4 imec 0.54 2D Hill SLIDING control", side="sliding", **MID_SICN),
     _run("S60", "B", "nycu", 1.0, 1.5, "V4 NYCU 1 um 3D [001] SLIDING control cell 6w", cu="aniso", orient="001",
          side="sliding", cell_factor=6.0, **MID_SIO2),
+    # B-alt: V3 with the volume-consistent 1 um taper (7.6 deg, Lin Table 1) - documented alternative, not the committed rule
+    _run("S56b", "Balt", "nycu", 1.0, 1.5, "V3-alt NYCU 1 um 3D [001] bonded, taper 7.6 (volume-consistent)", cu="aniso", orient="001", **MID_SIO2),
+    _run("S57b", "Balt", "nycu", 1.0, 1.5, "V3-alt NYCU 1 um 3D [101] bonded, taper 7.6", cu="aniso", orient="101", **MID_SIO2),
+    _run("S58b", "Balt", "nycu", 1.0, 1.5, "V3-alt NYCU 1 um 3D [111] bonded, taper 7.6", cu="aniso", orient="111", **MID_SIO2),
 ]
 # ---- D: isotropic 2D plasticity (Okoro), adopted parameters
 runs += [
@@ -71,7 +75,7 @@ runs += [
 ]
 CELL2D = 12.0
 for _r in runs:
-    if _r["group"] in ("A", "A2", "B", "D"):
+    if _r["group"] in ("A", "A2", "B", "Balt", "D"):
         if _r["dim"] == 2:
             _r["cell_factor"] = CELL2D
         else:
@@ -88,9 +92,11 @@ _AD = _Path(__file__).resolve().parents[2] / "results" / "stage2" / "adopted.jso
 if _AD.exists():
     _ad = _json.loads(_AD.read_text())
     for _r in runs:
-        if _r["group"] in ("A2", "B", "D") and _r["ds"] in _ad:
+        if _r["group"] in ("A2", "B", "Balt", "D") and _r["ds"] in _ad:
             _p = _ad[_r["ds"]]
             _r["E_d"], _r["a_d"] = _p["E_d"], _p["a_d"]
-            if _r["ds"] == "nycu":
+            if _r["ds"] == "nycu" and _r["group"] != "Balt":
                 _r["taper"] = _p["taper"]
+            elif _r["ds"] == "nycu":
+                _r["taper"] = 7.6
             _r["note"] += " [adopted params]"

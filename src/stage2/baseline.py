@@ -90,7 +90,7 @@ def geometry(run):
     L = run["cell_factor"] * w
     th = math.radians(run["taper"])
     a_bot = A - h * math.tan(th)
-    if a_bot <= 0.05 * A:
+    if a_bot <= 0.02 * A:          # same threshold as lin13.py (R54 precedent: 1 um at 18 deg)
         raise ValueError(f"{run['id']}: taper {run['taper']} deg leaves no pad bottom")
     return dict(w=w, h=h, A=A, L=L, R=L / 2.0, t_si=L, zpb=run["z_ox"], zpt=run["z_ox"] + h, theta=th,
                 a_bot=a_bot, t_l=run["t_liner"])

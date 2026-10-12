@@ -1,0 +1,64 @@
+{
+ "run": {
+  "id": "S47",
+  "group": "A",
+  "ds": "imec",
+  "w": 1.8,
+  "h": 0.6,
+  "note": "imec 1.8 um calib E120 a2 cell12w",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 12.0,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0
+ },
+ "geometry": {
+  "w": 1.8,
+  "h": 0.6,
+  "A": 0.9,
+  "L": 21.6,
+  "R": 10.8,
+  "t_si": 21.6,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.9,
+  "t_l": 0.006
+ },
+ "n_nodes": 4575,
+ "n_elems": 4440,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "34ba056cf8f88c17e0d97bac9dcc32631ec51404ee57e2b2025966007000c7f5"
+}

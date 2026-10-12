@@ -1,0 +1,14 @@
+check,base_nm,test_nm,diff_pct,limit_pct,pass
+mesh x2 (SV02 vs SV01),2.0543,2.0546,+0.02,2.0,True
+cell 6w vs 3w (SV03 vs SV01) [not converged],2.0543,2.4416,+18.86,2.0,False
+cell 9w vs 6w (SV08 vs SV03),2.4416,2.5423,+4.12,2.0,False
+cell 12w vs 9w (SV09 vs SV08),2.5423,2.5819,+1.56,2.0,True
+cell 20w vs 12w (SV10 vs SV09) [adopted 12w],2.5819,2.6168,+1.35,2.0,True
+cell 20w vs 12w du_ctr,2.8383,2.8403,+0.07,2.0,True
+3D iso vs 2D, cell 3w (SV04 vs SV01),2.0543,2.2712,+10.56,3.0,False
+3D iso vs 2D, cell 9w (SV12 vs SV08),2.5423,2.5794,+1.46,3.0,True
+3D iso vs 2D, cell 12w coarse (SV13 vs SV09) [adopted],2.5819,2.5992,+0.67,3.0,True
+3D vs 2D du_ctr, cell 12w,2.8383,2.8400,+0.06,3.0,True
+cell 6w vs 3w, 3.06 um (SV11 vs SV05),6.0077,6.1158,+1.80,2.0,True
+film-limit 3.06 um (SV05 du_ctr / u_film),5.322,6.728,+26.4,[-15 +5],False
+liner 50 nm effect 1 um (SV06 vs SV07),1.9593,1.9820,+1.16,report,

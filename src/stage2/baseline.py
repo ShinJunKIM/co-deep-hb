@@ -617,13 +617,14 @@ def build_contact_deck(run):
         d += [f"TIME,{ls}", f"BFUNIF,TEMP,{_f(T)}", "CMSEL,S,WOUT", f"D,ALL,UX,{_f(SI['ALPX'] * dT * g['R'])}",
               "ALLSEL,ALL", "SOLVE"]
     nls = len(temps)
-    d += ["FINISH", "/POST1", "RSYS,0", "ESEL,S,TYPE,,3", "*GET,NC_,ELEM,0,COUNT", f"*DIM,CT,ARRAY,NC_,{3 + 3 * nls}",
-          "*VGET,CT(1,1),ELEM,,ELIST", "*VGET,CT(1,2),ELEM,,NODE,1", "*VGET,CT(1,3),ELEM,,NODE,2",
+    d += ["FINISH", "/POST1", "RSYS,0", "ESEL,S,TYPE,,3", "*GET,EMIN_,ELEM,0,NUM,MIN", "*GET,EMAX_,ELEM,0,NUM,MAX",
+          "NC_=EMAX_-EMIN_+1", f"*DIM,CT,ARRAY,NC_,{3 + 3 * nls}",
+          "*VGET,CT(1,1),ELEM,EMIN_,ELIST", "*VGET,CT(1,2),ELEM,EMIN_,NODE,1", "*VGET,CT(1,3),ELEM,EMIN_,NODE,2",
           f"*DIM,RP,ARRAY,{nls},2"]
     for ls in range(1, nls + 1):
         c = 3 + 3 * (ls - 1)
         d += [f"SET,{ls},LAST", "ETABLE,CST,CONT,STAT", "ETABLE,CPR,CONT,PRES", "ETABLE,CGP,CONT,GAP",
-              f"*VGET,CT(1,{c + 1}),ELEM,,ETAB,CST", f"*VGET,CT(1,{c + 2}),ELEM,,ETAB,CPR", f"*VGET,CT(1,{c + 3}),ELEM,,ETAB,CGP"]
+              f"*VGET,CT(1,{c + 1}),ELEM,EMIN_,ETAB,CST", f"*VGET,CT(1,{c + 2}),ELEM,EMIN_,ETAB,CPR", f"*VGET,CT(1,{c + 3}),ELEM,EMIN_,ETAB,CGP"]
     d += ["*CFOPEN,contact,txt", "*VWRITE," + ",".join(f"CT(1,{j})" for j in range(1, 4 + 3 * nls)),
           f"({3 + 3 * nls}E20.11)", "*CFCLOS", "ALLSEL,ALL"]
     # Cu top-surface displacements of both pads (for u at contact)

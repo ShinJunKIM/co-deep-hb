@@ -59,8 +59,16 @@ def verify():
         r = res(rid); return None if r is None else r[key]
     b = g("SV01")
     rows.append(("mesh x2 (SV02 vs SV01)", b, g("SV02"), 2.0))
-    rows.append(("cell 6w (SV03 vs SV01)", b, g("SV03"), 2.0))
-    rows.append(("3D iso vs 2D (SV04 vs SV01)", b, g("SV04"), 3.0))
+    rows.append(("cell 6w vs 3w (SV03 vs SV01) [not converged]", b, g("SV03"), 2.0))
+    rows.append(("cell 9w vs 6w (SV08 vs SV03)", g("SV03"), g("SV08"), 2.0))
+    rows.append(("cell 12w vs 9w (SV09 vs SV08)", g("SV08"), g("SV09"), 2.0))
+    rows.append(("cell 20w vs 12w (SV10 vs SV09) [adopted 12w]", g("SV09"), g("SV10"), 2.0))
+    rows.append(("cell 20w vs 12w du_ctr", g("SV09", "du_ctr"), g("SV10", "du_ctr"), 2.0))
+    rows.append(("3D iso vs 2D, cell 3w (SV04 vs SV01)", b, g("SV04"), 3.0))
+    rows.append(("3D iso vs 2D, cell 9w (SV12 vs SV08)", g("SV08"), g("SV12"), 3.0))
+    rows.append(("3D iso vs 2D, cell 12w coarse (SV13 vs SV09) [adopted]", g("SV09"), g("SV13"), 3.0))
+    rows.append(("3D vs 2D du_ctr, cell 12w", g("SV09", "du_ctr"), g("SV13", "du_ctr"), 3.0))
+    rows.append(("cell 6w vs 3w, 3.06 um (SV11 vs SV05)", g("SV05"), g("SV11"), 2.0))
     lines = ["check,base_nm,test_nm,diff_pct,limit_pct,pass"]
     for name, x, y, lim in rows:
         if x is None or y is None:

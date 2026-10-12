@@ -1,0 +1,15 @@
+
+
+
+ SOLUTION HISTORY INFORMATION FOR JOB: S36.mntr                                                                                                                                                                                                                                                            
+ ANSYS RELEASE 2026 R1          BUILD 26.1        02:36:34    10/13/2026
+
+  LOAD   SUB-  NO.  NO.    TOTL  INCREMENT    TOTAL         VARIAB 1     VARIAB 2     VARIAB 3     VARIAB 4     VARIAB 5
+  STEP   STEP ATTMP ITER   ITER  TIME/LFACT   TIME/LFACT    MONITOR      MONITOR      MONITOR      MONITOR      MONITOR
+                                                             Elap(s)      Mem(GB)      MxDs         MxPl         MxRe   
+
+     1      1    1     1      1    1.0000       1.0000      0.17502       1.2779       0.0000      0.78886E-30   0.0000    
+     2      1    1     1      2    1.0000       2.0000      0.32033       1.2788      0.31408E-02  0.78886E-30   0.0000    
+     3      1    1     1      3    1.0000       3.0000      0.49376       1.2788      0.94224E-02  0.78886E-30   0.0000    
+     4      1    1     1      4    1.0000       4.0000      0.66646       1.2788      0.15704E-01  0.78886E-30   0.0000    
+     5      1    1     1      5    1.0000       5.0000      0.84384       1.2788      0.21986E-01  0.78886E-30   0.0000    

@@ -10,6 +10,7 @@ Newest first. Every entry: what changed and why. Bug entries add what was wrong,
   - Own decks, registry R40–R56 and pre-registered `--compare`.
   - Reuses only the materials, rotation, flow-curve and batch-runner functions of stage1_pipeline.py.
   - **stage1_pipeline.py and s1_mesh.py are not modified (R01–R39 decks unchanged).**
+- **Outcome (R40–R56, results commit c33ec12).** Bonded FAIL on 9 µm (+15 %) and 3 µm (+35 %); 1 µm passes; trend holds; sliding control fails → discriminates. R49 failed with a TB,PLAS + TB,ANEL error, a risk for R05–R07. See the doc §7.
 - **Checks in the plan.** Cell ×2, 3D-vs-2D on the same isotropic 1 µm pad, mesh ×2, taper 18° sensitivity.
 - **Assumptions** (doc §2): taper 7.6° from the Table 1 volumes (the 108° annotation conflicts); SiO2 under the pad 0.5 µm; Ta omitted; RT = 25 °C; Hill-average Cu (E 128.3 GPa, ν 0.345).
 

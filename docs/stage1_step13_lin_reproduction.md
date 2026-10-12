@@ -104,3 +104,60 @@ All are within the Student limit (largest: R53, 52 022 nodes).
 - A 9 µm failure would therefore point to α_Cu(T): a NIST-type α rising to ~18 ppm/K by 200 °C would lift the bound by ~5 %. Plasticity or grain effects are less likely there. **α_Cu is not changed here.**
 
 **Literature prior pointing the other way.** Lin's Eq. (1), from an earlier FEM (their ref. 16, model details not given here), matches 3 and 1 µm. So a bonded elastic FEM can reach the measured values. Our crude interpolation may be the weak link, not the bonded model.
+
+## 7. Outcome (added after R40–R56; sections 1–6 unchanged; pre-registration commit f96a007, results commit c33ec12)
+All runs exit 0 with every load step completed, except **R49** (report only; see below).
+
+| pad | orientation | bonded du (nm) | sliding du (nm) | measured (nm) | bonded pass |
+|---|---|---|---|---|---|
+| 9 µm | iso (Hill) | **7.36** (R40) | 7.37 (R46) | 6.4 ± 0.4 | **FAIL** (+0.96) |
+| 3 µm | iso (Hill) | **5.55** (R41) | 6.61 (R47) | 3.6–4.9 | **FAIL** (+0.65 above range; +35 % vs 4.1) |
+| 1 µm | [001] | **2.23** (R43); 2.35 with cell ×2 (R53) | 5.93 (R48) | 2.3 ± 0.4 | pass |
+| 1 µm | [101] | 2.47 (R44) | — | 2.3 ± 0.4 | pass |
+| 1 µm | [111] | 2.59 (R45) | — | 2.3 ± 0.4 | pass |
+
+- **Size trend 9 > 3 > 1: true.**
+- **PRIMARY VERDICT (bonded): FAIL.** The 9 and 3 µm pads are over-predicted; the 1 µm pad and the trend pass.
+- **Sliding control FAILS** on 3 µm (6.61) and on 1 µm (5.93, i.e. 2.6× the measurement), so the test **discriminates** the sidewall condition.
+  - Only the bonded sidewall reproduces the 1 µm pad.
+  - At 9 µm the two conditions are identical (7.36 / 7.37): film-like, sidewall-insensitive, as predicted.
+
+**Checks**
+- Cell ×2:
+  - 9 µm −0.3 % and 3 µm +1.0 % (both < 2 %);
+  - **1 µm [001] +5.3 % (> 2 %)**. Pre-registered rule applied: the ×2 value 2.35 nm replaces R43 for pass/fail, and the verdict is unchanged.
+  - [101] and [111] were not re-run at ×2. With the same +5 % they would be ≈ 2.60 / 2.73, still overlapping 2.3 ± 0.4.
+  - A further enlargement of the 1 µm cell is still owed.
+- 3D vs 2D, same isotropic 1 µm pad (R55 vs R42): 2.42 vs 2.38 nm, +1.9 %. This verifies the 3D tapered mesh.
+  - The 3D O-grid has 272 shape warnings: corner elements of the pad circle, up to 174°. This is the same O-grid as R27/R28, and its effect on du is within this +1.9 %.
+- Mesh ×2, 3 µm (R56 vs R41): 5.551 vs 5.552 nm, 0.0 %.
+- Taper 18° vs 7.6°, 1 µm iso (R54 vs R42): 1.98 vs 2.38 nm, −17 %.
+- SiO2 reference = AFM-field mean (report only): 7.19 / 5.06 / 2.08–2.43 nm. 9 and 3 µm still fail.
+- Plastic (report only):
+  - R50, 3 µm: 5.58 nm (+0.5 %), max ε_p 2.5e-3.
+  - **R49, 1 µm [001], did not solve.** MAPDL: "The TB,PLAS table cannot work with the TB,ANEL table for material 1." See the note below.
+
+**Comparison with the pre-registered predictions**
+- Bonded predictions were 5.77 / 5.81 / 3.28; FEM gives 7.36 / 5.55 / 2.23–2.59.
+- The 9 µm pad exceeds my "thin-film bound" (6.35 nm) by 1.0 nm. That bound assumed a rigid substrate.
+  - Decomposition at 200 °C: Cu centre +19.56 nm vs SiO2 edge +11.97 nm. The film estimate for the Cu column is 18.52 nm.
+  - The extra ≈ 1 nm comes from local elastic deformation of the Si/SiO2 under the compressed Cu pad. It is stable under cell and Si ×2 (−0.3 %), so it is a property of the elastic model, not a boundary artefact.
+  - The bound was therefore wrong, not the FEM.
+- The interpolation model was off by +28 % / −5 % / about −25 % for 9 / 3 / 1 µm. It is not reliable for prediction (consistent with Step 12).
+
+**Reading (no tuning done).**
+- The bonded elastic model with literature properties reproduces the small, constraint-dominated pad (1 µm). The sliding model does not.
+- The model over-predicts the larger pads by 15 % (9 µm) and 35 % (3 µm, vs the array mean 4.1).
+- Lin's own Eq. (1) FEM had the opposite problem at 9 µm (40 % *under*-prediction), so the large-pad behaviour is not settled in the literature either.
+- Unstated or uncertain inputs that act mainly on the larger pads (not tested, listed only):
+  - real α_Cu(T) and E(T);
+  - PECVD SiO2 modulus/CTE and its thickness under the pad (0.5 µm assumed);
+  - Ta;
+  - polycrystal grain-boundary or plastic relaxation (R50 shows little in Ludwick v1);
+  - the AFM square-region size.
+
+**Note — R49 failure affects later plastic work.**
+- Our 3D decks combine TB,ANEL + TB,PLAS (MISO) on SOLID185 with KEYOPT(2) = 3 (simplified enhanced strain) and thermal strain.
+- The earlier cp_check, which passed, used the same TB,ANEL + MISO with default SOLID185 (KEYOPT(2) = 0) and mechanical loading only.
+- **The Stage 1 plastic runs R05–R07 use the same ANEL + MISO + KEYOPT(2) = 3 + thermal combination and may fail the same way.**
+- A one-element diagnostic (KEYOPT(2) = 0 vs 3, with and without ALPX) is needed before any plastic run. Not run yet.

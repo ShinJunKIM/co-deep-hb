@@ -2,6 +2,13 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-13 — Stage 2 baseline pre-registered (docs/stage2_baseline_preregistration.md)
+
+- **Why.** Research question: what must additionally be considered below ~1 µm (target 300 nm) and what recipe is optimal. Baseline must reproduce measured sub-µm data before any recipe work.
+- **Design.** Two stages (contact: elastic u from ANSYS + analytic surface-diffusion term vs top+bottom recess; connection: Cu–Cu contact FEM → area/pressure → constriction-resistance proxy). Per-process calibration on large pads only (NYCU: E_SiO2, α_SiO2, taper 7.6–18°; imec: E_SiCN, α_SiCN), held-out validation on imec 0.54/1.26 µm, NYCU 1 µm (Lin+Chen = one point), Ayoub 300 nm slope. H_sw sidewall hypothesis tested (S1/S2, one new run S63). Lhostis 2024 β(w) relative electrical check only.
+- **PI corrections B1–B7 applied** (SiCN separate, taper as calibration parameter with bound-limited rule, NYCU 1 µm one point, Ta 50 nm fixed, mesh rules: 3D only with cell 6 w, plasticity 2D axisymmetric isotropic AELS+KEYOPT(2)=3, no 300 nm 3D plastic runs, u referenced to the dielectric in the AFM field).
+- Run IDs S01–S66, E01–E24; no R-deck is modified. No run has been made.
+
 ## 2026-10-13 — R61 stopped (Part B no verdict); Step 15 pre-registered
 
 - **Step 15.** Orientation sweep R63–R71 (1 µm, elastic, cell 6 w) and Monte Carlo contact analysis. See docs/step15_orientation_contact.md.

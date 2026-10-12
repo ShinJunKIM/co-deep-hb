@@ -167,3 +167,23 @@
   - If both gates pass and |Δ| < 0.1 nm → Stage 2 uses elastic Cu. If |Δ| ≥ 0.1 nm → plastic Cu. If either gate fails → no verdict.
   - Reported in addition, not ruled on: max εp, and the residual u at 30 °C after the cycle.
 - **Prediction (unchanged):** |Δ| < 0.1 nm, i.e. elastic Cu for Stage 2.
+
+### B (first run, commit f7c150e)
+- **Gate B0: PASS.** For pad 3, pad 10 and [111], with both ANEL and AELS, |σ_FE − D·ε| / max|σ| ≤ 4e-8.
+- **Gate R60: PASS.** u_center(400) = 1.947747 nm, identical to R35 (difference 0.0).
+- **R59: FAILED TO CONVERGE.**
+  - LS1 (cooling T_sf 275 → 30 °C), time 0.177, i.e. about 232 °C, substep 6.
+  - Newton increments oscillate and grow (max DOF increment up to ~5 µm), after 4 bisections and plastic-strain-increment cutbacks. Run terminated at 351 s.
+  - No verdict from R59.
+- Context (observed in R35, not used for the rule): the elastic peak von Mises in Cu is 577 MPa at 30 °C, about 4 × σ0, while the volume average is about 130 MPa. Local (corner) yielding is therefore substantial. The Part B prediction is unchanged, but its basis (the average stress) understates the yielded volume.
+
+## Part B2 addendum (pre-registered before R61/R62)
+- **R61 = R59 + `LNSRCH,ON` + `NEQIT,50`.**
+  - Numerical controls only. Through the new non-default `solver_aid` the deck differs from R59 by exactly these two lines (checked).
+  - The physics (material, mesh, history, substep limits) is identical.
+- **R62 = R61 with isotropic Hill Cu elastic** (E 127.35 GPa, ν 0.3451, from the paper constants) and the same pad-3 plasticity. **Diagnostic only, no rule.** It tells whether the divergence comes from the AELS + PLAS combination or from the bonded-corner geometry.
+- **Decision tree:**
+  1. R61 converges in every load step → apply the Part B rule to R61 vs R35.
+  2. R61 fails and R62 converges → AELS + MISO is numerically unusable in the 300 nm deck. **Stop and list options** (isotropic-elastic + plastic for low-E pads; TB,XTAL crystal plasticity; elastic Cu plus a post-hoc yield-volume check). The user decides.
+  3. Both fail → the bonded sharp corner (stress singularity) is the cause. **Stop and list options.**
+- R01–R39, R59 and R60 decks are unchanged (byte-compared).

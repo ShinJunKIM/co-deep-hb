@@ -342,6 +342,11 @@ RUNS = [
          model="plastic", variant=1, shape="circle", cap=False, layers=True, el_input="AELS"),
     _run("R60", 3, 14, "PLAS-B gate: pad 3 elastic, paper-literal, AELS input (must equal R35)",
          shape="circle", cap=False, layers=True, el_input="AELS"),
+    # step 14 Part B2 (R59 diverged in LS1): numerical controls only / isotropic-elastic diagnostic
+    _run("R61", 3, 14, "PLAS-B2 = R59 + LNSRCH,ON + NEQIT,50 (solver controls only)",
+         model="plastic", variant=1, shape="circle", cap=False, layers=True, el_input="AELS", solver_aid=True),
+    _run("R62", 3, 14, "PLAS-B2 diagnostic: R61 with ISOTROPIC Hill Cu elastic (convergence check only)",
+         model="plastic", variant=1, shape="circle", cap=False, layers=True, el_input="HILL", solver_aid=True),
 ]
 RUN_BY_ID = {r["id"]: r for r in RUNS}
 E_ELASTIC_ABOVE = _fitted_E(2)       # 130.34 GPa: above -> elastic; also the G4a cooling-scope split
@@ -359,13 +364,23 @@ def material_block(run, Tsf):
     Ez = Ez_check(hkl, run["angle"])
     D = rotated_D(hkl, run["angle"])
     L, info = [], dict(hkl_sorted=hkl, Ez_GPa=Ez / 1000.0, sources=[])
-    L += ["! ---- MAT 1: Cu, anisotropic elastic (paper constants), rotated to global frame",
-          ("TB,ELAS,1,1,21,AELS" if run.get("el_input", "ANEL") == "AELS" else "TB,ANEL,1,1,,0"), "TBTEMP,25"]
-    # el_input (step 14): batch MAPDL v261 rejects TB,ANEL + TB,PLAS at every setting; TB,ELAS AELS takes the
-    # same 21 constants (gate: step14.py --partB0 and R60 == R35).  Default "ANEL" keeps R01-R39 decks unchanged.
-    vals = [D[i, j] for j in range(6) for i in range(j, 6)]
-    for s in range(0, 21, 6):
-        L.append(f"TBDATA,{s + 1}," + ",".join(_f(v) for v in vals[s:s + 6]))
+    if run.get("el_input", "ANEL") == "HILL":
+        # step 14 diagnostic only: isotropic Voigt-Reuss-Hill Cu from the paper constants (+ the same plasticity)
+        K = (C11 + 2 * C12) / 3
+        Gv, Gr = (C11 - C12 + 3 * C44) / 5, 5 * (C11 - C12) * C44 / (4 * C44 + 3 * (C11 - C12))
+        G = 0.5 * (Gv + Gr)
+        E_h, nu_h = 9 * K * G / (3 * K + G), (3 * K - 2 * G) / (2 * (3 * K + G))
+        L += ["! ---- MAT 1: Cu, ISOTROPIC Hill average (step-14 diagnostic)",
+              f"MP,EX,1,{_f(E_h)}", f"MP,PRXY,1,{_f(nu_h)}"]
+        info["hill_E_nu"] = (E_h, nu_h)
+    else:
+        L += ["! ---- MAT 1: Cu, anisotropic elastic (paper constants), rotated to global frame",
+              ("TB,ELAS,1,1,21,AELS" if run.get("el_input", "ANEL") == "AELS" else "TB,ANEL,1,1,,0"), "TBTEMP,25"]
+        # el_input (step 14): batch MAPDL v261 rejects TB,ANEL + TB,PLAS at every setting; TB,ELAS AELS takes the
+        # same 21 constants (gate: step14.py --partB0 and R60 == R35).  Default "ANEL" keeps R01-R39 decks unchanged.
+        vals = [D[i, j] for j in range(6) for i in range(j, 6)]
+        for s in range(0, 21, 6):
+            L.append(f"TBDATA,{s + 1}," + ",".join(_f(v) for v in vals[s:s + 6]))
     if run["cte"] == "const":
         L += [f"MP,ALPX,1,{_f(CU_ALPHA_CONST)}", f"MP,ALPY,1,{_f(CU_ALPHA_CONST)}", f"MP,ALPZ,1,{_f(CU_ALPHA_CONST)}"]
         info["cte"] = f"constant {CU_ALPHA_CONST:g} 1/K"
@@ -451,7 +466,8 @@ def build_deck(run):
           "*GET,NELEM,ELEM,0,COUNT", "*GET,NNODE,NODE,0,COUNT",
           "FINISH", "",
           "/SOLU", "ANTYPE,STATIC", "NLGEOM,OFF", f"TREF,{_f(Tsf)}",
-          "OUTRES,ERASE", "OUTRES,ALL,LAST", "AUTOTS,ON", "KBC,0",
+          "OUTRES,ERASE", "OUTRES,ALL,LAST", "AUTOTS,ON",
+          *(["LNSRCH,ON", "NEQIT,50"] if run.get("solver_aid") else []), "KBC,0",
           "CMSEL,S,ZBOT", "D,ALL,UZ,0", "CMSEL,S,WXM", "D,ALL,UX,0", "CMSEL,S,WYM", "D,ALL,UY,0", "ALLSEL,ALL",
           f"*DIM,CPUL,ARRAY,{nls}", f"*DIM,CNVL,ARRAY,{nls}", f"*DIM,TLS,ARRAY,{nls}"]
     t = 0.0

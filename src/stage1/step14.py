@@ -365,9 +365,19 @@ def part_b():
         return json.loads(f.read_text()) if f.exists() else None
     def u(r, tag):
         return next(x["u_center_nm"] for x in r["rows"] if x["tag"] == tag)
-    r35, r59, r60 = rec("R35"), rec("R59"), rec("R60")
-    if not (r35 and r59 and r60):
-        print("missing R35/R59/R60"); return 1
+    r35, r60 = rec("R35"), rec("R60")
+    # B2 addendum: R59 diverged in LS1 -> use R61 (same physics + LNSRCH/NEQIT) if R59 is not fully converged
+    pid = next((k for k in ("R59", "R61") if rec(k) and rec(k).get("all_converged")), None)
+    r59 = rec(pid) if pid else None
+    r62 = rec("R62")
+    if r62:
+        print(f"diagnostic R62 (isotropic Hill elastic + same plasticity): all converged = {r62.get('all_converged')}")
+    if not (r35 and r60):
+        print("missing R35/R60"); return 1
+    if r59 is None:
+        print("no converged plastic run (R59, R61) -> Part B: NO VERDICT; stop and list options (doc B2)")
+        (S.RESULTS / "diagnostics" / "step14_partB.txt").write_text("no converged plastic run (R59, R61): no verdict\n")
+        return 1
     out = []
     g = abs(u(r60, "h400") - u(r35, "h400"))
     gate = g < 1e-3
@@ -375,6 +385,7 @@ def part_b():
     e, pl = u(r35, "h400"), u(r59, "h400")
     d3 = pl - e
     epmax = max(x.get("eppl_eqv_max", 0.0) or 0.0 for x in r59["rows"])
+    out.append(f"plastic run used: {pid}")
     out.append(f"pad 3: elastic {e:.4f}  plastic {pl:.4f}  diff {d3:+.4f} nm  (max EPPL {epmax:.2e}; "
                f"all converged {r59.get('all_converged')})")
     out.append(f"pad 3 residual at 30 C after the cycle: elastic {u(r35, 'c030'):+.4f}  plastic {u(r59, 'c030'):+.4f} nm")

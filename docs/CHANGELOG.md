@@ -2,6 +2,12 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-13 — Step 14 Part B: gates pass, R59 diverges; B2 pre-registered
+
+- **Gates.** B0 PASS (AELS reads rotated constants like ANEL, error 4e-8). R60 identical to R35.
+- **R59 (pad 3 plastic, AELS) diverged** in LS1 at about 232 °C.
+- **New non-default options in `stage1_pipeline.py`.** `solver_aid` adds LNSRCH,ON and NEQIT,50; `el_input="HILL"` is an isotropic diagnostic. Runs R61 and R62 added. `step14 --partB` uses R59, else R61.
+
 ## 2026-10-12 — Step 14 Part A final; Part B pre-registered
 
 - **Part A recommendation: AELS + KEYOPT(2)=3.** All thermal-on AELS and ORTHO cases pass after the LS2 fix.

@@ -1,0 +1,907 @@
+
+ Ansys Mechanical Enterprise Academic Student      
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *         ANSYS MAPDL 2026 R1          LEGAL NOTICES          *
+ ***************************************************************
+ *                                                             *
+ * Copyright (c) 2026 Synopsys, Inc. and ANSYS, Inc.           *
+ * All rights reserved.                                        *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of Ansys, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the Ansys, Inc. online documentation or the Ansys, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * Ansys, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * Ansys, Inc. is a UL registered                              *
+ * ISO 9001:2015 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the Ansys, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the Ansys, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ 2026 R1 
+     
+ Point Releases and Patches installed:   
+     
+ Ansys, Inc. License Manager 2026 R1 
+ Discovery (full install) 2026 R1
+ Core WB Files 2026 R1   
+ optiSLang Core UI 2026 R1   
+ CFX (includes CFD-Post) 2026 R1 
+ Chemkin 2026 R1 
+ EnSight 2026 R1 
+ FENSAP-ICE 2026 R1  
+ Fluent (includes CFD-Post) 2026 R1  
+ Polyflow (includes CFD-Post) 2026 R1
+ Forte (includes EnSight) 2026 R1
+ Rocky 2026 R1   
+ TurboGrid 2026 R1   
+ ACIS Geometry Interface 2026 R1 
+ AutoCAD Geometry Interface 2026 R1  
+ Catia, Version 4 Geometry Interface 2026 R1 
+ Catia, Version 5 Geometry Interface 2026 R1 
+ Catia, Version 6 Geometry Interface 2026 R1 
+ Creo Elements/Direct Modeling Geometry Interface 2026 R1
+ Creo Parametric Geometry Interface 2026 R1  
+ Inventor Geometry Interface 2026 R1 
+ JTOpen Geometry Interface 2026 R1   
+ NX Geometry Interface 2026 R1   
+ Parasolid Geometry Interface  2026 R1   
+ Solid Edge Geometry Interface 2026 R1   
+ SOLIDWORKS Geometry Interface 2026 R1   
+ Speos 2026 R1   
+ SpaceClaim 2026 R1  
+ Speos RPC 2026 R1   
+ Zemax OpticStudio 2026 R1   
+ Dynamic Reporting 2026 R1   
+ Aqwa 2026 R1
+ Autodyn 2026 R1 
+ Material Calibration App 2026 R1
+ Mechanical Products 2026 R1 
+ Motion 2026 R1  
+ Academic Student 2026 R1
+
+
+          *****  MAPDL COMMAND LINE ARGUMENTS  *****
+  INITIAL JOBNAME              = A09                                                                                                                                                                                                                                                     
+  BATCH MODE REQUESTED (-b)    = LIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  SHARED MEMORY PARALLEL REQUESTED
+    SINGLE PROCESS WITH SINGLE THREAD REQUESTED
+    TOTAL OF     1 CORES REQUESTED
+  INPUT FILE NAME              = C:\Users\USER\co-deep-hb\results\step14_partA\A09\A09_batch.dat
+  OUTPUT FILE NAME             = C:\Users\USER\co-deep-hb\results\step14_partA\A09\A09.out
+  INITIAL DIRECTORY = C:\Users\USER\co-deep-hb\results\step14_partA\A09
+
+ RELEASE= 2026 R1              BUILD= 26.1      UP20260202   VERSION=WINDOWS x64 
+ CURRENT JOBNAME=A09  21:25:12  OCT 12, 2026  Elapsed Time=       0.109
+
+     1  /TITLE,Step14 A09 AELS K0 T1 thermal-off NLGEOM-OFF 
+     2  /PREP7  
+     3  ET,1,SOLID185   
+     4  KEYOPT,1,2,0
+     5  TB,ELAS,1,1,21,AELS 
+     6  TBTEMP,25   
+     7  TBDATA,1,168400,121400,121400,0,0,0 
+     8  TBDATA,7,168400,121400,0,0,0,168400 
+     9  TBDATA,13,0,0,0,75400,0,0   
+    10  TBDATA,19,75400,0,75400 
+    11  TB,PLAS,1,1,19,MISO 
+    12  TBTEMP,25   
+    13  TBPT,DEFI,0,143 
+    14  TBPT,DEFI,1e-05,143.2536902 
+    15  TBPT,DEFI,2e-05,143.4078583 
+    16  TBPT,DEFI,5e-05,143.7640086 
+    17  TBPT,DEFI,0.0001,144.2282981
+    18  TBPT,DEFI,0.0002,144.9747373
+    19  TBPT,DEFI,0.0005,146.6991183
+    20  TBPT,DEFI,0.001,148.9470799 
+    21  TBPT,DEFI,0.002,152.5611321 
+    22  TBPT,DEFI,0.003,155.6221063 
+    23  TBPT,DEFI,0.005,160.9101089 
+    24  TBPT,DEFI,0.0075,166.6439884
+    25  TBPT,DEFI,0.01,171.7941175  
+    26  TBPT,DEFI,0.015,181.0124871 
+    27  TBPT,DEFI,0.02,189.2923598  
+    28  TBPT,DEFI,0.03,204.1127508  
+    29  TBPT,DEFI,0.05,229.7157982  
+    30  TBPT,DEFI,0.1,282.4131605   
+    31  TBPT,DEFI,0.2,367.1348144   
+    32  BLOCK,0,1,0,1,0,1   
+    33  ESIZE,1 
+    34  MAT,1   
+    35  TYPE,1  
+    36  VMESH,ALL   
+    37  FINISH  
+    38  /SOLU   
+    39  ANTYPE,STATIC   
+    40  NLGEOM,OFF  
+    41  TREF,25 
+    42  OUTRES,ALL,ALL  
+    43  AUTOTS,ON   
+    44  NSEL,S,LOC,X,0  
+    45  D,ALL,UX,0  
+    46  NSEL,S,LOC,Y,0  
+    47  D,ALL,UY,0  
+    48  NSEL,S,LOC,Z,0  
+    49  D,ALL,UZ,0  
+    50  NSEL,S,LOC,Z,1  
+    51  CM,ZTOP,NODE
+    52  ALLSEL,ALL  
+    53  TIME,1  
+    54  BFUNIF,TEMP,25  
+    55  NSUBST,2
+    56  SOLVE   
+    57  TIME,2  
+    58  CMSEL,S,ZTOP
+    59  D,ALL,UZ,0.0005 
+    60  ALLSEL,ALL  
+    61  NSUBST,2
+    62  SOLVE   
+    63  TIME,3  
+    64  CMSEL,S,ZTOP
+    65  D,ALL,UZ,0.01   
+    66  ALLSEL,ALL  
+    67  NSUBST,20,200,10
+    68  SOLVE   
+    69  FINISH  
+    70  /POST1  
+    71  RSYS,0  
+    72  SET,1   
+    73  NTOP_=NODE(1,1,1)   
+    74  UX1=UX(NTOP_)   
+    75  UZ1=UZ(NTOP_)   
+    76  SET,2   
+    77  ETABLE,SZ,S,Z   
+    78  *GET,SZ2,ELEM,1,ETAB,SZ 
+    79  SET,3   
+    80  ETABLE,SZ,S,Z   
+    81  ETABLE,EPQ,EPPL,EQV 
+    82  *GET,SZ3,ELEM,1,ETAB,SZ 
+    83  *GET,EP3,ELEM,1,ETAB,EPQ
+    84  *CFOPEN,one_elem,txt
+    85  *VWRITE,UX1,UZ1,SZ2,SZ3,EP3 
+    86  (5E22.13)   
+    87  *CFCLOS 
+    88  FINISH  
+    89      
+    90  /EXIT,NOSAVE
+
+ RUN SETUP PROCEDURE FROM FILE= C:\Program Files\ANSYS Inc\ANSYS Student\v261\Ansys\apdl\start.ans
+
+ /INPUT FILE= C:\Program Files\ANSYS Inc\ANSYS Student\v261\Ansys\apdl\start.ans  LINE=       0
+
+ TITLE= 
+ Step14 A09 AELS K0 T1 thermal-off NLGEOM-OFF                                  
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   21:25:12  OCT 12, 2026 Elapsed Time=      5.780
+
+ Step14 A09 AELS K0 T1 thermal-off NLGEOM-OFF                                  
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+
+ ELEMENT TYPE          1 IS SOLID185     3-D 8-NODE STRUCTURAL SOLID 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE       1 IS SOLID185     3-D 8-NODE STRUCTURAL SOLID 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+   ANISOTROPIC ELASTIC STIFFNESS FORM OPTION FOR MATERIAL 1 
+ TEMPERATURE TO BE USED FOR THE NEXT TBDAT COMMAND=  25.0000
+    TEMPERATURE SPECIFICATION=  1
+
+ DATA FOR  ELAS  TABLE FOR MATERIAL   1
+ LOC=  1 1.68400e+05     1.21400e+05     1.21400e+05     0.00000e+00     0.00000e+00     0.00000e+00    
+
+ DATA FOR  ELAS  TABLE FOR MATERIAL   1
+ LOC=  7 1.68400e+05     1.21400e+05     0.00000e+00     0.00000e+00     0.00000e+00     1.68400e+05    
+
+ DATA FOR  ELAS  TABLE FOR MATERIAL   1
+ LOC=  13 0.00000e+00     0.00000e+00     0.00000e+00     7.54000e+04     0.00000e+00     0.00000e+00    
+
+ DATA FOR  ELAS  TABLE FOR MATERIAL   1
+ LOC=  19 7.54000e+04     0.00000e+00     7.54000e+04    
+
+
+   RATE-INDEPENDENT PLASTICITY - MULTILINEAR ISOTROPIC HARDENING OPTION FOR MATERIAL 1 
+ TEMPERATURE TO BE USED FOR THE NEXT TBDAT COMMAND=  25.0000
+    TEMPERATURE SPECIFICATION=  1
+
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 0.00000e+00    COL2= 1.43000e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 1.00000e-05    COL2= 1.43254e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 2.00000e-05    COL2= 1.43408e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 5.00000e-05    COL2= 1.43764e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 1.00000e-04    COL2= 1.44228e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 2.00000e-04    COL2= 1.44975e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 5.00000e-04    COL2= 1.46699e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 1.00000e-03    COL2= 1.48947e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 2.00000e-03    COL2= 1.52561e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 3.00000e-03    COL2= 1.55622e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 5.00000e-03    COL2= 1.60910e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 7.50000e-03    COL2= 1.66644e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 1.00000e-02    COL2= 1.71794e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 1.50000e-02    COL2= 1.81012e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 2.00000e-02    COL2= 1.89292e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 3.00000e-02    COL2= 2.04113e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 5.00000e-02    COL2= 2.29716e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 1.00000e-01    COL2= 2.82413e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 2.00000e-01    COL2= 3.67135e+02 
+
+ CREATE A HEXAHEDRAL VOLUME WITH
+ X-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Y-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Z-DISTANCES FROM      0.000000000     TO      1.000000000    
+
+      OUTPUT VOLUME =     1
+
+ DEFAULT ELEMENT DIVISIONS PER LINE BASED ON ELEMENT SIZE =   1.00    
+
+ MATERIAL NUMBER SET TO         1
+
+ ELEMENT TYPE SET TO         1
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  SELECTED VOLUMES  
+
+ NUMBER OF VOLUMES MESHED   =         1
+ MAXIMUM NODE NUMBER        =         8
+ MAXIMUM ELEMENT NUMBER     =         1
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         5.784
+
+
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ SMALL DEFORMATION ANALYSIS
+
+ REFERENCE TEMPERATURE=  25.000  (TUNIF=  25.000)
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ USE AUTOMATIC TIME STEPPING THIS LOAD STEP
+
+ SELECT       FOR ITEM=LOC  COMPONENT=X     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+          4  NODES (OF          8  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            1 TO           8 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Y     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+          4  NODES (OF          8  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            1 TO           8 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+          4  NODES (OF          8  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO           8 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+          4  NODES (OF          8  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ DEFINITION OF COMPONENT = ZTOP      ENTITY=NODE
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ TIME=  1.0000    
+
+ UNIFORM TEMPERATURE SET TO   25.0000000    
+
+ USE     2 SUBSTEP(S) THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+                ---GIVE SUGGESTIONS ONLY---
+
+ ELEMENT TYPE         1 IS SOLID185. IT IS ASSOCIATED WITH ELASTOPLASTIC MATERIALS
+ ONLY. KEYOPT(2)=2 IS SUGGESTED.
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   21:25:12  OCT 12, 2026 Elapsed Time=      5.818
+
+ Step14 A09 AELS K0 T1 thermal-off NLGEOM-OFF                                  
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   PLASTIC MATERIAL PROPERTIES INCLUDED. . . . . .YES
+   NEWTON-RAPHSON OPTION . . . . . . . . . . . . .PROGRAM CHOSEN   
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** NOTE ***                            ELAPSED TIME =       5.818   TIME= 21:25:12
+ This nonlinear analysis defaults to using the full Newton-Raphson       
+ solution procedure.  This can be modified using the NROPT command.      
+
+ *** NOTE ***                            ELAPSED TIME =       5.818   TIME= 21:25:12
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   AUTOMATIC TIME STEPPING . . . . . . . . . . . .    ON
+      INITIAL NUMBER OF SUBSTEPS . . . . . . . . .     2
+      MAXIMUM NUMBER OF SUBSTEPS . . . . . . . . .   200
+      MINIMUM NUMBER OF SUBSTEPS . . . . . . . . .     1
+   MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS. . . .    15
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   TERMINATE ANALYSIS IF NOT CONVERGED . . . . . .YES (EXIT)  
+   CONVERGENCE CONTROLS. . . . . . . . . . . . . .USE DEFAULTS
+   COPY INTEGRATION POINT VALUES TO NODE . . . . .YES, FOR ELEMENTS WITH
+                                                  ACTIVE MAT. NONLINEARITIES
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL        ALL               
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= A09.mntr                                                                                                                                                                                                                                                            
+
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 28803.7037 at element 1.                                      
+ Minimum = 28803.7037 at element 1.                                      
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1         1  SOLID185          0.0006   0.000624800
+ Elapsed Time at end of element matrix formulation = 5.8606164.          
+
+ ALL CURRENT MAPDL DATA WRITTEN TO FILE NAME= A09.rdb
+  FOR POSSIBLE RESUME FROM THIS POINT
+     FORCE CONVERGENCE VALUE  =   0.000      CRITERION=  0.5000E-04
+
+ SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =          12,    Maximum wavefront =     21
+
+
+  Memory allocated on this process
+  -------------------------------------------------------------------
+  Equation solver memory allocated                     =     0.067 MB
+  Equation solver memory required for in-core mode     =     0.064 MB
+  Equation solver memory required for out-of-core mode =     0.057 MB
+  Total (solver and non-solver) memory allocated       =   350.048 MB
+
+ *** NOTE ***                            ELAPSED TIME =       5.873   TIME= 21:25:12
+ The Sparse Matrix Solver is currently running in the in-core memory     
+ mode.  This memory mode uses the most amount of memory in order to      
+ avoid using the hard drive as much as possible, which most often        
+ results in the fastest solution time.  This mode is recommended if      
+ enough physical memory is present to accommodate all of the solver      
+ data.                                                                   
+ Sparse solver maximum pivot= 28803.7037 at node 4 UX.                   
+ Sparse solver minimum pivot= 15364.9804 at node 8 UZ.                   
+ Sparse solver minimum pivot in absolute value= 15364.9804 at node 8 UZ. 
+     DISP CONVERGENCE VALUE   =   0.000      CRITERION=  0.5000E-13 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=   0.000    
+     FORCE CONVERGENCE VALUE  =   0.000      CRITERION=  0.5000E-04 <<< CONVERGED
+
+ *** WARNING ***                         ELAPSED TIME =       5.881   TIME= 21:25:12
+ A reference force value times the tolerance is used by the              
+ Newton-Raphson method for checking convergence.  The calculated         
+ reference FORCE CONVERGENCE VALUE = 0 is less than a threshold.  This   
+ threshold is internally calculated.  You can overwrite it by            
+ specifying MINREF on the CNVTOL command.  Check results carefully.      
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1         1  SOLID185          0.0004   0.000363500
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1         1  SOLID185          0.0008   0.000777200
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =  0.500000         TIME INC =  0.500000    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.50000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =   0.000      CRITERION=  0.5000E-04
+     DISP CONVERGENCE VALUE   =   0.000      CRITERION=  0.1000E-04 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=   0.000    
+     FORCE CONVERGENCE VALUE  =   0.000      CRITERION=  0.5000E-04 <<< CONVERGED
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     1   SUBSTEP     2  COMPLETED.    CUM ITER =      2
+ *** TIME =   1.00000         TIME INC =  0.500000    
+
+
+ *** MAPDL BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        0.062 MB WRITTEN ON ELEMENT SAVED DATA FILE: A09.esav
+        0.062 MB WRITTEN ON ASSEMBLED MATRIX FILE: A09.full
+        0.312 MB WRITTEN ON RESULTS FILE: A09.rst
+
+ TIME=  2.0000    
+
+ SELECT      COMPONENT ZTOP                                                                                                                                                                                                                                                            
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO           8 BY           1
+ REAL= 5.000000000E-04   IMAG=  0.00000000    
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ USE     2 SUBSTEP(S) THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** NOTE ***                            ELAPSED TIME =       5.900   TIME= 21:25:12
+ This nonlinear analysis defaults to using the full Newton-Raphson       
+ solution procedure.  This can be modified using the NROPT command.      
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   21:25:12  OCT 12, 2026 Elapsed Time=      5.901
+
+ Step14 A09 AELS K0 T1 thermal-off NLGEOM-OFF                                  
+
+
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     2
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  2.0000    
+   AUTOMATIC TIME STEPPING . . . . . . . . . . . .    ON
+      INITIAL NUMBER OF SUBSTEPS . . . . . . . . .     2
+      MAXIMUM NUMBER OF SUBSTEPS . . . . . . . . .   200
+      MINIMUM NUMBER OF SUBSTEPS . . . . . . . . .     1
+   MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS. . . .    15
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   TERMINATE ANALYSIS IF NOT CONVERGED . . . . . .YES (EXIT)  
+   CONVERGENCE CONTROLS. . . . . . . . . . . . . .USE DEFAULTS
+   COPY INTEGRATION POINT VALUES TO NODE . . . . .YES, FOR ELEMENTS WITH
+                                                  ACTIVE MAT. NONLINEARITIES
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL        ALL               
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= A09.mntr                                                                                                                                                                                                                                                            
+
+     FORCE CONVERGENCE VALUE  =   21.46      CRITERION=  0.1073    
+     DISP CONVERGENCE VALUE   =  0.2500E-03  CRITERION=  0.1250E-04
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2500E-03
+     FORCE CONVERGENCE VALUE  =  0.3399E-14  CRITERION=  0.5895E-01 <<< CONVERGED
+     DISP CONVERGENCE VALUE   =  0.9923E-19  CRITERION=  0.1250E-04 <<< CONVERGED
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC = -0.9923E-19
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   2
+ *** LOAD STEP     2   SUBSTEP     1  COMPLETED.    CUM ITER =      4
+ *** TIME =   1.50000         TIME INC =  0.500000    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.50000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  0.1714E-14  CRITERION=  0.1179    
+     DISP CONVERGENCE VALUE   =  0.5500E-19  CRITERION=  0.1250E-04 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5500E-19
+     FORCE CONVERGENCE VALUE  =  0.2375E-14  CRITERION=  0.1179     <<< CONVERGED
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     2   SUBSTEP     2  COMPLETED.    CUM ITER =      5
+ *** TIME =   2.00000         TIME INC =  0.500000    
+
+ TIME=  3.0000    
+
+ SELECT      COMPONENT ZTOP                                                                                                                                                                                                                                                            
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO           8 BY           1
+ REAL= 1.000000000E-02   IMAG=  0.00000000    
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ USE      20 SUBSTEPS INITIALLY THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM
+ FOR AUTOMATIC TIME STEPPING:
+   USE    200 SUBSTEPS AS A MAXIMUM
+   USE     10 SUBSTEPS AS A MINIMUM
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** NOTE ***                            ELAPSED TIME =       5.929   TIME= 21:25:13
+ This nonlinear analysis defaults to using the full Newton-Raphson       
+ solution procedure.  This can be modified using the NROPT command.      
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   21:25:13  OCT 12, 2026 Elapsed Time=      5.937
+
+ Step14 A09 AELS K0 T1 thermal-off NLGEOM-OFF                                  
+
+
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     3
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  3.0000    
+   AUTOMATIC TIME STEPPING . . . . . . . . . . . .    ON
+      INITIAL NUMBER OF SUBSTEPS . . . . . . . . .    20
+      MAXIMUM NUMBER OF SUBSTEPS . . . . . . . . .   200
+      MINIMUM NUMBER OF SUBSTEPS . . . . . . . . .    10
+   MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS. . . .    15
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   TERMINATE ANALYSIS IF NOT CONVERGED . . . . . .YES (EXIT)  
+   CONVERGENCE CONTROLS. . . . . . . . . . . . . .USE DEFAULTS
+   COPY INTEGRATION POINT VALUES TO NODE . . . . .YES, FOR ELEMENTS WITH
+                                                  ACTIVE MAT. NONLINEARITIES
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL        ALL               
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= A09.mntr                                                                                                                                                                                                                                                            
+
+     FORCE CONVERGENCE VALUE  =   40.78      CRITERION=  0.2355    
+     DISP CONVERGENCE VALUE   =  0.4750E-03  CRITERION=  0.2375E-04
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4750E-03
+     FORCE CONVERGENCE VALUE  =  0.4545E-14  CRITERION=  0.2299     <<< CONVERGED
+     DISP CONVERGENCE VALUE   =  0.1339E-18  CRITERION=  0.2375E-04 <<< CONVERGED
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC =  0.1339E-18
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   2
+ *** LOAD STEP     3   SUBSTEP     1  COMPLETED.    CUM ITER =      7
+ *** TIME =   2.05000         TIME INC =  0.500000E-01
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.50000E-01  UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  0.6043E-14  CRITERION=  0.3419    
+     DISP CONVERGENCE VALUE   =  0.1905E-18  CRITERION=  0.2375E-04 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1905E-18
+     FORCE CONVERGENCE VALUE  =  0.1149E-13  CRITERION=  0.3419     <<< CONVERGED
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     3   SUBSTEP     2  COMPLETED.    CUM ITER =      8
+ *** TIME =   2.10000         TIME INC =  0.500000E-01
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.75000E-01  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  0.2156      CRITERION=  0.5077    
+     DISP CONVERGENCE VALUE   =  0.1101E-05  CRITERION=  0.3563E-04 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1101E-05
+     FORCE CONVERGENCE VALUE  =  0.1145E-06  CRITERION=  0.5067     <<< CONVERGED
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     3   SUBSTEP     3  COMPLETED.    CUM ITER =      9
+ *** TIME =   2.17500         TIME INC =  0.750000E-01
+ *** MAX PLASTIC STRAIN STEP = 0.1358E-04   CRITERION = 0.1500    
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.10000      INCREASED (FACTOR = 1.3333)
+
+     FORCE CONVERGENCE VALUE  =   13.49      CRITERION=  0.5954    
+     DISP CONVERGENCE VALUE   =  0.6933E-04  CRITERION=  0.4750E-04
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.6933E-04
+     FORCE CONVERGENCE VALUE  =  0.9555E-05  CRITERION=  0.5248     <<< CONVERGED
+     DISP CONVERGENCE VALUE   =  0.4913E-10  CRITERION=  0.4750E-04 <<< CONVERGED
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC = -0.4913E-10
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   2
+ *** LOAD STEP     3   SUBSTEP     4  COMPLETED.    CUM ITER =     11
+ *** TIME =   2.27500         TIME INC =  0.100000    
+ *** MAX PLASTIC STRAIN STEP = 0.8731E-03   CRITERION = 0.1500    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  0.4200      CRITERION=  0.5387    
+     DISP CONVERGENCE VALUE   =  0.2161E-05  CRITERION=  0.4750E-04 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2161E-05
+     FORCE CONVERGENCE VALUE  =  0.3025E-06  CRITERION=  0.5367     <<< CONVERGED
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     3   SUBSTEP     5  COMPLETED.    CUM ITER =     12
+ *** TIME =   2.37500         TIME INC =  0.100000    
+ *** MAX PLASTIC STRAIN STEP = 0.8997E-03   CRITERION = 0.1500    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  0.1083      CRITERION=  0.5474    
+     DISP CONVERGENCE VALUE   =  0.5574E-06  CRITERION=  0.4750E-04 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5574E-06
+     FORCE CONVERGENCE VALUE  =  0.8001E-07  CRITERION=  0.5469     <<< CONVERGED
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     3   SUBSTEP     6  COMPLETED.    CUM ITER =     13
+ *** TIME =   2.47500         TIME INC =  0.100000    
+ *** MAX PLASTIC STRAIN STEP = 0.9066E-03   CRITERION = 0.1500    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  0.8364E-01  CRITERION=  0.5563    
+     DISP CONVERGENCE VALUE   =  0.4306E-06  CRITERION=  0.4750E-04 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.4306E-06
+     FORCE CONVERGENCE VALUE  =  0.6270E-07  CRITERION=  0.5559     <<< CONVERGED
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     3   SUBSTEP     7  COMPLETED.    CUM ITER =     14
+ *** TIME =   2.57500         TIME INC =  0.100000    
+ *** MAX PLASTIC STRAIN STEP = 0.9119E-03   CRITERION = 0.1500    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  0.2908E-01  CRITERION=  0.5645    
+     DISP CONVERGENCE VALUE   =  0.1497E-06  CRITERION=  0.4750E-04 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1497E-06
+     FORCE CONVERGENCE VALUE  =  0.2185E-07  CRITERION=  0.5644     <<< CONVERGED
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     3   SUBSTEP     8  COMPLETED.    CUM ITER =     15
+ *** TIME =   2.67500         TIME INC =  0.100000    
+ *** MAX PLASTIC STRAIN STEP = 0.9138E-03   CRITERION = 0.1500    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  0.3460E-01  CRITERION=  0.5726    
+     DISP CONVERGENCE VALUE   =  0.1782E-06  CRITERION=  0.4750E-04 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1782E-06
+     FORCE CONVERGENCE VALUE  =  0.2623E-07  CRITERION=  0.5724     <<< CONVERGED
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     3   SUBSTEP     9  COMPLETED.    CUM ITER =     16
+ *** TIME =   2.77500         TIME INC =  0.100000    
+ *** MAX PLASTIC STRAIN STEP = 0.9160E-03   CRITERION = 0.1500    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  0.3850E-01  CRITERION=  0.5801    
+     DISP CONVERGENCE VALUE   =  0.1983E-06  CRITERION=  0.4750E-04 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1983E-06
+     FORCE CONVERGENCE VALUE  =  0.2922E-07  CRITERION=  0.5799     <<< CONVERGED
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     3   SUBSTEP    10  COMPLETED.    CUM ITER =     17
+ *** TIME =   2.87500         TIME INC =  0.100000    
+ *** MAX PLASTIC STRAIN STEP = 0.9184E-03   CRITERION = 0.1500    
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.62500E-01  DECREASED (FACTOR = 0.6250)
+
+     FORCE CONVERGENCE VALUE  =  0.1980E-08  CRITERION=  0.5845    
+     DISP CONVERGENCE VALUE   =  0.1020E-13  CRITERION=  0.4750E-04 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1020E-13
+     FORCE CONVERGENCE VALUE  =  0.6927E-13  CRITERION=  0.5845     <<< CONVERGED
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     3   SUBSTEP    11  COMPLETED.    CUM ITER =     18
+ *** TIME =   2.93750         TIME INC =  0.625000E-01
+ *** MAX PLASTIC STRAIN STEP = 0.5740E-03   CRITERION = 0.1500    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.62500E-01  UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  0.6002E-04  CRITERION=  0.5892    
+     DISP CONVERGENCE VALUE   =  0.3091E-09  CRITERION=  0.4750E-04 <<< CONVERGED
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3091E-09
+     FORCE CONVERGENCE VALUE  =  0.1262E-10  CRITERION=  0.5892     <<< CONVERGED
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1
+ *** LOAD STEP     3   SUBSTEP    12  COMPLETED.    CUM ITER =     19
+ *** TIME =   3.00000         TIME INC =  0.625000E-01
+ *** MAX PLASTIC STRAIN STEP = 0.5740E-03   CRITERION = 0.1500    
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         6.014
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   21:25:13  OCT 12, 2026 Elapsed Time=      6.019
+
+ Step14 A09 AELS K0 T1 thermal-off NLGEOM-OFF                                  
+
+
+
+          ***** MAPDL RESULTS INTERPRETATION (POST1) *****
+
+ *** NOTE ***                            ELAPSED TIME =       6.019   TIME= 21:25:13
+ Reading results into the database (SET command) will update the current 
+ displacement and force boundary conditions in the database with the     
+ values from the results file for that load set.  Note that any          
+ subsequent solutions will use these values unless action is taken to    
+ either SAVE the current values or not overwrite them (/EXIT,NOSAVE).    
+
+ RSYS KEY SET TO   0
+
+ USE THE GLOBAL COORDINATE SYSTEM FOR SOLUTION RESULTS
+
+
+ USE LOAD STEP     1  SUBSTEP  LAST    FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     1  SUBSTEP=     2  CUMULATIVE ITERATION=     2
+   TIME/FREQUENCY=  1.0000    
+ TITLE= Step14 A09 AELS K0 T1 thermal-off NLGEOM-OFF                            
+
+ PARAMETER NTOP_ =     7.000000000    
+
+ PARAMETER UX1 =     0.000000000    
+
+ PARAMETER UZ1 =     0.000000000    
+
+
+ USE LOAD STEP     2  SUBSTEP  LAST    FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     2  SUBSTEP=     2  CUMULATIVE ITERATION=     5
+   TIME/FREQUENCY=  2.0000    
+ TITLE= Step14 A09 AELS K0 T1 thermal-off NLGEOM-OFF                            
+
+ STORE SZ       FROM ITEM=S    COMP=Z     FOR ALL SELECTED ELEMENTS
+
+ *GET  SZ2       FROM  ELEM         1  ITEM=ETAB SZ        VALUE=  33.3443756    
+
+
+ USE LOAD STEP     3  SUBSTEP  LAST    FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     3  SUBSTEP=    12  CUMULATIVE ITERATION=    19
+   TIME/FREQUENCY=  3.0000    
+ TITLE= Step14 A09 AELS K0 T1 thermal-off NLGEOM-OFF                            
+
+ STORE SZ       FROM ITEM=S    COMP=Z     FOR ALL SELECTED ELEMENTS
+
+ STORE EPQ      FROM ITEM=EPPL COMP=EQV   FOR ALL SELECTED ELEMENTS
+
+ *GET  SZ3       FROM  ELEM         1  ITEM=ETAB SZ        VALUE=  166.646317    
+
+ *GET  EP3       FROM  ELEM         1  ITEM=ETAB EPQ       VALUE= 0.750113279E-02
+
+ OPENED FILE= one_elem.txt FOR COMMAND FILE DATA 
+
+
+  COMMAND FILE CLOSED 
+
+
+ EXIT THE MAPDL POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         6.027
+
+
+
+ EXIT MAPDL WITHOUT SAVING DATABASE
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          1
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
++--------------------- M A P D L   S T A T I S T I C S ------------------------+
+
+Release: 2026 R1            Build: 26.1       Update: UP20260202   Platform: WINDOWS x64 
+Date Run: 10/12/2026   Time: 21:25     Process ID: 10260
+Operating System: Windows 11  (Build: 26300)
+
+Processor Model: 11th Gen Intel(R) Core(TM) i7-11850H @ 2.50GHz
+
+Compiler: Intel(R) Fortran Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) C/C++ Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) oneAPI Math Kernel Library Version 2024.2.3-Product Build 20250403
+
+Number of machines requested            :    1
+Total number of cores available         :   16
+Number of physical cores available      :    8
+Number of processes requested           :    1
+Number of threads per process requested :    1
+Total number of cores requested         :    1 (Shared Memory Parallel)                    
+
+GPU Acceleration: Not Requested
+
+Job Name: A09
+Input File: C:\Users\USER\co-deep-hb\results\step14_partA\A09\A09_batch.dat
+Working Directory: C:\Users\USER\co-deep-hb
+
+Total CPU time for main thread                    :        0.5 seconds
+Total CPU time summed for all threads             :        0.4 seconds
+
+Elapsed time spent obtaining a license            :        1.4 seconds
+Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
+Elapsed time spent solution - preprocessing       :        0.0 seconds
+Elapsed time spent computing solution             :        0.1 seconds
+   Elapsed time in element formation & assembly   :        0.0 seconds
+   Elapsed time in equation solver                :        0.1 seconds
+   Elapsed time in element result calculations    :        0.0 seconds
+Elapsed time spent solution - postprocessing      :        0.0 seconds
+Elapsed time spent post-processing model (/POST1) :        0.0 seconds
+ 
+Equation solver used                              :            Sparse (symmetric)
+
+Sum of disk space used on all processes           :        0.5 MB
+
+Sum of memory used on all processes               :       42.0 MB
+Sum of memory allocated on all processes          :     2304.0 MB
+Physical memory available                         :         32 GB
+Total amount of I/O written to disk               :        0.0 GB
+Total amount of I/O read from disk                :        0.0 GB
+
++------------------ E N D   M A P D L   S T A T I S T I C S -------------------+
+
+
+ *-----------------------------------------------------------------------------*
+ |                                                                             |
+ |                               RUN COMPLETED                                 |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Ansys MAPDL 2026 R1         Build 26.1         UP20260202    WINDOWS x64   |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Database Requested(-db)  1024 MB     Scratch Memory Requested      1024 MB |
+ |  Maximum Database Used       1 MB     Maximum Scratch Memory Used     41 MB |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |        CP Time      (sec) =          0.406       Time  =  21:25:23          |
+ |        Elapsed Time (sec) =         16.184       Date  =  10/12/2026        |
+ |                                                                             |
+ *-----------------------------------------------------------------------------*

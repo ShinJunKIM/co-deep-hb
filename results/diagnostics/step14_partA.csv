@@ -1,0 +1,33 @@
+id,el,k,plas,thermal,nlgeom,runs,correct,thermal_err,Ez_err,flow_err,eppl,error
+A01,ANEL,0,T1,off,OFF,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A02,ANEL,0,T1,on,OFF,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A03,ANEL,0,T2,off,OFF,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A04,ANEL,0,T2,on,OFF,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A05,ANEL,3,T1,off,OFF,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A06,ANEL,3,T1,on,OFF,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A07,ANEL,3,T2,off,OFF,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A08,ANEL,3,T2,on,OFF,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A09,AELS,0,T1,off,OFF,True,True,0.0,5.368762989732545e-09,-7.085833428899235e-07,0.007501132786274,
+A10,AELS,0,T1,on,OFF,True,False,1.616484723854228e-13,1.2697950523116677,0.0157270928598936,0.007463083602488,
+A11,AELS,0,T2,off,OFF,True,True,0.0,5.368762989732545e-09,-7.085833428899235e-07,0.007501132786274,
+A12,AELS,0,T2,on,OFF,True,False,1.616484723854228e-13,2.1091617766150716,0.02565728883383045,0.007938107475638,
+A13,AELS,3,T1,off,OFF,True,True,0.0,5.368762989732545e-09,-7.085833428899235e-07,0.007501132786274,
+A14,AELS,3,T1,on,OFF,True,False,1.616484723854228e-13,1.2697950523116677,0.0157270928598936,0.007463083602488,
+A15,AELS,3,T2,off,OFF,True,True,0.0,5.368762989732545e-09,-7.085833428899235e-07,0.007501132786274,
+A16,AELS,3,T2,on,OFF,True,False,1.616484723854228e-13,2.1091617766150716,0.02565728883383045,0.007938107475638,
+A17,ORTHO,0,T1,off,OFF,True,True,0.0,5.368762989732545e-09,-7.085833428899235e-07,0.007501132786274,
+A18,ORTHO,0,T1,on,OFF,True,False,1.616484723854228e-13,1.2697950523116677,0.0157270928598936,0.007463083602488,
+A19,ORTHO,0,T2,off,OFF,True,True,0.0,5.368762989732545e-09,-7.085833428899235e-07,0.007501132786274,
+A20,ORTHO,0,T2,on,OFF,True,False,1.616484723854228e-13,2.1091617766150716,0.02565728883383045,0.007938107475638,
+A21,ORTHO,3,T1,off,OFF,True,True,0.0,5.368762989732545e-09,-7.085833428899235e-07,0.007501132786274,
+A22,ORTHO,3,T1,on,OFF,True,False,1.616484723854228e-13,1.2697950523116677,0.0157270928598936,0.007463083602488,
+A23,ORTHO,3,T2,off,OFF,True,True,0.0,5.368762989732545e-09,-7.085833428899235e-07,0.007501132786274,
+A24,ORTHO,3,T2,on,OFF,True,False,1.616484723854228e-13,2.1091617766150716,0.02565728883383045,0.007938107475638,
+A25,ANEL,0,T1,off,ON,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A26,ANEL,0,T1,on,ON,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A27,ANEL,0,T2,off,ON,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A28,ANEL,0,T2,on,ON,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A29,ANEL,3,T1,off,ON,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A30,ANEL,3,T1,on,ON,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A31,ANEL,3,T2,off,ON,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.
+A32,ANEL,3,T2,on,ON,False,False,,,,,The TB;PLAS table cannot work with the TB;ANEL table for material 1.

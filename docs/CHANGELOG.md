@@ -6,6 +6,7 @@ Newest first. Every entry: what changed and why. Bug entries add what was wrong,
 
 - **Why.** R27 (the paper-literal model, confirmed by Ayoub's thesis pp.58–60) is ≈ −0.95 × Ayoub's own elastic FEM at every temperature. Hypothesis: Ayoub's ε′zz sign convention is opposite to ours.
 - **Pipeline.** Registry step 12: R35–R39, the R27 configuration for pads 3, 4, 5, 7, 9. These decks differ from R27 only in Cu stiffness (and T_sf for pad 3). The R01–R34 hashes are unchanged.
+- **Outcome (R35–R39 solved 2026-10-12).** H_sign is not supported. Test A FAIL (R35 = 1.26 × −FEM at every T); Test B FAIL (pads 4, 7, 9). See the doc §6.
 - **New `src/tools/step12_hsign_compare.py`.** Test A: pad 3 vs −FEM. Test B: Fig 2c vs −measured.
 - **Literature.** Ayoub thesis (HAL tel-04437757) and the LaueTools notes (ESRF) are summarised in the step-12 doc §5. No explicit sign definition was found. LaueTools documents that the reciprocal-space deformation tensor is the opposite of the real-space one.
 - **Infrastructure.** The chat-workspace copy of the repo was removed by an automatic cleanup. Work continues in `$HOME\co-deep-hb` (GitHub copy intact). **Never keep the working copy inside the chat workspace.**

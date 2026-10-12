@@ -113,3 +113,34 @@ K = 59.6 GPa and α_m,z = 9.07 ppm/K are fixed by matching R27's Cu σlat = 197.
 - So a documented mechanism for a sign flip exists: using the reciprocal-space tensor, or a sample/lab-frame mix-up. But the documented LaueTools output is real-space.
 - LaueTools 3.2.11 release notes: sample-frame strain was corrected for **non-orthogonal** cells only. Cubic Cu is not affected.
 - **Nothing found states which tensor Ayoub used.** This becomes a question for the authors.
+
+## 6. Outcome (added after R35–R39; sections 1–5 unchanged; pre-registration committed in 23fb7b1 before the runs)
+All five runs exit 0 and converged, global frame, 49000 nodes.
+
+**Test A — FAIL.** R35 is the mirror of Ayoub's pad-3 FEM in shape, but **26 % too large** at every temperature.
+| T (°C) | 30 | 100 | 150 | 200 | 250 | 300 | 350 | 400 |
+|---|---|---|---|---|---|---|---|---|
+| R35 | +1.786 | +1.276 | +0.911 | +0.547 | +0.182 | −0.182 | −0.547 | −0.911 |
+| −FEM | +1.419 | +1.013 | +0.724 | +0.434 | +0.144 | −0.146 | −0.436 | −0.725 |
+| ratio / check | 1.259 | 1.259 | 1.260 | 1.261 | 0.038 ✓ | 0.037 ✓ | 1.255 | 1.257 |
+
+- Pad 10 under the same comparison gives 0.93–0.97.
+- Offset-free q = 1.30 (30 °C) and 1.35 (400 °C), against the predicted 0.91. Our bonded model has a stronger orientation dependence (pad3/pad10 = 1.56–1.60) than Ayoub's FEM (1.18–1.20).
+- The pad-10 mirror therefore does **not** repeat for a pad with a different stress ratio (R35: σz/σlat = 1.60 at 30 °C; pad 10: 2.30).
+- The listed model differences (SiO2 E 70 vs 72 GPa, width 0.32 vs 0.30 µm, in-plane Euler angle with an axisymmetric pad) are each expected to change ε′zz by a few percent, not 26 %. This is an expectation, not tested.
+- **Prediction check:** the analytic bonded-pillar model predicted 0.88. It under-estimated R35 by 30 % (1.247 vs 1.786). The verdict matches the prediction (FAIL), but for the opposite reason: too large rather than too small.
+
+**Test B — FAIL** (consistency and absolute), as predicted.
+| pad | run | Δ_model | −Δ_meas | r | r/r̄ − 1 | tol | cons. | abs. |
+|---|---|---|---|---|---|---|---|---|
+| 10 | R27 | −1.712 | −1.806 | 0.948 | +8.2 % | 11.0 % | pass | pass |
+| 4 | R36 | −1.801 | −2.363 | 0.762 | −13.0 % | 10.0 % | fail | fail |
+| 5 | R37 | −1.716 | −1.854 | 0.926 | +5.7 % | 11.1 % | pass | pass |
+| 7 | R38 | −1.824 | −2.406 | 0.758 | −13.5 % | 10.0 % | fail | fail |
+| 9 | R39 | −1.828 | −1.854 | 0.986 | +12.6 % | 10.8 % | fail | pass |
+
+- Pads 7 and 9 again give the same model Δ (−1.824 / −1.828), while the measured values differ by 30 %.
+
+**Decision (pre-registered rule): H_sign is NOT supported.**
+- Ayoub's FEM is not reproduced by our paper-literal model with a sign flip. The R27/pad-10 mirror is the same kind of coincidence as R01.
+- The sign/frame question remains open, together with the boundary-condition question, for the authors.

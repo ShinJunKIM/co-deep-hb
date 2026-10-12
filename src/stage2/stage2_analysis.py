@@ -201,7 +201,8 @@ def validate(rev=False):
     lines.append(f"V4,NYCU 1 um [001] sliding @200 C (must fail),{s60},{MEAS['nycu'][1.0][200][0]},0.4 nm,fails={f60}")
     validated = all(verdict.get(k, False) for k in ("V1", "V2", "V3", "V4"))
     lines.append(f"VERDICT,baseline VALIDATED (V1-V4),{validated},,,")
-    (OUT / "validation.csv").write_text("\n".join(lines) + "\n")
+    tag = "_rev1" if rev else ""
+    (OUT / f"validation{tag}.csv").write_text("\n".join(lines) + "\n")
     print("\n".join(lines))
     json.dump(dict(verdict=verdict, validated=validated), open(OUT / f"validation{tag}.json", "w"), indent=1)
     return verdict

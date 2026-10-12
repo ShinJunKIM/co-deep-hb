@@ -1,0 +1,64 @@
+{
+ "run": {
+  "id": "S117",
+  "group": "Br",
+  "ds": "imec",
+  "w": 0.54,
+  "h": 0.6,
+  "note": "REV1 pitch sensitivity 1.7w (2D cell 1.92w) [adopted_rev]",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 1.92,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0
+ },
+ "geometry": {
+  "w": 0.54,
+  "h": 0.6,
+  "A": 0.27,
+  "L": 1.0368,
+  "R": 0.5184,
+  "t_si": 1.0368,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.27,
+  "t_l": 0.006
+ },
+ "n_nodes": 5073,
+ "n_elems": 4928,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "e68acb29a384451a5329a01f93a39500c27a1969bf41d98a0445b1c807d1220d"
+}

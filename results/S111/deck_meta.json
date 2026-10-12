@@ -1,0 +1,64 @@
+{
+ "run": {
+  "id": "S111",
+  "group": "Br",
+  "ds": "imec",
+  "w": 1.26,
+  "h": 0.6,
+  "note": "REV1 V1 imec 1.26 2D Hill bonded cell2.26w [adopted_rev]",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 2.26,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0
+ },
+ "geometry": {
+  "w": 1.26,
+  "h": 0.6,
+  "A": 0.63,
+  "L": 2.8476,
+  "R": 1.4238,
+  "t_si": 2.8476,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.63,
+  "t_l": 0.006
+ },
+ "n_nodes": 3422,
+ "n_elems": 3306,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "a11e72bc1f248a6165059fac9b38732c4a8f36b9ab8e2942859aee6297b83408"
+}

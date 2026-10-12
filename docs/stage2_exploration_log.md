@@ -162,3 +162,18 @@
 - NYCU(9 µm 고립 12w 재사용 + 3 µm 배열 셀 2.5w): 채택 불변 E 59 / α 1.0 / 테이퍼 18°(모두 경계), J 1.53. 3 µm 4.26 vs 4.1 ± 0.4(개선, 고립 셀 4.58).
 - imec(셀 2.26w): 채택 **E_SiCN 120 GPa(경계), α_SiCN 2.0(경계)**, J 23.2. 1.80 µm 4점 통과(5.0 vs 5.4 @400). 3.06 µm 300·400 °C 과소(4.64/6.05, 6.32/7.85) → 보정 실패 유지(초선형 측정). E가 경계에 걸린 이유: 배열 셀에서는 유전체가 뻣뻣할수록 u가 커져(이웃 구속이 Poisson 밀어올림을 키움) 큰 패드의 과소를 줄이려는 방향. 범위를 넓히지 않는다.
 - 코드 사고 기록: 패치 실수로 `adopted.json`·`calibration_grid.csv`가 잠시 덮어써졌고 git에서 복원했다(b33b106 상태). 개정 결과는 `_rev`/`_Ar` 파일에만 쓴다.
+- 2026-10-13 03:07 **S112** (Br) REV1 V2 imec 0.54 2D Hill bonded cell2.26w [adopted_rev] -> exit 0, wall 18 s, LS ok True; du_c50 2.039 | du_ctr 2.697 | du_full 1.725 nm
+- 2026-10-13 03:07 **S113** (Br) REV1 V2 imec 0.54 3D [001] bonded cell2.0w [adopted_rev] -> exit 0, wall 30 s, LS ok True; du_c50 2.264 | du_ctr 2.786 | du_full 1.956 nm
+- 2026-10-13 03:08 **S114** (Br) REV1 V2 imec 0.54 3D [101] bonded cell2.0w [adopted_rev] -> exit 0, wall 30 s, LS ok True; du_c50 2.200 | du_ctr 2.695 | du_full 1.884 nm
+- 2026-10-13 03:08 **S115** (Br) REV1 V2 imec 0.54 3D [111] bonded cell2.0w [adopted_rev] -> exit 0, wall 31 s, LS ok True; du_c50 2.175 | du_ctr 2.652 | du_full 1.859 nm
+- 2026-10-13 03:08 **S116** (Br) REV1 V4 imec 0.54 2D Hill SLIDING cell2.26w [adopted_rev] -> exit 0, wall 18 s, LS ok True; du_c50 4.841 | du_ctr 4.874 | du_full 4.836 nm
+- 2026-10-13 03:09 **S117** (Br) REV1 pitch sensitivity 1.7w (2D cell 1.92w) [adopted_rev] -> exit 0, wall 18 s, LS ok True; du_c50 1.838 | du_ctr 2.490 | du_full 1.530 nm
+- 2026-10-13 03:09 **S118** (Br) REV1 pitch sensitivity 3w (2D cell 3.39w) [adopted_rev] -> exit 0, wall 18 s, LS ok True; du_c50 2.410 | du_ctr 2.996 | du_full 2.095 nm
+
+### 검증(validation) 결과 2차 — 개정 1 (03:25; `results/stage2/validation_rev1.csv`)
+- V1 imec 1.26 µm: 100/200 °C 통과, **300/400 °C 실패**(2.96/3.65, 4.04/5.00 → 이번엔 과소). 2/4.
+- V2 imec 0.54 µm: 100/200 °C 통과(0.41/0.25, 0.95/0.60), **300/400 °C 실패**(1.50/1.00, 2.04/1.40). 3방위 2.18–2.26 @400. 전체 평균 정의(du_full)로는 1.73.
+- V3·V4 불변(통과, 판별 성립). **VERDICT 2차: NOT VALIDATED.**
+- 피치 민감도(0.54 µm, 400 °C): 1.7 w 1.84, 2 w 2.04, 3 w 2.41, 고립 2.83 nm. 측정 1.40은 피치 1.7 w보다도 작다.
+- 해석: 개정 1은 과대예측을 2.0배 → 1.46배로 줄였지만 측정의 크기 의존(0.54→1.26 µm ×3.6, 1.26→1.80 ×1.08)은 탄성 연속체 모델(×2.0, ×1.24)로 재현되지 않는다. 특히 측정은 1.26 µm 이상에서 300 °C 이후 초선형(비탄성)이고 0.54 µm는 선형(탄성)이다. 즉 "작은 패드 = 탄성이지만 모델보다 작음, 큰 패드 = 비탄성 추가". 남은 후보: (i) 실제 Cu CD가 설계보다 작음(IRPS Fig 18, 수치 없음), (ii) 소형 패드의 Cu/liner 계면 또는 다결정 효과, (iii) 측정 기준면 정의 차이. 이 중 어느 것도 문헌 수치로 고정할 수 없으므로 더 이상 조정하지 않는다(개정 1회 소진).
+- 결정 5: 예측 단계는 **모델 편향 계수**를 명시해 쓴다. 0.54 µm에서 b = u_meas/u_model(개정 1, 400 °C) = 1.40/2.04 = 0.69(범위 0.60–0.93: 측정 ±0.5 반영). 300 nm 예측 u = u_model(0.30)·b, 불확실 구간을 함께 보고한다(ASME V&V 10: 검증 영역 밖 사용 시 모델 불확실도를 명시).

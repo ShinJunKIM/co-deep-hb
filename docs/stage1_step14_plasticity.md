@@ -1,0 +1,87 @@
+# Stage 1 · Step 14 — Plasticity-path diagnosis and large-pad plasticity check (pre-registered BEFORE any run)
+
+**Status.** Pre-registration; no Step 14 run made. The Step 13 verdict (FAIL) stays as recorded, and nothing here changes it.
+**Code.**
+- `src/stage1/step14.py`: Part A one-element cases, Part A recommendation, Part C evaluation.
+- `src/stage1/lin13.py`: Part C runs R57 and R58 are **appended** to the registry. R40–R56 decks are unchanged (physics hashes re-checked).
+- `stage1_pipeline.py` and `s1_mesh.py` are not modified, so R01–R49 decks are unchanged.
+
+## Part A — which input combination works (no physics conclusions)
+**A1. History (from the repo).**
+| run | elastic input | TB,PLAS form | element | thermal strain | NLGEOM | result |
+|---|---|---|---|---|---|---|
+| `validation_cp_check` (ANEL+MISO, 4 orientations) | TB,ANEL, prerotated | **one temperature** (`TB,PLAS,1,1,n,MISO` + `TBTEMP,25`) | SOLID185 **KEYOPT(2)=0** (default) | **off** (displacement load only, no ALPX) | ON | **completed**, yield error ≤ 0.43 % |
+| R05–R07 (Stage 1 plastic, pads 3/6/1/2) | TB,ANEL | variant ① one temperature; ②/③ 8-temperature table | KEYOPT(2)=3 | on | OFF | **never run** |
+| R49 (Lin 1 µm [001] plastic) | TB,ANEL | **one temperature** (`TB,PLAS,1,1,19,MISO` + `TBTEMP,25`) | **KEYOPT(2)=3** | **on** (MP,ALPX + MP,REFT) | **OFF** | **failed**: "The TB,PLAS table cannot work with the TB,ANEL table for material 1." |
+
+- R49 already used the one-temperature form, so the "table" in the message is **not** the temperature table.
+- R49 and the working cp_check differ in three settings: KEYOPT(2) (3 vs 0), thermal strain (on vs off) and NLGEOM (OFF vs ON).
+
+**A2. Documentation.**
+- The v261 *Material Reference* is behind the Ansys Help login and could not be retrieved here. **No exact v261 quote is available.**
+- Public v242 pages found:
+  - Material Reference §3.3, *Anisotropic Elasticity*: "Anisotropic elastic capability (**TB**,ANEL or **TB**,ELAS,,,,AELS/AELF) is available with current-technology plane and solid elements."
+  - Command Reference, TB, ANEL: "This material model is not supported for use with the coefficient of thermal expansion (**TB**,CTE)." We use MP,ALPX, not TB,CTE.
+- The "Material Model Combinations" table (which plasticity models may be combined with ANEL) was **not retrieved**. **Action for the user:** check Ansys Help v261 → Material Reference → *Material Model Combinations* and paste the ANEL row.
+- Documented alternatives tested below:
+  - TB,ELAS,,,,**AELS** (the second anisotropic-elastic input form named in §3.3);
+  - **ORTHO**: cubic Cu as orthotropic MP constants (EX = EY = EZ, PRXY, GXY) with isotropic thermal expansion and von Mises MISO. For rotated pads this requires the ESYS crystal-frame route that was validated for elasticity in G3.
+
+**A3. Test matrix (32 one-element cases, A01–A32).**
+- Setup: SOLID185 1 µm cube, Cu z ∥ [001], µMKS units, roller BCs on x = 0, y = 0, z = 0.
+- Elastic input {ANEL, AELS, ORTHO} × KEYOPT(2) {0, 3} × TB,PLAS {T1 = one temperature, T2 = two-temperature table (25 °C and 400 °C, the 400 °C curve = 0.8 × the 25 °C curve)} × thermal {off, on}, all at NLGEOM OFF. That is 24 cases.
+- Plus the 8 ANEL cases at NLGEOM ON (cp_check setting).
+- Load steps:
+  - LS1: free heating 25 → 400 °C (thermal on), or no load (thermal off);
+  - LS2: uniaxial pull to mechanical strain 5e-4 (elastic);
+  - LS3: pull to 1e-2 (plastic).
+- MISO curve: pad-3 Ludwick midpoint (σ0 143, K 675, N 0.685 MPa).
+
+**A4. Analytic checks** (all < 1 % for "correct"):
+- LS1 thermal strain = α·ΔT = 16.5e-6 × 375 = 6.1875e-3;
+- LS2 σz/ε = E[001] = 66.69 GPa;
+- LS3 σz = MISO curve at the computed EPPL,EQV, at the current temperature (T2 cases use the 400 °C curve when heated).
+
+**A5. Output and pre-registered selection rule.**
+- Output: `results/diagnostics/step14_partA.csv` (combination → runs? / correct?) and `step14_partA_recommendation.txt`.
+- Production settings = KEYOPT(2) = 3, thermal on, NLGEOM OFF.
+- **Recommendation = the first of ANEL → AELS → ORTHO that is correct at production settings with the T1 form.**
+  - Report whether the T2 form also works; variants ②/③ need it.
+- If none works at production settings but one works with KEYOPT(2) = 0, **stop**: changing the element formulation needs the user's decision.
+- If nothing works with thermal strain, **stop and list options**. The agent does not pick.
+
+**A prediction** (written before the runs):
+- ANEL and AELS fail with KEYOPT(2) = 3 and work with KEYOPT(2) = 0, including with thermal strain.
+- ORTHO works in all cases.
+- Expected recommendation: ORTHO with KEYOPT(2) = 3, using the ESYS crystal-frame route for rotated pads. Confidence is low: this is a guess based only on the cp_check vs R49 difference.
+
+## Part B — 300 nm plasticity threshold (only if Part A gives a recommendation)
+- **Configuration:** paper-literal bonded, no cap, circle (R27 configuration). Heating per the Ayoub history (load step 0 from T_sf to 30 °C, then to 400 °C). Δu = G4b u_center from 30 to 400 °C, end of heating.
+
+| pad | elastic | plastic |
+|---|---|---|
+| 3 (E_z 68.0, T_sf 275) | R35 (done) | **R59**: Ludwick variant ① (pad-3 curve, T-independent) with the Part-A input; deck built after Part A |
+| 10 (E_z 189.5, T_sf 277) | R27 (done) | E_z > 130.34 GPa, so elastic by the mapping rule. The plastic deck is identical to R27 (R08 precedent): **no solve**, Δ = 0 by rule |
+
+- **Rule (pre-registered):** if |Δu_plastic − Δu_elastic| < 0.1 nm for both pads, Stage 2 uses elastic Cu. Otherwise it uses plastic Cu.
+- **Prediction:** R35's volume-averaged stress at 30 °C (σlat 218, σz 348 MPa) gives von Mises ≈ 130 MPa, below σ0 = 143 MPa. At 400 °C it is about half that. Yielding is therefore only local, and |Δu| < 0.1 nm is predicted, i.e. **elastic** for Stage 2.
+
+## Part C — large-pad plasticity (explanatory only)
+- R57: 9 µm, bonded, 2D, isotropic Hill Cu, Ludwick variant ① through the computed-E mapping. E_Hill = 128.3 GPa gives a pointwise interpolation between pads 1 and 2. Same geometry and assumptions as Step 13; **no tuning**.
+- 3 µm: **already solved as R50** (Step 13 report-only, same settings). It is reused, not re-run.
+- **Hypothesis SUPPORTED** if the plastic Δu closes ≥ 50 % of the gap to the measurement for **both** pads, i.e. (Δu_el − Δu_pl)/(Δu_el − measured) ≥ 0.5 with measured 6.4 and 4.1 nm. Otherwise NOT SUPPORTED, and the large-pad miss is recorded as unexplained. Geometry uncertainty (taper −17 %) remains the other candidate.
+- **Disclosure:** the 3 µm number is already known. R50 = 5.58 nm vs elastic R41 = 5.55 nm, so the gap closed is −2 %. Under the rule above, Part C **cannot be SUPPORTED** whatever R57 gives. R57 is still run for the record.
+- **Physics prediction (why plasticity is expected to *increase*, not decrease, Δu on heating):**
+  - Model a film-like pad on heating as in-plane compression with free top, and an in-plane total strain fixed by the substrate.
+  - Plastic flow at constant volume gives ε_p,zz = −2 ε_p,xx > 0.
+  - Then ε_zz − αΔT = 2ν/(1−ν)·ε_m + ε_p,xx·(2ν/(1−ν) − 2). With ν = 0.345 the bracket is −0.94 and ε_p,xx < 0.
+  - So **compressive in-plane yielding raises the protrusion.** This holds for any T_sf under isotropic hardening.
+  - Prediction: R57 Δu ≥ R40 Δu (gap closed ≤ 0) → **NOT SUPPORTED**.
+- **Pending 1 µm cell check (elastic):** R58 = 1 µm [001] bonded, cell 9 w (next step after 6 w; 104 040 nodes). The criterion is still < 2 % change vs R53 (6 w). If it is not met, the cell effect is reported as an open uncertainty of the 1 µm result.
+
+## Deliverables and order
+1. Commit this document **before** any run (hash reported).
+2. Run Part A (A01–A32), R57, R58, then the Part A and Part C evaluation.
+3. Commit the results.
+4. Build R59 only if Part A gives a recommendation, then run, evaluate Part B, commit.
+5. Tables for A, B, C and a Korean summary in docs/stage1_summary_for_PI_ko.md.

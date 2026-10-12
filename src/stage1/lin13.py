@@ -98,6 +98,10 @@ RUNS = [
          role="taper"),
     _run("R55", 1, 3, "LIN 1 um bonded iso 3D - verification vs R42 (2D)", role="check"),
     _run("R56", 3, 2, "LIN 3 um bonded 2D, mesh refined x2 - mesh check", refine=2, role="mesh"),
+    # step 14 (docs/stage1_step14_plasticity.md), Part C
+    _run("R57", 9, 2, "LIN 9 um bonded PLASTIC (Ludwick v1, E_Hill mapping), 2D", plastic=True, role="plastic"),
+    _run("R58", 1, 3, "LIN 1 um bonded [001], cell x3 (9 w) - next cell step", cu="aniso", orient="001",
+         cell_factor=9.0, role="cell"),
 ]
 RUN_BY_ID = {r["id"]: r for r in RUNS}
 

@@ -141,3 +141,6 @@ measurements. R01's actual wall time recalibrates them.
 Primary: R40 (9 µm), R41 (3 µm), R43–R45 (1 µm [001]/[101]/[111]). Controls: R46–R48 (sliding). Report only: R42, R49–R56.
 
 `python src\stage1\lin13.py --list` · `python src\stage1\lin13.py --case all` · `python src\stage1\lin13.py --compare`
+
+## Step 14 — plasticity-path diagnosis (see docs/stage1_step14_plasticity.md)
+Part A: one-element cases A01–A32 (`python src\stage1\step14.py --partA`). Part C: R57 (9 µm plastic), R58 (1 µm cell 9 w) via `lin13.py --case R57,R58`, evaluated with `step14.py --partC`. Part B: R59 (pad 3 plastic), built after Part A.

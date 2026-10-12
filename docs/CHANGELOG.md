@@ -2,6 +2,12 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-12 — Step 14 pre-registered: plasticity-path diagnosis and large-pad plasticity
+
+- **Why.** R49 failed with "TB,PLAS table cannot work with the TB,ANEL table". The planned single-crystal plastic runs use the same input. The large-pad over-prediction of Step 13 has an untested plasticity hypothesis.
+- **New `src/stage1/step14.py`.** Part A: 32 one-element cases (ANEL / AELS / ORTHO × KEYOPT(2) 0/3 × MISO 1T/2T × thermal off/on, plus ANEL at NLGEOM ON). Also evaluates Part C.
+- **`lin13.py`.** R57 (9 µm plastic) and R58 (1 µm cell 9 w) appended. R40–R56 decks are unchanged (hashes re-checked).
+
 ## 2026-10-12 — Step 13 pre-registered: Lin 2025 protrusion reproduction (new primary validation)
 
 - **Why.** Validate the constraint and geometry physics against **measured** Cu protrusion: Lin et al., Appl. Surf. Sci. 689 (2025) 162539; 9 / 3 / 1 µm pads, in-situ AFM, RT → 200 °C. The ε′zz mismatch with Ayoub stays an open issue.

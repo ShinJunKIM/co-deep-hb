@@ -12,7 +12,8 @@
    "S75",
    "S76"
   ],
-  "hill_run": "S112"
+  "hill_run": "S112",
+  "sliding_run": "S116"
  },
  {
   "label": "0.30um",
@@ -24,6 +25,7 @@
    "S77",
    "S78"
   ],
-  "hill_run": "S67"
+  "hill_run": "S67",
+  "sliding_run": "S71"
  }
 ]

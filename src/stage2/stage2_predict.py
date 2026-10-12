@@ -91,22 +91,31 @@ def u_model_from_runs(run_ids, key="du_c50"):
     return dict(coef=coef.tolist(), points=[dict(Ez=float(e), k_nm_per_K=float(kk), run=rid) for e, kk, rid in pts], deg=deg)
 
 
-def predict(size_um, runs_aniso, run_hill, n=200_000, seed=0, label=""):
-    """Process window for one pad size: P(contact) over orientation x recess for T, t and interface states."""
+def k_of(run_id, key="du_c50"):
+    r = B.load(run_id)
+    if r is None:
+        return None
+    res = r["result"]; Ts = np.array([h["T"] for h in res["hist"]]); us = np.array([h[key] for h in res["hist"]])
+    return float(np.polyfit(Ts - 25.0, us, 1)[0])
+
+
+def predict(size_um, runs_aniso, run_hill, n=200_000, seed=0, label="", bias=(0.69, 0.60, 0.93), run_sliding=None):
+    """Process window for one pad size: P(contact) over orientation x recess for T, t and interface states.
+    bias = (b, b_lo, b_hi): measured/model factor at 0.54 um (decision 5); applied to the elastic term."""
     rng = np.random.default_rng(seed)
     fit = u_model_from_runs(runs_aniso)
     coef = np.array(fit["coef"])
-    rh = B.load(run_hill)
-    k_hill = None
-    if rh:
-        res = rh["result"]; Ts = np.array([h["T"] for h in res["hist"]]); us = np.array([h["du_c50"] for h in res["hist"]])
-        k_hill = float(np.polyfit(Ts - 25.0, us, 1)[0])
+    k_hill = k_of(run_hill)
+    k_slide = k_of(run_sliding) if run_sliding else None
     ez1, ez2 = ez_random(n, rng), ez_random(n, rng)
     k1, k2 = np.polyval(coef, ez1), np.polyval(coef, ez2)
     D_nm = size_um * 1000.0
     rows = []
     recess_mu, recess_sd = 2.5, 0.5                      # IRPS 2026 Fig 6 (per pad, nm)
-    for sidewall in ("bonded",):
+    b, b_lo, b_hi = bias
+    for sidewall in ("bonded", "relaxed"):
+        if sidewall == "relaxed" and k_slide is None:
+            continue
         for surf, sox in (("clean", 1.0), ("oxidised", 0.45)):
             for T in (200, 250, 300, 350, 400):
                 for t_min in (5, 30, 120):
@@ -114,7 +123,12 @@ def predict(size_um, runs_aniso, run_hill, n=200_000, seed=0, label=""):
                         hd = h_d(t_min * 60.0, T, D_nm, theta, 60.0, sox)
                         hd_lo = h_d(t_min * 60.0, T, D_nm, theta, TAU0_RANGE[1], sox)
                         hd_hi = h_d(t_min * 60.0, T, D_nm, theta, TAU0_RANGE[0], sox)
-                        u_el = (k1 + k2) * (T - 25.0)
+                        if sidewall == "bonded":
+                            u_el = b * (k1 + k2) * (T - 25.0)
+                            u_lo, u_hi = b_lo * (k1 + k2) * (T - 25.0), b_hi * (k1 + k2) * (T - 25.0)
+                        else:   # relaxed sidewall: isotropic sliding bound (orientation spread not modelled), same bias
+                            u_el = np.full(n, 2 * b * k_slide * (T - 25.0))
+                            u_lo, u_hi = np.full(n, 2 * b_lo * k_slide * (T - 25.0)), np.full(n, 2 * b_hi * k_slide * (T - 25.0))
                         for g_mean in (None, 2.0, 4.0, 6.0, 8.0):
                             if g_mean is None:
                                 g = rng.normal(recess_mu, recess_sd, n) + rng.normal(recess_mu, recess_sd, n)
@@ -123,16 +137,16 @@ def predict(size_um, runs_aniso, run_hill, n=200_000, seed=0, label=""):
                                 g = np.full(n, g_mean); gl = f"{g_mean:g}"
                             P = float(np.mean(u_el + 2 * hd >= g))
                             P_el = float(np.mean(u_el >= g))
-                            P_lo = float(np.mean(u_el + 2 * hd_lo >= g))
-                            P_hi = float(np.mean(u_el + 2 * hd_hi >= g))
+                            P_lo = float(np.mean(u_lo + 2 * hd_lo >= g))      # pessimistic: low bias, slow diffusion
+                            P_hi = float(np.mean(u_hi + 2 * hd_hi >= g))      # optimistic
                             rows.append(dict(size_um=size_um, sidewall=sidewall, surface=surf, T_C=T, t_min=t_min, theta=theta,
                                              recess_sum=gl, h_d_per_pad_nm=hd, u_el_mean_nm=float(u_el.mean()),
                                              u_el_p1_nm=float(np.quantile(u_el, 0.01)), P_contact=P, P_elastic_only=P_el,
-                                             P_tau0_100=P_lo, P_tau0_20=P_hi))
+                                             P_pessimistic=P_lo, P_optimistic=P_hi))
     keys = list(rows[0])
     (OUT / f"predict_{label or size_um}.csv").write_text(",".join(keys) + "\n" + "".join(
         ",".join(f"{r[k]:.4g}" if isinstance(r[k], float) else str(r[k]) for k in keys) + "\n" for r in rows))
-    json.dump(dict(size_um=size_um, fit=fit, k_hill=k_hill), open(OUT / f"predict_{label or size_um}_fit.json", "w"), indent=1)
+    json.dump(dict(size_um=size_um, fit=fit, k_hill=k_hill, k_sliding=k_slide, bias=bias), open(OUT / f"predict_{label or size_um}_fit.json", "w"), indent=1)
     return rows, fit
 
 
@@ -143,7 +157,7 @@ def main(argv=None):
     print(json.dumps(diffusion_checks(), indent=1))
     cfg = json.loads((OUT / "predict_config.json").read_text())
     for c in cfg:
-        rows, fit = predict(c["size_um"], c["aniso_runs"], c["hill_run"], a.n, label=c["label"])
+        rows, fit = predict(c["size_um"], c["aniso_runs"], c["hill_run"], a.n, label=c["label"], run_sliding=c.get("sliding_run"))
         print(c["label"], "fit", fit["points"], "rows", len(rows))
     return 0
 

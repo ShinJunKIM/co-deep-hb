@@ -1,0 +1,9 @@
+test,item,model,measured,rule,pass
+V5,pad 10 heating slope 30-350 C (1/K),-4.683e-06,4.660e-06,sign + 25 %,False
+V5,pad 3 heating slope 30-350 C (1/K),-7.264e-06,7.300e-06,sign + 25 %,False
+V6,bonded rank corr(Delta eps'zz model; E_z),+1.00,measured: negative,sign,False
+V6,sliding rank corr(Delta eps'zz model; E_z),-0.90,measured: negative,sign,True
+H_sw S2,pad 3: eps'zz(400) sliding - bonded,1.753e-03,6.500e-04 (hold 40->120 min),same sign & |d_sw|>=|d_hold|,consistent
+H_sw cooling (report only),pad 10 300 C: superposition offset vs bonded heating,+8.186e-04,+2.780e-04 (meas cool - heat),report,
+H_sw cooling (report only),pad 10 200 C: superposition offset vs bonded heating,+8.186e-04,+2.490e-04 (meas cool - heat),report,
+H_sw cooling (report only),pad 10 30 C: superposition offset vs bonded heating,+8.186e-04,+5.700e-05 (meas cool - heat),report,

@@ -187,3 +187,15 @@
 - H_sw S2: Δ_sw = ε′(sliding) − ε′(bonded) @400 °C = +1.75e-3, 측정 보유 증가 +0.65e-3 → 우리 부호로는 "일관"(부호 같고 크기 충분). **부호가 뒤집힌 경우** 측정 보유 변화는 −0.65e-3이 되어 Δ_sw와 반대 → H_sw 기각. 결론은 부호 규약에 걸려 있다 → "미결, 부호 확인이 선결".
 - 냉각 가지 중첩(보고용): 완전 완화 후 재구속 가정의 오프셋 +0.82e-3(일정) vs 측정 +0.28/+0.25/+0.06e-3 → 예측대로 맞지 않음(냉각 중 완화가 계속되는 속도론 필요).
 - u(300 nm, 30→400 °C, bonded, 캡·라이너): 패드 10 1.87 nm, 패드 3 1.32 nm; 패드 3 sliding(캡 없음) 7.38 nm.
+- 2026-10-13 03:14 **S69** (P) P imec 0.30 um 3D [101] bonded [adopted params] [adopted_rev] -> exit 0, wall 27 s, LS ok True; du_c50 1.258 | du_ctr 1.550 | du_full 1.075 nm
+- 2026-10-13 03:15 **S70** (P) P imec 0.30 um 3D [111] bonded [adopted params] [adopted_rev] -> exit 0, wall 27 s, LS ok True; du_c50 1.287 | du_ctr 1.588 | du_full 1.094 nm
+- 2026-10-13 03:15 **S71** (P) P imec 0.30 um 2D Hill SLIDING (relaxed-sidewall bound) cell2.26w [adopted params] [adopted_rev] -> exit 0, wall 18 s, LS ok True; du_c50 4.691 | du_ctr 4.711 | du_full 4.688 nm
+- 2026-10-13 03:15 **S79** (P) P imec 0.54 um 2D Hill SLIDING cell2.26w (= S116, alias not run) [adopted params] [adopted_rev] -> exit 0, wall 18 s, LS ok True; du_c50 4.841 | du_ctr 4.874 | du_full 4.836 nm
+- 2026-10-13 03:16 **S72** (P) P imec 0.54 um 3D [ay3] bonded [adopted params] [adopted_rev] -> exit 0, wall 31 s, LS ok True; du_c50 2.263 | du_ctr 2.786 | du_full 1.955 nm
+- 2026-10-13 03:16 **S73** (P) P imec 0.54 um 3D [ay6] bonded [adopted params] [adopted_rev] -> exit 0, wall 30 s, LS ok True; du_c50 2.234 | du_ctr 2.751 | du_full 1.915 nm
+- 2026-10-13 03:17 **S74** (P) P imec 0.54 um 3D [ay1] bonded [adopted params] [adopted_rev] -> exit 0, wall 30 s, LS ok True; du_c50 2.212 | du_ctr 2.716 | du_full 1.892 nm
+- 2026-10-13 03:17 **S75** (P) P imec 0.54 um 3D [ay4] bonded [adopted params] [adopted_rev] -> exit 0, wall 30 s, LS ok True; du_c50 2.184 | du_ctr 2.668 | du_full 1.867 nm
+- 2026-10-13 03:18 **S76** (P) P imec 0.54 um 3D [ay5] bonded [adopted params] [adopted_rev] -> exit 0, wall 30 s, LS ok True; du_c50 2.176 | du_ctr 2.654 | du_full 1.861 nm
+- 2026-10-13 03:18 **S77** (P) P imec 0.30 um 3D [ay6] bonded [adopted params] [adopted_rev] -> exit 0, wall 25 s, LS ok True; du_c50 1.249 | du_ctr 1.539 | du_full 1.071 nm
+- 2026-10-13 03:19 **S78** (P) P imec 0.30 um 3D [ay4] bonded [adopted params] [adopted_rev] -> exit 0, wall 26 s, LS ok True; du_c50 1.280 | du_ctr 1.579 | du_full 1.089 nm
+- 2026-10-13 03:19 **E01** (E) contact 0.54 um r1 nm/pad T250 -> exit 0, wall 38 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T250: Ac/A=1.000 p=226MPa; T25: Ac/A=0.000 p=0MPa

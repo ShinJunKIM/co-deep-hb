@@ -81,7 +81,7 @@ def u_model_from_runs(run_ids, key="du_c50"):
         if r is None:
             continue
         res = r["result"]
-        Ts = np.array([h["T"] for h in res["hist"]]); us = np.array([h["d" + key[2:]] for h in res["hist"]])
+        Ts = np.array([h["T"] for h in res["hist"]]); us = np.array([h[key] for h in res["hist"]])
         k = float(np.polyfit(Ts - 25.0, us, 1)[0])            # nm/K
         pts.append((res["Ez"], k, rid))
     pts.sort()
@@ -132,7 +132,7 @@ def predict(size_um, runs_aniso, run_hill, n=200_000, seed=0, label="", bias=(0.
                         for g_mean in (None, 2.0, 4.0, 6.0, 8.0):
                             if g_mean is None:
                                 g = rng.normal(recess_mu, recess_sd, n) + rng.normal(recess_mu, recess_sd, n)
-                                gl = "IRPS N(2.5,0.5)x2"
+                                gl = "IRPS_N(2.5;0.5)x2"
                             else:
                                 g = np.full(n, g_mean); gl = f"{g_mean:g}"
                             P = float(np.mean(u_el + 2 * hd >= g))

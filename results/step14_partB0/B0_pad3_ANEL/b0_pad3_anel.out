@@ -1,0 +1,569 @@
+
+ Ansys Mechanical Enterprise Academic Student      
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *         ANSYS MAPDL 2026 R1          LEGAL NOTICES          *
+ ***************************************************************
+ *                                                             *
+ * Copyright (c) 2026 Synopsys, Inc. and ANSYS, Inc.           *
+ * All rights reserved.                                        *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of Ansys, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the Ansys, Inc. online documentation or the Ansys, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * Ansys, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * Ansys, Inc. is a UL registered                              *
+ * ISO 9001:2015 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the Ansys, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the Ansys, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ 2026 R1 
+     
+ Point Releases and Patches installed:   
+     
+ Ansys, Inc. License Manager 2026 R1 
+ Discovery (full install) 2026 R1
+ Core WB Files 2026 R1   
+ optiSLang Core UI 2026 R1   
+ CFX (includes CFD-Post) 2026 R1 
+ Chemkin 2026 R1 
+ EnSight 2026 R1 
+ FENSAP-ICE 2026 R1  
+ Fluent (includes CFD-Post) 2026 R1  
+ Polyflow (includes CFD-Post) 2026 R1
+ Forte (includes EnSight) 2026 R1
+ Rocky 2026 R1   
+ TurboGrid 2026 R1   
+ ACIS Geometry Interface 2026 R1 
+ AutoCAD Geometry Interface 2026 R1  
+ Catia, Version 4 Geometry Interface 2026 R1 
+ Catia, Version 5 Geometry Interface 2026 R1 
+ Catia, Version 6 Geometry Interface 2026 R1 
+ Creo Elements/Direct Modeling Geometry Interface 2026 R1
+ Creo Parametric Geometry Interface 2026 R1  
+ Inventor Geometry Interface 2026 R1 
+ JTOpen Geometry Interface 2026 R1   
+ NX Geometry Interface 2026 R1   
+ Parasolid Geometry Interface  2026 R1   
+ Solid Edge Geometry Interface 2026 R1   
+ SOLIDWORKS Geometry Interface 2026 R1   
+ Speos 2026 R1   
+ SpaceClaim 2026 R1  
+ Speos RPC 2026 R1   
+ Zemax OpticStudio 2026 R1   
+ Dynamic Reporting 2026 R1   
+ Aqwa 2026 R1
+ Autodyn 2026 R1 
+ Material Calibration App 2026 R1
+ Mechanical Products 2026 R1 
+ Motion 2026 R1  
+ Academic Student 2026 R1
+
+
+          *****  MAPDL COMMAND LINE ARGUMENTS  *****
+  INITIAL JOBNAME              = B0_pad3_ANEL                                                                                                                                                                                                                                            
+  BATCH MODE REQUESTED (-b)    = LIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  SHARED MEMORY PARALLEL REQUESTED
+    SINGLE PROCESS WITH SINGLE THREAD REQUESTED
+    TOTAL OF     1 CORES REQUESTED
+  INPUT FILE NAME              = C:\Users\USER\co-deep-hb\results\step14_partB0\B0_pad3_ANEL\B0_pad3_ANEL_batch.dat
+  OUTPUT FILE NAME             = C:\Users\USER\co-deep-hb\results\step14_partB0\B0_pad3_ANEL\B0_pad3_ANEL.out
+  INITIAL DIRECTORY = C:\Users\USER\co-deep-hb\results\step14_partB0\B0_pad3_ANEL
+
+ RELEASE= 2026 R1              BUILD= 26.1      UP20260202   VERSION=WINDOWS x64 
+ CURRENT JOBNAME=B0_pad3_ANEL  00:10:40  OCT 13, 2026  Elapsed Time=       0.094
+
+     1  /TITLE,Step14 B0_pad3_ANEL  
+     2  /PREP7  
+     3  ET,1,SOLID185   
+     4  TB,ANEL,1,1,,0  
+     5  TBTEMP,25   
+     6  TBDATA,1,168482.1531,121399.1943,121318.6526,0.07934869366,-3.98722251,-2063.260559 
+     7  TBDATA,7,170435.0946,119365.7111,-200.4348002,10071.72406,40.48386301,170515.6363   
+     8  TBDATA,13,200.3554515,-10067.73684,2022.776696,75399.19434,40.48386301,-3.98722251  
+     9  TBDATA,19,73365.71106,200.3554515,75318.6526
+    10  BLOCK,0,1,0,1,0,1   
+    11  ESIZE,1 
+    12  VMESH,ALL   
+    13  FINISH  
+    14  /SOLU   
+    15  ANTYPE,STATIC   
+    16  NN_=NODE(0,0,0) 
+    17  D,NN_,UX,0  
+    18  D,NN_,UY,0  
+    19  D,NN_,UZ,0  
+    20  NN_=NODE(0,0,1) 
+    21  D,NN_,UX,0.000125   
+    22  D,NN_,UY,-5e-05 
+    23  D,NN_,UZ,0.0003 
+    24  NN_=NODE(0,1,0) 
+    25  D,NN_,UX,7.5e-05
+    26  D,NN_,UY,-0.0002
+    27  D,NN_,UZ,-5e-05 
+    28  NN_=NODE(0,1,1) 
+    29  D,NN_,UX,0.0002 
+    30  D,NN_,UY,-0.00025   
+    31  D,NN_,UZ,0.00025
+    32  NN_=NODE(1,0,0) 
+    33  D,NN_,UX,0.0001 
+    34  D,NN_,UY,7.5e-05
+    35  D,NN_,UZ,0.000125   
+    36  NN_=NODE(1,0,1) 
+    37  D,NN_,UX,0.000225   
+    38  D,NN_,UY,2.5e-05
+    39  D,NN_,UZ,0.000425   
+    40  NN_=NODE(1,1,0) 
+    41  D,NN_,UX,0.000175   
+    42  D,NN_,UY,-0.000125  
+    43  D,NN_,UZ,7.5e-05
+    44  NN_=NODE(1,1,1) 
+    45  D,NN_,UX,0.0003 
+    46  D,NN_,UY,-0.000175  
+    47  D,NN_,UZ,0.000375   
+    48  SOLVE   
+    49  FINISH  
+    50  /POST1  
+    51  SET,LAST
+    52  ETABLE,SX,S,X   
+    53  *GET,SX_,ELEM,1,ETAB,SX 
+    54  ETABLE,SY,S,Y   
+    55  *GET,SY_,ELEM,1,ETAB,SY 
+    56  ETABLE,SZ,S,Z   
+    57  *GET,SZ_,ELEM,1,ETAB,SZ 
+    58  ETABLE,SXY,S,XY 
+    59  *GET,SXY_,ELEM,1,ETAB,SXY   
+    60  ETABLE,SYZ,S,YZ 
+    61  *GET,SYZ_,ELEM,1,ETAB,SYZ   
+    62  ETABLE,SXZ,S,XZ 
+    63  *GET,SXZ_,ELEM,1,ETAB,SXZ   
+    64  *CFOPEN,b0,txt  
+    65  *VWRITE,SX_,SY_,SZ_,SXY_,SYZ_,SXZ_  
+    66  (6E22.13)   
+    67  *CFCLOS 
+    68  FINISH  
+    69      
+    70  /EXIT,NOSAVE
+
+ RUN SETUP PROCEDURE FROM FILE= C:\Program Files\ANSYS Inc\ANSYS Student\v261\Ansys\apdl\start.ans
+
+ /INPUT FILE= C:\Program Files\ANSYS Inc\ANSYS Student\v261\Ansys\apdl\start.ans  LINE=       0
+
+ TITLE= 
+ Step14 B0_pad3_ANEL                                                           
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   00:10:40  OCT 13, 2026 Elapsed Time=      6.034
+
+ Step14 B0_pad3_ANEL                                                           
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+
+ ELEMENT TYPE          1 IS SOLID185     3-D 8-NODE STRUCTURAL SOLID 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ DEFINE DATA TABLE  ANEL  FOR MATERIAL     1
+   WITH A MAXIMUM OF   1 TEMPERATURE SPECIFICATIONS
+
+ TEMPERATURE TO BE USED FOR THE NEXT TBDAT COMMAND=  25.000    
+    TEMPERATURE SPECIFICATION=  1
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  1 0.16848E+06 0.12140E+06 0.12132E+06 0.79349E-01 -3.9872     -2063.3    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  7 0.17044E+06 0.11937E+06 -200.43      10072.      40.484     0.17052E+06
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 13  200.36     -10068.      2022.8      75399.      40.484     -3.9872    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 19  73366.      200.36      75319.    
+
+ CREATE A HEXAHEDRAL VOLUME WITH
+ X-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Y-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Z-DISTANCES FROM      0.000000000     TO      1.000000000    
+
+      OUTPUT VOLUME =     1
+
+ DEFAULT ELEMENT DIVISIONS PER LINE BASED ON ELEMENT SIZE =   1.00    
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  SELECTED VOLUMES  
+
+ NUMBER OF VOLUMES MESHED   =         1
+ MAXIMUM NODE NUMBER        =         8
+ MAXIMUM ELEMENT NUMBER     =         1
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         6.038
+
+
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ PARAMETER NN_ =     2.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ PARAMETER NN_ =     5.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            5 TO           5 BY           1
+ REAL= 1.250000000E-04   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            5 TO           5 BY           1
+ REAL=-5.000000000E-05   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            5 TO           5 BY           1
+ REAL= 3.000000000E-04   IMAG=  0.00000000    
+
+ PARAMETER NN_ =     1.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            1 TO           1 BY           1
+ REAL= 7.500000000E-05   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            1 TO           1 BY           1
+ REAL=-2.000000000E-04   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO           1 BY           1
+ REAL=-5.000000000E-05   IMAG=  0.00000000    
+
+ PARAMETER NN_ =     8.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            8 TO           8 BY           1
+ REAL= 2.000000000E-04   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            8 TO           8 BY           1
+ REAL=-2.500000000E-04   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            8 TO           8 BY           1
+ REAL= 2.500000000E-04   IMAG=  0.00000000    
+
+ PARAMETER NN_ =     4.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            4 TO           4 BY           1
+ REAL= 1.000000000E-04   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            4 TO           4 BY           1
+ REAL= 7.500000000E-05   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            4 TO           4 BY           1
+ REAL= 1.250000000E-04   IMAG=  0.00000000    
+
+ PARAMETER NN_ =     6.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            6 TO           6 BY           1
+ REAL= 2.250000000E-04   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            6 TO           6 BY           1
+ REAL= 2.500000000E-05   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            6 TO           6 BY           1
+ REAL= 4.250000000E-04   IMAG=  0.00000000    
+
+ PARAMETER NN_ =     3.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            3 TO           3 BY           1
+ REAL= 1.750000000E-04   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            3 TO           3 BY           1
+ REAL=-1.250000000E-04   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            3 TO           3 BY           1
+ REAL= 7.500000000E-05   IMAG=  0.00000000    
+
+ PARAMETER NN_ =     7.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            7 TO           7 BY           1
+ REAL= 3.000000000E-04   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            7 TO           7 BY           1
+ REAL=-1.750000000E-04   IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            7 TO           7 BY           1
+ REAL= 3.750000000E-04   IMAG=  0.00000000    
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+                ---GIVE SUGGESTIONS ONLY---
+
+ ELEMENT TYPE         1 IS SOLID185. IT IS ASSOCIATED WITH LINEAR MATERIALS ONLY
+ BUT MATERIALS ARE ANISOTROPIC. KEYOPT(2)=2 IS SUGGESTED.
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   00:10:40  OCT 13, 2026 Elapsed Time=      6.072
+
+ Step14 B0_pad3_ANEL                                                           
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** NOTE ***                            ELAPSED TIME =       6.072   TIME= 00:10:40
+ Present time 0 is less than or equal to the previous time.  Time will   
+ default to 1.                                                           
+
+ *** NOTE ***                            ELAPSED TIME =       6.072   TIME= 00:10:40
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS. . . . . . . . . . . .ALL DATA WRITTEN
+                                                  FOR THE LAST SUBSTEP
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= B0_pad3_ANEL.mntr                                                                                                                                                                                                                                                   
+
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 30785.3967 at element 1.                                      
+ Minimum = 30785.3967 at element 1.                                      
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1         1  SOLID185          0.0006   0.000612200
+ Elapsed Time at end of element matrix formulation = 6.0811067.          
+
+ *** WARNING ***                         ELAPSED TIME =       6.082   TIME= 00:10:40
+ There are no active degrees of freedom.                                 
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1         1  SOLID185          0.0004   0.000368500
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1         1  SOLID185          0.0010   0.000970800
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** MAPDL BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        0.062 MB WRITTEN ON ASSEMBLED MATRIX FILE: B0_pad3_ANEL.full
+        0.312 MB WRITTEN ON RESULTS FILE: B0_pad3_ANEL.rst
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         6.087
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   00:10:40  OCT 13, 2026 Elapsed Time=      6.090
+
+ Step14 B0_pad3_ANEL                                                           
+
+
+
+          ***** MAPDL RESULTS INTERPRETATION (POST1) *****
+
+ *** NOTE ***                            ELAPSED TIME =       6.090   TIME= 00:10:40
+ Reading results into the database (SET command) will update the current 
+ displacement and force boundary conditions in the database with the     
+ values from the results file for that load set.  Note that any          
+ subsequent solutions will use these values unless action is taken to    
+ either SAVE the current values or not overwrite them (/EXIT,NOSAVE).    
+
+
+ USE LAST SUBSTEP ON RESULT FILE  FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     1  SUBSTEP=     1  CUMULATIVE ITERATION=     1
+   TIME/FREQUENCY=  1.0000    
+ TITLE= Step14 B0_pad3_ANEL                                                     
+
+ STORE SX       FROM ITEM=S    COMP=X     FOR ALL SELECTED ELEMENTS
+
+ *GET  SX_       FROM  ELEM         1  ITEM=ETAB SX        VALUE=  28.4485683    
+
+ STORE SY       FROM ITEM=S    COMP=Y     FOR ALL SELECTED ELEMENTS
+
+ *GET  SY_       FROM  ELEM         1  ITEM=ETAB SY        VALUE=  12.8354969    
+
+ STORE SZ       FROM ITEM=S    COMP=Z     FOR ALL SELECTED ELEMENTS
+
+ *GET  SZ_       FROM  ELEM         1  ITEM=ETAB SZ        VALUE=  40.9559364    
+
+ STORE SXY      FROM ITEM=S    COMP=XY    FOR ALL SELECTED ELEMENTS
+
+ *GET  SXY_      FROM  ELEM         1  ITEM=ETAB SXY       VALUE=  11.4050350    
+
+ STORE SYZ      FROM ITEM=S    COMP=YZ    FOR ALL SELECTED ELEMENTS
+
+ *GET  SYZ_      FROM  ELEM         1  ITEM=ETAB SYZ       VALUE= -12.3154745    
+
+ STORE SXZ      FROM ITEM=S    COMP=XZ    FOR ALL SELECTED ELEMENTS
+
+ *GET  SXZ_      FROM  ELEM         1  ITEM=ETAB SXZ       VALUE=  19.2014389    
+
+ OPENED FILE= b0.txt FOR COMMAND FILE DATA 
+
+
+  COMMAND FILE CLOSED 
+
+
+ EXIT THE MAPDL POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         6.094
+
+
+
+ EXIT MAPDL WITHOUT SAVING DATABASE
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          1
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
++--------------------- M A P D L   S T A T I S T I C S ------------------------+
+
+Release: 2026 R1            Build: 26.1       Update: UP20260202   Platform: WINDOWS x64 
+Date Run: 10/13/2026   Time: 00:10     Process ID: 14716
+Operating System: Windows 11  (Build: 26300)
+
+Processor Model: 11th Gen Intel(R) Core(TM) i7-11850H @ 2.50GHz
+
+Compiler: Intel(R) Fortran Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) C/C++ Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) oneAPI Math Kernel Library Version 2024.2.3-Product Build 20250403
+
+Number of machines requested            :    1
+Total number of cores available         :   16
+Number of physical cores available      :    8
+Number of processes requested           :    1
+Number of threads per process requested :    1
+Total number of cores requested         :    1 (Shared Memory Parallel)                    
+
+GPU Acceleration: Not Requested
+
+Job Name: B0_pad3_ANEL
+Input File: C:\Users\USER\co-deep-hb\results\step14_partB0\B0_pad3_ANEL\B0_pad3_ANEL_batch.dat
+Working Directory: C:\Users\USER\co-deep-hb
+
+Total CPU time for main thread                    :        0.3 seconds
+Total CPU time summed for all threads             :        0.2 seconds
+
+Elapsed time spent obtaining a license            :        1.6 seconds
+Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
+Elapsed time spent solution - preprocessing       :        0.0 seconds
+Elapsed time spent computing solution             :        0.0 seconds
+   Elapsed time in element formation & assembly   :        0.0 seconds
+   Elapsed time in equation solver                :        0.0 seconds
+   Elapsed time in element result calculations    :        0.0 seconds
+Elapsed time spent solution - postprocessing      :        0.0 seconds
+Elapsed time spent post-processing model (/POST1) :        0.0 seconds
+ 
+Equation solver used                              :            Sparse (symmetric)
+
+Sum of disk space used on all processes           :        0.3 MB
+
+Sum of memory used on all processes               :       14.0 MB
+Sum of memory allocated on all processes          :     2304.0 MB
+Physical memory available                         :         32 GB
+Total amount of I/O written to disk               :        0.0 GB
+Total amount of I/O read from disk                :        0.0 GB
+
++------------------ E N D   M A P D L   S T A T I S T I C S -------------------+
+
+
+ *-----------------------------------------------------------------------------*
+ |                                                                             |
+ |                               RUN COMPLETED                                 |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Ansys MAPDL 2026 R1         Build 26.1         UP20260202    WINDOWS x64   |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Database Requested(-db)  1024 MB     Scratch Memory Requested      1024 MB |
+ |  Maximum Database Used       1 MB     Maximum Scratch Memory Used     13 MB |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |        CP Time      (sec) =          0.188       Time  =  00:10:50          |
+ |        Elapsed Time (sec) =         16.253       Date  =  10/13/2026        |
+ |                                                                             |
+ *-----------------------------------------------------------------------------*

@@ -1,0 +1,145 @@
+{
+ "id": "R59",
+ "exec": {
+  "method": "batch",
+  "exit_code": 1,
+  "wall_s": 351.3012650999881,
+  "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R59 -j R59 -i C:\\Users\\USER\\co-deep-hb\\results\\R59\\R59_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R59\\R59.out"
+ },
+ "deck": {
+  "run": {
+   "model": "plastic",
+   "variant": 1,
+   "mesh": "L2",
+   "shape": "circle",
+   "cap": false,
+   "sliding": false,
+   "cte": "const",
+   "angle": 0.0,
+   "t_si": 2.0,
+   "layers": true,
+   "el_input": "AELS",
+   "id": "R59",
+   "pad": 3,
+   "step": 14,
+   "note": "PLAS-B pad 3 plastic v1, paper-literal (circle, no cap, bonded), AELS input"
+  },
+  "T_sf": 275.0,
+  "T_sf_src": "paper Sec. 3.2/Fig. 4: stress-free at ~275 C (FEM curve Fig. 3b crosses 0 at 275.7 C)",
+  "n_nodes": 49000,
+  "n_elems": 45084,
+  "probes": {
+   "cu_top_center": 48388,
+   "cu_top_edge": 48393,
+   "cu_bottom_center": 28788,
+   "si_top_corner": 18376,
+   "surface_corner": 47776,
+   "surface_center": 48388,
+   "surface_edge_mid": 48371
+  },
+  "n_sidewall": 680,
+  "n_ce": 0,
+  "mat": {
+   "hkl_sorted": [
+    1,
+    0.1,
+    0.02
+   ],
+   "Ez_GPa": 68.0432522820041,
+   "sources": [
+    "variant 1: temperature independent"
+   ],
+   "cte": "constant 1.65e-05 1/K",
+   "plastic": true,
+   "flow_rule": "pad 3 own curve",
+   "shear_ratios": {},
+   "sigma0_MPa": 143.0,
+   "miso_scale": {
+    "30.0": 1.0
+   }
+  },
+  "history": [
+   {
+    "ls": 1,
+    "tag": "LS0_cool_Tsf_to_30",
+    "branch": "init",
+    "T": 30.0
+   },
+   {
+    "ls": 2,
+    "tag": "h100",
+    "branch": "heating",
+    "T": 100.0
+   },
+   {
+    "ls": 3,
+    "tag": "h150",
+    "branch": "heating",
+    "T": 150.0
+   },
+   {
+    "ls": 4,
+    "tag": "h200",
+    "branch": "heating",
+    "T": 200.0
+   },
+   {
+    "ls": 5,
+    "tag": "h250",
+    "branch": "heating",
+    "T": 250.0
+   },
+   {
+    "ls": 6,
+    "tag": "h300",
+    "branch": "heating",
+    "T": 300.0
+   },
+   {
+    "ls": 7,
+    "tag": "h350",
+    "branch": "heating",
+    "T": 350.0
+   },
+   {
+    "ls": 8,
+    "tag": "h400",
+    "branch": "heating",
+    "T": 400.0
+   },
+   {
+    "ls": 9,
+    "tag": "hold400_2h",
+    "branch": "hold",
+    "T": 400.0
+   },
+   {
+    "ls": 10,
+    "tag": "c300",
+    "branch": "cooling",
+    "T": 300.0
+   },
+   {
+    "ls": 11,
+    "tag": "c200",
+    "branch": "cooling",
+    "T": 200.0
+   },
+   {
+    "ls": 12,
+    "tag": "c100",
+    "branch": "cooling",
+    "T": 100.0
+   },
+   {
+    "ls": 13,
+    "tag": "c030",
+    "branch": "cooling",
+    "T": 30.0
+   }
+  ],
+  "physics_sha256": "fcafd9ab2035204a56da9cd1952075c5af25159d7a819b7db3ae402675574a5b"
+ },
+ "ok": false,
+ "error": "result files missing: C:\\Users\\USER\\co-deep-hb\\results\\R59\\hist_strain.txt not found."
+}

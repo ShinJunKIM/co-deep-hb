@@ -11994,5 +11994,3111 @@
   },
   "cpu_total_s": 188.984375,
   "all_converged": true
+ },
+ {
+  "id": "R40",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 20.27176390000386,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R40 -j R40 -i C:\\Users\\USER\\co-deep-hb\\results\\R40\\R40_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R40\\R40.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R40",
+    "pad": 9,
+    "dim": 2,
+    "note": "LIN 9 um bonded, 2D axisym, iso Hill",
+    "side": "bonded",
+    "cu": "iso",
+    "orient": null,
+    "plastic": false,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "primary"
+   },
+   "geometry": {
+    "w": 9.0,
+    "h": 1.15,
+    "A": 4.5,
+    "L": 27.0,
+    "R": 13.5,
+    "t_si": 27.0,
+    "zpb": 0.5,
+    "zpt": 1.65,
+    "theta": 0.13264502315156904,
+    "a_bot": 4.34655723945057
+   },
+   "n_nodes": 2989,
+   "n_elems": 2880,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 128.31337324652407
+   },
+   "physics_sha256": "334d77c916af8a6ffbf12b7243a5aa62a1dc847007bb3455b8b7c2cd7d563297"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 2.7609317150292982,
+     "u_ref": 1.709335693131,
+     "u": 1.0515960218982983,
+     "u_afm": 1.0265403762582974
+    },
+    {
+     "T": 100.0,
+     "u_cu": 8.28279514508797,
+     "u_ref": 5.128007079394,
+     "u": 3.15478806569397,
+     "u_afm": 3.079621128775245
+    },
+    {
+     "T": 150.0,
+     "u_cu": 13.80465857514621,
+     "u_ref": 8.546678465656,
+     "u": 5.257980109490209,
+     "u_afm": 5.132701881291741
+    },
+    {
+     "T": 200.0,
+     "u_cu": 19.32652200520521,
+     "u_ref": 11.96534985192,
+     "u": 7.36117215328521,
+     "u_afm": 7.185782633808486
+    }
+   ],
+   "du": 7.36117215328521,
+   "du_afm_ref": 7.185782633808486,
+   "eppl_max": 0.0,
+   "Ez": 128.31337324652407
+  }
+ },
+ {
+  "id": "R41",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 17.90873179999471,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R41 -j R41 -i C:\\Users\\USER\\co-deep-hb\\results\\R41\\R41_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R41\\R41.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R41",
+    "pad": 3,
+    "dim": 2,
+    "note": "LIN 3 um bonded, 2D axisym, iso Hill",
+    "side": "bonded",
+    "cu": "iso",
+    "orient": null,
+    "plastic": false,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "primary"
+   },
+   "geometry": {
+    "w": 3.0,
+    "h": 1.5,
+    "A": 1.5,
+    "L": 9.0,
+    "R": 4.5,
+    "t_si": 9.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 1.2998572688485701
+   },
+   "n_nodes": 3355,
+   "n_elems": 3240,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 128.31337324652407
+   },
+   "physics_sha256": "99c46963b1f577e446976a767482cc5c90ad9114c3d7239f7d3a66ac6d3cd0e6"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 1.3461438538419708,
+     "u_ref": 0.55304622402,
+     "u": 0.7930976298219707,
+     "u_afm": 0.7223363323140909
+    },
+    {
+     "T": 100.0,
+     "u_cu": 4.038431561525922,
+     "u_ref": 1.65913867206,
+     "u": 2.3792928894659218,
+     "u_afm": 2.1670089969423705
+    },
+    {
+     "T": 150.0,
+     "u_cu": 6.730719269209936,
+     "u_ref": 2.7652311201,
+     "u": 3.9654881491099356,
+     "u_afm": 3.6116816615705627
+    },
+    {
+     "T": 200.0,
+     "u_cu": 9.423006976893946,
+     "u_ref": 3.8713235681400002,
+     "u": 5.551683408753946,
+     "u_afm": 5.056354326198878
+    }
+   ],
+   "du": 5.551683408753946,
+   "du_afm_ref": 5.056354326198878,
+   "eppl_max": 0.0,
+   "Ez": 128.31337324652407
+  }
+ },
+ {
+  "id": "R42",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 18.166937100002542,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R42 -j R42 -i C:\\Users\\USER\\co-deep-hb\\results\\R42\\R42_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R42\\R42.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R42",
+    "pad": 1,
+    "dim": 2,
+    "note": "LIN 1 um bonded, 2D axisym, iso Hill (3D-verification + taper reference)",
+    "side": "bonded",
+    "cu": "iso",
+    "orient": null,
+    "plastic": false,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "check"
+   },
+   "geometry": {
+    "w": 1.0,
+    "h": 1.5,
+    "A": 0.5,
+    "L": 3.0,
+    "R": 1.5,
+    "t_si": 3.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 0.2998572688485701
+   },
+   "n_nodes": 5795,
+   "n_elems": 5640,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 128.31337324652407
+   },
+   "physics_sha256": "6f92a2779b64eb2315bb92445bd9dc421a845bc929e7097a859747ef1a27adab"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 0.5468883642437483,
+     "u_ref": 0.2074141661966,
+     "u": 0.3394741980471483,
+     "u_afm": 0.2944593986637996
+    },
+    {
+     "T": 100.0,
+     "u_cu": 1.6406650927312993,
+     "u_ref": 0.6222424985899,
+     "u": 1.0184225941413994,
+     "u_afm": 0.883378195991466
+    },
+    {
+     "T": 150.0,
+     "u_cu": 2.7344418212187396,
+     "u_ref": 1.0370708309830001,
+     "u": 1.6973709902357395,
+     "u_afm": 1.4722969933190273
+    },
+    {
+     "T": 200.0,
+     "u_cu": 3.828218549706224,
+     "u_ref": 1.451899163376,
+     "u": 2.3763193863302243,
+     "u_afm": 2.0612157906466715
+    }
+   ],
+   "du": 2.3763193863302243,
+   "du_afm_ref": 2.0612157906466715,
+   "eppl_max": 0.0,
+   "Ez": 128.31337324652407
+  }
+ },
+ {
+  "id": "R43",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 24.290258499997435,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R43 -j R43 -i C:\\Users\\USER\\co-deep-hb\\results\\R43\\R43_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R43\\R43.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R43",
+    "pad": 1,
+    "dim": 3,
+    "note": "LIN 1 um bonded, 3D, Cu [001]",
+    "side": "bonded",
+    "cu": "aniso",
+    "orient": "001",
+    "plastic": false,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "primary"
+   },
+   "geometry": {
+    "w": 1.0,
+    "h": 1.5,
+    "A": 0.5,
+    "L": 3.0,
+    "R": 1.5,
+    "t_si": 3.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 0.2998572688485701
+   },
+   "n_nodes": 18515,
+   "n_elems": 16456,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 66.68875086266391
+   },
+   "physics_sha256": "634710f22fd801e2bb6996bdd9abbf7c92df8a7fe02ad3ceeb6be85b772decdd"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 0.5140944807151325,
+     "u_ref": 0.19582600519551707,
+     "u": 0.31826847551961546,
+     "u_afm": 0.29674485561282415
+    },
+    {
+     "T": 100.0,
+     "u_cu": 1.542283442145273,
+     "u_ref": 0.5874780155864738,
+     "u": 0.9548054265587991,
+     "u_afm": 0.8902345668384325
+    },
+    {
+     "T": 150.0,
+     "u_cu": 2.5704724035753737,
+     "u_ref": 0.9791300259774023,
+     "u": 1.5913423775979714,
+     "u_afm": 1.4837242780639996
+    },
+    {
+     "T": 200.0,
+     "u_cu": 3.5986613650056114,
+     "u_ref": 1.370782036368432,
+     "u": 2.2278793286371794,
+     "u_afm": 2.077213989289687
+    }
+   ],
+   "du": 2.2278793286371794,
+   "du_afm_ref": 2.077213989289687,
+   "eppl_max": 0.0,
+   "Ez": 66.68875086266391
+  }
+ },
+ {
+  "id": "R44",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 24.274192900003982,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R44 -j R44 -i C:\\Users\\USER\\co-deep-hb\\results\\R44\\R44_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R44\\R44.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R44",
+    "pad": 1,
+    "dim": 3,
+    "note": "LIN 1 um bonded, 3D, Cu [101]",
+    "side": "bonded",
+    "cu": "aniso",
+    "orient": "101",
+    "plastic": false,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "primary"
+   },
+   "geometry": {
+    "w": 1.0,
+    "h": 1.5,
+    "A": 0.5,
+    "L": 3.0,
+    "R": 1.5,
+    "t_si": 3.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 0.2998572688485701
+   },
+   "n_nodes": 18515,
+   "n_elems": 16456,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 130.3375729409281
+   },
+   "physics_sha256": "be658ca656842325a8e886a31d6be89f928565ea0a4428f0a7bc7b6cc41dc47a"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 0.5497767962934358,
+     "u_ref": 0.19665499445612158,
+     "u": 0.35312180183731423,
+     "u_afm": 0.33010792152777524
+    },
+    {
+     "T": 100.0,
+     "u_cu": 1.649330388880169,
+     "u_ref": 0.5899649833682955,
+     "u": 1.0593654055118735,
+     "u_afm": 0.9903237645832677
+    },
+    {
+     "T": 150.0,
+     "u_cu": 2.748883981466786,
+     "u_ref": 0.9832749722804692,
+     "u": 1.7656090091863166,
+     "u_afm": 1.6505396076386425
+    },
+    {
+     "T": 200.0,
+     "u_cu": 3.848437574053492,
+     "u_ref": 1.3765849611926817,
+     "u": 2.4718526128608103,
+     "u_afm": 2.310755450694109
+    }
+   ],
+   "du": 2.4718526128608103,
+   "du_afm_ref": 2.310755450694109,
+   "eppl_max": 0.0,
+   "Ez": 130.3375729409281
+  }
+ },
+ {
+  "id": "R45",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 24.181754999997793,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R45 -j R45 -i C:\\Users\\USER\\co-deep-hb\\results\\R45\\R45_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R45\\R45.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R45",
+    "pad": 1,
+    "dim": 3,
+    "note": "LIN 1 um bonded, 3D, Cu [111]",
+    "side": "bonded",
+    "cu": "aniso",
+    "orient": "111",
+    "plastic": false,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "primary"
+   },
+   "geometry": {
+    "w": 1.0,
+    "h": 1.5,
+    "A": 0.5,
+    "L": 3.0,
+    "R": 1.5,
+    "t_si": 3.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 0.2998572688485701
+   },
+   "n_nodes": 18515,
+   "n_elems": 16456,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 191.1496917385946
+   },
+   "physics_sha256": "f44d96e2930cdd4cbe58a5e8533e76a9fab5c98bfc432d18c9a0ed0496b635a3"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 0.5668683036637503,
+     "u_ref": 0.1968902317041966,
+     "u": 0.3699780719595537,
+     "u_afm": 0.34664663691931497
+    },
+    {
+     "T": 100.0,
+     "u_cu": 1.700604910991123,
+     "u_ref": 0.5906706951125181,
+     "u": 1.1099342158786047,
+     "u_afm": 1.0399399107579064
+    },
+    {
+     "T": 150.0,
+     "u_cu": 2.8343415183183818,
+     "u_ref": 0.9844511585208512,
+     "u": 1.8498903597975307,
+     "u_afm": 1.7332331845963584
+    },
+    {
+     "T": 200.0,
+     "u_cu": 3.9680781256457243,
+     "u_ref": 1.3782316219292046,
+     "u": 2.5898465037165197,
+     "u_afm": 2.426526458434955
+    }
+   ],
+   "du": 2.5898465037165197,
+   "du_afm_ref": 2.426526458434955,
+   "eppl_max": 0.0,
+   "Ez": 191.1496917385946
+  }
+ },
+ {
+  "id": "R46",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 18.1104578999948,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R46 -j R46 -i C:\\Users\\USER\\co-deep-hb\\results\\R46\\R46_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R46\\R46.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R46",
+    "pad": 9,
+    "dim": 2,
+    "note": "LIN 9 um SLIDING control, 2D",
+    "side": "sliding",
+    "cu": "iso",
+    "orient": null,
+    "plastic": false,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "control"
+   },
+   "geometry": {
+    "w": 9.0,
+    "h": 1.15,
+    "A": 4.5,
+    "L": 27.0,
+    "R": 13.5,
+    "t_si": 27.0,
+    "zpb": 0.5,
+    "zpt": 1.65,
+    "theta": 0.13264502315156904,
+    "a_bot": 4.34655723945057
+   },
+   "n_nodes": 3003,
+   "n_elems": 2880,
+   "n_ce": 14,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 128.31337324652407
+   },
+   "physics_sha256": "aab98acb3d4d95fe6748e07543360300a0d2bbfab97f1726e48fab092752dde5"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 2.7632380123660827,
+     "u_ref": 1.71010579687,
+     "u": 1.0531322154960827,
+     "u_afm": 1.037294354976983
+    },
+    {
+     "T": 100.0,
+     "u_cu": 8.289714037098257,
+     "u_ref": 5.130317390609,
+     "u": 3.159396646489257,
+     "u_afm": 3.111883064931096
+    },
+    {
+     "T": 150.0,
+     "u_cu": 13.816190061830106,
+     "u_ref": 8.550528984348,
+     "u": 5.265661077482106,
+     "u_afm": 5.186471774884904
+    },
+    {
+     "T": 200.0,
+     "u_cu": 19.342666086561906,
+     "u_ref": 11.97074057809,
+     "u": 7.3719255084719055,
+     "u_afm": 7.261060484838804
+    }
+   ],
+   "du": 7.3719255084719055,
+   "du_afm_ref": 7.261060484838804,
+   "eppl_max": 0.0,
+   "Ez": 128.31337324652407
+  }
+ },
+ {
+  "id": "R47",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 17.828100300001097,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R47 -j R47 -i C:\\Users\\USER\\co-deep-hb\\results\\R47\\R47_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R47\\R47.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R47",
+    "pad": 3,
+    "dim": 2,
+    "note": "LIN 3 um SLIDING control, 2D",
+    "side": "sliding",
+    "cu": "iso",
+    "orient": null,
+    "plastic": false,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "control"
+   },
+   "geometry": {
+    "w": 3.0,
+    "h": 1.5,
+    "A": 1.5,
+    "L": 9.0,
+    "R": 4.5,
+    "t_si": 9.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 1.2998572688485701
+   },
+   "n_nodes": 3377,
+   "n_elems": 3240,
+   "n_ce": 22,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 128.31337324652407
+   },
+   "physics_sha256": "cd554ff1f6425ce0e9889015b7a1171aff89dd12f6837bfe96132fe2c629152b"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 1.497327835289399,
+     "u_ref": 0.5533904920042,
+     "u": 0.9439373432851991,
+     "u_afm": 0.9280356610999362
+    },
+    {
+     "T": 100.0,
+     "u_cu": 4.491983505868012,
+     "u_ref": 1.660171476013,
+     "u": 2.831812029855012,
+     "u_afm": 2.784106983299644
+    },
+    {
+     "T": 150.0,
+     "u_cu": 7.48663917644663,
+     "u_ref": 2.7669524600210003,
+     "u": 4.719686716425629,
+     "u_afm": 4.64017830549942
+    },
+    {
+     "T": 200.0,
+     "u_cu": 10.481294847025579,
+     "u_ref": 3.873733444029,
+     "u": 6.607561402996579,
+     "u_afm": 6.496249627699424
+    }
+   ],
+   "du": 6.607561402996579,
+   "du_afm_ref": 6.496249627699424,
+   "eppl_max": 0.0,
+   "Ez": 128.31337324652407
+  }
+ },
+ {
+  "id": "R48",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 24.268622200004756,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R48 -j R48 -i C:\\Users\\USER\\co-deep-hb\\results\\R48\\R48_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R48\\R48.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R48",
+    "pad": 1,
+    "dim": 3,
+    "note": "LIN 1 um SLIDING control, 3D, Cu [001]",
+    "side": "sliding",
+    "cu": "aniso",
+    "orient": "001",
+    "plastic": false,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "control"
+   },
+   "geometry": {
+    "w": 1.0,
+    "h": 1.5,
+    "A": 0.5,
+    "L": 3.0,
+    "R": 1.5,
+    "t_si": 3.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 0.2998572688485701
+   },
+   "n_nodes": 19075,
+   "n_elems": 16456,
+   "n_ce": 560,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 66.68875086266391
+   },
+   "physics_sha256": "2c0f52d6d70e33e8be458fc6d7f049f93d1b4094154900dab3084b5525abc3aa"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 1.0244893446073333,
+     "u_ref": 0.17747505505550795,
+     "u": 0.8470142895518253,
+     "u_afm": 0.8470297015655444
+    },
+    {
+     "T": 100.0,
+     "u_cu": 3.0734680338213893,
+     "u_ref": 0.5324251651664557,
+     "u": 2.541042868654934,
+     "u_afm": 2.541089104696102
+    },
+    {
+     "T": 150.0,
+     "u_cu": 5.122446723035347,
+     "u_ref": 0.8873752752773943,
+     "u": 4.235071447757953,
+     "u_afm": 4.235148507826565
+    },
+    {
+     "T": 200.0,
+     "u_cu": 7.17142541224956,
+     "u_ref": 1.2423253853883298,
+     "u": 5.92910002686123,
+     "u_afm": 5.929207910957333
+    }
+   ],
+   "du": 5.92910002686123,
+   "du_afm_ref": 5.929207910957333,
+   "eppl_max": 0.0,
+   "Ez": 66.68875086266391
+  }
+ },
+ {
+  "id": "R49",
+  "exec": {
+   "method": "batch",
+   "exit_code": 1,
+   "wall_s": 18.157603900006507,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R49 -j R49 -i C:\\Users\\USER\\co-deep-hb\\results\\R49\\R49_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R49\\R49.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R49",
+    "pad": 1,
+    "dim": 3,
+    "note": "LIN 1 um bonded PLASTIC (Ludwick v1), 3D, Cu [001]",
+    "side": "bonded",
+    "cu": "aniso",
+    "orient": "001",
+    "plastic": true,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "plastic"
+   },
+   "geometry": {
+    "w": 1.0,
+    "h": 1.5,
+    "A": 0.5,
+    "L": 3.0,
+    "R": 1.5,
+    "t_si": 3.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 0.2998572688485701
+   },
+   "n_nodes": 18515,
+   "n_elems": 16456,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 66.68875086266391,
+    "flow_rule": "66.6<=E<68.04: pad 3 curve"
+   },
+   "physics_sha256": "ef51802489d56f7f035f6051a61c92a1d4f8f2ff7deb3d058e277749962a200a"
+  },
+  "check": {
+   "load_steps": [],
+   "all_ok": false,
+   "failures": [
+    "*** ERROR ***"
+   ]
+  },
+  "ok": false,
+  "error": "FileNotFoundError: C:\\Users\\USER\\co-deep-hb\\results\\R49\\top_disp.txt not found."
+ },
+ {
+  "id": "R50",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 22.451819599999,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R50 -j R50 -i C:\\Users\\USER\\co-deep-hb\\results\\R50\\R50_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R50\\R50.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R50",
+    "pad": 3,
+    "dim": 2,
+    "note": "LIN 3 um bonded PLASTIC (Ludwick v1, E_Hill mapping), 2D",
+    "side": "bonded",
+    "cu": "iso",
+    "orient": null,
+    "plastic": true,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "plastic"
+   },
+   "geometry": {
+    "w": 3.0,
+    "h": 1.5,
+    "A": 1.5,
+    "L": 9.0,
+    "R": 4.5,
+    "t_si": 9.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 1.2998572688485701
+   },
+   "n_nodes": 3355,
+   "n_elems": 3240,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 128.31337324652407,
+    "flow_rule": "pointwise interpolation, w = 0.3331 between pad 1 (E 127.30) and pad 2 (E 130.34)"
+   },
+   "physics_sha256": "f62e833c4d27120f72d55a3341477b2d8e9dbed44d5c3916f4a05e9225072546"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 1.346143853842082,
+     "u_ref": 0.5530462240201,
+     "u": 0.7930976298219821,
+     "u_afm": 0.7223363323141392
+    },
+    {
+     "T": 100.0,
+     "u_cu": 4.0384315615260995,
+     "u_ref": 1.65913867206,
+     "u": 2.3792928894660994,
+     "u_afm": 2.167008996942209
+    },
+    {
+     "T": 150.0,
+     "u_cu": 6.730532182456486,
+     "u_ref": 2.765237549902,
+     "u": 3.9652946325544858,
+     "u_afm": 3.611478839889697
+    },
+    {
+     "T": 200.0,
+     "u_cu": 9.45311607366675,
+     "u_ref": 3.8711466574510003,
+     "u": 5.581969416215751,
+     "u_afm": 5.086220066638694
+    }
+   ],
+   "du": 5.581969416215751,
+   "du_afm_ref": 5.086220066638694,
+   "eppl_max": 0.002450462139677,
+   "Ez": 128.31337324652407
+  }
+ },
+ {
+  "id": "R51",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 18.121361600002274,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R51 -j R51 -i C:\\Users\\USER\\co-deep-hb\\results\\R51\\R51_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R51\\R51.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R51",
+    "pad": 9,
+    "dim": 2,
+    "note": "LIN 9 um bonded, cell x2 (6 w) and Si x2",
+    "side": "bonded",
+    "cu": "iso",
+    "orient": null,
+    "plastic": false,
+    "cell_factor": 6.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "cell"
+   },
+   "geometry": {
+    "w": 9.0,
+    "h": 1.15,
+    "A": 4.5,
+    "L": 54.0,
+    "R": 27.0,
+    "t_si": 54.0,
+    "zpb": 0.5,
+    "zpt": 1.65,
+    "theta": 0.13264502315156904,
+    "a_bot": 4.34655723945057
+   },
+   "n_nodes": 3551,
+   "n_elems": 3432,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 128.31337324652407
+   },
+   "physics_sha256": "d09008bd0f44a306c20575bd7cde747d8ac1312c288d83811e17306a0b97de4e"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 4.536107745684204,
+     "u_ref": 3.4876194225779997,
+     "u": 1.0484883231062039,
+     "u_afm": 1.0353428292021176
+    },
+    {
+     "T": 100.0,
+     "u_cu": 13.608323237053167,
+     "u_ref": 10.46285826773,
+     "u": 3.145464969323166,
+     "u_afm": 3.1060284876078423
+    },
+    {
+     "T": 150.0,
+     "u_cu": 22.680538728420363,
+     "u_ref": 17.43809711289,
+     "u": 5.242441615530364,
+     "u_afm": 5.17671414601061
+    },
+    {
+     "T": 200.0,
+     "u_cu": 31.752754219790397,
+     "u_ref": 24.413335958050002,
+     "u": 7.339418261740395,
+     "u_afm": 7.247399804416151
+    }
+   ],
+   "du": 7.339418261740395,
+   "du_afm_ref": 7.247399804416151,
+   "eppl_max": 0.0,
+   "Ez": 128.31337324652407
+  }
+ },
+ {
+  "id": "R52",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 18.056860500000766,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R52 -j R52 -i C:\\Users\\USER\\co-deep-hb\\results\\R52\\R52_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R52\\R52.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R52",
+    "pad": 3,
+    "dim": 2,
+    "note": "LIN 3 um bonded, cell x2",
+    "side": "bonded",
+    "cu": "iso",
+    "orient": null,
+    "plastic": false,
+    "cell_factor": 6.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "cell"
+   },
+   "geometry": {
+    "w": 3.0,
+    "h": 1.5,
+    "A": 1.5,
+    "L": 18.0,
+    "R": 9.0,
+    "t_si": 18.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 1.2998572688485701
+   },
+   "n_nodes": 3953,
+   "n_elems": 3828,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 128.31337324652407
+   },
+   "physics_sha256": "08861797843203958edee3e0facc36f1f5081ce51821e15f1535dba670d3aebe"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 1.9459997548746082,
+     "u_ref": 1.144979473124,
+     "u": 0.8010202817506082,
+     "u_afm": 0.7485893277747064
+    },
+    {
+     "T": 100.0,
+     "u_cu": 5.837999264624035,
+     "u_ref": 3.434938419372,
+     "u": 2.4030608452520346,
+     "u_afm": 2.2457679833247046
+    },
+    {
+     "T": 150.0,
+     "u_cu": 9.72999877437331,
+     "u_ref": 5.7248973656210005,
+     "u": 4.00510140875231,
+     "u_afm": 3.74294663887442
+    },
+    {
+     "T": 200.0,
+     "u_cu": 13.621998284122325,
+     "u_ref": 8.014856311869,
+     "u": 5.607141972253325,
+     "u_afm": 5.240125294423828
+    }
+   ],
+   "du": 5.607141972253325,
+   "du_afm_ref": 5.240125294423828,
+   "eppl_max": 0.0,
+   "Ez": 128.31337324652407
+  }
+ },
+ {
+  "id": "R53",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 42.356722500000615,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R53 -j R53 -i C:\\Users\\USER\\co-deep-hb\\results\\R53\\R53_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R53\\R53.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R53",
+    "pad": 1,
+    "dim": 3,
+    "note": "LIN 1 um bonded [001], cell x2",
+    "side": "bonded",
+    "cu": "aniso",
+    "orient": "001",
+    "plastic": false,
+    "cell_factor": 6.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "cell"
+   },
+   "geometry": {
+    "w": 1.0,
+    "h": 1.5,
+    "A": 0.5,
+    "L": 6.0,
+    "R": 3.0,
+    "t_si": 6.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 0.2998572688485701
+   },
+   "n_nodes": 52022,
+   "n_elems": 47952,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 66.68875086266391
+   },
+   "physics_sha256": "d7f67adc7d64213c6545533ea5723c04b46bf44eebb3e4c628378c4a54e0d097"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 0.7056054017256563,
+     "u_ref": 0.370504413641234,
+     "u": 0.33510098808442235,
+     "u_afm": 0.3051693392421079
+    },
+    {
+     "T": 100.0,
+     "u_cu": 2.1168162051769635,
+     "u_ref": 1.1115132409235695,
+     "u": 1.005302964253394,
+     "u_afm": 0.9155080177264656
+    },
+    {
+     "T": 150.0,
+     "u_cu": 3.528027008627757,
+     "u_ref": 1.852522068205958,
+     "u": 1.675504940421799,
+     "u_afm": 1.5258466962103427
+    },
+    {
+     "T": 200.0,
+     "u_cu": 4.939237812078793,
+     "u_ref": 2.5935308954882847,
+     "u": 2.3457069165905082,
+     "u_afm": 2.1361853746943753
+    }
+   ],
+   "du": 2.3457069165905082,
+   "du_afm_ref": 2.1361853746943753,
+   "eppl_max": 0.0,
+   "Ez": 66.68875086266391
+  }
+ },
+ {
+  "id": "R54",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 17.869092200009618,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R54 -j R54 -i C:\\Users\\USER\\co-deep-hb\\results\\R54\\R54_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R54\\R54.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R54",
+    "pad": 1,
+    "dim": 2,
+    "note": "LIN 1 um bonded iso 2D, taper 18 deg (108 deg annotation) - sensitivity",
+    "side": "bonded",
+    "cu": "iso",
+    "orient": null,
+    "plastic": false,
+    "cell_factor": 3.0,
+    "taper": 18.0,
+    "refine": 1,
+    "role": "taper"
+   },
+   "geometry": {
+    "w": 1.0,
+    "h": 1.5,
+    "A": 0.5,
+    "L": 3.0,
+    "R": 1.5,
+    "t_si": 3.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.3141592653589793,
+    "a_bot": 0.012620455650640572
+   },
+   "n_nodes": 5795,
+   "n_elems": 5640,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 128.31337324652407
+   },
+   "physics_sha256": "e41d1f7e6b505a951b6c2022a427f680fc3b27454695d267abf091d1faa30992"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 0.4617269463646769,
+     "u_ref": 0.1795324194229,
+     "u": 0.28219452694177694,
+     "u_afm": 0.25577216793363333
+    },
+    {
+     "T": 100.0,
+     "u_cu": 1.38518083909392,
+     "u_ref": 0.5385972582687,
+     "u": 0.84658358082522,
+     "u_afm": 0.7673165038007895
+    },
+    {
+     "T": 150.0,
+     "u_cu": 2.308634731823351,
+     "u_ref": 0.8976620971145,
+     "u": 1.410972634708851,
+     "u_afm": 1.2788608396681342
+    },
+    {
+     "T": 200.0,
+     "u_cu": 3.2320886245528624,
+     "u_ref": 1.25672693596,
+     "u": 1.9753616885928624,
+     "u_afm": 1.7904051755354473
+    }
+   ],
+   "du": 1.9753616885928624,
+   "du_afm_ref": 1.7904051755354473,
+   "eppl_max": 0.0,
+   "Ez": 128.31337324652407
+  }
+ },
+ {
+  "id": "R55",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 24.30061950000527,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R55 -j R55 -i C:\\Users\\USER\\co-deep-hb\\results\\R55\\R55_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R55\\R55.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R55",
+    "pad": 1,
+    "dim": 3,
+    "note": "LIN 1 um bonded iso 3D - verification vs R42 (2D)",
+    "side": "bonded",
+    "cu": "iso",
+    "orient": null,
+    "plastic": false,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "check"
+   },
+   "geometry": {
+    "w": 1.0,
+    "h": 1.5,
+    "A": 0.5,
+    "L": 3.0,
+    "R": 1.5,
+    "t_si": 3.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 0.2998572688485701
+   },
+   "n_nodes": 18515,
+   "n_elems": 16456,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 128.31337324652407
+   },
+   "physics_sha256": "1887fcbe05087fb3452fc04b8003e1b5e2446f6fc6f59633557e7e5eb40e0911"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 0.5425802432855036,
+     "u_ref": 0.19667927932999774,
+     "u": 0.34590096395550585,
+     "u_afm": 0.3229942428763378
+    },
+    {
+     "T": 100.0,
+     "u_cu": 1.6277407298564717,
+     "u_ref": 0.5900378379899068,
+     "u": 1.037702891866565,
+     "u_afm": 0.9689827286290636
+    },
+    {
+     "T": 150.0,
+     "u_cu": 2.712901216427133,
+     "u_ref": 0.9833963966498284,
+     "u": 1.7295048197773046,
+     "u_afm": 1.6149712143814816
+    },
+    {
+     "T": 200.0,
+     "u_cu": 3.7980617029978454,
+     "u_ref": 1.376754955309716,
+     "u": 2.4213067476881296,
+     "u_afm": 2.2609597001339656
+    }
+   ],
+   "du": 2.4213067476881296,
+   "du_afm_ref": 2.2609597001339656,
+   "eppl_max": 0.0,
+   "Ez": 128.31337324652407
+  }
+ },
+ {
+  "id": "R56",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 18.42299120000098,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R56 -j R56 -i C:\\Users\\USER\\co-deep-hb\\results\\R56\\R56_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R56\\R56.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R56",
+    "pad": 3,
+    "dim": 2,
+    "note": "LIN 3 um bonded 2D, mesh refined x2 - mesh check",
+    "side": "bonded",
+    "cu": "iso",
+    "orient": null,
+    "plastic": false,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 2,
+    "role": "mesh"
+   },
+   "geometry": {
+    "w": 3.0,
+    "h": 1.5,
+    "A": 1.5,
+    "L": 9.0,
+    "R": 4.5,
+    "t_si": 9.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 1.2998572688485701
+   },
+   "n_nodes": 8505,
+   "n_elems": 8320,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 128.31337324652407
+   },
+   "physics_sha256": "ad3f4aa8a6229155e71703beac8cc6cba65ef28e616beba98d817b4697184c97"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 1.3461210370344971,
+     "u_ref": 0.5530533204260001,
+     "u": 0.7930677166084971,
+     "u_afm": 0.7223586441111028
+    },
+    {
+     "T": 100.0,
+     "u_cu": 4.038363111103619,
+     "u_ref": 1.659159961278,
+     "u": 2.379203149825619,
+     "u_afm": 2.167075932333591
+    },
+    {
+     "T": 150.0,
+     "u_cu": 6.7306051851727355,
+     "u_ref": 2.76526660213,
+     "u": 3.9653385830427355,
+     "u_afm": 3.6117932205558527
+    },
+    {
+     "T": 200.0,
+     "u_cu": 9.422847259241788,
+     "u_ref": 3.871373242982,
+     "u": 5.551474016259788,
+     "u_afm": 5.056510508778141
+    }
+   ],
+   "du": 5.551474016259788,
+   "du_afm_ref": 5.056510508778141,
+   "eppl_max": 0.0,
+   "Ez": 128.31337324652407
+  }
+ },
+ {
+  "id": "R57",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 21.887742199993227,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R57 -j R57 -i C:\\Users\\USER\\co-deep-hb\\results\\R57\\R57_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R57\\R57.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R57",
+    "pad": 9,
+    "dim": 2,
+    "note": "LIN 9 um bonded PLASTIC (Ludwick v1, E_Hill mapping), 2D",
+    "side": "bonded",
+    "cu": "iso",
+    "orient": null,
+    "plastic": true,
+    "cell_factor": 3.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "plastic"
+   },
+   "geometry": {
+    "w": 9.0,
+    "h": 1.15,
+    "A": 4.5,
+    "L": 27.0,
+    "R": 13.5,
+    "t_si": 27.0,
+    "zpb": 0.5,
+    "zpt": 1.65,
+    "theta": 0.13264502315156904,
+    "a_bot": 4.34655723945057
+   },
+   "n_nodes": 2989,
+   "n_elems": 2880,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 128.31337324652407,
+    "flow_rule": "pointwise interpolation, w = 0.3331 between pad 1 (E 127.30) and pad 2 (E 130.34)"
+   },
+   "physics_sha256": "a5a3e1ad86cb931dc5c67d12bacc0cbde4633b99ff96a1921730f279a1e7f134"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 2.760931715029334,
+     "u_ref": 1.7093356931319998,
+     "u": 1.0515960218973344,
+     "u_afm": 1.0265403762580898
+    },
+    {
+     "T": 100.0,
+     "u_cu": 8.282795145088185,
+     "u_ref": 5.128007079394999,
+     "u": 3.154788065693186,
+     "u_afm": 3.079621128774697
+    },
+    {
+     "T": 150.0,
+     "u_cu": 13.826584659580654,
+     "u_ref": 8.547996170921,
+     "u": 5.278588488659654,
+     "u_afm": 5.154335960646328
+    },
+    {
+     "T": 200.0,
+     "u_cu": 19.583059859300633,
+     "u_ref": 11.98409055094,
+     "u": 7.598969308360633,
+     "u_afm": 7.432694423372313
+    }
+   ],
+   "du": 7.598969308360633,
+   "du_afm_ref": 7.432694423372313,
+   "eppl_max": 0.001550103159389,
+   "Ez": 128.31337324652407
+  }
+ },
+ {
+  "id": "R58",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 74.80117930000415,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R58 -j R58 -i C:\\Users\\USER\\co-deep-hb\\results\\R58\\R58_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R58\\R58.out"
+  },
+  "deck": {
+   "run": {
+    "id": "R58",
+    "pad": 1,
+    "dim": 3,
+    "note": "LIN 1 um bonded [001], cell x3 (9 w) - next cell step",
+    "side": "bonded",
+    "cu": "aniso",
+    "orient": "001",
+    "plastic": false,
+    "cell_factor": 9.0,
+    "taper": 7.6,
+    "refine": 1,
+    "role": "cell"
+   },
+   "geometry": {
+    "w": 1.0,
+    "h": 1.5,
+    "A": 0.5,
+    "L": 9.0,
+    "R": 4.5,
+    "t_si": 9.0,
+    "zpb": 0.5,
+    "zpt": 2.0,
+    "theta": 0.13264502315156904,
+    "a_bot": 0.2998572688485701
+   },
+   "n_nodes": 104040,
+   "n_elems": 97500,
+   "n_ce": 0,
+   "temps": [
+    25.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0
+   ],
+   "T_ref": 25.0,
+   "mat": {
+    "hill": {
+     "E_MPa": 128313.37324652406,
+     "nu": 0.34540557440177816,
+     "G_GPa": 47.68575947947049,
+     "K_GPa": 138.33333333333334,
+     "T_used": 26.85,
+     "C": [
+      170.0,
+      122.5,
+      75.8
+     ]
+    },
+    "Ez_GPa": 66.68875086266391
+   },
+   "physics_sha256": "996cbba268a177aae10d3479a0d16954eed81f2abe4887366fd4c7d86824fb6c"
+  },
+  "check": {
+   "load_steps": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "all_ok": true,
+   "failures": []
+  },
+  "ok": true,
+  "result": {
+   "hist": [
+    {
+     "T": 25.0,
+     "u_cu": 0.0,
+     "u_ref": 0.0,
+     "u": 0.0,
+     "u_afm": 0.0
+    },
+    {
+     "T": 50.0,
+     "u_cu": 0.9018892760371925,
+     "u_ref": 0.5654939086686575,
+     "u": 0.33639536736853504,
+     "u_afm": 0.3045341063123017
+    },
+    {
+     "T": 100.0,
+     "u_cu": 2.7056678281112108,
+     "u_ref": 1.6964817260057998,
+     "u": 1.009186102105411,
+     "u_afm": 0.9136023189367584
+    },
+    {
+     "T": 150.0,
+     "u_cu": 4.50944638018548,
+     "u_ref": 2.8274695433429002,
+     "u": 1.6819768368425798,
+     "u_afm": 1.5226705315614368
+    },
+    {
+     "T": 200.0,
+     "u_cu": 6.3132249322595,
+     "u_ref": 3.958457360679935,
+     "u": 2.354767571579565,
+     "u_afm": 2.1317387441859053
+    }
+   ],
+   "du": 2.354767571579565,
+   "du_afm_ref": 2.1317387441859053,
+   "eppl_max": 0.0,
+   "Ez": 66.68875086266391
+  }
+ },
+ {
+  "id": "R59",
+  "exec": {
+   "method": "batch",
+   "exit_code": 1,
+   "wall_s": 351.3012650999881,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R59 -j R59 -i C:\\Users\\USER\\co-deep-hb\\results\\R59\\R59_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R59\\R59.out"
+  },
+  "deck": {
+   "run": {
+    "model": "plastic",
+    "variant": 1,
+    "mesh": "L2",
+    "shape": "circle",
+    "cap": false,
+    "sliding": false,
+    "cte": "const",
+    "angle": 0.0,
+    "t_si": 2.0,
+    "layers": true,
+    "el_input": "AELS",
+    "id": "R59",
+    "pad": 3,
+    "step": 14,
+    "note": "PLAS-B pad 3 plastic v1, paper-literal (circle, no cap, bonded), AELS input"
+   },
+   "T_sf": 275.0,
+   "T_sf_src": "paper Sec. 3.2/Fig. 4: stress-free at ~275 C (FEM curve Fig. 3b crosses 0 at 275.7 C)",
+   "n_nodes": 49000,
+   "n_elems": 45084,
+   "probes": {
+    "cu_top_center": 48388,
+    "cu_top_edge": 48393,
+    "cu_bottom_center": 28788,
+    "si_top_corner": 18376,
+    "surface_corner": 47776,
+    "surface_center": 48388,
+    "surface_edge_mid": 48371
+   },
+   "n_sidewall": 680,
+   "n_ce": 0,
+   "mat": {
+    "hkl_sorted": [
+     1,
+     0.1,
+     0.02
+    ],
+    "Ez_GPa": 68.0432522820041,
+    "sources": [
+     "variant 1: temperature independent"
+    ],
+    "cte": "constant 1.65e-05 1/K",
+    "plastic": true,
+    "flow_rule": "pad 3 own curve",
+    "shear_ratios": {},
+    "sigma0_MPa": 143.0,
+    "miso_scale": {
+     "30.0": 1.0
+    }
+   },
+   "history": [
+    {
+     "ls": 1,
+     "tag": "LS0_cool_Tsf_to_30",
+     "branch": "init",
+     "T": 30.0
+    },
+    {
+     "ls": 2,
+     "tag": "h100",
+     "branch": "heating",
+     "T": 100.0
+    },
+    {
+     "ls": 3,
+     "tag": "h150",
+     "branch": "heating",
+     "T": 150.0
+    },
+    {
+     "ls": 4,
+     "tag": "h200",
+     "branch": "heating",
+     "T": 200.0
+    },
+    {
+     "ls": 5,
+     "tag": "h250",
+     "branch": "heating",
+     "T": 250.0
+    },
+    {
+     "ls": 6,
+     "tag": "h300",
+     "branch": "heating",
+     "T": 300.0
+    },
+    {
+     "ls": 7,
+     "tag": "h350",
+     "branch": "heating",
+     "T": 350.0
+    },
+    {
+     "ls": 8,
+     "tag": "h400",
+     "branch": "heating",
+     "T": 400.0
+    },
+    {
+     "ls": 9,
+     "tag": "hold400_2h",
+     "branch": "hold",
+     "T": 400.0
+    },
+    {
+     "ls": 10,
+     "tag": "c300",
+     "branch": "cooling",
+     "T": 300.0
+    },
+    {
+     "ls": 11,
+     "tag": "c200",
+     "branch": "cooling",
+     "T": 200.0
+    },
+    {
+     "ls": 12,
+     "tag": "c100",
+     "branch": "cooling",
+     "T": 100.0
+    },
+    {
+     "ls": 13,
+     "tag": "c030",
+     "branch": "cooling",
+     "T": 30.0
+    }
+   ],
+   "physics_sha256": "fcafd9ab2035204a56da9cd1952075c5af25159d7a819b7db3ae402675574a5b"
+  },
+  "ok": false,
+  "error": "result files missing: C:\\Users\\USER\\co-deep-hb\\results\\R59\\hist_strain.txt not found."
+ },
+ {
+  "id": "R60",
+  "exec": {
+   "method": "batch",
+   "exit_code": 0,
+   "wall_s": 71.3077556000062,
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R60 -j R60 -i C:\\Users\\USER\\co-deep-hb\\results\\R60\\R60_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R60\\R60.out"
+  },
+  "deck": {
+   "run": {
+    "model": "elastic",
+    "variant": 1,
+    "mesh": "L2",
+    "shape": "circle",
+    "cap": false,
+    "sliding": false,
+    "cte": "const",
+    "angle": 0.0,
+    "t_si": 2.0,
+    "layers": true,
+    "el_input": "AELS",
+    "id": "R60",
+    "pad": 3,
+    "step": 14,
+    "note": "PLAS-B gate: pad 3 elastic, paper-literal, AELS input (must equal R35)"
+   },
+   "T_sf": 275.0,
+   "T_sf_src": "paper Sec. 3.2/Fig. 4: stress-free at ~275 C (FEM curve Fig. 3b crosses 0 at 275.7 C)",
+   "n_nodes": 49000,
+   "n_elems": 45084,
+   "probes": {
+    "cu_top_center": 48388,
+    "cu_top_edge": 48393,
+    "cu_bottom_center": 28788,
+    "si_top_corner": 18376,
+    "surface_corner": 47776,
+    "surface_center": 48388,
+    "surface_edge_mid": 48371
+   },
+   "n_sidewall": 680,
+   "n_ce": 0,
+   "mat": {
+    "hkl_sorted": [
+     1,
+     0.1,
+     0.02
+    ],
+    "Ez_GPa": 68.0432522820041,
+    "sources": [],
+    "cte": "constant 1.65e-05 1/K",
+    "plastic": false
+   },
+   "history": [
+    {
+     "ls": 1,
+     "tag": "LS0_cool_Tsf_to_30",
+     "branch": "init",
+     "T": 30.0
+    },
+    {
+     "ls": 2,
+     "tag": "h100",
+     "branch": "heating",
+     "T": 100.0
+    },
+    {
+     "ls": 3,
+     "tag": "h150",
+     "branch": "heating",
+     "T": 150.0
+    },
+    {
+     "ls": 4,
+     "tag": "h200",
+     "branch": "heating",
+     "T": 200.0
+    },
+    {
+     "ls": 5,
+     "tag": "h250",
+     "branch": "heating",
+     "T": 250.0
+    },
+    {
+     "ls": 6,
+     "tag": "h300",
+     "branch": "heating",
+     "T": 300.0
+    },
+    {
+     "ls": 7,
+     "tag": "h350",
+     "branch": "heating",
+     "T": 350.0
+    },
+    {
+     "ls": 8,
+     "tag": "h400",
+     "branch": "heating",
+     "T": 400.0
+    },
+    {
+     "ls": 9,
+     "tag": "hold400_2h",
+     "branch": "hold",
+     "T": 400.0
+    },
+    {
+     "ls": 10,
+     "tag": "c300",
+     "branch": "cooling",
+     "T": 300.0
+    },
+    {
+     "ls": 11,
+     "tag": "c200",
+     "branch": "cooling",
+     "T": 200.0
+    },
+    {
+     "ls": 12,
+     "tag": "c100",
+     "branch": "cooling",
+     "T": 100.0
+    },
+    {
+     "ls": 13,
+     "tag": "c030",
+     "branch": "cooling",
+     "T": 30.0
+    }
+   ],
+   "physics_sha256": "182a24e9dfd7319609ce28664408da6e03c972835447194c5ba2bab345ccd746"
+  },
+  "ok": true,
+  "n_elems": 45084,
+  "n_nodes": 49000,
+  "rows": [
+   {
+    "ls": 0,
+    "tag": "LS0_cool_Tsf_to_30",
+    "branch": "init",
+    "T": 30.0,
+    "epel_x": -0.0002749908885156,
+    "epel_y": -0.0002415103469578,
+    "epel_z": 0.002421116040251,
+    "epel_xy": -5.981196353959e-06,
+    "epel_yz": 0.0002620848995155,
+    "epel_xz": -5.280903005644e-05,
+    "eps_dev_zz": 0.0017862444386584667,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": 218.184230568,
+    "s_y": 217.0914343202,
+    "s_z": 347.9019426521,
+    "s_xy": 0.09331244171797,
+    "s_yz": -7.589265985222,
+    "s_xz": 1.530006697634,
+    "seqv_max_cu": 576.6571011259,
+    "sidewall_sn_max": 531.9962713364,
+    "sidewall_sn_min": -124.1914100647,
+    "sidewall_tau_max": 323.1938490833,
+    "u_center_nm": 0.0,
+    "u_edge_nm": 0.0,
+    "u_center_rel_padbottom_nm": 0.0,
+    "u_center_rel_si_nm": 0.0,
+    "u_avg_rel_si_nm": 0.0,
+    "u_surface_edge_rel_si_nm": 0.0,
+    "u_surface_center_rel_si_nm": 0.0,
+    "cpu_s": 33.046875,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": 32.82678092558,
+    "sz_cu_mid_layer": 412.8629001508,
+    "sz_cu_bottom_layer": 283.9771209366,
+    "epsdev_top_elem": 0.001833783667982,
+    "epsdev_band1": 0.001108123191186,
+    "epsdev_band2": 0.002566148742586,
+    "epsdev_band3": 0.00250311700018,
+    "epsdev_band4": 0.001704844997132,
+    "epsdev_band5": 0.0009411620067762
+   },
+   {
+    "ls": 1,
+    "tag": "h100",
+    "branch": "heating",
+    "T": 100.0,
+    "epel_x": -0.0001964220633867,
+    "epel_y": -0.0001725073907082,
+    "epel_z": 0.001729368600995,
+    "epel_xy": -4.27228312415e-06,
+    "epel_yz": 0.0001872034995108,
+    "epel_xz": -3.772073595528e-05,
+    "eps_dev_zz": 0.0012758888853616334,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": 155.8458789636,
+    "s_y": 155.0653101738,
+    "s_z": 248.5013878407,
+    "s_xy": 0.0666517445259,
+    "s_yz": -5.420904274866,
+    "s_xz": 1.092861911624,
+    "seqv_max_cu": 411.8979291893,
+    "sidewall_sn_max": 379.997341693,
+    "sidewall_sn_min": -88.708152771,
+    "sidewall_tau_max": 230.8527450207,
+    "u_center_nm": 0.3684926872352002,
+    "u_edge_nm": 0.2670676881841999,
+    "u_center_rel_padbottom_nm": 0.45500379673600017,
+    "u_center_rel_si_nm": 0.3429974857609002,
+    "u_avg_rel_si_nm": 0.28145748731990017,
+    "u_surface_edge_rel_si_nm": -0.02549520147429997,
+    "u_surface_center_rel_si_nm": 0.3429974857609002,
+    "cpu_s": 11.515625,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": 23.44770062772,
+    "sz_cu_mid_layer": 294.9020716786,
+    "sz_cu_bottom_layer": 202.8408005208,
+    "epsdev_top_elem": 0.001309845473089,
+    "epsdev_band1": 0.0007915165665233,
+    "epsdev_band2": 0.001832963389042,
+    "epsdev_band3": 0.001787940713593,
+    "epsdev_band4": 0.001217746427489,
+    "epsdev_band5": 0.0006722585757326
+   },
+   {
+    "ls": 2,
+    "tag": "h150",
+    "branch": "heating",
+    "T": 150.0,
+    "epel_x": -0.0001403014737368,
+    "epel_y": -0.0001232195647214,
+    "epel_z": 0.001235263286317,
+    "epel_xy": -3.051630788174e-06,
+    "epel_yz": 0.0001337167853735,
+    "epel_xz": -2.694338266784e-05,
+    "eps_dev_zz": 0.0009113492036974,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": 111.3184849125,
+    "s_y": 110.7609358855,
+    "s_z": 177.5009911881,
+    "s_xy": 0.0476083865229,
+    "s_yz": -3.872074485902,
+    "s_xz": 0.7806156478917,
+    "seqv_max_cu": 294.212810148,
+    "sidewall_sn_max": 271.4266657794,
+    "sidewall_sn_min": -63.36296463013,
+    "sidewall_tau_max": 164.8948214615,
+    "u_center_nm": 0.6317017495461001,
+    "u_edge_nm": 0.4578303226020999,
+    "u_center_rel_padbottom_nm": 0.7800065086905001,
+    "u_center_rel_si_nm": 0.5879956898764003,
+    "u_avg_rel_si_nm": 0.4824985496914002,
+    "u_surface_edge_rel_si_nm": -0.043706059669699864,
+    "u_surface_center_rel_si_nm": 0.5879956898764003,
+    "cpu_s": 11.625,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": 16.74835758552,
+    "sz_cu_mid_layer": 210.6443368728,
+    "sz_cu_bottom_layer": 144.8862862292,
+    "epsdev_top_elem": 0.0009356039112041,
+    "epsdev_band1": 0.0005653689755298,
+    "epsdev_band2": 0.001309259563096,
+    "epsdev_band3": 0.001277100510345,
+    "epsdev_band4": 0.0008698188764418,
+    "epsdev_band5": 0.0004801846973247
+   },
+   {
+    "ls": 3,
+    "tag": "h200",
+    "branch": "heating",
+    "T": 200.0,
+    "epel_x": -8.418088425603e-05,
+    "epel_y": -7.393173889822e-05,
+    "epel_z": 0.0007411579716205,
+    "epel_xy": -1.830978467404e-06,
+    "epel_yz": 8.023007127128e-05,
+    "epel_xz": -1.616602964598e-05,
+    "eps_dev_zz": 0.00054680952213175,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": 66.79109100437,
+    "s_y": 66.45656151989,
+    "s_z": 106.5005946802,
+    "s_xy": 0.02856503269976,
+    "s_yz": -2.323244692701,
+    "s_xz": 0.4683693916528,
+    "seqv_max_cu": 176.5276850937,
+    "sidewall_sn_max": 162.8560001933,
+    "sidewall_sn_min": -38.01777839661,
+    "sidewall_tau_max": 98.93688953331,
+    "u_center_nm": 0.8949108118569001,
+    "u_edge_nm": 0.648592957019,
+    "u_center_rel_padbottom_nm": 1.1050092206451,
+    "u_center_rel_si_nm": 0.8329938939920002,
+    "u_avg_rel_si_nm": 0.6835396120629,
+    "u_surface_edge_rel_si_nm": -0.061916917864899994,
+    "u_surface_center_rel_si_nm": 0.8329938939920002,
+    "cpu_s": 11.84375,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": 10.04901455023,
+    "sz_cu_mid_layer": 126.3866020027,
+    "sz_cu_bottom_layer": 86.93177186137,
+    "epsdev_top_elem": 0.0005613623467286,
+    "epsdev_band1": 0.000339221385283,
+    "epsdev_band2": 0.0007855557375243,
+    "epsdev_band3": 0.0007662603061627,
+    "epsdev_band4": 0.0005218913259568,
+    "epsdev_band5": 0.0002881108183068
+   },
+   {
+    "ls": 4,
+    "tag": "h250",
+    "branch": "heating",
+    "T": 250.0,
+    "epel_x": -2.806029472279e-05,
+    "epel_y": -2.464391297864e-05,
+    "epel_z": 0.0002470526571012,
+    "epel_xy": -6.103261572218e-07,
+    "epel_yz": 2.674335711716e-05,
+    "epel_xz": -5.38867655886e-06,
+    "eps_dev_zz": 0.00018226984063460998,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": 22.26369699742,
+    "s_y": 22.15218718592,
+    "s_z": 35.50019824244,
+    "s_xy": 0.009521677642581,
+    "s_yz": -0.7744148960623,
+    "s_xz": 0.1561231304966,
+    "seqv_max_cu": 58.84256102646,
+    "sidewall_sn_max": 54.2853332117,
+    "sidewall_sn_min": -12.67259263992,
+    "sidewall_tau_max": 32.97896382296,
+    "u_center_nm": 1.1581198741678003,
+    "u_edge_nm": 0.8393555914364,
+    "u_center_rel_padbottom_nm": 1.4300119325997,
+    "u_center_rel_si_nm": 1.0779920981075002,
+    "u_avg_rel_si_nm": 0.8845806744344,
+    "u_surface_edge_rel_si_nm": -0.08012777606029994,
+    "u_surface_center_rel_si_nm": 1.0779920981075002,
+    "cpu_s": 11.890625,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": 3.349671520062,
+    "sz_cu_mid_layer": 42.12886738833,
+    "sz_cu_bottom_layer": 28.97725722833,
+    "epsdev_top_elem": 0.0001871207819057,
+    "epsdev_band1": 0.0001130737950378,
+    "epsdev_band2": 0.0002618519123992,
+    "epsdev_band3": 0.0002554201020368,
+    "epsdev_band4": 0.0001739637752057,
+    "epsdev_band5": 9.603693937995e-05
+   },
+   {
+    "ls": 5,
+    "tag": "h300",
+    "branch": "heating",
+    "T": 300.0,
+    "epel_x": 2.806029472278e-05,
+    "epel_y": 2.464391297864e-05,
+    "epel_z": -0.0002470526571012,
+    "epel_xy": 6.103261572173e-07,
+    "epel_yz": -2.674335711716e-05,
+    "epel_xz": 5.38867655886e-06,
+    "eps_dev_zz": -0.00018226984063460667,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": -22.26369699742,
+    "s_y": -22.15218718604,
+    "s_z": -35.50019824244,
+    "s_xy": -0.009521677642574,
+    "s_yz": 0.7744148960623,
+    "s_xz": -0.1561231304966,
+    "seqv_max_cu": 58.84256102648,
+    "sidewall_sn_max": 12.67259263992,
+    "sidewall_sn_min": -54.2853332117,
+    "sidewall_tau_max": 32.97896382296,
+    "u_center_nm": 1.4213289364786001,
+    "u_edge_nm": 1.0301182258539001,
+    "u_center_rel_padbottom_nm": 1.75501464455418,
+    "u_center_rel_si_nm": 1.3229903022229001,
+    "u_avg_rel_si_nm": 1.0856217368059,
+    "u_surface_edge_rel_si_nm": -0.09833863425569994,
+    "u_surface_center_rel_si_nm": 1.3229903022229001,
+    "cpu_s": 11.890625,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": -3.349671520062,
+    "sz_cu_mid_layer": -42.12886738833,
+    "sz_cu_bottom_layer": -28.97725722833,
+    "epsdev_top_elem": -0.0001871207819057,
+    "epsdev_band1": -0.0001130737950378,
+    "epsdev_band2": -0.0002618519123992,
+    "epsdev_band3": -0.0002554201020368,
+    "epsdev_band4": -0.0001739637752057,
+    "epsdev_band5": -9.603693937994e-05
+   },
+   {
+    "ls": 6,
+    "tag": "h350",
+    "branch": "heating",
+    "T": 350.0,
+    "epel_x": 8.418088425603e-05,
+    "epel_y": 7.393173889822e-05,
+    "epel_z": -0.0007411579716205,
+    "epel_xy": 1.830978467435e-06,
+    "epel_yz": -8.023007127128e-05,
+    "epel_xz": 1.616602964598e-05,
+    "eps_dev_zz": -0.00054680952213175,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": -66.79109100437,
+    "s_y": -66.45656151989,
+    "s_z": -106.5005946803,
+    "s_xy": -0.02856503269976,
+    "s_yz": 2.323244692674,
+    "s_xz": -0.4683693916416,
+    "seqv_max_cu": 176.5276850938,
+    "sidewall_sn_max": 38.01777839661,
+    "sidewall_sn_min": -162.8560001933,
+    "sidewall_tau_max": 98.93688953331,
+    "u_center_nm": 1.6845379987894,
+    "u_edge_nm": 1.2208808602711998,
+    "u_center_rel_padbottom_nm": 2.0800173565088,
+    "u_center_rel_si_nm": 1.5679885063384003,
+    "u_avg_rel_si_nm": 1.2866627991774,
+    "u_surface_edge_rel_si_nm": -0.11654949245099992,
+    "u_surface_center_rel_si_nm": 1.5679885063384003,
+    "cpu_s": 12.015625,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": -10.04901455023,
+    "sz_cu_mid_layer": -126.3866020027,
+    "sz_cu_bottom_layer": -86.93177186137,
+    "epsdev_top_elem": -0.0005613623467286,
+    "epsdev_band1": -0.000339221385283,
+    "epsdev_band2": -0.0007855557375243,
+    "epsdev_band3": -0.0007662603061627,
+    "epsdev_band4": -0.0005218913259568,
+    "epsdev_band5": -0.0002881108183068
+   },
+   {
+    "ls": 7,
+    "tag": "h400",
+    "branch": "heating",
+    "T": 400.0,
+    "epel_x": 0.0001403014737368,
+    "epel_y": 0.0001232195647214,
+    "epel_z": -0.001235263286317,
+    "epel_xy": 3.051630788143e-06,
+    "epel_yz": -0.0001337167853735,
+    "epel_xz": 2.694338266784e-05,
+    "eps_dev_zz": -0.0009113492036974,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": -111.3184849125,
+    "s_y": -110.7609358855,
+    "s_z": -177.5009911896,
+    "s_xy": -0.04760838652001,
+    "s_yz": 3.872074485902,
+    "s_xz": -0.7806156478917,
+    "seqv_max_cu": 294.2128101481,
+    "sidewall_sn_max": 63.36296463013,
+    "sidewall_sn_min": -271.4266657794,
+    "sidewall_tau_max": 164.8948214615,
+    "u_center_nm": 1.9477470611004,
+    "u_edge_nm": 1.4116434946883998,
+    "u_center_rel_padbottom_nm": 2.4050200684634,
+    "u_center_rel_si_nm": 1.8129867104541002,
+    "u_avg_rel_si_nm": 1.4877038615491003,
+    "u_surface_edge_rel_si_nm": -0.1347603506462999,
+    "u_surface_center_rel_si_nm": 1.8129867104541002,
+    "cpu_s": 12.203125,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": -16.74835758552,
+    "sz_cu_mid_layer": -210.6443368728,
+    "sz_cu_bottom_layer": -144.8862862292,
+    "epsdev_top_elem": -0.0009356039112041,
+    "epsdev_band1": -0.0005653689755298,
+    "epsdev_band2": -0.001309259563096,
+    "epsdev_band3": -0.001277100510345,
+    "epsdev_band4": -0.0008698188764418,
+    "epsdev_band5": -0.0004801846973247
+   },
+   {
+    "ls": 8,
+    "tag": "hold400_2h",
+    "branch": "hold",
+    "T": 400.0,
+    "epel_x": 0.0001403014737368,
+    "epel_y": 0.0001232195647214,
+    "epel_z": -0.001235263286317,
+    "epel_xy": 3.051630788143e-06,
+    "epel_yz": -0.0001337167853735,
+    "epel_xz": 2.694338266784e-05,
+    "eps_dev_zz": -0.0009113492036974,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": -111.3184849125,
+    "s_y": -110.7609358855,
+    "s_z": -177.5009911896,
+    "s_xy": -0.04760838652278,
+    "s_yz": 3.872074485902,
+    "s_xz": -0.7806156478917,
+    "seqv_max_cu": 294.2128101481,
+    "sidewall_sn_max": 63.36296463013,
+    "sidewall_sn_min": -271.4266657794,
+    "sidewall_tau_max": 164.8948214615,
+    "u_center_nm": 1.9477470611004,
+    "u_edge_nm": 1.4116434946883998,
+    "u_center_rel_padbottom_nm": 2.4050200684634,
+    "u_center_rel_si_nm": 1.8129867104541002,
+    "u_avg_rel_si_nm": 1.4877038615491003,
+    "u_surface_edge_rel_si_nm": -0.1347603506462999,
+    "u_surface_center_rel_si_nm": 1.8129867104541002,
+    "cpu_s": 12.046875,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": -16.74835758552,
+    "sz_cu_mid_layer": -210.6443368728,
+    "sz_cu_bottom_layer": -144.8862862292,
+    "epsdev_top_elem": -0.0009356039112041,
+    "epsdev_band1": -0.0005653689755298,
+    "epsdev_band2": -0.001309259563096,
+    "epsdev_band3": -0.001277100510345,
+    "epsdev_band4": -0.0008698188764418,
+    "epsdev_band5": -0.0004801846973247
+   },
+   {
+    "ls": 9,
+    "tag": "c300",
+    "branch": "cooling",
+    "T": 300.0,
+    "epel_x": 2.806029472278e-05,
+    "epel_y": 2.464391297864e-05,
+    "epel_z": -0.0002470526571012,
+    "epel_xy": 6.103261572172e-07,
+    "epel_yz": -2.674335711716e-05,
+    "epel_xz": 5.38867655886e-06,
+    "eps_dev_zz": -0.00018226984063460667,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": -22.26369699742,
+    "s_y": -22.15218718604,
+    "s_z": -35.50019824244,
+    "s_xy": -0.009521677652478,
+    "s_yz": 0.7744148960623,
+    "s_xz": -0.1561231304966,
+    "seqv_max_cu": 58.84256102648,
+    "sidewall_sn_max": 12.67259263992,
+    "sidewall_sn_min": -54.2853332117,
+    "sidewall_tau_max": 32.97896382296,
+    "u_center_nm": 1.4213289364786001,
+    "u_edge_nm": 1.0301182258539001,
+    "u_center_rel_padbottom_nm": 1.75501464455418,
+    "u_center_rel_si_nm": 1.3229903022229001,
+    "u_avg_rel_si_nm": 1.0856217368059,
+    "u_surface_edge_rel_si_nm": -0.09833863425569994,
+    "u_surface_center_rel_si_nm": 1.3229903022229001,
+    "cpu_s": 12.328125,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": -3.349671520062,
+    "sz_cu_mid_layer": -42.12886738833,
+    "sz_cu_bottom_layer": -28.97725722833,
+    "epsdev_top_elem": -0.0001871207819057,
+    "epsdev_band1": -0.0001130737950378,
+    "epsdev_band2": -0.0002618519123992,
+    "epsdev_band3": -0.0002554201020368,
+    "epsdev_band4": -0.0001739637752057,
+    "epsdev_band5": -9.603693937994e-05
+   },
+   {
+    "ls": 10,
+    "tag": "c200",
+    "branch": "cooling",
+    "T": 200.0,
+    "epel_x": -8.418088425603e-05,
+    "epel_y": -7.393173889822e-05,
+    "epel_z": 0.0007411579716205,
+    "epel_xy": -1.830978467408e-06,
+    "epel_yz": 8.023007127128e-05,
+    "epel_xz": -1.616602964598e-05,
+    "eps_dev_zz": 0.00054680952213175,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": 66.79109100437,
+    "s_y": 66.45656151989,
+    "s_z": 106.5005946802,
+    "s_xy": 0.02856503269976,
+    "s_yz": -2.323244692701,
+    "s_xz": 0.4683693916528,
+    "seqv_max_cu": 176.5276850937,
+    "sidewall_sn_max": 162.8560001933,
+    "sidewall_sn_min": -38.01777839661,
+    "sidewall_tau_max": 98.93688953331,
+    "u_center_nm": 0.8949108118569001,
+    "u_edge_nm": 0.648592957019,
+    "u_center_rel_padbottom_nm": 1.1050092206451,
+    "u_center_rel_si_nm": 0.8329938939920002,
+    "u_avg_rel_si_nm": 0.6835396120629,
+    "u_surface_edge_rel_si_nm": -0.061916917864899994,
+    "u_surface_center_rel_si_nm": 0.8329938939920002,
+    "cpu_s": 12.046875,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": 10.04901455023,
+    "sz_cu_mid_layer": 126.3866020027,
+    "sz_cu_bottom_layer": 86.93177186137,
+    "epsdev_top_elem": 0.0005613623467286,
+    "epsdev_band1": 0.000339221385283,
+    "epsdev_band2": 0.0007855557375243,
+    "epsdev_band3": 0.0007662603061627,
+    "epsdev_band4": 0.0005218913259568,
+    "epsdev_band5": 0.0002881108183068
+   },
+   {
+    "ls": 11,
+    "tag": "c100",
+    "branch": "cooling",
+    "T": 100.0,
+    "epel_x": -0.0001964220633867,
+    "epel_y": -0.0001725073907082,
+    "epel_z": 0.001729368600995,
+    "epel_xy": -4.27228312415e-06,
+    "epel_yz": 0.0001872034995108,
+    "epel_xz": -3.772073595528e-05,
+    "eps_dev_zz": 0.0012758888853616334,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": 155.8458789636,
+    "s_y": 155.0653101738,
+    "s_z": 248.5013878407,
+    "s_xy": 0.0666517445259,
+    "s_yz": -5.420904274866,
+    "s_xz": 1.092861911624,
+    "seqv_max_cu": 411.8979291893,
+    "sidewall_sn_max": 379.997341693,
+    "sidewall_sn_min": -88.708152771,
+    "sidewall_tau_max": 230.8527450207,
+    "u_center_nm": 0.3684926872352002,
+    "u_edge_nm": 0.2670676881841999,
+    "u_center_rel_padbottom_nm": 0.45500379673600017,
+    "u_center_rel_si_nm": 0.3429974857609002,
+    "u_avg_rel_si_nm": 0.28145748731990017,
+    "u_surface_edge_rel_si_nm": -0.02549520147429997,
+    "u_surface_center_rel_si_nm": 0.3429974857609002,
+    "cpu_s": 12.171875,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": 23.44770062772,
+    "sz_cu_mid_layer": 294.9020716786,
+    "sz_cu_bottom_layer": 202.8408005208,
+    "epsdev_top_elem": 0.001309845473089,
+    "epsdev_band1": 0.0007915165665233,
+    "epsdev_band2": 0.001832963389042,
+    "epsdev_band3": 0.001787940713593,
+    "epsdev_band4": 0.001217746427489,
+    "epsdev_band5": 0.0006722585757326
+   },
+   {
+    "ls": 12,
+    "tag": "c030",
+    "branch": "cooling",
+    "T": 30.0,
+    "epel_x": -0.0002749908885156,
+    "epel_y": -0.0002415103469578,
+    "epel_z": 0.002421116040251,
+    "epel_xy": -5.981196353959e-06,
+    "epel_yz": 0.0002620848995155,
+    "epel_xz": -5.280903005644e-05,
+    "eps_dev_zz": 0.0017862444386584667,
+    "eppl_eqv_avg": 0.0,
+    "eppl_eqv_max": 0.0,
+    "s_x": 218.184230568,
+    "s_y": 217.0914343202,
+    "s_z": 347.9019426521,
+    "s_xy": 0.093312441718,
+    "s_yz": -7.589265985222,
+    "s_xz": 1.530006697634,
+    "seqv_max_cu": 576.6571011259,
+    "sidewall_sn_max": 531.9962713364,
+    "sidewall_sn_min": -124.1914100647,
+    "sidewall_tau_max": 323.1938490833,
+    "u_center_nm": 0.0,
+    "u_edge_nm": 0.0,
+    "u_center_rel_padbottom_nm": 0.0,
+    "u_center_rel_si_nm": 0.0,
+    "u_avg_rel_si_nm": 0.0,
+    "u_surface_edge_rel_si_nm": 0.0,
+    "u_surface_center_rel_si_nm": 0.0,
+    "cpu_s": 12.328125,
+    "cnvg_flag_raw": 0,
+    "converged": true,
+    "sz_cu_top_layer": 32.82678092558,
+    "sz_cu_mid_layer": 412.8629001508,
+    "sz_cu_bottom_layer": 283.9771209366,
+    "epsdev_top_elem": 0.001833783667982,
+    "epsdev_band1": 0.001108123191186,
+    "epsdev_band2": 0.002566148742586,
+    "epsdev_band3": 0.00250311700018,
+    "epsdev_band4": 0.001704844997132,
+    "epsdev_band5": 0.0009411620067762
+   }
+  ],
+  "convergence": {
+   "per_ls": {
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true,
+    "9": true,
+    "10": true,
+    "11": true,
+    "12": true,
+    "13": true
+   },
+   "failures": [],
+   "all_load_steps_completed": true,
+   "source": "R60.mntr"
+  },
+  "frame_check": {
+   "rsys": 0,
+   "cu_elem_esys": [
+    0,
+    0
+   ],
+   "elem1_mat": 1,
+   "global_frame": true
+  },
+  "cpu_total_s": 176.953125,
+  "all_converged": true
  }
 ]

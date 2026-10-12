@@ -2,6 +2,14 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-11 — Step 12: sign-convention hypothesis H_sign pre-registered; R35–R39 registered; working copy moved
+
+- **Why.** R27 (the paper-literal model, confirmed by Ayoub's thesis pp.58–60) is ≈ −0.95 × Ayoub's own elastic FEM at every temperature. Hypothesis: Ayoub's ε′zz sign convention is opposite to ours.
+- **Pipeline.** Registry step 12: R35–R39, the R27 configuration for pads 3, 4, 5, 7, 9. These decks differ from R27 only in Cu stiffness (and T_sf for pad 3). The R01–R34 hashes are unchanged.
+- **New `src/tools/step12_hsign_compare.py`.** Test A: pad 3 vs −FEM. Test B: Fig 2c vs −measured.
+- **Literature.** Ayoub thesis (HAL tel-04437757) and the LaueTools notes (ESRF) are summarised in the step-12 doc §5. No explicit sign definition was found. LaueTools documents that the reciprocal-space deformation tensor is the opposite of the real-space one.
+- **Infrastructure.** The chat-workspace copy of the repo was removed by an automatic cleanup. Work continues in `$HOME\co-deep-hb` (GitHub copy intact). **Never keep the working copy inside the chat workspace.**
+
 ## 2026-10-09 — Step 11: Fig 2a/2c digitized, pads 4/5/7/8/9 added, orientation test R31–R34 registered
 
 - **Data.** `inputs/ayoub2022_fig2ac_digitized.json` contains Fig. 2(a) and 2(c) for all 10 pads, with QA overlays in `docs/history/`.

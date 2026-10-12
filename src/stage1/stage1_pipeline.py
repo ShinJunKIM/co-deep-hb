@@ -330,6 +330,13 @@ RUNS = [
     _run("R32", 5, 11, "ORI pad 5 elastic, R26 config (no cap, sliding)", cap=False, sliding=True),
     _run("R33", 7, 11, "ORI pad 7 elastic, R26 config (no cap, sliding)", cap=False, sliding=True),
     _run("R34", 9, 11, "ORI pad 9 elastic, R26 config (no cap, sliding)", cap=False, sliding=True),
+    # step 12: sign-convention hypothesis H_sign, paper-literal (R27) configuration for pads 3, 4, 5, 7, 9
+    # (docs/stage1_step12_sign_hypothesis.md; pad 10 = R27)
+    _run("R35", 3, 12, "SIGN pad 3 elastic, paper-literal (circle, no cap, bonded)", shape="circle", cap=False, layers=True),
+    _run("R36", 4, 12, "SIGN pad 4 elastic, paper-literal (circle, no cap, bonded)", shape="circle", cap=False, layers=True),
+    _run("R37", 5, 12, "SIGN pad 5 elastic, paper-literal (circle, no cap, bonded)", shape="circle", cap=False, layers=True),
+    _run("R38", 7, 12, "SIGN pad 7 elastic, paper-literal (circle, no cap, bonded)", shape="circle", cap=False, layers=True),
+    _run("R39", 9, 12, "SIGN pad 9 elastic, paper-literal (circle, no cap, bonded)", shape="circle", cap=False, layers=True),
 ]
 RUN_BY_ID = {r["id"]: r for r in RUNS}
 E_ELASTIC_ABOVE = _fitted_E(2)       # 130.34 GPa: above -> elastic; also the G4a cooling-scope split

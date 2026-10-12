@@ -7,3 +7,5 @@
 | Hahn1970 | T. A. Hahn, "Thermal expansion of copper from 20 to 800 K — Standard Reference Material 736," *J. Appl. Phys.* 41, 5096 (1970), doi:10.1063/1.1658614 | Cu α(T) variant (R09) | **not yet obtained**; `inputs/cu_cte_vs_T.csv.template` |
 | LedbetterNaimon1974 | H. M. Ledbetter, E. R. Naimon, "Elastic properties of metals and alloys. II. Copper," *J. Phys. Chem. Ref. Data* 3, 897 (1974), doi:10.1063/1.3253150 | not used: C_ij(T) only as figures | — |
 | Nye1985 | J. F. Nye, *Physical Properties of Crystals* (Oxford, 1985) | source of Ayoub's C11 = 168.4, C12 = 121.4, C44 = 75.4 GPa | cited via Ayoub2022 |
+| AyoubThesis | B. Ayoub, *Electrical and morphological characterizations of the hybrid bonding level down to submicron pitches*, PhD thesis, Univ. Bordeaux (IMS), defended 4 May 2023, HAL tel-04437757 | FEM model description (pp.58–60), Laue analysis (pp.48–53); Step 12 | HAL PDF (82.6 MB), not committed |
+| LaueToolsNotes | J.-S. Micha, "NOTES on LaueTools indexing, strain refinement and simulation", ESRF BM32 | strain definition and sign (pp.1–3); Step 12 | esrf.fr PDF, not committed |

@@ -125,3 +125,14 @@ measurements. R01's actual wall time recalibrates them.
 | R34 | pad 9 elastic, no cap, sliding |
 
 `.\.venv\Scripts\python.exe src\stage1\stage1_pipeline.py --case R31,R32,R33,R34; .\.venv\Scripts\python.exe src\tools\step11_compare.py`
+
+## Step 12 — sign-convention hypothesis, R27 configuration (see docs/stage1_step12_sign_hypothesis.md)
+| Run | Configuration |
+|---|---|
+| R35 | pad 3 elastic (T_sf 275), circle, no cap, bonded |
+| R36 | pad 4 elastic, circle, no cap, bonded |
+| R37 | pad 5 elastic, circle, no cap, bonded |
+| R38 | pad 7 elastic, circle, no cap, bonded |
+| R39 | pad 9 elastic, circle, no cap, bonded |
+
+`python src\stage1\stage1_pipeline.py --case R35,R36,R37,R38,R39; python src\tools\step12_hsign_compare.py`

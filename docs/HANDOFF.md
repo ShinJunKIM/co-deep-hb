@@ -39,6 +39,11 @@ write it here.
 | R32 | ORI pad 5 elastic, R26 config | done | Δε′zz 0.989 vs Fig2c 1.854 (r 0.534, pass) |
 | R33 | ORI pad 7 elastic, R26 config | done | Δε′zz 1.105 vs Fig2c 2.406 (r 0.459, FAIL) |
 | R34 | ORI pad 9 elastic, R26 config | done | Δε′zz 1.103 vs Fig2c 1.854 (r 0.595, FAIL) |
+| R35 | SIGN pad 3 elastic, paper-literal (R27 config) | **pending** | — |
+| R36 | SIGN pad 4 elastic, paper-literal (R27 config) | **pending** | — |
+| R37 | SIGN pad 5 elastic, paper-literal (R27 config) | **pending** | — |
+| R38 | SIGN pad 7 elastic, paper-literal (R27 config) | **pending** | — |
+| R39 | SIGN pad 9 elastic, paper-literal (R27 config) | **pending** | — |
 | R02–R07, R10–R23 | see `docs/RUNLIST.md` | not run | — |
 | R08 | pad 10 plastic = elastic | no solve needed (deck identical to R01) | — |
 | R09 | Cu CTE(T) variant | blocked: needs `inputs/cu_cte_vs_T.csv` (NIST) | — |
@@ -79,3 +84,7 @@ reproduce the numbers above exactly), then the first commit and push. See `docs/
    ```
    cd "$HOME\co-deep-hb"; git tag -a v1.0 -m "Stage 1 model freeze"; git push origin v1.0
    ```
+
+
+**Step 12 (2026-10-11):** sign-convention hypothesis H_sign, pre-registered in docs/stage1_step12_sign_hypothesis.md; R35–R39 pending; verdict by src/tools/step12_hsign_compare.py.
+**Working copy moved:** the repo now lives at `$HOME\co-deep-hb` (the chat-workspace copy was deleted by an automatic workspace cleanup on 2026-10-11; GitHub was intact).

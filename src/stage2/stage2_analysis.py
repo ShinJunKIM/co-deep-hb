@@ -94,13 +94,15 @@ def verify():
 
 
 # ---------------------------------------------------------------- calibration
-def calibrate(key=U_KEY):
+def calibrate(key=U_KEY, group="A", out_file=ADOPTED):
     out = {}
     tables = []
     for ds in ("nycu", "imec"):
         rows = []
         for r in B.RUNS:
-            if r["group"] != "A" or r["ds"] != ds:
+            # revision: NYCU 9 um (isolated pad) keeps the group-A runs; 3 um array and imec use the revised cells
+            ok_group = (r["group"] == group) or (group == "Ar" and r["group"] == "A" and r["ds"] == "nycu" and r["w"] == 9.0)
+            if not ok_group or r["ds"] != ds:
                 continue
             rr = res(r["id"])
             if rr is None:
@@ -154,14 +156,16 @@ def calibrate(key=U_KEY):
 
 
 # ---------------------------------------------------------------- validation (held-out)
-def validate():
-    ad = json.loads(ADOPTED.read_text())
+def validate(rev=False):
+    R = dict(S51="S111", S52="S112", S53="S113", S54="S114", S55="S115", S59="S116") if rev else {}
+    def rid(x):
+        return R.get(x, x)
     lines = ["test,item,model,measured,tol,pass"]
     verdict = {}
     # V1 imec 1.26
     ok1 = True
     for T, (um, sg) in MEAS["imec"][1.26].items():
-        m = u_at("S51", T)
+        m = u_at(rid("S51"), T)
         p = m is not None and (abs(m - um) <= 0.5 or abs(m / um - 1) <= 0.15)
         ok1 &= bool(p)
         lines.append(f"V1,imec 1.26 um @{T:g} C,{m},{um},0.5 nm or 15 %,{p}")
@@ -169,11 +173,11 @@ def validate():
     # V2 imec 0.54 Hill + 3 orientations
     ok2 = True
     for T, (um, sg) in MEAS["imec"][0.54].items():
-        m = u_at("S52", T)
+        m = u_at(rid("S52"), T)
         p = m is not None and abs(m - um) <= 0.4
         ok2 &= bool(p)
         lines.append(f"V2,imec 0.54 um Hill @{T:g} C,{m},{um},0.4 nm,{p}")
-    ori = [u_at(r, 400) for r in ("S53", "S54", "S55")]
+    ori = [u_at(rid(r), 400) for r in ("S53", "S54", "S55")]
     if all(o is not None for o in ori):
         um = MEAS["imec"][0.54][400][0]
         p = min(ori) <= um + 0.3 and max(ori) >= um - 0.3
@@ -188,7 +192,7 @@ def validate():
         verdict["V3"] = bool(p)
         lines.append(f"V3,NYCU 1 um 3 orientations @200 C range,{min(ori):.3f}-{max(ori):.3f},{um},+/-{sg} overlap,{p}")
     # V4 sliding controls must fail
-    s59 = u_at("S59", 400); s60 = u_at("S60", 200)
+    s59 = u_at(rid("S59"), 400); s60 = u_at("S60", 200)
     f59 = s59 is not None and abs(s59 - MEAS["imec"][0.54][400][0]) > 0.4
     f60 = s60 is not None and abs(s60 - MEAS["nycu"][1.0][200][0]) > 0.4
     verdict["V4"] = bool(f59 or f60)
@@ -208,13 +212,14 @@ def main(argv=None):
     ap.add_argument("--calibrate", action="store_true")
     ap.add_argument("--validate", action="store_true")
     ap.add_argument("--key", default=U_KEY)
+    ap.add_argument("--rev", action="store_true", help="revision 1 (array cells): calibrate group Ar -> adopted_rev.json; validate S111-S116")
     a = ap.parse_args(argv)
     if a.verify:
         verify()
     if a.calibrate:
-        calibrate(a.key)
+        calibrate(a.key, "Ar" if a.rev else "A", OUT / ("adopted_rev.json" if a.rev else "adopted.json"))
     if a.validate:
-        validate()
+        validate(a.rev)
     return 0
 
 

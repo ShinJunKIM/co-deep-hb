@@ -7,13 +7,14 @@ from pathlib import Path
 from baseline import _run, register, RUN_BY_ID
 
 _AD = Path(__file__).resolve().parents[2] / "results" / "stage2" / "adopted.json"
-_ad = json.loads(_AD.read_text()) if _AD.exists() else {}
+_ADR = _AD.parent / "adopted_rev.json"
+_ad = json.loads(_ADR.read_text()) if _ADR.exists() else (json.loads(_AD.read_text()) if _AD.exists() else {})
 _P = dict(E_d=_ad.get("imec", {}).get("E_d", 95000.0), a_d=_ad.get("imec", {}).get("a_d", 3.6e-6))
 
 
 def _c(rid, w, h, recess_nm, T, note, plastic=True, mu=0.3):
     return _run(rid, "E", "imec", w, h, note, kind="contact", recess=recess_nm / 1000.0, T_anneal=float(T),
-                temps=[25.0, float(T), 25.0], plastic=plastic, cell_factor=12.0, mu=mu, **_P)
+                temps=[25.0, float(T), 25.0], plastic=plastic, cell_factor=2.26, mu=mu, **_P)   # array pitch 2 w (revision 1)
 
 
 runs = []

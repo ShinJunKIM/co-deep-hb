@@ -103,13 +103,14 @@ if _AD.exists():
 
 # ---- P: prediction runs (imec process, adopted params): 0.30 um and extra 0.54 um orientations for the Monte Carlo fit
 _AY = {"ay3": (1.0, 0.1, 0.02), "ay6": (1.0, 0.24, 0.47), "ay1": (1.0, 0.6, 0.37), "ay4": (1.0, 0.9, 0.6), "ay5": (1.0, 0.89, 0.87)}
-_P3 = dict(cell_factor=12.0, grow3d=1.5, hmax3d=1.0)
+_P3 = dict(cell_factor=2.0)                      # revision 1: array pitch 2 w (3D square cell); 2D runs use 2.26 w
 runs_P = [
-    _run("S67", "P", "imec", 0.30, 0.6, "P imec 0.30 um 2D Hill bonded", cell_factor=12.0, **MID_SICN),
+    _run("S67", "P", "imec", 0.30, 0.6, "P imec 0.30 um 2D Hill bonded cell2.26w", cell_factor=2.26, **MID_SICN),
     _run("S68", "P", "imec", 0.30, 0.6, "P imec 0.30 um 3D [001] bonded", cu="aniso", orient="001", **_P3, **MID_SICN),
     _run("S69", "P", "imec", 0.30, 0.6, "P imec 0.30 um 3D [101] bonded", cu="aniso", orient="101", **_P3, **MID_SICN),
     _run("S70", "P", "imec", 0.30, 0.6, "P imec 0.30 um 3D [111] bonded", cu="aniso", orient="111", **_P3, **MID_SICN),
-    _run("S71", "P", "imec", 0.30, 0.6, "P imec 0.30 um 2D Hill SLIDING (relaxed-sidewall bound)", side="sliding", cell_factor=12.0, **MID_SICN),
+    _run("S71", "P", "imec", 0.30, 0.6, "P imec 0.30 um 2D Hill SLIDING (relaxed-sidewall bound) cell2.26w", side="sliding", cell_factor=2.26, **MID_SICN),
+    _run("S79", "P", "imec", 0.54, 0.6, "P imec 0.54 um 2D Hill SLIDING cell2.26w (= S116, alias not run)", side="sliding", cell_factor=2.26, **MID_SICN),
     _run("S72", "P", "imec", 0.54, 0.6, "P imec 0.54 um 3D [ay3] bonded", cu="aniso", orient="ay3", **_P3, **MID_SICN),
     _run("S73", "P", "imec", 0.54, 0.6, "P imec 0.54 um 3D [ay6] bonded", cu="aniso", orient="ay6", **_P3, **MID_SICN),
     _run("S74", "P", "imec", 0.54, 0.6, "P imec 0.54 um 3D [ay1] bonded", cu="aniso", orient="ay1", **_P3, **MID_SICN),
@@ -148,4 +149,10 @@ runs_R += [
     _run("S117", "Br", "imec", 0.54, 0.6, "REV1 pitch sensitivity 1.7w (2D cell 1.92w)", cell_factor=1.92, **MID_SICN),
     _run("S118", "Br", "imec", 0.54, 0.6, "REV1 pitch sensitivity 3w (2D cell 3.39w)", cell_factor=3.39, **MID_SICN),
 ]
+_ADR = _AD.parent / "adopted_rev.json"
+if _ADR.exists():
+    _adr = _json.loads(_ADR.read_text())
+    for _r in runs_R + runs_P:
+        if _r["group"] in ("Br", "P") and _r["ds"] in _adr:
+            _r["E_d"], _r["a_d"] = _adr[_r["ds"]]["E_d"], _adr[_r["ds"]]["a_d"]; _r["note"] += " [adopted_rev]"
 register(runs_R)

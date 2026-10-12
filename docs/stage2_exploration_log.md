@@ -199,3 +199,24 @@
 - 2026-10-13 03:18 **S77** (P) P imec 0.30 um 3D [ay6] bonded [adopted params] [adopted_rev] -> exit 0, wall 25 s, LS ok True; du_c50 1.249 | du_ctr 1.539 | du_full 1.071 nm
 - 2026-10-13 03:19 **S78** (P) P imec 0.30 um 3D [ay4] bonded [adopted params] [adopted_rev] -> exit 0, wall 26 s, LS ok True; du_c50 1.280 | du_ctr 1.579 | du_full 1.089 nm
 - 2026-10-13 03:19 **E01** (E) contact 0.54 um r1 nm/pad T250 -> exit 0, wall 38 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T250: Ac/A=1.000 p=226MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:20 **E02** (E) contact 0.54 um r1 nm/pad T300 -> exit 0, wall 40 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=1.000 p=335MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:21 **E03** (E) contact 0.54 um r1 nm/pad T350 -> exit 0, wall 47 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T350: Ac/A=1.000 p=439MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:22 **E04** (E) contact 0.54 um r1 nm/pad T400 -> exit 0, wall 43 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=1.000 p=540MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:22 **E05** (E) contact 0.54 um r2 nm/pad T250 -> exit 0, wall 41 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T250: Ac/A=0.669 p=208MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:23 **E06** (E) contact 0.54 um r2 nm/pad T300 -> exit 1, wall 59 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=1.000 p=246MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:24 **E07** (E) contact 0.54 um r2 nm/pad T350 -> exit 1, wall 58 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T350: Ac/A=1.000 p=349MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:25 **E08** (E) contact 0.54 um r2 nm/pad T400 -> exit 1, wall 62 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=1.000 p=458MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:26 **E09** (E) contact 0.54 um r3 nm/pad T250 -> exit 1, wall 49 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T250: Ac/A=0.438 p=237MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:27 **E10** (E) contact 0.54 um r3 nm/pad T300 -> exit 1, wall 67 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=0.724 p=278MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:28 **E11** (E) contact 0.54 um r3 nm/pad T350 -> exit 1, wall 75 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T350: Ac/A=1.000 p=296MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:30 **E12** (E) contact 0.54 um r3 nm/pad T400 -> exit 1, wall 89 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=1.000 p=402MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:31 **E13** (E) contact 0.54 um r4 nm/pad T250 -> exit 1, wall 59 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T250: Ac/A=0.319 p=251MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:32 **E14** (E) contact 0.54 um r4 nm/pad T300 -> exit 1, wall 86 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=0.544 p=294MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:34 **E15** (E) contact 0.54 um r4 nm/pad T350 -> exit 1, wall 79 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T350: Ac/A=0.819 p=322MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:35 **E16** (E) contact 0.54 um r4 nm/pad T400 -> exit 1, wall 99 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=1.000 p=360MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:36 **E17** (E) contact Lhostis w0.72 um r2 nm/pad T400 -> exit 1, wall 53 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=1.000 p=477MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 03:38 **E18** (E) contact Lhostis w0.72 um r4 nm/pad T400 -> exit 1, wall 84 s, LS ok False; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=1.000 p=385MPa; T25: Ac/A=0.000 p=0MPa
+
+### 접촉 런 판정 기준 수정 (03:45)
+- E06 이후 "LS ok False"는 `*** ERROR ***`(UY > 1e6: 소성 반복 중 일시 발산)을 치명으로 센 탓이다. 실제로는 MAPDL이 이분법으로 하중 증분을 줄여 같은 substep을 다시 수렴시켰고(e14.out: LS2 substep 5 NOT COMPLETED → COMPLETED), 모든 하중단계가 완료됐다(RUN COMPLETED). 기준을 "하중단계 완료 + 비수렴/종료 메시지 없음 + RUN COMPLETED"로 바꾸고 ERROR 개수는 따로 기록한다. 재해석 없이 record.json의 check 필드만 다시 수집한다.
+- 함께 기록: 접촉 후 Cu 소성 변형률이 MISO 표 범위(εp 0.2)를 넘는 적분점이 많다(E14: 38k점). Okoro 벌크 항복(400 °C에서 119 MPa)은 sub-µm Cu에 과소하다(§5.3). 접촉압력은 σy(T) 수준으로 포화하므로 "압력 ≈ 항복응력(하한)"으로 해석한다.

@@ -406,7 +406,9 @@
    3
   ],
   "all_ok": true,
-  "failures": []
+  "failures": [],
+  "n_error_messages": 0,
+  "run_completed": true
  },
  "ok": true,
  "result": {

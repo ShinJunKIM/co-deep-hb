@@ -471,11 +471,14 @@ def _check_files(outdir, nls):
             if len(p) > 6 and p[0].isdigit() and p[1].isdigit():
                 lss.add(int(p[0]))
     out = next(iter(outdir.glob("*.out")), None)
-    bad = []
+    bad, n_err, completed = [], 0, False
     if out is not None:
         txt = out.read_text(errors="replace")
-        bad = [pat for pat in ("SOLUTION NOT CONVERGED", "Solution not converged", "*** ERROR ***") if pat in txt]
-    return dict(load_steps=sorted(lss), all_ok=(lss == set(range(1, nls + 1)) and not bad), failures=bad)
+        bad = [pat for pat in ("SOLUTION NOT CONVERGED", "Solution not converged", "Run terminated") if pat in txt]
+        n_err = txt.count("*** ERROR ***")           # transient iteration errors (bisected) are counted, not fatal
+        completed = "RUN COMPLETED" in txt
+    return dict(load_steps=sorted(lss), all_ok=(lss == set(range(1, nls + 1)) and not bad and completed), failures=bad,
+                n_error_messages=n_err, run_completed=completed)
 
 
 def log_line(text):

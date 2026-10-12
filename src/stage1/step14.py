@@ -61,7 +61,7 @@ def _f(v):
     return f"{v:.10g}"
 
 
-def deck(c):
+def deck(c, kbc_fix=False):
     C = np.zeros((6, 6))
     C[:3, :3] = S.C12
     np.fill_diagonal(C[:3, :3], S.C11)
@@ -102,8 +102,10 @@ def deck(c):
           "NSEL,S,LOC,X,0", "D,ALL,UX,0", "NSEL,S,LOC,Y,0", "D,ALL,UY,0", "NSEL,S,LOC,Z,0", "D,ALL,UZ,0",
           "NSEL,S,LOC,Z,1", "CM,ZTOP,NODE", "ALLSEL,ALL",
           "TIME,1", f"BFUNIF,TEMP,{_f(T_end)}", "NSUBST,2", "SOLVE",
-          "TIME,2", "CMSEL,S,ZTOP", f"D,ALL,UZ,{_f(eth + E_MECH_EL)}", "ALLSEL,ALL", "NSUBST,2", "SOLVE",
-          "TIME,3", "CMSEL,S,ZTOP", f"D,ALL,UZ,{_f(eth + E_MECH_PL)}", "ALLSEL,ALL", "NSUBST,20,200,10", "SOLVE",
+          "TIME,2", "CMSEL,S,ZTOP", f"D,ALL,UZ,{_f(eth + E_MECH_EL)}", "ALLSEL,ALL", "NSUBST,2",
+          *(["KBC,1"] if kbc_fix else []), "SOLVE",
+          "TIME,3", "CMSEL,S,ZTOP", f"D,ALL,UZ,{_f(eth + E_MECH_PL)}", "ALLSEL,ALL", "NSUBST,20,200,10",
+          *(["KBC,0"] if kbc_fix else []), "SOLVE",
           "FINISH", "/POST1", "RSYS,0",
           "SET,1", "NTOP_=NODE(1,1,1)", "UX1=UX(NTOP_)", "UZ1=UZ(NTOP_)",
           "SET,2", "ETABLE,SZ,S,Z", "*GET,SZ2,ELEM,1,ETAB,SZ",
@@ -217,17 +219,96 @@ def part_c():
     return 0
 
 
+# ---------------------------------------------------------------- post-hoc (deviation 1 and 2, doc section A6)
+# Deviation 1: in the thermal-on cases the top-face UZ constraint is NEW in LS2, so MAPDL ramps it from 0
+# (not from the free-expansion value 6.19e-3): the first substep compresses the cube by ~2.8e-3 and it yields
+# in compression before being pulled.  The E_z / flow checks of those cases are therefore invalid.
+# Fix: KBC,1 (step) in LS2 so the +5e-4 increment is applied from the expanded state; LS3 ramps again (KBC,0).
+# Deviation 2: ANEL+PLAS failed in batch for ALL 16 settings, including the cp_check settings (A25), although
+# cp_check ran the same commands successfully through PyMAPDL.  X1-X3 separate deck content from run mode.
+FIX_IDS = ("A10", "A12", "A14", "A16", "A18", "A20", "A22", "A24")   # thermal-on, AELS/ORTHO, NLGEOM OFF
+OUT_F = S.RESULTS / "step14_partA_fix"
+
+
+def _cp_deck(case):
+    sys.path.insert(0, str(HERE.parent / "validation"))
+    import cp_check as CP
+    mat = json.loads((S.RESULTS / "validation_cp_check" / "results.json").read_text())["ludwick_material_commands"]
+    return "\n".join(CP.deck(case, mat, 0.01, 100)) + "\n"
+
+
+def _pymapdl(case, od, text):
+    from ansys.mapdl.core import launch_mapdl
+    (od / f"{case}.dat").write_text(text)
+    m = launch_mapdl(exec_file=str(S.EXE), run_location=str(od), jobname=case, nproc=1,
+                     additional_switches="-smp", override=True, start_timeout=180)
+    err = None
+    try:
+        out = m.input(str(od / f"{case}.dat"))
+    except Exception as e:
+        out, err = f"{type(e).__name__}: {e}", f"{type(e).__name__}: {e}"
+    (od / f"{case}.out").write_text(str(out), errors="replace")
+    m.exit()
+    return err
+
+
+def part_a_fix():
+    OUT_F.mkdir(parents=True, exist_ok=True)
+    byid = {c["id"]: c for c in cases()}
+    rows = []
+    for cid in FIX_IDS:
+        c = dict(byid[cid]); c["id"] = cid + "f"
+        od = OUT_F / c["id"]; od.mkdir(exist_ok=True)
+        (od / f"{c['id']}.dat").write_text(deck(c, kbc_fix=True))
+        (od / "one_elem.txt").unlink(missing_ok=True)
+        S.run_batch(dict(id=c["id"]), od, 1)
+        r = evaluate(c, od); rows.append(r)
+        print(c["id"], c["el"], c["k"], c["plas"], "runs", r["runs"], "correct", r["correct"],
+              {k: round(r[k], 5) for k in ("thermal_err", "Ez_err", "flow_err") if k in r})
+    diag = []
+    od = OUT_F / "X1"; od.mkdir(exist_ok=True)                       # cp_check deck, batch
+    (od / "X1.dat").write_text(_cp_deck("X1"))
+    S.run_batch(dict(id="X1"), od, 1)
+    diag.append(("X1", "cp_check deck (rotated ANEL+MISO)", "batch", od / "X1.out", od / "X1.crv"))
+    od = OUT_F / "X2"; od.mkdir(exist_ok=True)                       # A25 deck, PyMAPDL
+    e2 = _pymapdl("X2", od, deck(byid["A25"]))
+    diag.append(("X2", "A25 deck (cp_check settings, [001] ANEL)", "pymapdl", od / "X2.out", od / "one_elem.txt"))
+    od = OUT_F / "X3"; od.mkdir(exist_ok=True)                       # cp_check deck, PyMAPDL (replicate)
+    e3 = _pymapdl("X3", od, _cp_deck("X3"))
+    diag.append(("X3", "cp_check deck (rotated ANEL+MISO)", "pymapdl", od / "X3.out", od / "X3.crv"))
+    lines = ["id,deck,mode,anel_plas_error,result_file"]
+    for i, d, mode, out, res in diag:
+        t = out.read_text(errors="replace") if out.exists() else ""
+        lines.append(f"{i},{d},{mode},{'TB,PLAS table cannot work' in t},{res.exists()}")
+        print(lines[-1])
+    keys = ["id", "el", "k", "plas", "thermal", "nlgeom", "runs", "correct", "thermal_err", "Ez_err", "flow_err", "eppl"]
+    dg = S.RESULTS / "diagnostics"
+    (dg / "step14_partA_fix.csv").write_text(",".join(keys) + "\n" + "".join(
+        ",".join(str(r.get(k, "")) for k in keys) + "\n" for r in rows))
+    (dg / "step14_partA_modecheck.csv").write_text("\n".join(lines) + "\n")
+    # pre-registered selection rule, applied to: original thermal-off rows + fixed thermal-on rows
+    orig = [evaluate(c, OUT_A / c["id"]) for c in cases() if c["id"] not in FIX_IDS and (OUT_A / c["id"]).exists()]
+    fixed = [dict(r, id=r["id"][:-1]) for r in rows]
+    rec = recommend(orig + fixed)
+    print("PART A RECOMMENDATION (after deviation 1):", rec)
+    (dg / "step14_partA_recommendation_fix.txt").write_text(rec + "\n")
+    return 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--partA", action="store_true")
     ap.add_argument("--evalA", action="store_true")
     ap.add_argument("--partC", action="store_true")
+    ap.add_argument("--partA-fix", dest="partA_fix", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
     if a.partA:
         part_a(a.dry_run)
     if a.evalA:
         eval_a()
+    if a.partA_fix:
+        part_a_fix()
     if a.partC:
         return part_c()
     return 0

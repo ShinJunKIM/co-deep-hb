@@ -1,0 +1,1 @@
+AELS with KEYOPT(2)=3; temperature-table MISO (variants 2/3) works

@@ -2,6 +2,14 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-12 — Step 14 first results and two disclosed deviations
+
+- **Part A.** ANEL + PLAS is rejected in batch at every setting.
+  - AELS and ORTHO pass all checks when thermal strain is off.
+  - The thermal-on failures came from the test deck: the new LS2 constraint ramps from 0. Fix with `--partA-fix` (KBC,1), and add a run-mode check (X1–X3).
+- **Part C.** NOT SUPPORTED: R57 = 7.60 nm vs elastic 7.36 nm.
+- **R58.** Cell 9 w changes the 1 µm result by +0.39 % (converged).
+
 ## 2026-10-12 — Step 14 pre-registered: plasticity-path diagnosis and large-pad plasticity
 
 - **Why.** R49 failed with "TB,PLAS table cannot work with the TB,ANEL table". The planned single-crystal plastic runs use the same input. The large-pad over-prediction of Step 13 has an untested plasticity hypothesis.

@@ -1,0 +1,4 @@
+id,deck,mode,anel_plas_error,result_file
+X1,cp_check deck (rotated ANEL+MISO),batch,True,False
+X2,A25 deck (cp_check settings, [001] ANEL),pymapdl,True,True
+X3,cp_check deck (rotated ANEL+MISO),pymapdl,True,True

@@ -1,0 +1,486 @@
+
+ Ansys Mechanical Enterprise Academic Student      
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *         ANSYS MAPDL 2026 R1          LEGAL NOTICES          *
+ ***************************************************************
+ *                                                             *
+ * Copyright (c) 2026 Synopsys, Inc. and ANSYS, Inc.           *
+ * All rights reserved.                                        *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of Ansys, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the Ansys, Inc. online documentation or the Ansys, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * Ansys, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * Ansys, Inc. is a UL registered                              *
+ * ISO 9001:2015 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the Ansys, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the Ansys, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ 2026 R1 
+     
+ Point Releases and Patches installed:   
+     
+ Ansys, Inc. License Manager 2026 R1 
+ Discovery (full install) 2026 R1
+ Core WB Files 2026 R1   
+ optiSLang Core UI 2026 R1   
+ CFX (includes CFD-Post) 2026 R1 
+ Chemkin 2026 R1 
+ EnSight 2026 R1 
+ FENSAP-ICE 2026 R1  
+ Fluent (includes CFD-Post) 2026 R1  
+ Polyflow (includes CFD-Post) 2026 R1
+ Forte (includes EnSight) 2026 R1
+ Rocky 2026 R1   
+ TurboGrid 2026 R1   
+ ACIS Geometry Interface 2026 R1 
+ AutoCAD Geometry Interface 2026 R1  
+ Catia, Version 4 Geometry Interface 2026 R1 
+ Catia, Version 5 Geometry Interface 2026 R1 
+ Catia, Version 6 Geometry Interface 2026 R1 
+ Creo Elements/Direct Modeling Geometry Interface 2026 R1
+ Creo Parametric Geometry Interface 2026 R1  
+ Inventor Geometry Interface 2026 R1 
+ JTOpen Geometry Interface 2026 R1   
+ NX Geometry Interface 2026 R1   
+ Parasolid Geometry Interface  2026 R1   
+ Solid Edge Geometry Interface 2026 R1   
+ SOLIDWORKS Geometry Interface 2026 R1   
+ Speos 2026 R1   
+ SpaceClaim 2026 R1  
+ Speos RPC 2026 R1   
+ Zemax OpticStudio 2026 R1   
+ Dynamic Reporting 2026 R1   
+ Aqwa 2026 R1
+ Autodyn 2026 R1 
+ Material Calibration App 2026 R1
+ Mechanical Products 2026 R1 
+ Motion 2026 R1  
+ Academic Student 2026 R1
+
+
+          *****  MAPDL COMMAND LINE ARGUMENTS  *****
+  INITIAL JOBNAME              = X1                                                                                                                                                                                                                                                      
+  BATCH MODE REQUESTED (-b)    = LIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  SHARED MEMORY PARALLEL REQUESTED
+    SINGLE PROCESS WITH SINGLE THREAD REQUESTED
+    TOTAL OF     1 CORES REQUESTED
+  INPUT FILE NAME              = C:\Users\USER\co-deep-hb\results\step14_partA_fix\X1\X1_batch.dat
+  OUTPUT FILE NAME             = C:\Users\USER\co-deep-hb\results\step14_partA_fix\X1\X1.out
+  INITIAL DIRECTORY = C:\Users\USER\co-deep-hb\results\step14_partA_fix\X1
+
+ RELEASE= 2026 R1              BUILD= 26.1      UP20260202   VERSION=WINDOWS x64 
+ CURRENT JOBNAME=X1  21:53:52  OCT 12, 2026  Elapsed Time=       0.062
+
+     1  /PREP7  
+     2  ET,1,SOLID185   
+     3  TB,ANEL,1,1,,0  
+     4  TBTEMP,25   
+     5  TBDATA,1,168482.1531,121399.1943,121318.6526,0.07934869366,-3.98722251,-2063.260559 
+     6  TBDATA,7,170435.0946,119365.7111,-200.4348002,10071.72406,40.48386301,170515.6363   
+     7  TBDATA,13,200.3554515,-10067.73684,2022.776696,75399.19434,40.48386301,-3.98722251  
+     8  TBDATA,19,73365.71106,200.3554515,75318.6526
+     9  TB,PLAS,1,1,14,MISO 
+    10  TBTEMP,25   
+    11  TBPT,DEFI,0,143 
+    12  TBPT,DEFI,0.0002,145.0606497
+    13  TBPT,DEFI,0.0005,146.8424071
+    14  TBPT,DEFI,0.001,149.1560732 
+    15  TBPT,DEFI,0.002,152.8628896 
+    16  TBPT,DEFI,0.003,155.9941006 
+    17  TBPT,DEFI,0.005,161.3909166 
+    18  TBPT,DEFI,0.0075,167.2295547
+    19  TBPT,DEFI,0.01,172.4648187  
+    20  TBPT,DEFI,0.015,181.8191328 
+    21  TBPT,DEFI,0.02,190.2067574  
+    22  TBPT,DEFI,0.03,205.1936759  
+    23  TBPT,DEFI,0.05,231.0244613  
+    24  TBPT,DEFI,0.1,284.0274888   
+    25  BLOCK,0,10,0,10,0,10
+    26  ESIZE,2.5   
+    27  VMESH,ALL   
+    28  FINISH  
+    29  /SOLU   
+    30  ANTYPE,STATIC   
+    31  NLGEOM,ON   
+    32  TOFFST,273.15   
+    33  TREF,25 
+    34  TUNIF,25
+    35  NSEL,S,LOC,Z,0  
+    36  D,ALL,UZ,0  
+    37  NSEL,S,LOC,Z,10 
+    38  D,ALL,UZ,0.1
+    39  NSEL,ALL
+    40  D,NODE(0,0,0),UX,0  
+    41  D,NODE(0,0,0),UY,0  
+    42  D,NODE(10,0,0),UY,0 
+    43  TIME,1  
+    44  NSUBST,100,1000,100 
+    45  OUTRES,ALL,ALL  
+    46  *GET,cpu0,ACTIVE,0,TIME,CPU 
+    47  SOLVE   
+    48  *GET,cpu1,ACTIVE,0,TIME,CPU 
+    49  *GET,cnv,ACTIVE,0,SOLU,CNVG 
+    50  dcpu=cpu1-cpu0  
+    51  FINISH  
+    52  /POST1  
+    53  SET,LAST
+    54  *GET,tlast,ACTIVE,0,SET,TIME
+    55  *GET,nset,ACTIVE,0,SET,SBST 
+    56  ALLSEL  
+    57  *GET,nel,ELEM,0,COUNT   
+    58  *GET,nnd,NODE,0,COUNT   
+    59  *DEL,res,,NOPR  
+    60  *DIM,res,ARRAY,nset,4   
+    61  *DO,i,1,nset
+    62  SET,1,i 
+    63  *GET,t,ACTIVE,0,SET,TIME
+    64  ALLSEL  
+    65  NSEL,S,LOC,Z,0  
+    66  *GET,nn,NODE,0,COUNT
+    67  nd=0
+    68  fz=0
+    69  *DO,j,1,nn  
+    70  nd=NDNEXT(nd)   
+    71  *GET,r,NODE,nd,RF,FZ
+    72  fz=fz+r 
+    73  *ENDDO  
+    74  ALLSEL  
+    75  ETABLE,szz,S,Z  
+    76  SSUM
+    77  *GET,ssz,SSUM,0,ITEM,SZZ
+    78  res(i,1)=t  
+    79  res(i,2)=0.1*t  
+    80  res(i,3)=-fz
+    81  res(i,4)=ssz/nel
+    82  *ENDDO  
+    83  *CFOPEN,X1,crv  
+    84  *VWRITE,res(1,1),res(1,2),res(1,3),res(1,4) 
+    85  (4E20.11)   
+    86  *CFCLOS 
+    87  *CFOPEN,X1,met  
+    88  *VWRITE,cnv,dcpu,nel,nnd,nset,tlast 
+    89  (6E20.11)   
+    90  *CFCLOS 
+    91  FINISH  
+    92  /EXIT,NOSAVE
+
+ RUN SETUP PROCEDURE FROM FILE= C:\Program Files\ANSYS Inc\ANSYS Student\v261\Ansys\apdl\start.ans
+
+ /INPUT FILE= C:\Program Files\ANSYS Inc\ANSYS Student\v261\Ansys\apdl\start.ans  LINE=       0
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   21:53:53  OCT 12, 2026 Elapsed Time=      5.786
+
+                                                                               
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+
+ ELEMENT TYPE          1 IS SOLID185     3-D 8-NODE STRUCTURAL SOLID 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ DEFINE DATA TABLE  ANEL  FOR MATERIAL     1
+   WITH A MAXIMUM OF   1 TEMPERATURE SPECIFICATIONS
+
+ TEMPERATURE TO BE USED FOR THE NEXT TBDAT COMMAND=  25.000    
+    TEMPERATURE SPECIFICATION=  1
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  1 0.16848E+06 0.12140E+06 0.12132E+06 0.79349E-01 -3.9872     -2063.3    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  7 0.17044E+06 0.11937E+06 -200.43      10072.      40.484     0.17052E+06
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 13  200.36     -10068.      2022.8      75399.      40.484     -3.9872    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 19  73366.      200.36      75319.    
+
+   RATE-INDEPENDENT PLASTICITY - MULTILINEAR ISOTROPIC HARDENING OPTION FOR MATERIAL 1 
+ TEMPERATURE TO BE USED FOR THE NEXT TBDAT COMMAND=  25.0000
+    TEMPERATURE SPECIFICATION=  1
+
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 0.00000e+00    COL2= 1.43000e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 2.00000e-04    COL2= 1.45061e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 5.00000e-04    COL2= 1.46842e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 1.00000e-03    COL2= 1.49156e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 2.00000e-03    COL2= 1.52863e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 3.00000e-03    COL2= 1.55994e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 5.00000e-03    COL2= 1.61391e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 7.50000e-03    COL2= 1.67230e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 1.00000e-02    COL2= 1.72465e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 1.50000e-02    COL2= 1.81819e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 2.00000e-02    COL2= 1.90207e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 3.00000e-02    COL2= 2.05194e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 5.00000e-02    COL2= 2.31024e+02 
+ POINT INSERTED IN THE  PLAS  TABLE FOR MATERIAL     1
+    COL1= 1.00000e-01    COL2= 2.84027e+02 
+
+ CREATE A HEXAHEDRAL VOLUME WITH
+ X-DISTANCES FROM      0.000000000     TO      10.00000000    
+ Y-DISTANCES FROM      0.000000000     TO      10.00000000    
+ Z-DISTANCES FROM      0.000000000     TO      10.00000000    
+
+      OUTPUT VOLUME =     1
+
+ DEFAULT ELEMENT DIVISIONS PER LINE BASED ON ELEMENT SIZE =   2.50    
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  SELECTED VOLUMES  
+
+ NUMBER OF VOLUMES MESHED   =         1
+ MAXIMUM NODE NUMBER        =       125
+ MAXIMUM ELEMENT NUMBER     =        64
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         5.793
+
+
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ LARGE DEFORMATION ANALYSIS
+
+ TEMPERATURE OFFSET FROM ABSOLUTE ZERO= 273.150
+
+ REFERENCE TEMPERATURE=  25.000  (TUNIF=  25.000)
+
+ UNIFORM TEMPERATURE=    25.000  (TREF=    25.000)
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO         125 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  10.000     AND   10.000    
+   KABS=  0.  TOLERANCE= 0.500000E-01
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO         125 BY           1
+ REAL= 0.100000000       IMAG=  0.00000000    
+
+ ALL SELECT   FOR ITEM=NODE COMPONENT=    
+  IN RANGE         1 TO        125 STEP          1
+
+        125  NODES (OF        125  DEFINED) SELECTED BY NSEL  COMMAND.
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES           10 TO          10 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ TIME=  1.0000    
+
+ USE     100 SUBSTEPS INITIALLY THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM
+ FOR AUTOMATIC TIME STEPPING:
+   USE   1000 SUBSTEPS AS A MAXIMUM
+   USE    100 SUBSTEPS AS A MINIMUM
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ *GET  CPU0      FROM  ACTI  ITEM=TIME CPU   VALUE= 0.171875000    
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** NOTE ***                            ELAPSED TIME =       5.815   TIME= 21:53:53
+ There is no title defined for this analysis.                            
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+                ---GIVE SUGGESTIONS ONLY---
+
+ ELEMENT TYPE         1 IS SOLID185. IT IS ASSOCIATED WITH ELASTOPLASTIC MATERIALS
+ ONLY. KEYOPT(2)=2 IS SUGGESTED.
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   21:53:53  OCT 12, 2026 Elapsed Time=      5.815
+
+                                                                               
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   OFFSET TEMPERATURE FROM ABSOLUTE ZERO . . . . .  273.15    
+   NONLINEAR GEOMETRIC EFFECTS . . . . . . . . . .ON
+   PLASTIC MATERIAL PROPERTIES INCLUDED. . . . . .YES
+   NEWTON-RAPHSON OPTION . . . . . . . . . . . . .PROGRAM CHOSEN   
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** ERROR ***                           ELAPSED TIME =       5.817   TIME= 21:53:53
+ The TB,PLAS table cannot work with the TB,ANEL table for material 1.    
+
+ *** ERROR ***                           ELAPSED TIME =       5.817   TIME= 21:53:53
+ The step data was checked and there were errors found.                  
+  Please check output or errors file (                                   
+ C:\Users\USER\co-deep-hb\results\step14_partA_fix\X1\X1.err ) for       
+ messages.                                                               
+
+ *** NOTE ***                            ELAPSED TIME =       5.817   TIME= 21:53:53
+ This nonlinear analysis defaults to using the full Newton-Raphson       
+ solution procedure.  This can be modified using the NROPT command.      
+
+ *** NOTE ***                            ELAPSED TIME =       5.817   TIME= 21:53:53
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          0
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          2
+
+
+
+ ***** PROBLEM TERMINATED BY INDICATED ERROR(S) OR BY END OF INPUT DATA *****
+
++--------------------- M A P D L   S T A T I S T I C S ------------------------+
+
+Release: 2026 R1            Build: 26.1       Update: UP20260202   Platform: WINDOWS x64 
+Date Run: 10/12/2026   Time: 21:54     Process ID: 18944
+Operating System: Windows 11  (Build: 26300)
+
+Processor Model: 11th Gen Intel(R) Core(TM) i7-11850H @ 2.50GHz
+
+Compiler: Intel(R) Fortran Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) C/C++ Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) oneAPI Math Kernel Library Version 2024.2.3-Product Build 20250403
+
+Number of machines requested            :    1
+Total number of cores available         :   16
+Number of physical cores available      :    8
+Number of processes requested           :    1
+Number of threads per process requested :    1
+Total number of cores requested         :    1 (Shared Memory Parallel)                    
+
+GPU Acceleration: Not Requested
+
+Job Name: X1
+Input File: C:\Users\USER\co-deep-hb\results\step14_partA_fix\X1\X1_batch.dat
+Working Directory: C:\Users\USER\co-deep-hb
+
+Total CPU time for main thread                    :        0.3 seconds
+Total CPU time summed for all threads             :        0.2 seconds
+
+Elapsed time spent obtaining a license            :        1.4 seconds
+Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
+Elapsed time spent solution - preprocessing       :        0.0 seconds
+Elapsed time spent computing solution             :        0.0 seconds
+   Elapsed time in element formation & assembly   :        0.0 seconds
+   Elapsed time in equation solver                :        0.0 seconds
+   Elapsed time in element result calculations    :        0.0 seconds
+Elapsed time spent solution - postprocessing      :        0.0 seconds
+Elapsed time spent post-processing model (/POST1) :        0.0 seconds
+ 
+
+Sum of disk space used on all processes           :        0.0 MB
+
+Sum of memory used on all processes               :        7.0 MB
+Sum of memory allocated on all processes          :     2304.0 MB
+Physical memory available                         :         32 GB
+Total amount of I/O written to disk               :        0.0 GB
+Total amount of I/O read from disk                :        0.0 GB
+
++------------------ E N D   M A P D L   S T A T I S T I C S -------------------+
+
+
+ *-----------------------------------------------------------------------------*
+ |                                                                             |
+ |                               RUN COMPLETED                                 |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Ansys MAPDL 2026 R1         Build 26.1         UP20260202    WINDOWS x64   |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Database Requested(-db)  1024 MB     Scratch Memory Requested      1024 MB |
+ |  Maximum Database Used       1 MB     Maximum Scratch Memory Used      6 MB |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |        CP Time      (sec) =          0.250       Time  =  21:54:03          |
+ |        Elapsed Time (sec) =         16.047       Date  =  10/12/2026        |
+ |                                                                             |
+ *-----------------------------------------------------------------------------*

@@ -85,3 +85,43 @@
 3. Commit the results.
 4. Build R59 only if Part A gives a recommendation, then run, evaluate Part B, commit.
 5. Tables for A, B, C and a Korean summary in docs/stage1_summary_for_PI_ko.md.
+
+---
+## Results (after the pre-registration commit 29d587a; run commit 58a6c10)
+
+### A. One-element matrix: first run (`results/diagnostics/step14_partA.csv`)
+
+| group | cases | runs? | analytic checks |
+|---|---|---|---|
+| ANEL, every setting (K0/K3 × T1/T2 × thermal off/on × NLGEOM OFF/ON) | 16 | **no**: "The TB,PLAS table cannot work with the TB,ANEL table for material 1." (step-data check, before solving) | — |
+| AELS and ORTHO, thermal off | 8 | yes | all pass (E_z 66.69 GPa within 1e-8, flow stress within 1e-6) |
+| AELS and ORTHO, thermal on | 8 | yes | thermal strain passes; E_z **+127 %** (T1) / +211 % (T2), flow stress +1.6 % / +2.6 % → "not correct" |
+
+- The pre-registered rule returned "NOTHING works with thermal strain → stop".
+- **The A prediction was wrong for ANEL.** ANEL fails at *every* setting, including the exact cp_check settings (A25). The three-setting explanation (KEYOPT(2), thermal, NLGEOM) is refuted.
+
+**A6. Deviations (post hoc, disclosed; nothing in the pre-registered rules changed)**
+
+1. **The thermal-on failures are a test-deck error, not an ANSYS result.**
+   - The top-face UZ constraint is first applied in LS2. MAPDL ramps a *new* constraint from 0, not from the free-expansion value.
+   - So the first LS2 substep pushes the expanded cube (UZ 6.19e-3) back to 3.3e-3. That is a compressive mechanical strain of about −2.8e-3, i.e. a stress of about −190 MPa, beyond σ0 = 143 MPa. The cube yields in compression before it is pulled.
+   - This gives the observed numbers: LS2 σ = 75.7 MPa instead of 33.3 MPa, the same in AELS and ORTHO; the error is larger for T2 because its 400 °C curve is lower.
+   - Fix: KBC,1 (step) in LS2 only; LS3 ramps from the previous value. Re-run as A10f–A24f (`--partA-fix`); the original decks are kept unchanged.
+   - The pre-registered selection rule is then applied to {thermal-off rows of the first run + the fixed thermal-on rows}.
+2. **Run mode vs deck content for ANEL.** cp_check ran the same ANEL + TB,PLAS MISO commands successfully through PyMAPDL (interactive), while all batch decks fail. Three diagnostics (`step14_partA_modecheck.csv`) separate the two:
+   - X1: the cp_check deck in batch;
+   - X2: the A25 deck through PyMAPDL;
+   - X3: the cp_check deck through PyMAPDL (replication).
+   - This is diagnostic only. It does not change the selection rule, which looks only at the production path (batch).
+
+### C. Large pads (`step14.py --partC`)
+
+| pad | elastic Δu (nm) | plastic Δu (nm) | measured | gap closed |
+|---|---|---|---|---|
+| 9 µm | 7.361 (R40) | **7.599 (R57)** | 6.4 | **−24.7 %** |
+| 3 µm | 5.552 (R41) | 5.582 (R50) | 4.1 | −2.1 % |
+
+- **NOT SUPPORTED, as predicted.** In-plane yielding makes the over-prediction *larger*, not smaller: R57 max εp = 1.6e-3 at 200 °C (constant-volume flow pushes the top up).
+- The large-pad miss stays unexplained by plasticity. The remaining candidates are geometry (taper sensitivity −17 %) and the Si/SiO2 constraint.
+
+**1 µm cell check.** R53 (6 w) 2.346 nm → R58 (9 w) 2.355 nm, a **+0.39 %** change. The < 2 % criterion is **met**. The converged 1 µm [001] value is 2.35 nm, which passes against 2.3 ± 0.4 nm.

@@ -2,6 +2,17 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-12 — Step 13 pre-registered: Lin 2025 protrusion reproduction (new primary validation)
+
+- **Why.** Validate the constraint and geometry physics against **measured** Cu protrusion: Lin et al., Appl. Surf. Sci. 689 (2025) 162539; 9 / 3 / 1 µm pads, in-situ AFM, RT → 200 °C. The ε′zz mismatch with Ayoub stays an open issue.
+- **New module `src/stage1/lin13.py`.**
+  - Own 2D axisymmetric mesh (PLANE182) and 3D tapered circular-pad mesh (SOLID185).
+  - Own decks, registry R40–R56 and pre-registered `--compare`.
+  - Reuses only the materials, rotation, flow-curve and batch-runner functions of stage1_pipeline.py.
+  - **stage1_pipeline.py and s1_mesh.py are not modified (R01–R39 decks unchanged).**
+- **Checks in the plan.** Cell ×2, 3D-vs-2D on the same isotropic 1 µm pad, mesh ×2, taper 18° sensitivity.
+- **Assumptions** (doc §2): taper 7.6° from the Table 1 volumes (the 108° annotation conflicts); SiO2 under the pad 0.5 µm; Ta omitted; RT = 25 °C; Hill-average Cu (E 128.3 GPa, ν 0.345).
+
 ## 2026-10-11 — Step 12: sign-convention hypothesis H_sign pre-registered; R35–R39 registered; working copy moved
 
 - **Why.** R27 (the paper-literal model, confirmed by Ayoub's thesis pp.58–60) is ≈ −0.95 × Ayoub's own elastic FEM at every temperature. Hypothesis: Ayoub's ε′zz sign convention is opposite to ours.

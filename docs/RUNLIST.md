@@ -136,3 +136,8 @@ measurements. R01's actual wall time recalibrates them.
 | R39 | pad 9 elastic, circle, no cap, bonded |
 
 `python src\stage1\stage1_pipeline.py --case R35,R36,R37,R38,R39; python src\tools\step12_hsign_compare.py`
+
+## Step 13 — Lin 2025 protrusion reproduction (separate module `src/stage1/lin13.py`; see docs/stage1_step13_lin_reproduction.md)
+Primary: R40 (9 µm), R41 (3 µm), R43–R45 (1 µm [001]/[101]/[111]). Controls: R46–R48 (sliding). Report only: R42, R49–R56.
+
+`python src\stage1\lin13.py --list` · `python src\stage1\lin13.py --case all` · `python src\stage1\lin13.py --compare`

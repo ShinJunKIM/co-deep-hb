@@ -88,3 +88,5 @@ reproduce the numbers above exactly), then the first commit and push. See `docs/
 
 **Step 12 (2026-10-11):** sign-convention hypothesis H_sign, pre-registered in docs/stage1_step12_sign_hypothesis.md; R35–R39 done; **H_sign NOT supported** (Test A FAIL: pad 3 model = 1.26 × −FEM; Test B FAIL: pads 4, 7, 9).
 **Working copy moved:** the repo now lives at `$HOME\co-deep-hb` (the chat-workspace copy was deleted by an automatic workspace cleanup on 2026-10-11; GitHub was intact).
+
+**Step 13 (2026-10-12):** Lin 2025 protrusion reproduction, pre-registered in docs/stage1_step13_lin_reproduction.md; R40–R56 pending (module src/stage1/lin13.py; verdict `lin13.py --compare`). Open issue kept: absolute ε′zz mismatch with Ayoub (Steps 10–12).

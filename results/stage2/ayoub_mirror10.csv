@@ -1,0 +1,10 @@
+pad,Ez_GPa,delta_model,delta_meas,err,ratio_neg_model_over_meas,stiff
+1,127.3,-2.0485e-03,2.6830e-03,2.0e-04,0.764,False
+2,130.3,-2.0418e-03,2.3590e-03,2.0e-04,0.866,False
+3,68.0,-2.6877e-03,3.7020e-03,2.0e-04,0.726,False
+4,169.4,-1.8169e-03,2.3630e-03,2.0e-04,0.769,True
+5,188.3,-1.7369e-03,1.8540e-03,2.0e-04,0.937,True
+6,102.3,-2.2525e-03,2.8430e-03,2.0e-04,0.792,False
+10,189.5,-1.7326e-03,1.8060e-03,2.0e-04,0.959,True
+# rule: all ratios > 0 and stiff pads within 0.75-1.25 -> consistent_with_sign_flip=True
+# stiff-pad ratios: [0.769, 0.937, 0.959]; soft-pad ratios: [0.764, 0.866, 0.726, 0.792]

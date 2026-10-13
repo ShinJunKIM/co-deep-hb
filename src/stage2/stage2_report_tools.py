@@ -164,9 +164,6 @@ def main(argv=None):
     return 0
 
 
-if __name__ == "__main__":
-    sys.exit(main())
-
 
 # ---------------------------------------------------------------- round Y: 10-pad mirror-image test (realistic stack)
 def mirror10():
@@ -196,3 +193,6 @@ def mirror10():
         lines.append(f"# stiff-pad ratios: {[round(r[5], 3) for r in stiff]}; soft-pad ratios: {[round(r[5], 3) for r in rows if not r[6]]}")
     (OUT / "ayoub_mirror10.csv").write_text("\n".join(lines) + "\n")
     print("\n".join(lines))
+
+if __name__ == "__main__":
+    sys.exit(main())

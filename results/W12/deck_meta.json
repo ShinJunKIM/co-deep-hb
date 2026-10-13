@@ -1,0 +1,65 @@
+{
+ "run": {
+  "id": "W12",
+  "group": "W",
+  "ds": "imec",
+  "w": 0.3,
+  "h": 0.6,
+  "note": "W 0.30 um full in-plane relaxation (prediction)",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 2.26,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0,
+  "cu_alpha_ip": 2e-06
+ },
+ "geometry": {
+  "w": 0.3,
+  "h": 0.6,
+  "A": 0.15,
+  "L": 0.6779999999999999,
+  "R": 0.33899999999999997,
+  "t_si": 0.6779999999999999,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.15,
+  "t_l": 0.006
+ },
+ "n_nodes": 7772,
+ "n_elems": 7581,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "7908698d6bae4fee2c207d4c719e694c47f1de373ac4176d29fe0ecf66cf66ca"
+}

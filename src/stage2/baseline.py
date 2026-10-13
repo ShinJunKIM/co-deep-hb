@@ -297,7 +297,13 @@ def material_lines(run, hill):
             d.append(f"TBDATA,{s_ + 1}," + ",".join(_f(v) for v in vals[s_:s_ + 6]))
         info["Ez_GPa"] = S.Ez_check(S.sorted_hkl(hkl), 0.0) / 1000.0
     a = run["cu_alpha"]
-    d += [f"MP,ALPX,1,{_f(a)}", f"MP,ALPY,1,{_f(a)}", f"MP,ALPZ,1,{_f(a)}", f"MP,REFT,1,{_f(T_REF)}"]
+    aip = run.get("cu_alpha_ip")
+    if aip is None:
+        d += [f"MP,ALPX,1,{_f(a)}", f"MP,ALPY,1,{_f(a)}", f"MP,ALPZ,1,{_f(a)}", f"MP,REFT,1,{_f(T_REF)}"]
+    elif run["dim"] == 2:   # axisymmetric: X radial, Y axial (vertical), Z hoop
+        d += [f"MP,ALPX,1,{_f(aip)}", f"MP,ALPY,1,{_f(a)}", f"MP,ALPZ,1,{_f(aip)}", f"MP,REFT,1,{_f(T_REF)}"]
+    else:
+        d += [f"MP,ALPX,1,{_f(aip)}", f"MP,ALPY,1,{_f(aip)}", f"MP,ALPZ,1,{_f(a)}", f"MP,REFT,1,{_f(T_REF)}"]
     if run["plastic"]:
         if run["cu"] != "iso":
             raise ValueError("plasticity only with isotropic Cu (pre-registration B5)")

@@ -60,3 +60,31 @@ register([r for r in runs if r["id"] not in RUN_BY_ID])
 
 runs.append(_run("X29", "Z", "imec", 1.80, 0.6, "Z imec 1.8 um array cell PLASTIC Okoro x3", cell_factor=2.26, plastic=True, yield_scale=3.0, **IM))
 register([r for r in runs if r["id"] not in RUN_BY_ID])
+
+# W: in-plane stress-relaxation proxy (grain-boundary / interface diffusional creep during the hold).
+# Cu in-plane CTE is set between the full Cu value (16.5 ppm, no relaxation) and the dielectric value (no in-plane
+# mismatch stress, full relaxation). Vertical CTE unchanged. Tests whether a size-dependent relaxation can
+# reproduce the measured size dependence (small pads relax faster: diffusion length ~ pad size).
+A_CU, A_D = 16.5e-6, 2.0e-6
+runs_W = []
+for i, (w, frac) in enumerate([(0.54, 1.0), (0.54, 0.5), (0.54, 0.25), (1.26, 1.0), (1.26, 0.5),
+                               (1.80, 1.0), (1.80, 0.5), (3.06, 1.0), (3.06, 0.5)]):
+    aip = A_CU - frac * (A_CU - A_D)
+    runs_W.append(_run(f"W{i + 1:02d}", "W", "imec", w, 0.6,
+                       f"W in-plane relaxation {frac:.0%} ({w:g} um), alpha_ip {aip * 1e6:.2f} ppm",
+                       cell_factor=2.26, cu_alpha_ip=aip, **IM))
+register([r for r in runs_W if r["id"] not in RUN_BY_ID])
+
+# W10+: combination of the two size-opposed mechanisms (plasticity raises u on large pads, in-plane relaxation lowers it
+# on small pads), and the 200 C check for the small pad.
+runs_W2 = [
+    _run("W10", "W", "imec", 0.54, 0.6, "W 0.54 um full in-plane relaxation + plastic Okoro x3", cell_factor=2.26,
+         cu_alpha_ip=2.0e-6, plastic=True, yield_scale=3.0, **IM),
+    _run("W11", "W", "imec", 1.26, 0.6, "W 1.26 um 25% in-plane relaxation + plastic Okoro x3", cell_factor=2.26,
+         cu_alpha_ip=16.5e-6 - 0.25 * 14.5e-6, plastic=True, yield_scale=3.0, **IM),
+    _run("W12", "W", "imec", 0.30, 0.6, "W 0.30 um full in-plane relaxation (prediction)", cell_factor=2.26,
+         cu_alpha_ip=2.0e-6, **IM),
+    _run("W13", "W", "imec", 0.54, 0.6, "W 0.54 um full in-plane relaxation, 3D [001]", cu="aniso", orient="001",
+         cell_factor=2.0, cu_alpha_ip=2.0e-6, **IM),
+]
+register([r for r in runs_W2 if r["id"] not in RUN_BY_ID])

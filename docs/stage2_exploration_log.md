@@ -293,3 +293,25 @@
 - 400 C 오차(c50/시야): 탄성 -23/-12/-24/+36 % (3.06/1.80/1.26/0.54 um); Okoro x1 +10/+53/+56/+313 %(기각); Okoro x3(항복 RT 579 MPa, sub-um Cu 문헌 범위 300-600 MPa) -12/+3/-11/+44 %.
 - 추출 정의를 '전체 패드/인접 유전체'로 바꾸면 x3에서 -48/-39/-45/+10 %: 작은 패드는 맞고 큰 패드는 크게 틀린다. 즉 어떤 (모델 x 정의) 조합도 네 크기를 동시에 +/-20 % 안에 넣지 못한다. 측정의 크기 의존이 모델보다 가파르다는 사실은 정의 선택과 무관하게 남는다.
 - 현재 최선의 단일 설정: 배열 셀 + 등방 소성 x3 + c50/시야 -> 1.26-3.06 um +/-12 %, 0.54 um +44 %. 이것은 사후 선택이므로 '개정 2 후보'로만 기록(PI 승인 필요; 항복응력은 문헌 범위에서 고정해야 함).
+- 2026-10-13 18:21 **W01** (W) W in-plane relaxation 100% (0.54 um), alpha_ip 2.00 ppm -> exit 0, wall 18 s, LS ok True; du_c50 1.385 | du_ctr 1.817 | du_full 1.176 nm
+- 2026-10-13 18:21 **W02** (W) W in-plane relaxation 50% (0.54 um), alpha_ip 9.25 ppm -> exit 0, wall 18 s, LS ok True; du_c50 1.712 | du_ctr 2.257 | du_full 1.450 nm
+- 2026-10-13 18:21 **W03** (W) W in-plane relaxation 25% (0.54 um), alpha_ip 12.88 ppm -> exit 0, wall 18 s, LS ok True; du_c50 1.876 | du_ctr 2.477 | du_full 1.588 nm
+- 2026-10-13 18:22 **W04** (W) W in-plane relaxation 100% (1.26 um), alpha_ip 2.00 ppm -> exit 0, wall 18 s, LS ok True; du_c50 2.336 | du_ctr 2.819 | du_full 2.018 nm
+- 2026-10-13 18:22 **W05** (W) W in-plane relaxation 50% (1.26 um), alpha_ip 9.25 ppm -> exit 0, wall 18 s, LS ok True; du_c50 3.187 | du_ctr 3.965 | du_full 2.729 nm
+- 2026-10-13 18:22 **W06** (W) W in-plane relaxation 100% (1.8 um), alpha_ip 2.00 ppm -> exit 0, wall 18 s, LS ok True; du_c50 2.634 | du_ctr 3.023 | du_full 2.314 nm
+- 2026-10-13 18:23 **W07** (W) W in-plane relaxation 50% (1.8 um), alpha_ip 9.25 ppm -> exit 0, wall 18 s, LS ok True; du_c50 3.812 | du_ctr 4.565 | du_full 3.300 nm
+- 2026-10-13 18:23 **W08** (W) W in-plane relaxation 100% (3.06 um), alpha_ip 2.00 ppm -> exit 0, wall 18 s, LS ok True; du_c50 2.915 | du_ctr 3.146 | du_full 2.647 nm
+- 2026-10-13 18:23 **W09** (W) W in-plane relaxation 50% (3.06 um), alpha_ip 9.25 ppm -> exit 0, wall 18 s, LS ok True; du_c50 4.619 | du_ctr 5.242 | du_full 4.088 nm
+- 2026-10-13 18:25 **W10** (W) W 0.54 um full in-plane relaxation + plastic Okoro x3 -> exit 0, wall 30 s, LS ok True; du_c50 1.405 | du_ctr 1.827 | du_full 1.189 nm, eppl_max 2.10e-03
+- 2026-10-13 18:25 **W11** (W) W 1.26 um 25% in-plane relaxation + plastic Okoro x3 -> exit 0, wall 26 s, LS ok True; du_c50 3.777 | du_ctr 4.827 | du_full 3.194 nm, eppl_max 5.61e-03
+- 2026-10-13 18:25 **W12** (W) W 0.30 um full in-plane relaxation (prediction) -> exit 0, wall 22 s, LS ok True; du_c50 0.808 | du_ctr 1.077 | du_full 0.686 nm
+- 2026-10-13 18:26 **W13** (W) W 0.54 um full in-plane relaxation, 3D [001] -> exit 0, wall 34 s, LS ok True; du_c50 1.219 | du_ctr 1.496 | du_full 1.055 nm
+
+### 라운드 W: 면내 응력 완화로 540 nm 재현 (W01-W13) — 핵심 결과
+- 가설: 작은 패드는 보유 중 확산 크리프(결정립계·계면)로 면내 압축응력이 풀린다. 면내 응력이 없으면 Poisson 밀어올림이 사라져 u가 줄어든다. ANSYS 대리 모델: Cu 면내 CTE를 유전체 값(2.0 ppm)까지 낮추고 수직 CTE(16.5 ppm)는 유지. 완화율 f = (16.5 - alpha_ip)/14.5.
+- 540 nm, 400 C: f = 0 -> 2.04 (+46 %), 0.25 -> 1.88 (+34 %), 0.5 -> 1.71 (+22 %), **f = 1 -> 1.385 (-1 %)**. 소성(x3) 포함 시 1.405 (0 %).
+- 같은 완화를 큰 패드에 적용하면 크게 과소: 1.26 um -53 %, 1.80 um -51 %, 3.06 um -63 % (f = 1). 즉 완화는 크기 의존이어야 한다.
+- **단일 모델(등방 소성 Okoro x3 + 1 um 이하에서만 면내 완화 완료)로 네 크기 동시 재현: 3.06 -12 %, 1.80 +3 %, 1.26 -11 %, 0.54 0 %.**
+- 시간 상수 일관성: 확산 완화 tau ~ D^n (n = 3 Coble, 3.7 표면확산/DM2024). 0.54 um가 단계당 보유(~10-15 분) 안에 완화되면 1.26 um는 2-4 시간 필요 -> 완화되지 않음. 측정의 크기 의존과 부호·크기가 모두 맞는다. imec의 전이(0.5 um 이하 확산 지배)와 같은 방향.
+- 300 nm 예측(면내 완화 적용): u(400 C) 0.81 nm (완화 없을 때 1.27). 3D [001] 0.54 um 완화 1.22 vs 2D 1.385.
+- 지위: 사후(post-hoc) 발견. 검증 판정(NOT VALIDATED)은 바꾸지 않는다. 개정 2로 사전등록하려면 완화율을 자유 파라미터가 아니라 tau(D, T)에서 유도해야 한다(제안: Coble 크리프 계수를 문헌에서 고정).

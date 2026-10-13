@@ -1,0 +1,165 @@
+{
+ "id": "W11",
+ "exec": {
+  "method": "batch",
+  "exit_code": 0,
+  "wall_s": 25.952438599982997,
+  "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\W11 -j W11 -i C:\\Users\\USER\\co-deep-hb\\results\\W11\\W11_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\W11\\W11.out"
+ },
+ "deck": {
+  "run": {
+   "id": "W11",
+   "group": "W",
+   "ds": "imec",
+   "w": 1.26,
+   "h": 0.6,
+   "note": "W 1.26 um 25% in-plane relaxation + plastic Okoro x3",
+   "dim": 2,
+   "cu": "iso",
+   "orient": null,
+   "side": "bonded",
+   "plastic": true,
+   "cell_factor": 2.26,
+   "taper": 0.0,
+   "refine": 1,
+   "z_ox": 0.5,
+   "t_liner": 0.006,
+   "diel": "SiCN",
+   "E_d": 120000.0,
+   "a_d": 2e-06,
+   "temps": [
+    25.0,
+    100.0,
+    200.0,
+    300.0,
+    400.0
+   ],
+   "cu_alpha": 1.65e-05,
+   "afm_field": 8.0,
+   "cu_alpha_ip": 1.2875000000000001e-05,
+   "yield_scale": 3.0
+  },
+  "geometry": {
+   "w": 1.26,
+   "h": 0.6,
+   "A": 0.63,
+   "L": 2.8476,
+   "R": 1.4238,
+   "t_si": 2.8476,
+   "zpb": 0.5,
+   "zpt": 1.1,
+   "theta": 0.0,
+   "a_bot": 0.63,
+   "t_l": 0.006
+  },
+  "n_nodes": 3422,
+  "n_elems": 3306,
+  "n_ce": 0,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "T_ref": 25.0,
+  "mat": {
+   "Ez_GPa": 128.31337324652407,
+   "plastic": "Okoro 2008 isotropic, T-dependent, scale 3.0",
+   "E_d": 120000.0,
+   "a_d": 2e-06,
+   "nu_d": 0.2,
+   "t_liner": 0.006
+  },
+  "physics_sha256": "222b836fa4f6e8f31eeb1c15fe65004a1af86d9215a9fb0cf419697244e24234"
+ },
+ "check": {
+  "load_steps": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "all_ok": true,
+  "failures": [],
+  "n_error_messages": 0,
+  "run_completed": true
+ },
+ "ok": true,
+ "result": {
+  "hist": [
+   {
+    "T": 25.0,
+    "u_c50": 0.0,
+    "u_ctr": 0.0,
+    "u_full": 0.0,
+    "u_ctr_afm": 0.0,
+    "ref_afm": 0.0,
+    "ref_edge": 0.0,
+    "du_c50": 0.0,
+    "du_ctr": 0.0,
+    "du_full": 0.0,
+    "du_ctr_afm": 0.0
+   },
+   {
+    "T": 100.0,
+    "u_c50": 0.7224482475245594,
+    "u_ctr": 0.9074654706427999,
+    "u_full": 0.6168549954349337,
+    "u_ctr_afm": 0.7940504323646885,
+    "ref_afm": 0.8207792615243114,
+    "ref_edge": 0.7073642232462,
+    "du_c50": 0.7224482475245594,
+    "du_ctr": 0.9074654706427999,
+    "du_full": 0.6168549954349337,
+    "du_ctr_afm": 0.7940504323646885
+   },
+   {
+    "T": 200.0,
+    "u_c50": 1.6857125775572983,
+    "u_ctr": 2.117419431499,
+    "u_full": 1.439328322681418,
+    "u_ctr_afm": 1.8527843421836103,
+    "ref_afm": 1.9151516102233896,
+    "ref_edge": 1.650516520908,
+    "du_c50": 1.6857125775572983,
+    "du_ctr": 2.117419431499,
+    "du_full": 1.439328322681418,
+    "du_ctr_afm": 1.8527843421836103
+   },
+   {
+    "T": 300.0,
+    "u_c50": 2.6488323582447615,
+    "u_ctr": 3.327388363645,
+    "u_full": 2.2616522472377225,
+    "u_ctr_afm": 2.9115377789810113,
+    "ref_afm": 3.0095821469949886,
+    "ref_edge": 2.593731562331,
+    "du_c50": 2.6488323582447615,
+    "du_ctr": 3.327388363645,
+    "du_full": 2.2616522472377225,
+    "du_ctr_afm": 2.9115377789810113
+   },
+   {
+    "T": 400.0,
+    "u_c50": 3.7767685084154694,
+    "u_ctr": 4.827306869254,
+    "u_full": 3.1943543377712826,
+    "u_ctr_afm": 4.258741062471054,
+    "ref_afm": 4.103150659860947,
+    "ref_edge": 3.534584853078,
+    "du_c50": 3.7767685084154694,
+    "du_ctr": 4.827306869254,
+    "du_full": 3.1943543377712826,
+    "du_ctr_afm": 4.258741062471054
+   }
+  ],
+  "du_c50": 3.7767685084154694,
+  "du_ctr": 4.827306869254,
+  "du_full": 3.1943543377712826,
+  "eppl_max": 0.005614194902591,
+  "seqv_max": 464.438605645,
+  "Ez": 128.31337324652407
+ }
+}

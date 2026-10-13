@@ -280,3 +280,16 @@
 - 540 nm 모델 표면: Cu 중심 5.20, 가장자리 3.85 nm; 유전체는 패드 옆 3.22 -> 먼 곳 2.50 nm. 즉 '어디를 기준면으로, 어디까지 평균하는가'에 따라 모델 u가 1.26-2.70 nm로 바뀐다. 전체 패드 평균 / 인접 유전체 기준이면 1.39 nm(-1 %), 전체 패드 / 시야 평균 1.58(+13 %), 사전등록 정의(중앙 50 % / 시야) 1.90(+36 %, 셀 2.26w 런의 값). AFM 탐침 반경 10-50 nm 팽창(dilation)은 2 % 미만.
 - X21 최악 조합(CD 0.46, 깊이 0.5, 테이퍼 5 deg, 피치 0.918 um): c50 1.68(+20 %), 전체 평균 1.41(+1 %).
 - 해석: 0.54 um의 +46 %는 대부분 측정 정의(평균 영역·기준면)로 흡수될 수 있고, 나머지는 기하 불확실성 안에 있다. 그러나 이는 사후 분석이므로 검증 판정(NOT VALIDATED)은 바꾸지 않는다. imec에 '평균 팽창'의 정의(평균 영역, 기준면 위치)를 확인하는 것이 선결.
+- 2026-10-13 16:55 **X22** (Z) Z imec 3.06 um array cell PLASTIC Okoro x1 -> exit 0, wall 24 s, LS ok True; du_c50 8.747 | du_ctr 8.854 | du_full 7.681 nm, eppl_max 3.59e-02
+- 2026-10-13 16:56 **X23** (Z) Z imec 1.8 um array cell PLASTIC Okoro x1 -> exit 0, wall 24 s, LS ok True; du_c50 8.407 | du_ctr 9.778 | du_full 7.042 nm, eppl_max 6.86e-02
+- 2026-10-13 16:56 **X24** (Z) Z imec 1.26 um array cell PLASTIC Okoro x1 -> exit 0, wall 25 s, LS ok True; du_c50 7.906 | du_ctr 9.551 | du_full 6.629 nm, eppl_max 1.07e-01
+- 2026-10-13 16:57 **X25** (Z) Z imec 0.54 um array cell PLASTIC Okoro x1 -> exit 0, wall 30 s, LS ok True; du_c50 5.834 | du_ctr 6.417 | du_full 5.160 nm, eppl_max 2.52e-01
+- 2026-10-13 16:57 **X26** (Z) Z imec 3.06 um array cell PLASTIC Okoro x3 -> exit 0, wall 24 s, LS ok True; du_c50 7.157 | du_ctr 7.941 | du_full 6.140 nm, eppl_max 5.84e-03
+- 2026-10-13 16:57 **X27** (Z) Z imec 1.26 um array cell PLASTIC Okoro x3 -> exit 0, wall 25 s, LS ok True; du_c50 4.684 | du_ctr 6.131 | du_full 3.876 nm, eppl_max 8.26e-03
+- 2026-10-13 16:58 **X28** (Z) Z imec 0.54 um array cell PLASTIC Okoro x3 -> exit 0, wall 30 s, LS ok True; du_c50 2.151 | du_ctr 2.751 | du_full 1.849 nm, eppl_max 1.53e-02
+- 2026-10-13 16:59 **X29** (Z) Z imec 1.8 um array cell PLASTIC Okoro x3 -> exit 0, wall 24 s, LS ok True; du_c50 5.833 | du_ctr 7.305 | du_full 4.828 nm, eppl_max 6.83e-03
+
+### 라운드 Z: 한 가지 설정으로 imec 네 크기 동시 재현 시험 (17:10; X22-X29; 배열 셀, 채택 SiCN, 등방 소성)
+- 400 C 오차(c50/시야): 탄성 -23/-12/-24/+36 % (3.06/1.80/1.26/0.54 um); Okoro x1 +10/+53/+56/+313 %(기각); Okoro x3(항복 RT 579 MPa, sub-um Cu 문헌 범위 300-600 MPa) -12/+3/-11/+44 %.
+- 추출 정의를 '전체 패드/인접 유전체'로 바꾸면 x3에서 -48/-39/-45/+10 %: 작은 패드는 맞고 큰 패드는 크게 틀린다. 즉 어떤 (모델 x 정의) 조합도 네 크기를 동시에 +/-20 % 안에 넣지 못한다. 측정의 크기 의존이 모델보다 가파르다는 사실은 정의 선택과 무관하게 남는다.
+- 현재 최선의 단일 설정: 배열 셀 + 등방 소성 x3 + c50/시야 -> 1.26-3.06 um +/-12 %, 0.54 um +44 %. 이것은 사후 선택이므로 '개정 2 후보'로만 기록(PI 승인 필요; 항복응력은 문헌 범위에서 고정해야 함).

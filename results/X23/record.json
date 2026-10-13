@@ -1,0 +1,163 @@
+{
+ "id": "X23",
+ "exec": {
+  "method": "batch",
+  "exit_code": 0,
+  "wall_s": 24.105600999988383,
+  "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\X23 -j X23 -i C:\\Users\\USER\\co-deep-hb\\results\\X23\\X23_batch.dat -o C:\\Users\\USER\\co-deep-hb\\results\\X23\\X23.out"
+ },
+ "deck": {
+  "run": {
+   "id": "X23",
+   "group": "Z",
+   "ds": "imec",
+   "w": 1.8,
+   "h": 0.6,
+   "note": "Z imec 1.8 um array cell PLASTIC Okoro x1",
+   "dim": 2,
+   "cu": "iso",
+   "orient": null,
+   "side": "bonded",
+   "plastic": true,
+   "cell_factor": 2.26,
+   "taper": 0.0,
+   "refine": 1,
+   "z_ox": 0.5,
+   "t_liner": 0.006,
+   "diel": "SiCN",
+   "E_d": 120000.0,
+   "a_d": 2e-06,
+   "temps": [
+    25.0,
+    100.0,
+    200.0,
+    300.0,
+    400.0
+   ],
+   "cu_alpha": 1.65e-05,
+   "afm_field": 8.0
+  },
+  "geometry": {
+   "w": 1.8,
+   "h": 0.6,
+   "A": 0.9,
+   "L": 4.068,
+   "R": 2.034,
+   "t_si": 4.068,
+   "zpb": 0.5,
+   "zpt": 1.1,
+   "theta": 0.0,
+   "a_bot": 0.9,
+   "t_l": 0.006
+  },
+  "n_nodes": 3120,
+  "n_elems": 3009,
+  "n_ce": 0,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "T_ref": 25.0,
+  "mat": {
+   "Ez_GPa": 128.31337324652407,
+   "plastic": "Okoro 2008 isotropic, T-dependent, scale 1.0",
+   "E_d": 120000.0,
+   "a_d": 2e-06,
+   "nu_d": 0.2,
+   "t_liner": 0.006
+  },
+  "physics_sha256": "fc2b722171a931ac3dbe09338579f20798ce81da1c078d25bc1c0af48a6ddba1"
+ },
+ "check": {
+  "load_steps": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "all_ok": true,
+  "failures": [],
+  "n_error_messages": 0,
+  "run_completed": true
+ },
+ "ok": true,
+ "result": {
+  "hist": [
+   {
+    "T": 25.0,
+    "u_c50": 0.0,
+    "u_ctr": 0.0,
+    "u_full": 0.0,
+    "u_ctr_afm": 0.0,
+    "ref_afm": 0.0,
+    "ref_edge": 0.0,
+    "du_c50": 0.0,
+    "du_ctr": 0.0,
+    "du_full": 0.0,
+    "du_ctr_afm": 0.0
+   },
+   {
+    "T": 100.0,
+    "u_c50": 0.9978922187091617,
+    "u_ctr": 1.2214434661959,
+    "u_full": 0.8572588451581042,
+    "u_ctr_afm": 1.0846969643351203,
+    "ref_afm": 1.0434688334648796,
+    "ref_edge": 0.9067223316041,
+    "du_c50": 0.9978922187091617,
+    "du_ctr": 1.2214434661959,
+    "du_full": 0.8572588451581042,
+    "du_ctr_afm": 1.0846969643351203
+   },
+   {
+    "T": 200.0,
+    "u_c50": 2.8202893728733387,
+    "u_ctr": 3.530269127631,
+    "u_full": 2.3248831803090257,
+    "u_ctr_afm": 3.2194348117966016,
+    "ref_afm": 2.4347202170933984,
+    "ref_edge": 2.123885901259,
+    "du_c50": 2.8202893728733387,
+    "du_ctr": 3.530269127631,
+    "du_full": 2.3248831803090257,
+    "du_ctr_afm": 3.2194348117966016
+   },
+   {
+    "T": 300.0,
+    "u_c50": 5.446435451735898,
+    "u_ctr": 6.5333354301530004,
+    "u_full": 4.522757581347944,
+    "u_ctr_afm": 6.144157621913097,
+    "ref_afm": 3.7641279368219034,
+    "ref_edge": 3.374950128582,
+    "du_c50": 5.446435451735898,
+    "du_ctr": 6.5333354301530004,
+    "du_full": 4.522757581347944,
+    "du_ctr_afm": 6.144157621913097
+   },
+   {
+    "T": 400.0,
+    "u_c50": 8.407278281999881,
+    "u_ctr": 9.778373903497,
+    "u_full": 7.041662302607527,
+    "u_ctr_afm": 9.37469093962539,
+    "ref_afm": 5.03286921127461,
+    "ref_edge": 4.629186247403,
+    "du_c50": 8.407278281999881,
+    "du_ctr": 9.778373903497,
+    "du_full": 7.041662302607527,
+    "du_ctr_afm": 9.37469093962539
+   }
+  ],
+  "du_c50": 8.407278281999881,
+  "du_ctr": 9.778373903497,
+  "du_full": 7.041662302607527,
+  "eppl_max": 0.06856382079422,
+  "seqv_max": 184.351507047,
+  "Ez": 128.31337324652407
+ }
+}

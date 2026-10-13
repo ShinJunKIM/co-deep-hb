@@ -1,0 +1,66 @@
+{
+ "run": {
+  "id": "X29",
+  "group": "Z",
+  "ds": "imec",
+  "w": 1.8,
+  "h": 0.6,
+  "note": "Z imec 1.8 um array cell PLASTIC Okoro x3",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": true,
+  "cell_factor": 2.26,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0,
+  "yield_scale": 3.0
+ },
+ "geometry": {
+  "w": 1.8,
+  "h": 0.6,
+  "A": 0.9,
+  "L": 4.068,
+  "R": 2.034,
+  "t_si": 4.068,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.9,
+  "t_l": 0.006
+ },
+ "n_nodes": 3120,
+ "n_elems": 3009,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "plastic": "Okoro 2008 isotropic, T-dependent, scale 3.0",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "9ddf84400d9bc03e38177d0e73a6218899de009b03831f7fa49f15e01935c440"
+}

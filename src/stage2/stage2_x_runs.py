@@ -49,3 +49,14 @@ _pitch = 1.7 * 0.54
 runs.append(_run("X21", "X", "imec", 0.46, 0.5, "X2 worst-plausible combo: CD 0.46, depth 0.5, taper 5, pitch 0.918 um",
                  cell_factor=1.128 * _pitch / 0.46, taper=5.0, **IM))
 register([r for r in runs if r["id"] not in RUN_BY_ID])
+
+# Z: one consistent setup for all four imec sizes: array cell 2.26 w, adopted SiCN, isotropic plasticity (Okoro x1 and x3)
+for _w, _k in ((3.06, 22), (1.80, 23), (1.26, 24), (0.54, 25)):
+    runs.append(_run(f"X{_k}", "Z", "imec", _w, 0.6, f"Z imec {_w:g} um array cell PLASTIC Okoro x1", cell_factor=2.26, plastic=True, **IM))
+for _w, _k in ((3.06, 26), (1.26, 27), (0.54, 28)):
+    runs.append(_run(f"X{_k}", "Z", "imec", _w, 0.6, f"Z imec {_w:g} um array cell PLASTIC Okoro x3", cell_factor=2.26, plastic=True,
+                     yield_scale=3.0, **IM))
+register([r for r in runs if r["id"] not in RUN_BY_ID])
+
+runs.append(_run("X29", "Z", "imec", 1.80, 0.6, "Z imec 1.8 um array cell PLASTIC Okoro x3", cell_factor=2.26, plastic=True, yield_scale=3.0, **IM))
+register([r for r in runs if r["id"] not in RUN_BY_ID])

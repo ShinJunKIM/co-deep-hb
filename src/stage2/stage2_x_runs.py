@@ -102,3 +102,13 @@ runs_W3 = [
          cell_factor=2.0, cu_alpha_ip=2.0e-6, **IM),
 ]
 register([r for r in runs_W3 if r["id"] not in RUN_BY_ID])
+
+# W18+: decisive test of the sign question. The strain sign needs a vertically relaxed (sliding) sidewall;
+# the protrusion needs a bonded sidewall. Can "sliding + in-plane relaxation" satisfy the protrusion data too?
+runs_W4 = [
+    _run("W18", "W", "imec", 0.54, 0.6, "W 0.54 um SLIDING + full in-plane relaxation", cell_factor=2.26,
+         side="sliding", cu_alpha_ip=2.0e-6, **IM),
+    _run("W19", "W", "imec", 0.54, 0.6, "W 0.54 um SLIDING, no relaxation (reference)", cell_factor=2.26,
+         side="sliding", **IM),
+]
+register([r for r in runs_W4 if r["id"] not in RUN_BY_ID])

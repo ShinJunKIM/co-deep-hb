@@ -269,15 +269,23 @@ def _f(v):
     return f"{v:.10g}"
 
 
-def okoro_curve(T_C):
-    """Isotropic polycrystalline Cu flow curve (Okoro 2008 / Tsau 2022 Eq. 1): sigma = (193 - 0.185 T)(1 + eps_p^0.3), MPa."""
-    s0 = 193.0 - 0.185 * T_C
+def okoro_curve(T_C, scale=1.0):
+    """Isotropic polycrystalline Cu flow curve (Okoro 2008 / Tsau 2022 Eq. 1): sigma = (193 - 0.185 T)(1 + eps_p^0.3), MPa.
+    scale > 1: size-effect sensitivity (sub-um Cu yields higher than bulk films)."""
+    s0 = scale * (193.0 - 0.185 * T_C)
     return [(e, s0 * (1.0 + e ** 0.3)) for e in S.EPS_P_GRID]
 
 
 def material_lines(run, hill):
     d, info = [], {}
-    if run["cu"] == "iso":
+    if run["cu"] == "iso" and run.get("cu_T", False):
+        temps = [25.0, 100.0, 200.0, 300.0, 400.0]
+        hs = [L13.hill_cu(T) for T in temps]
+        d += ["! ---- MAT 1: Cu isotropic Hill average, T-dependent (Chang & Himmel)", "MPTEMP",
+              "MPTEMP,1," + ",".join(_f(T) for T in temps),
+              "MPDATA,EX,1,1," + ",".join(_f(h["E_MPa"]) for h in hs), "MPDATA,PRXY,1,1," + ",".join(_f(h["nu"]) for h in hs), "MPTEMP"]
+        info["Ez_GPa"] = hill["E_MPa"] / 1000.0; info["cu_T"] = [h["E_MPa"] for h in hs]
+    elif run["cu"] == "iso":
         d += ["! ---- MAT 1: Cu isotropic Hill average", f"MP,EX,1,{_f(hill['E_MPa'])}", f"MP,PRXY,1,{_f(hill['nu'])}"]
         info["Ez_GPa"] = hill["E_MPa"] / 1000.0
     else:
@@ -297,16 +305,16 @@ def material_lines(run, hill):
         d.append(f"TB,PLAS,1,{len(temps)},{len(S.EPS_P_GRID)},MISO")
         for T in temps:
             d.append(f"TBTEMP,{_f(T)}")
-            for e, sg in okoro_curve(T):
+            for e, sg in okoro_curve(T, run.get("yield_scale", 1.0)):
                 d.append(f"TBPT,DEFI,{_f(e)},{_f(sg)}")
-        info["plastic"] = "Okoro 2008 isotropic, T-dependent"
+        info["plastic"] = f"Okoro 2008 isotropic, T-dependent, scale {run.get('yield_scale', 1.0)}"
     E_d, a_d = run["E_d"], run["a_d"]
     nu_d = DIEL[run["diel"]]["PRXY"]
     d += [f"! ---- MAT 2: {run['diel']}", f"MP,EX,2,{_f(E_d)}", f"MP,PRXY,2,{_f(nu_d)}", f"MP,ALPX,2,{_f(a_d)}",
           f"MP,REFT,2,{_f(T_REF)}",
           "! ---- MAT 3: Si", f"MP,EX,3,{_f(SI['EX'])}", f"MP,PRXY,3,{_f(SI['PRXY'])}", f"MP,ALPX,3,{_f(SI['ALPX'])}",
           f"MP,REFT,3,{_f(T_REF)}",
-          "! ---- MAT 5: Ta liner", f"MP,EX,5,{_f(TA['EX'])}", f"MP,PRXY,5,{_f(TA['PRXY'])}", f"MP,ALPX,5,{_f(TA['ALPX'])}",
+          "! ---- MAT 5: Ta liner", f"MP,EX,5,{_f(run.get('E_liner', TA['EX']))}", f"MP,PRXY,5,{_f(TA['PRXY'])}", f"MP,ALPX,5,{_f(TA['ALPX'])}",
           f"MP,REFT,5,{_f(T_REF)}"]
     info.update(E_d=E_d, a_d=a_d, nu_d=nu_d, t_liner=run["t_liner"])
     return d, info
@@ -576,8 +584,9 @@ def build_contact_deck(run):
     mats_top = np.where(mats == 1, 6, mats)
     hill = L13.hill_cu(T_REF)
     d = [f"/TITLE,Stage2 {run['id']} contact w{run['w']} r0 {r0 * 1000:g} nm T {run['T_anneal']}", "/NERR,200,10000000",
-         "/PREP7", "ET,1,PLANE182", "KEYOPT,1,1,2", "KEYOPT,1,3,1", "ET,2,TARGE169", "ET,3,CONTA172",
-         "KEYOPT,3,2,0", "KEYOPT,3,5,0", "KEYOPT,3,9,0", "KEYOPT,3,10,2", "KEYOPT,3,12,0", "R,1", "RMODIF,1,3,1.0"]
+         "/PREP7", "ET,1,PLANE182", f"KEYOPT,1,1,{run.get('keyopt1', 2)}", "KEYOPT,1,3,1", "ET,2,TARGE169", "ET,3,CONTA172",
+         f"KEYOPT,3,2,{run.get('keyopt2', 0)}", "KEYOPT,3,5,0", "KEYOPT,3,9,0", "KEYOPT,3,10,2", "KEYOPT,3,12,0", "R,1",
+         f"RMODIF,1,3,{_f(run.get('fkn', 1.0))}"]
     ml, info = material_lines(run, hill)
     d += ml
     d += ["! ---- MAT 6: top-wafer Cu (same as MAT 1)", f"MP,EX,6,{_f(hill['E_MPa'])}", f"MP,PRXY,6,{_f(hill['nu'])}",
@@ -587,7 +596,7 @@ def build_contact_deck(run):
         d.append(f"TB,PLAS,6,{len(temps)},{len(S.EPS_P_GRID)},MISO")
         for T in temps:
             d.append(f"TBTEMP,{_f(T)}")
-            for e, sg in okoro_curve(T):
+            for e, sg in okoro_curve(T, run.get("yield_scale", 1.0)):
                 d.append(f"TBPT,DEFI,{_f(e)},{_f(sg)}")
     d.append("! ---- nodes")
     d += [f"N,{int(r[0])},{_f(r[1])},{_f(r[2])}" for r in all_nodes]
@@ -610,7 +619,7 @@ def build_contact_deck(run):
     eps = 1e-6
     ztop = 2 * zb + g["t_si"]
     d += ["FINISH", "/SOLU", "ANTYPE,STATIC", "NLGEOM,OFF", f"TREF,{_f(T_REF)}", "OUTRES,ERASE", "OUTRES,ALL,LAST",
-          "AUTOTS,ON", "KBC,0", "NSUBST,10,200,5", "LNSRCH,ON", "NEQIT,50", "CNCHECK,AUTO",
+          "AUTOTS,ON", "KBC,0", f"NSUBST,{run.get('nsub', 10)},200,{max(1, run.get('nsub', 10) // 2)}", "LNSRCH,ON", "NEQIT,50", "CNCHECK,AUTO",
           f"NSEL,S,LOC,X,{-eps},{eps}", "D,ALL,UX,0",
           f"NSEL,S,LOC,Y,{_f(-g['t_si'] - eps)},{_f(-g['t_si'] + eps)}", "D,ALL,UY,0",
           f"NSEL,S,LOC,X,{_f(g['R'] - eps)},{_f(g['R'] + eps)}", "CM,WOUT,NODE", "ALLSEL,ALL"]
@@ -692,6 +701,7 @@ def main(argv=None):
     sys.modules.setdefault("baseline", sys.modules[__name__])   # registry must fill THIS module instance
     import stage2_runs  # noqa: F401  registers runs
     import stage2_contact_runs  # noqa: F401
+    import stage2_x_runs  # noqa: F401
     ap = argparse.ArgumentParser()
     ap.add_argument("--list", action="store_true")
     ap.add_argument("--case", default=None)

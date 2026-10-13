@@ -1,0 +1,65 @@
+{
+ "run": {
+  "id": "W16",
+  "group": "W",
+  "ds": "imec",
+  "w": 0.3,
+  "h": 0.6,
+  "note": "W 0.30 um full relaxation, 3D [001]",
+  "dim": 3,
+  "cu": "aniso",
+  "orient": "001",
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 2.0,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0,
+  "cu_alpha_ip": 2e-06
+ },
+ "geometry": {
+  "w": 0.3,
+  "h": 0.6,
+  "A": 0.15,
+  "L": 0.6,
+  "R": 0.3,
+  "t_si": 0.6,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.15,
+  "t_l": 0.006
+ },
+ "n_nodes": 20102,
+ "n_elems": 17908,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 66.68875086266391,
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "f594425cde6a7fae65cd784ec418e8fb44b54b7f1bfaaed9260b73e17ac2a535"
+}

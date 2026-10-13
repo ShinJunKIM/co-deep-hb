@@ -88,3 +88,17 @@ runs_W2 = [
          cell_factor=2.0, cu_alpha_ip=2.0e-6, **IM),
 ]
 register([r for r in runs_W2 if r["id"] not in RUN_BY_ID])
+
+# W14+: does in-plane relaxation remove the orientation dependence? (orientation enters only through the elastic
+# response to in-plane constraint stress; Cu CTE is isotropic in a cubic crystal)
+runs_W3 = [
+    _run("W14", "W", "imec", 0.54, 0.6, "W 0.54 um full relaxation, 3D [101]", cu="aniso", orient="101",
+         cell_factor=2.0, cu_alpha_ip=2.0e-6, **IM),
+    _run("W15", "W", "imec", 0.54, 0.6, "W 0.54 um full relaxation, 3D [111]", cu="aniso", orient="111",
+         cell_factor=2.0, cu_alpha_ip=2.0e-6, **IM),
+    _run("W16", "W", "imec", 0.30, 0.6, "W 0.30 um full relaxation, 3D [001]", cu="aniso", orient="001",
+         cell_factor=2.0, cu_alpha_ip=2.0e-6, **IM),
+    _run("W17", "W", "imec", 0.30, 0.6, "W 0.30 um full relaxation, 3D [111]", cu="aniso", orient="111",
+         cell_factor=2.0, cu_alpha_ip=2.0e-6, **IM),
+]
+register([r for r in runs_W3 if r["id"] not in RUN_BY_ID])

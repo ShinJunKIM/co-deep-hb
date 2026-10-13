@@ -1,0 +1,15 @@
+
+
+
+ SOLUTION HISTORY INFORMATION FOR JOB: X21.mntr                                                                                                                                                                                                                                                            
+ ANSYS RELEASE 2026 R1          BUILD 26.1        16:42:02    10/13/2026
+
+  LOAD   SUB-  NO.  NO.    TOTL  INCREMENT    TOTAL         VARIAB 1     VARIAB 2     VARIAB 3     VARIAB 4     VARIAB 5
+  STEP   STEP ATTMP ITER   ITER  TIME/LFACT   TIME/LFACT    MONITOR      MONITOR      MONITOR      MONITOR      MONITOR
+                                                             Elap(s)      Mem(GB)      MxDs         MxPl         MxRe   
+
+     1      1    1     1      1    1.0000       1.0000      0.25991       1.2810       0.0000      0.78886E-30   0.0000    
+     2      1    1     1      2    1.0000       2.0000      0.45767       1.2821      0.84106E-03  0.78886E-30   0.0000    
+     3      1    1     1      3    1.0000       3.0000      0.67175       1.2821      0.19625E-02  0.78886E-30   0.0000    
+     4      1    1     1      4    1.0000       4.0000      0.90892       1.2821      0.30839E-02  0.78886E-30   0.0000    
+     5      1    1     1      5    1.0000       5.0000       1.1225       1.2821      0.42053E-02  0.78886E-30   0.0000    

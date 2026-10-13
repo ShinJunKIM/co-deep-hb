@@ -1,0 +1,64 @@
+{
+ "run": {
+  "id": "X21",
+  "group": "X",
+  "ds": "imec",
+  "w": 0.46,
+  "h": 0.5,
+  "note": "X2 worst-plausible combo: CD 0.46, depth 0.5, taper 5, pitch 0.918 um",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 2.251095652173913,
+  "taper": 5.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0
+ },
+ "geometry": {
+  "w": 0.46,
+  "h": 0.5,
+  "A": 0.23,
+  "L": 1.035504,
+  "R": 0.517752,
+  "t_si": 1.035504,
+  "zpb": 0.5,
+  "zpt": 1.0,
+  "theta": 0.08726646259971647,
+  "a_bot": 0.186255668237038,
+  "t_l": 0.006
+ },
+ "n_nodes": 5336,
+ "n_elems": 5187,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "3abc804b19fc8d20125e4af0381a77a0191ed788a155f1d8cc4bc08eb4b3107d"
+}

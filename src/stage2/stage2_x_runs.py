@@ -43,4 +43,9 @@ runs = [
     _run("X19", "X", "imec", 1.80, 0.6, "X2 control: 1.80 um with T-dependent Cu stiffness", cell_factor=2.26, cu_T=True, **IM),
     _run("X20", "X", "imec", 1.80, 0.6, "X2 control: 1.80 um dielectric = SiO2 bulk", cell_factor=2.26, diel="SiO2", E_d=72000.0, a_d=0.5e-6),
 ]
+
+# X21: worst-plausible combination for the 0.54 um pad (one run): CD 0.46 um, depth 0.5 um, taper 5 deg, pitch 1.7 w (0.918 um)
+_pitch = 1.7 * 0.54
+runs.append(_run("X21", "X", "imec", 0.46, 0.5, "X2 worst-plausible combo: CD 0.46, depth 0.5, taper 5, pitch 0.918 um",
+                 cell_factor=1.128 * _pitch / 0.46, taper=5.0, **IM))
 register([r for r in runs if r["id"] not in RUN_BY_ID])

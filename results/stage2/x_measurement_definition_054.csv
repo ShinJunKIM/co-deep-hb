@@ -1,0 +1,14 @@
+# S112 (0.54 um, array cell, 400 C), measured 1.40 nm. Post-hoc: pre-registered definition is central-50% / field-mean (+36 %).
+averaging_region,reference,u_nm,err_pct
+centre,field mean,2.14,+53
+centre,local ring A..A+0.1um,1.95,+39
+central 50% area,field mean,1.90,+36
+central 50% area,local ring,1.70,+22
+central 80% area,field mean,1.72,+23
+central 80% area,local ring,1.53,+9
+full pad,field mean,1.58,+13
+full pad,local ring,1.39,-1
+full pad +20 nm boundary blur,field mean,1.45,+4
+full pad +20 nm boundary blur,local ring,1.26,-10
+any,cell edge or dielectric minimum,2.01-2.70,+43..+93
+tip dilation R 10/20/50 nm (with 2.5 nm RT recess step),full pad / field,1.58,+13 (no change)

@@ -153,7 +153,10 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--ayoub", action="store_true")
     ap.add_argument("--contact", action="store_true")
+    ap.add_argument("--mirror10", action="store_true")
     a = ap.parse_args(argv)
+    if a.mirror10:
+        mirror10()
     if a.ayoub:
         ayoub()
     if a.contact:
@@ -163,3 +166,33 @@ def main(argv=None):
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+# ---------------------------------------------------------------- round Y: 10-pad mirror-image test (realistic stack)
+def mirror10():
+    """Post-hoc test of the sign-convention hypothesis on all pads with the cap + Ta 13 nm stack:
+    r_p = (-Delta_model) / Delta_meas with Delta = eps'zz(400 C end of heating) - eps'zz(30 C); measured Fig 2c includes the
+    2 h hold (creep for soft pads), so r_p < 1 is expected for E_z < 130 GPa. Consistent-with-flip rule (pre-declared here):
+    all r_p > 0 and stiff pads (E_z > 130 GPa) within 0.75-1.25."""
+    fig2 = json.loads((S.INPUTS / "ayoub2022_fig2ac_digitized.json").read_text())
+    meas = {d["pad"]: (d["value"] * 1e-3, d["err"] * 1e-3) for d in fig2["fig2c_delta_30_400h"]}
+    ids = {10: "S61", 3: "S62", 1: "SA1", 2: "SA2", 4: "SA4", 5: "SA5", 6: "SA6", 7: "SA7", 9: "SA9"}
+    lines = ["pad,Ez_GPa,delta_model,delta_meas,err,ratio_neg_model_over_meas,stiff"]
+    rows = []
+    for pad, rid in sorted(ids.items()):
+        rec = s1(rid)
+        if rec is None or pad not in meas:
+            continue
+        h = rows_by_tag(rec)
+        dm = h["h400"]["eps_dev_zz"] - h["LS0_cool_Tsf_to_30"]["eps_dev_zz"]
+        ez = rec["deck"]["mat"]["Ez_GPa"]
+        r = (-dm) / meas[pad][0]
+        rows.append((pad, ez, dm, meas[pad][0], meas[pad][1], r, ez > 130.34))
+        lines.append(f"{pad},{ez:.1f},{dm:.4e},{meas[pad][0]:.4e},{meas[pad][1]:.1e},{r:.3f},{ez > 130.34}")
+    if rows:
+        stiff = [r for r in rows if r[6]]
+        ok = all(r[5] > 0 for r in rows) and all(0.75 <= r[5] <= 1.25 for r in stiff)
+        lines.append(f"# rule: all ratios > 0 and stiff pads within 0.75-1.25 -> consistent_with_sign_flip={ok}")
+        lines.append(f"# stiff-pad ratios: {[round(r[5], 3) for r in stiff]}; soft-pad ratios: {[round(r[5], 3) for r in rows if not r[6]]}")
+    (OUT / "ayoub_mirror10.csv").write_text("\n".join(lines) + "\n")
+    print("\n".join(lines))

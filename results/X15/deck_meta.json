@@ -1,0 +1,64 @@
+{
+ "run": {
+  "id": "X15",
+  "group": "X",
+  "ds": "imec",
+  "w": 0.54,
+  "h": 0.6,
+  "note": "X2 dielectric = SiO2 bulk (72 GPa, 0.5 ppm) instead of SiCN",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 2.26,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiO2",
+  "E_d": 72000.0,
+  "a_d": 5e-07,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0
+ },
+ "geometry": {
+  "w": 0.54,
+  "h": 0.6,
+  "A": 0.27,
+  "L": 1.2204,
+  "R": 0.6102,
+  "t_si": 1.2204,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.27,
+  "t_l": 0.006
+ },
+ "n_nodes": 5310,
+ "n_elems": 5162,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 72000.0,
+  "a_d": 5e-07,
+  "nu_d": 0.17,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "a10b15785ef4a7d575fc5c4225528179516e8284c4ce25a64e29d848344e00a8"
+}

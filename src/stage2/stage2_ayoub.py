@@ -24,6 +24,10 @@ RUNS = {
     "S63": S._run("S63", 3, 20, "S2-C pad 3 elastic, circle, no cap, SLIDING (R35 sliding counterpart)", shape="circle",
                   cap=False, sliding=True, layers=True),
 }
+# round X/Y: the remaining elastic pads with the realistic stack (cap + Ta 13 nm), to test the mirror-image finding on all pads
+for _p in (1, 2, 4, 5, 6, 7, 9):
+    RUNS[f"SA{_p}"] = S._run(f"SA{_p}", _p, 21, f"S2-Y pad {_p} elastic, circle, cap, Ta 13 nm, adopted SiO2", shape="circle",
+                             cap=True, t_liner=0.013, layers=True)
 
 
 def main(argv=None):
@@ -37,9 +41,9 @@ def main(argv=None):
     for rid in a.case.split(","):
         run = RUNS[rid]
         oxide0 = dict(S.OXIDE)
-        if rid in ("S61", "S62") and a.E is not None:
+        if rid != "S63" and a.E is not None:
             S.OXIDE["EX"] = a.E
-        if rid in ("S61", "S62") and a.a is not None:
+        if rid != "S63" and a.a is not None:
             S.OXIDE["ALPX"] = a.a
         outdir = S.RESULTS / rid
         text, meta = S._write_case(run, outdir)

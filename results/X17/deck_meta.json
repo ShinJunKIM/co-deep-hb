@@ -1,0 +1,72 @@
+{
+ "run": {
+  "id": "X17",
+  "group": "X",
+  "ds": "imec",
+  "w": 0.54,
+  "h": 0.6,
+  "note": "X2 T-dependent Cu stiffness (Chang & Himmel Hill E(T))",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 2.26,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0,
+  "cu_T": true
+ },
+ "geometry": {
+  "w": 0.54,
+  "h": 0.6,
+  "A": 0.27,
+  "L": 1.2204,
+  "R": 0.6102,
+  "t_si": 1.2204,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.27,
+  "t_l": 0.006
+ },
+ "n_nodes": 5310,
+ "n_elems": 5162,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "cu_T": [
+   128313.37324652406,
+   124449.81420243604,
+   119790.98814840206,
+   115121.36470637422,
+   110389.96409253028
+  ],
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "3cfffc8470de25b7186c16282022d9c19eab5d29be2c2f114b9efd7c875f4e5c"
+}

@@ -1,0 +1,65 @@
+{
+ "run": {
+  "id": "X16",
+  "group": "X",
+  "ds": "imec",
+  "w": 0.54,
+  "h": 0.6,
+  "note": "X2 compliant liner (Ta E/10 = 18.6 GPa, weak-interface proxy)",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 2.26,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0,
+  "E_liner": 18600.0
+ },
+ "geometry": {
+  "w": 0.54,
+  "h": 0.6,
+  "A": 0.27,
+  "L": 1.2204,
+  "R": 0.6102,
+  "t_si": 1.2204,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.27,
+  "t_l": 0.006
+ },
+ "n_nodes": 5310,
+ "n_elems": 5162,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "93675b371b682a7a01cdd34f67e3ff8f6a7420e095dc71dbfb0c0cabe1bce712"
+}

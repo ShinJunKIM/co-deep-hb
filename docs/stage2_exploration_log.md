@@ -243,3 +243,29 @@
 - X1 접촉 수치 조건(기준 E06: 0.54 um, r 2 nm, 300 C): 메시 x2, 페널티 vs 증강 라그랑지, FKN 0.1/10, 마찰 0.1/0.5, PLANE182 완전적분, substep 40. 판정: A_c, p_mean 변화 < 5 %이면 견고.
 - X3 접촉 단계 항복 크기효과: Okoro x2, x3 (sub-um Cu 항복 상승 문헌 방향).
 - X2 0.54 um 과대예측 가설(각각 하나씩, 문헌 범위 밖은 '진단'으로 표기): 유효 CD 0.50/0.46 um(피치 1.08 um 고정), 깊이 0.5 um, 유전체 SiO2 벌크, 라이너 E/10(약한 계면 대리), Cu 강성 T 의존(Chang & Himmel), 테이퍼 5 deg. 1.80 um 대조(X19, X20)로 '작은 패드만 줄이는 인자'인지 구분.
+- 2026-10-13 09:39 **X01** (X) X1 contact refine x2 (80 el/radius) -> exit 1, wall 224 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=0.999 p=274MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 09:40 **X02** (X) X1 contact penalty method (KEYOPT(2)=1) -> exit 1, wall 62 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=1.000 p=246MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 09:41 **X03** (X) X1 contact FKN 0.1 -> exit 0, wall 53 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=1.000 p=210MPa; T25: Ac/A=0.049 p=62MPa
+- 2026-10-13 09:42 **X04** (X) X1 contact FKN 10 -> exit 0, wall 46 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=1.000 p=299MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 09:43 **X05** (X) X1 contact friction 0.1 -> exit 1, wall 59 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=1.000 p=245MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 09:44 **X06** (X) X1 contact friction 0.5 -> exit 1, wall 58 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=1.000 p=245MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 09:44 **X07** (X) X1 PLANE182 full integration (KEYOPT(1)=0) -> exit 0, wall 40 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=1.000 p=245MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 09:46 **X08** (X) X1 substeps 40 min -> exit 0, wall 91 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=1.000 p=251MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 09:47 **X09** (X) X3 yield x2 (sub-um size effect) -> exit 0, wall 39 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=0.578 p=272MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 09:47 **X10** (X) X3 yield x3 -> exit 0, wall 39 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=0.510 p=281MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 09:48 **X11** (X) X3 yield x3, r 4 nm, 350 C -> exit 0, wall 38 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T350: Ac/A=0.277 p=339MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-13 09:48 **X12** (X) X2 effective CD 0.50 um, pitch 1.08 um -> exit 0, wall 18 s, LS ok True; du_c50 1.976 | du_ctr 2.588 | du_full 1.683 nm
+- 2026-10-13 09:49 **X13** (X) X2 effective CD 0.46 um, pitch 1.08 um -> exit 0, wall 18 s, LS ok True; du_c50 1.902 | du_ctr 2.464 | du_full 1.630 nm
+- 2026-10-13 09:49 **X14** (X) X2 pad depth 0.5 um -> exit 0, wall 18 s, LS ok True; du_c50 2.007 | du_ctr 2.643 | du_full 1.699 nm
+- 2026-10-13 09:49 **X15** (X) X2 dielectric = SiO2 bulk (72 GPa, 0.5 ppm) instead of SiCN -> exit 0, wall 18 s, LS ok True; du_c50 2.030 | du_ctr 2.741 | du_full 1.763 nm
+- 2026-10-13 09:49 **X16** (X) X2 compliant liner (Ta E/10 = 18.6 GPa, weak-interface proxy) -> exit 0, wall 18 s, LS ok True; du_c50 2.090 | du_ctr 2.690 | du_full 1.814 nm
+- 2026-10-13 09:50 **X17** (X) X2 T-dependent Cu stiffness (Chang & Himmel Hill E(T)) -> exit 0, wall 18 s, LS ok True; du_c50 2.127 | du_ctr 2.800 | du_full 1.784 nm
+- 2026-10-13 09:50 **X18** (X) X2 taper 5 deg (TEM-like, wider top) -> exit 0, wall 18 s, LS ok True; du_c50 1.979 | du_ctr 2.587 | du_full 1.657 nm
+- 2026-10-13 09:50 **X19** (X) X2 control: 1.80 um with T-dependent Cu stiffness -> exit 0, wall 18 s, LS ok True; du_c50 5.125 | du_ctr 6.228 | du_full 4.389 nm
+- 2026-10-13 09:51 **X20** (X) X2 control: 1.80 um dielectric = SiO2 bulk -> exit 0, wall 18 s, LS ok True; du_c50 5.098 | du_ctr 6.352 | du_full 4.427 nm
+
+### 라운드 X 결과 (09:55; X01-X20)
+- X1 수치 견고성(기준 E06: A_c 1.000, p 246 MPa): 메시 x2 A_c 0.999 / p 274; 페널티 1.000/246; FKN 0.1 -> 1.000/210, FKN 10 -> 1.000/299; 마찰 0.1/0.5 -> 245/245; 완전적분 245; substep 40 -> 251. 결론: 접촉면적은 조건에 둔감(< 0.1 %), 평균 접촉압력은 접촉강성(FKN)과 메시에 +/-20 % 민감 -> 압력은 '약 +/-20 %'로 보고. 기본 설정(증강 라그랑지, FKN 1, 40 요소/반경) 유지.
+- X3 항복 크기효과: 항복 x2 -> A_c 1.00 -> 0.58, x3 -> 0.51 (r 2 nm, 300 C); r 4 nm 350 C에서 x3 -> 0.28(기준 0.82). 결론: 연결 단계의 접촉면적은 sub-um Cu 항복응력(미지, 벌크의 1-3배)에 강하게 의존. 보고서의 A_c 표는 '벌크 항복 = 상한' 으로 표기하고 x3 값을 하한으로 병기.
+- X2 0.54 um 과대예측 가설(u_c50 @400 C, 기준 2.039): CD 0.50 -> 1.976(-3 %), CD 0.46 -> 1.902(-7 %), 깊이 0.5 -> 2.007(-2 %), SiO2 벌크 -> 2.030(0 %), 약한 라이너 -> 2.090(+3 %), Cu E(T) -> 2.127(+4 %), 테이퍼 5 deg -> 1.979(-3 %). 1.80 um 대조: E(T) 5.125(+3 %), SiO2 5.098(+2 %). 결론: 어떤 단일 기하·재료 가설도 +46 %를 설명하지 못한다(최대 7 %). 남는 설명은 측정 정의(기준면·평균 영역·열드리프트) 또는 연속체 밖 효과(계면 미끄럼의 반대 방향은 아님: sliding은 u를 키움). 더 조정하지 않는다.
+- 보완 방법 결정: (1) 접촉 단계 u는 0.54 um 측정값(선형 0.0038 nm/K)을 직접 쓰고 모델은 크기·방위 비율에만 쓴다(편향 계수 b, 이미 적용). (2) 연결 단계는 항복 x1(상한)과 x3(하한) 두 값으로 보고. (3) 압력은 +/-20 %.

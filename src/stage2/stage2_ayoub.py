@@ -29,6 +29,12 @@ for _p in (1, 2, 4, 5, 6, 7, 9):
     RUNS[f"SA{_p}"] = S._run(f"SA{_p}", _p, 21, f"S2-Y pad {_p} elastic, circle, cap, Ta 13 nm, adopted SiO2", shape="circle",
                              cap=True, t_liner=0.013, layers=True)
 
+# round SB: in-plane relaxation proxy at 300 nm (alpha_ip = adopted SiO2 alpha), to test whether the relaxed model
+# gives the measured SIGN of eps'_zz and what magnitude; S61/S62 are the bonded counterparts (same stack, same oxide)
+for _p in (10, 3):
+    RUNS[f"SB{_p}"] = S._run(f"SB{_p}", _p, 22, f"S2-SB pad {_p} elastic, cap, Ta 13 nm, adopted SiO2, IN-PLANE RELAXATION",
+                             shape="circle", cap=True, t_liner=0.013, layers=True, alpha_ip=1.0e-6)
+
 
 def main(argv=None):
     ap = argparse.ArgumentParser()

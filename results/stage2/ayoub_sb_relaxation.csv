@@ -1,0 +1,7 @@
+# Round SB (2026-10-14): in-plane relaxation proxy at 300 nm vs bonded (S61/S62) and sliding (S63). Measured: Ayoub 2022 digitized (units 1e-3; slope 1/K).
+run,pad,Ez_GPa,sidewall,eps30_model,eps30_meas,slope_model,slope_meas,s_x_350_MPa,s_z_350_MPa,u_ctr400_nm,verdict
+S61,10,190,bonded,+1.157e-3,-1.197e-3,-4.683e-6,+4.660e-6,-76,-152,1.87,magnitude 3 % / 0.5 %; sign opposite
+SB10,10,190,bonded + in-plane relaxation,+1.704e-3,-1.197e-3,-6.897e-6,+4.660e-6,-2,-114,1.85,magnitude +42 % / +48 %; sign opposite (same as bonded)
+S62,3,68,bonded,+1.780e-3,-1.851e-3,-7.264e-6,+7.300e-6,-82,-121,1.32,magnitude 4 % / 0.5 %; sign opposite
+SB3,3,68,bonded + in-plane relaxation,+2.619e-3,-1.851e-3,-1.069e-5,+7.300e-6,-10,-68,1.03,magnitude +41 % / +46 %; sign opposite (same as bonded)
+S63,3,68,sliding (no cap; no liner),-1.650e-3,-1.851e-3,+6.736e-6,+7.300e-6,-36,0,7.38,magnitude -11 % / -8 %; sign correct; protrusion x3.5 too large

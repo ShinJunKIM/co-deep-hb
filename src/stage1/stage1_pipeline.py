@@ -381,7 +381,13 @@ def material_block(run, Tsf):
         vals = [D[i, j] for j in range(6) for i in range(j, 6)]
         for s in range(0, 21, 6):
             L.append(f"TBDATA,{s + 1}," + ",".join(_f(v) for v in vals[s:s + 6]))
-    if run["cte"] == "const":
+    if run["cte"] == "const" and run.get("alpha_ip") is not None:
+        # Stage 2 round SB only (default None keeps every R/S deck unchanged): in-plane stress-relaxation proxy,
+        # Cu in-plane CTE (X, Y) = alpha_ip, vertical (Z) CTE unchanged.  Same proxy as baseline.cu_alpha_ip.
+        aip = run["alpha_ip"]
+        L += [f"MP,ALPX,1,{_f(aip)}", f"MP,ALPY,1,{_f(aip)}", f"MP,ALPZ,1,{_f(CU_ALPHA_CONST)}"]
+        info["cte"] = f"in-plane {aip:g}, vertical {CU_ALPHA_CONST:g} 1/K (relaxation proxy)"
+    elif run["cte"] == "const":
         L += [f"MP,ALPX,1,{_f(CU_ALPHA_CONST)}", f"MP,ALPY,1,{_f(CU_ALPHA_CONST)}", f"MP,ALPZ,1,{_f(CU_ALPHA_CONST)}"]
         info["cte"] = f"constant {CU_ALPHA_CONST:g} 1/K"
     else:

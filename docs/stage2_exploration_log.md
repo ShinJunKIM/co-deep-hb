@@ -422,3 +422,13 @@
 - Phase 1: OPEN 유지, 규칙 완화·산화 사례 삭제 없음. 보고 문장: "공정창은 0.54 µm 산화 표면 경계(τ₀ 60 s에서 셀 2개)를 제외하면 b에 무관; 0.54 µm 오차 원인은 Okudur 2017 부재로 미해결." 주 레시피 = 청정 표면, 산화 표면 = 민감도 사례(둘 다 모든 표 유지). 그림 s2_process_window_{0.54,0.3}um.png에 b 의존 셀 빗금(불확실 구간).
 - Phase 4: **엄격 옵션 → UNDETERMINED**(r_open이 구면 캡 dishing에서 정의되지 않음). r50 비 0.67은 지표 선택 전에 계산된 보고용 수치이며 판정이 아니다. fd3139f의 "PASS(사후)" 표기는 이 커밋으로 철회.
 - 2026-10-15 20:25 **E45** (E) contact Lhostis EXT w0.4 um r20 nm/pad T400 -> exit 1: results not readable (FileNotFoundError: C:\Users\USER\co-deep-hb\results\E45\contact.txt not found.)
+- 2026-10-15 20:26 **E46** (E) contact Lhostis EXT w0.72 um r32 nm/pad T400 -> exit 1, wall 68 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.144 p=276MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 20:28 **E47** (E) contact Lhostis EXT w0.4 um r20 nm/pad T400 -> exit 1: results not readable (FileNotFoundError: C:\Users\USER\co-deep-hb\results\E47\contact.txt not found.)
+- 2026-10-15 20:30 **E48** (E) contact Lhostis EXT w0.4 um r20 nm/pad T400 -> exit 1, wall 147 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.190 p=243MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 20:32 **E49** (E) contact Lhostis EXT w0.4 um r24 nm/pad T400 -> exit 1, wall 108 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.144 p=251MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 20:34 **E50** (E) contact Lhostis EXT w0.4 um r28 nm/pad T400 -> exit 1, wall 91 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.144 p=187MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 20:35 **E51** (E) contact Lhostis EXT w0.4 um r32 nm/pad T400 -> exit 1, wall 83 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.098 p=235MPa; T25: Ac/A=0.000 p=0MPa
+
+### A. Lhostis 확장 격자 종료 (2026-10-15 20:5x; E30–E51)
+- 0.72 µm: r 10/12/14/16/18/20/24/28/32 nm → A_c 0.640/0.510/0.438/0.360/0.319/0.277/0.234/0.190/0.144. 0.40 µm: 0.438/0.360/0.277/0.234/0.234/0.190/0.144/0.144/0.098. A_c = 0 미도달(림 접촉), 판정 UNDETERMINED 유지. r50 0.67은 보고용.
+- R61: 이 PC에는 종료된 실행의 잔여 파일만 있고 다른 PC의 결과는 git에 없음 → 한계로 유지(대체 근거: imec 0.54 µm 선형 u(T), Lin 3 µm 잔류 0.1 nm, 보고서 §5.3).

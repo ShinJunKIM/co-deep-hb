@@ -1,0 +1,64 @@
+{
+ "run": {
+  "id": "X32",
+  "group": "XL",
+  "ds": "imec",
+  "w": 1.8,
+  "h": 0.6,
+  "note": "XL liner 25 nm, 1.80 um array cell (control)",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 2.26,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.025,
+  "diel": "SiCN",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0
+ },
+ "geometry": {
+  "w": 1.8,
+  "h": 0.6,
+  "A": 0.9,
+  "L": 4.068,
+  "R": 2.034,
+  "t_si": 4.068,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.9,
+  "t_l": 0.025
+ },
+ "n_nodes": 3068,
+ "n_elems": 2958,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.025
+ },
+ "physics_sha256": "0da4bfcfd5023bff714ba0516da25fbc31045a178849e4552f91a9bc5a241c6c"
+}

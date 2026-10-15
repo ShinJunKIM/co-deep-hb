@@ -7,6 +7,11 @@
 ## 역할과 목표
 너는 이 연구의 논문 제작 담당이다. 저장소 `co-deep-hb`(main)에 있는 결과 파일과 문서만을 근거로, 2026 대한전자공학회 추계학술대회 **학부생 논문경진대회** 제출물 두 개와 그림 6장을 만든다. 마감 2026-10-19. 목표는 1차 서면(블라인드) 통과와 수상이다. 숫자·주장은 저장소 파일에서만 가져오고, 없는 숫자는 만들지 않는다. 불확실하면 "[확인 필요]"로 표시한다.
 
+## 2026-10-16 갱신 — 추가 결과(반드시 반영)
+- 초안 §1이 v3로 바뀌었다(핵심 메시지 네 결론: 전환 규칙+대리식, 계면 상태 = 공정 입력, <111> 꼬리가 창을 정함, Q_eff 13·적용 범위). `docs/stage2_baseline_report_ko.md` §15와 `docs/agents/*.md`, `results/stage2/{round_x2.json, lhostis_round2.json, diffusion_round3.json, window_sensitivity_review.json, agents/*.json}`을 읽어라.
+- 추가 그림 후보: Fig. 2(b) 구속 계수 C(h/w)(`results/figures/agents/constraint_factor.png`, X35–X38 통과점 포함), Fig. 3(d) 마스터 커브(`master_curve.png`), Fig. 6(c) 체인 수율(`yield_vs_chain_length.png`), 연결 단계 두께·폭 효과 표(라운드 2). 쪽수 안에서 Fig. 2(b)와 라운드 2 표를 우선.
+- 문장 규칙 추가: "탄성만으로는 못 닫는다"에는 "접합 계면 조건에서"를 붙인다. "≥250 °C 10/10"은 개정 1 수치, 방위 모델은 8/10. 확산 항 적용 범위 "등크기 패드(cavity/pad ≥ 0.7), ≥ 250 °C"; DM2023 held-out 0/7 실패를 한계로 명시. 라이너 가설 기각(X30–X34). 대리식 ±20 % 통과(X35–X38, 사전등록). 계면 상태 가설은 "세 관찰과 일관"까지만.
+
 ## 반드시 먼저 읽을 파일 (순서대로)
 1. `docs/paper/ieie2026f_plan_and_draft_ko.md` — 기획, 핵심 메시지, 기여 3개, 절 구성, 그림·표 목록, 전문 초안, 참고문헌. **이 문서의 §1 핵심 메시지와 기여 3개를 그대로 쓴다.**
 2. `docs/stage2_baseline_report_ko.md` §13–§14 — 결과와 모델 부분별 검증 상태(검증 통과/실패/탐색 등급).

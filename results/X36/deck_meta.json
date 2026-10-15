@@ -1,0 +1,64 @@
+{
+ "run": {
+  "id": "X36",
+  "group": "XS",
+  "ds": "imec",
+  "w": 0.4,
+  "h": 0.6,
+  "note": "XS surrogate test w0.40 h0.60 array 2.26w",
+  "dim": 2,
+  "cu": "iso",
+  "orient": null,
+  "side": "bonded",
+  "plastic": false,
+  "cell_factor": 2.26,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0
+ },
+ "geometry": {
+  "w": 0.4,
+  "h": 0.6,
+  "A": 0.2,
+  "L": 0.9039999999999999,
+  "R": 0.45199999999999996,
+  "t_si": 0.9039999999999999,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.2,
+  "t_l": 0.006
+ },
+ "n_nodes": 6490,
+ "n_elems": 6322,
+ "n_ce": 0,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 128.31337324652407,
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "b3549ae1ac01348e9129afc5fa4211fb246603f7a444d9ca1425ac9efb8f47d2"
+}

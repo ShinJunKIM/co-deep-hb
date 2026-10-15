@@ -1,0 +1,15 @@
+
+
+
+ SOLUTION HISTORY INFORMATION FOR JOB: X35.mntr                                                                                                                                                                                                                                                            
+ ANSYS RELEASE 2026 R1          BUILD 26.1        00:37:07    10/16/2026
+
+  LOAD   SUB-  NO.  NO.    TOTL  INCREMENT    TOTAL         VARIAB 1     VARIAB 2     VARIAB 3     VARIAB 4     VARIAB 5
+  STEP   STEP ATTMP ITER   ITER  TIME/LFACT   TIME/LFACT    MONITOR      MONITOR      MONITOR      MONITOR      MONITOR
+                                                             Elap(s)      Mem(GB)      MxDs         MxPl         MxRe   
+
+     1      1    1     1      1    1.0000       1.0000      0.14990       1.2755       0.0000      0.78886E-30   0.0000    
+     2      1    1     1      2    1.0000       2.0000      0.29983       1.2762      0.14131E-02  0.78886E-30   0.0000    
+     3      1    1     1      3    1.0000       3.0000      0.45619       1.2762      0.32971E-02  0.78886E-30   0.0000    
+     4      1    1     1      4    1.0000       4.0000      0.60424       1.2762      0.51812E-02  0.78886E-30   0.0000    
+     5      1    1     1      5    1.0000       5.0000      0.75879       1.2762      0.70653E-02  0.78886E-30   0.0000    

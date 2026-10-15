@@ -2,6 +2,14 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-16 — Agent rounds: review, diffusion r3, connection r2, X2, master curve, yield bridge, scaling collapse
+
+- **Connection round 2** (`docs/stage2_lhostis_round2_preregistration.md`, E64–E69): void-fraction metric V = (r_in/A)²; width rule (held-out) PASS, thickness rule PASS only with sliding (relaxed) interfaces → interface state is a process input (ST/Leti relaxed; imec/NYCU bonded). `baseline.build_contact_deck` gained `side="sliding"` (existing decks byte-identical).
+- **Diffusion round 3** (`docs/stage2_diffusion_round3_preregistration.md`, `inputs/dm2023_digitized.json`): fixed β 1/4, Q 13.4, τ₀ 60 s; held-out DM2023 Figs 7/9 → 0/7; revision (amplitude D = pad, exploratory) 4/7 → equal-pad term does not transfer to cavity/pad ≤ 0.5.
+- **Round X2** (`docs/stage2_round_x2_preregistration.md`, X30–X38): liner-ring hypothesis rejected (u +0.3 %); constraint-factor surrogate C(h/w) passes 4/4 unseen geometries within 20 %.
+- **Analyses** (`docs/agents/`): adversarial review + response (window governed by <111> tail; model unification; bonded-interface conditionality), master curve (Q_eff 13.4 kcal/mol, T–t equivalence), yield bridge (chain-length ceiling, overlay minor at 300 nm), scaling collapse (0.54 µm lone outlier).
+- Bug: round-2 orientation fit refinement drifted outside pre-registered ranges (found by range check; fixed d722e67).
+
 ## 2026-10-15 — Stage 2 end-to-end: SC sign test, Phases 1–4, B–E (orientation diffusion, Lhostis TEM, process windows)
 
 - **Round SC** (pre-reg 63869bb): 3 µm pad ε′zz negative like Ayoub → sign-convention reversal rejected; 300 nm sign mismatch unresolved; no magnitude claim.

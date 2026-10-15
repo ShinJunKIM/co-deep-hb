@@ -486,3 +486,15 @@
 
 ### 연결 단계 라운드 2 결과 (2026-10-16; E64–E69; 규칙 4b2a45e)
 - 규칙 A(폭, held-out, 접합): V(0.11 µm) 0.62 vs V(0.36) 0.10 → **PASS**. 규칙 B(두께, 미끄럼): 650 nm V 0.000/0.24, 220 nm 0.15/0.54 (r0 2/4) → **PASS**. 판정 A&B PASS: Lhostis 폭 효과 = 접합 모델, 두께 효과 = 이완 계면 → ST/Leti 계면 이완 가설이 Ayoub 부호와 Lhostis 두께 두 관찰과 일관; 계면 상태는 공정 입력.
+- 2026-10-16 00:35 **X30** (XL) XL liner 15 nm, 0.54 um array cell -> exit 0, wall 18 s, LS ok True; du_c50 2.046 | du_ctr 2.712 | du_full 1.732 nm
+- 2026-10-16 00:36 **X31** (XL) XL liner 25 nm, 0.54 um array cell -> exit 0, wall 18 s, LS ok True; du_c50 2.055 | du_ctr 2.726 | du_full 1.741 nm
+- 2026-10-16 00:36 **X32** (XL) XL liner 25 nm, 1.80 um array cell (control) -> exit 0, wall 18 s, LS ok True; du_c50 5.021 | du_ctr 6.154 | du_full 4.318 nm
+- 2026-10-16 00:36 **X33** (XL) XL liner 25 nm, 1.26 um array cell (control) -> exit 0, wall 18 s, LS ok True; du_c50 4.066 | du_ctr 5.156 | du_full 3.467 nm
+- 2026-10-16 00:37 **X34** (XL) XL liner 25 nm + pitch 1.7 w (2D 1.92 w), 0.54 um -> exit 0, wall 21 s, LS ok True; du_c50 1.849 | du_ctr 2.508 | du_full 1.541 nm
+- 2026-10-16 00:37 **X35** (XS) XS surrogate test w0.90 h0.60 array 2.26w -> exit 0, wall 18 s, LS ok True; du_c50 3.169 | du_ctr 4.109 | du_full 2.687 nm
+- 2026-10-16 00:37 **X36** (XS) XS surrogate test w0.40 h0.60 array 2.26w -> exit 0, wall 18 s, LS ok True; du_c50 1.530 | du_ctr 2.033 | du_full 1.294 nm
+- 2026-10-16 00:38 **X37** (XS) XS surrogate test w0.54 h0.30 array 2.26w -> exit 0, wall 22 s, LS ok True; du_c50 1.820 | du_ctr 2.334 | du_full 1.547 nm
+- 2026-10-16 00:38 **X38** (XS) XS surrogate test NYCU w1.0 h0.6 isolated 12w taper 18 -> exit 0, wall 18 s, LS ok True; du_c50 1.687 | du_ctr 1.934 | du_full 1.457 nm
+
+### 라운드 X2 결과 (2026-10-16; X30–X38; 규칙 8194e62)
+- 라이너 15/25 nm: u 0.54 µm 2.055 vs 2.039 nm → 효과 없음, 가설 **기각**(설명 몫 -0.02). 대리식 C(h/w): 4/4 ±20 % **통과**(C 1.01/0.49/1.16/1.16 vs 0.92/0.41/1.05/1.38).

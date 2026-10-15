@@ -1,0 +1,25 @@
+{
+ "fig1": [
+  "schematic (no data)"
+ ],
+ "fig2": [
+  "results/stage2/paper_results.json (mechanism_transition, transition_vs_recess_um)",
+  "results/stage2/adopted_rev.json (imec train residuals 1.80/3.06 um, 400 C)",
+  "results/stage2/validation_rev1.csv (V1/V2: 1.26/0.54 um, 400 C)"
+ ],
+ "fig3": [
+  "results/stage2/orient_diffusion_round2.csv",
+  "results/stage2/orient_diffusion_round2.json (fit, faceted_fraction)",
+  "results/stage2/paper_results.json (fraction_pads_f_below_0p5)"
+ ],
+ "fig4": [
+  "results/stage2/window_summary.json ['0.30um'] clean/oxidised P_main, hatched_cells"
+ ],
+ "fig5": [
+  "results/stage2/paper_results.json (recess_spec_sum_nm_300nm)"
+ ],
+ "fig6": [
+  "results/stage2/window_summary.json (factor_cells_changed, clean, 0.54/0.30 um; settings.n)",
+  "results/stage2/paper_results.json (orientation_floor_300nm)"
+ ]
+}

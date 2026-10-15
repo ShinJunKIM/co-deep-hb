@@ -27,12 +27,21 @@ for h in (0.65, 0.22):
         run = C._c(f"E{k}", 0.36, h, r_nm, 400, f"contact Lhostis TEM w0.36 um h{h:g} um r{r_nm:g} nm/pad T400 SiO2")
         run.update(diel="SiO2", t_liner=0.013, afm_field=3.5, **SIO2)
         RUNS.append(run); k += 1
-B.register([r for r in RUNS if r["id"] not in B.RUN_BY_ID])
+# revision 1 (pre-registration section 5, reason committed before running): sub-um Cu yield x3 (round X size effect)
+RUNS_REV = []
+k = 58
+for h in (0.65, 0.22):
+    for r_nm in (2.0, 4.0, 6.0):
+        run = C._c(f"E{k}", 0.36, h, r_nm, 400, f"contact Lhostis TEM REV1 yield x3 w0.36 um h{h:g} um r{r_nm:g} nm/pad T400 SiO2")
+        run.update(diel="SiO2", t_liner=0.013, afm_field=3.5, yield_scale=3.0, **SIO2)
+        RUNS_REV.append(run); k += 1
+B.register([r for r in RUNS + RUNS_REV if r["id"] not in B.RUN_BY_ID])
 
 
-def judge():
+def judge(runs=None, tag=""):
+    runs = runs or RUNS
     ac = {}
-    for r in RUNS:
+    for r in runs:
         rec = B.load(r["id"])
         if rec is None:
             continue
@@ -45,7 +54,7 @@ def judge():
     res = dict(Ac=({f"h{h}_r{rr}": v for (h, rr), v in ac.items()}), separation={str(rr): (a, b, None if (a is None or b is None) else a - b) for rr, (a, b) in sep.items()},
                cond_i_separation_ge_0p30_all_r=bool(cond_i), cond_ii_thick_r4_ge_0p90=bool(cond_ii), verdict=verdict,
                void_fraction_thin_r4=None if ac.get((0.22, 4.0)) is None else 1 - ac[(0.22, 4.0)])
-    json.dump(res, open(OUT / "lhostis_tem_test.json", "w"), indent=1, default=float)
+    json.dump(res, open(OUT / f"lhostis_tem_test{tag}.json", "w"), indent=1, default=float)
     print(json.dumps(res, indent=1, default=float))
     return res
 
@@ -53,13 +62,17 @@ def judge():
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", action="store_true")
+    ap.add_argument("--run-rev", action="store_true", help="revision 1: yield x3 (E58-E63)")
     ap.add_argument("--judge", action="store_true")
     ap.add_argument("--np", dest="nproc", type=int, default=B.S.DEFAULT_NP)
     a = ap.parse_args(argv)
     if a.run:
         B.execute([r["id"] for r in RUNS], a.nproc)
-    if a.judge or a.run:
+    if a.run_rev:
+        B.execute([r["id"] for r in RUNS_REV], a.nproc)
+    if a.judge or a.run or a.run_rev:
         judge()
+        judge(RUNS_REV, "_rev1")
     return 0
 
 

@@ -395,3 +395,14 @@
 - θ_eff = 113.6°(τ₀ 60 s 고정) → held-out **11/17(65 %)**, T 경향 통과, 포화 실패(D250 R_pred 1.00 vs 1.13 ± 0.11) → **NOT VALIDATED(개정 후에도)**, 예상대로. 실패 6점은 모두 과소예측: 200 °C의 D ≥ 250 nm(PPA 500 nm 2 h/4 h; 자가 어닐 250·300 nm)와 자가 어닐 300 nm 250 °C. 250 °C 이상 PPA-Cu 전부 + ≤ 140 nm 패드 200 °C는 10/10 통과.
 - 해석: Butrymowicz Q(20.7 kcal/mol)·D^3.7 동역학이 200 °C에서 너무 느림(측정 2 h→4 h 증가율로 τ(200 °C) ≈ 3 h → Q_eff ≈ 8 kcal/mol); 미세구조(PPA vs 자가 어닐) 변수 부재; 350→450 °C +13 %(400 nm)는 진폭의 약한 T 의존. 다음 사전등록 과제로 기록, 지금 조정 안 함.
 - Phase 1 재계산(보고용, θ_eff 113.6°): 여전히 OPEN, τ₀ 민감도 17.9 % vs b 2.8 %; 권고 레시피는 τ₀ 60 s에서 유지. decision_sensitivity_rev1_*.
+- 2026-10-15 20:08 **E35** (E) contact Lhostis EXT w0.4 um r14 nm/pad T400 -> exit 1, wall 140 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.277 p=278MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 20:10 **E36** (E) contact Lhostis EXT w0.72 um r16 nm/pad T400 -> exit 1, wall 107 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.360 p=313MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 20:13 **E37** (E) contact Lhostis EXT w0.4 um r16 nm/pad T400 -> exit 1, wall 147 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.234 p=269MPa; T25: Ac/A=0.000 p=0MPa
+
+### Phase 2 문서 정리 (2026-10-15; 커밋 참조)
+- stage2_paper_argument_ko.md / stage2_baseline_report_ko.md: (a) Ayoub "규약 반전 = 경제적 설명" 삭제 → "3 µm 부호 일치(SC1–SC4), 300 nm 부호 불일치(미해결), 크기 재현 주장 없음; 미끄럼 = 상한 시나리오; 원인 가설은 가설로만". (b) 결과 표 10개에 '사전등록/사후' 열 추가(사후: 항복 ×3, 면내 완화, 방위 폭 33–44 %; 기준 모델 4 %). (c) "같은 모델" 정의·약점(공정 내 검증, Hill vs 단결정 근사 이유). (d) b는 {0.60, 0.69, 0.93}+1.0 구간, 300 nm 성립 주장 없음, b<1 보수적(Phase 1 인용). (e) Okudur 2017 원 출처·미상 항목. (f) DM2026·Van Huylenbroeck ECTC 2026 참고문헌(REFERENCES.md). (g) 오버레이 범위 밖 문단(§13.6). (h) R61: 다른 PC에서 실행 중; 끝나면 step14 --partB, 아니면 대체 근거로 한계 보고(§10).
+### Phase 3 규칙 9: 방위 (2026-10-15)
+- Fig. 5(a) 디지타이징: 전체 중앙값 ≈ 16.0 nm; <111> 근방(하위 ≈ 10 %, < 6.5 nm) 중앙값 ≈ 4.0 vs 나머지 ≈ 16.5 nm → 차이 12.5 nm > 불확실도·> 30 % → **다음 사전등록에 방위 의존 확산 항 권고**(지금 미추가).
+### Phase 4 진행 (2026-10-15)
+- E17–E24 exit 1 진단: 소성 반복 중 일시 발산 ERROR(UX > 1e6) 후 이분법 복구, 전 하중단계 완료·RUN COMPLETED → MAPDL이 ERROR 존재 시 종료 코드 1 반환. 설정 오류 아님, 수정 없음.
+- 확장 런(같은 모델, r 10 → 2 nm 간격): E30/E31 r10 (0.640/0.438), E32/E33 r12 (0.510/0.360), E34/E35 r14 (0.438/0.277), E36 r16 0.72 µm 0.360 … 진행 중(A_c = 0 후 ±0.5 nm 이분법).

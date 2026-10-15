@@ -474,3 +474,9 @@
 ### 라운드 SD 해석 (2026-10-15; 사후; SD10/SD3/SD10N/SD3N)
 - 측벽 미끄럼만(캡 접합 유지): 부호 여전히 반대(비 −0.78/−0.82) — 캡이 상면 둘레를 묶어 σz 461 MPa 유지. 캡 비전달 + 미끄럼: 부호 일치, 패드 3 0.91/0.94, 패드 10 0.58/0.60; 방위 비 0.41(측정 0.64, 접합 모델 거울상 0.64).
 - 결론: "계면 상태 차이" 가설은 캡·측벽 둘 다 이완이어야 성립하고, 패드 10 크기·방위 비는 남는다. 보고서 §7·논증 문서에 반영(가설로만).
+- 2026-10-16 00:28 **E64** (E) contact Lhostis R2 width rule w0.11 um h0.22 r2 nm T400 SiO2 bonded -> exit 1, wall 245 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.399 p=336MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-16 00:29 **E65** (E) contact Lhostis R2 width rule w0.11 um h0.22 r2 nm T400 SiO2 bonded yield x3 -> exit 0, wall 68 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.098 p=1565MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-16 00:30 **E66** (E) contact Lhostis R2 thickness rule SLIDING w0.36 h0.65 r2 nm T400 SiO2 -> exit 0, wall 71 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=1.000 p=414MPa; T25: Ac/A=0.000 p=0MPa
+
+### 확산 항 라운드 3 (2026-10-16; 사전등록 db29b8e → DM2023 Fig. 7·9 디지타이징; inputs/dm2023_digitized.json)
+- 사전등록 규칙(진폭 D = cavity): **0/7 NOT VALIDATED**(예측 2–4배 과소; 5 min = 2 h 포화는 램프 46 min 때문). 개정 1(진폭 D = pad, 이유 선커밋): **4/7 NOT VALIDATED**. 결론: 등크기(cavity/pad ≥ 0.7) 확산 항은 불균등(≤ 0.5) 구조로 전이되지 않음 → 공정창 적용 범위를 등크기 접합으로 한정(한계 명세). 모델·창 불변.

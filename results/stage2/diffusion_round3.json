@@ -1,0 +1,14 @@
+{
+ "preregistered": {
+  "rule": "amp=cavity, kin=pad",
+  "n_pass": 0,
+  "n": 7,
+  "verdict": "NOT VALIDATED"
+ },
+ "revision1": {
+  "rule": "amp=pad",
+  "n_pass": 4,
+  "n": 7,
+  "verdict": "NOT VALIDATED"
+ }
+}

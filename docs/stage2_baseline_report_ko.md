@@ -222,8 +222,41 @@ E17–E24의 exit code 1 원인: MAPDL이 소성 반복 중 일시 발산(UX > 1
 확장: r = 10, 12, 14, … nm(동일 모델, 400 °C, 0.72/0.40 µm). **사전등록 지표 r_open(A_c → 0)은 이 모델에서 정의되지 않는다**: 접촉 해석의 dishing은 "중심 깊이 r, 가장자리 0인 구면 캡"이라 림 recess가 0이고 림은 모든 recess에서 닿는다(접촉 바깥 반경 = 패드 반경). A_c는 r^−1.2(0.72 µm)·r^−1.4(0.40 µm)로 점근 감소해 A_c = 0.05조차 recess 50–86 nm(외삽)에서야 된다. 모델을 바꾸지 않으므로 지표를 적용할 수 없다. **판정: UNDETERMINED(사전등록 지표가 구면 캡 dishing에서 정의되지 않음; PI 결정 2026-10-15, 엄격 옵션).**
 보고용 수치(판정 아님): r50(A_c = 0.5가 되는 recess, 선형 보간) = 0.72 µm 12.3 nm, 0.40 µm 8.3 nm, 비 0.67. 이 값은 **지표 선택 전에 계산**됐으므로 판정에 쓰지 않는다(사전등록 구간 0.79 ± 0.15는 참고로만 병기). 방향은 Lhostis의 β(w) 경향(작은 패드가 recess에 더 민감)과 같다. 결과 파일 `results/stage2/lhostis_ext.json`(r = 32 nm까지의 A_c 감쇠 곡선 포함).
 
+### 13.8 방위 의존 확산 항 (B; 탐색 라운드 2; `docs/stage2_orient_diffusion_round2.md`, `orient_diffusion_round2.*`, 그림 `s2_diffusion_fit.png`)
+물리: DM2026 EBSD에서 lagging tail은 전부 <111> 근방(최저 표면에너지 {111} facet → 곡률 구동력 소실); Butrymowicz p.9의 Ds 이방성(<111>이 (100)보다 1.5–3배 **빠름**)은 tail을 설명하지 못하므로 방위는 **진폭** f(ω) = clip((ω − ω_c)/Δω, 0, 1)에만 넣었다(ω = 법선–최근접 <111> 각). 보정(500 nm 피치·350 °C 분위수 5개): θ_eff 119.0°, ω_c 5.0°(하한), Δω 19.5°, facet 분율 1.5%. 검증(17점, 재조정 없음): 중앙값 11/17, **IQR 10/17**(방위 없는 모델은 IQR 0), T 경향 통과, 포화 실패 → 규칙상 불일치. 200 °C·D ≥ 250 nm 과소는 방위 항으로 안 고쳐짐(Q_eff 탐색 14–17 kcal/mol; 미세구조 변수 없음). 방위 결합(350 °C 1 h, b 0.69): 총 돌출의 방위 폭(q90−q10)은 0.54 µm 16.2 nm(탄성 0.04, 확산 16.2), 0.30 µm 11.5 nm(탄성 0.03, 확산 11.5) → **확산 항이 방위 산포를 지배**. 첫 계산의 범위 이탈 버그는 정정 커밋 d722e67. [탐색 라운드 2]
+
+### 13.9 연결 단계 독립 시험: Lhostis 2024 TEM 두께 (C; 사전등록 6696562; `docs/stage2_lhostis_tem_preregistration.md`)
+350–360 nm 패드, 400 °C 2 h, 두께 650 nm(닫힘) vs 220 nm(void). 규칙: (i) r 2/4/6 nm 모두 A_c(0.22) ≤ A_c(0.65) − 0.30, (ii) A_c(0.65, 4 nm) ≥ 0.90.
+| r (nm/패드) | A_c 0.65 / 0.22 (사전등록, Okoro 벌크) | A_c 0.65 / 0.22 (개정 1, 항복 ×3) |
+|---|---|---|
+| 2 | 0.92 / 0.91 | 0.40 / 0.32 |
+| 4 | 0.51 / 0.40 | 0.19 / 0.14 |
+| 6 | 0.36 / 0.23 | 0.10 / 0.10 |
+판정: 사전등록 **FAIL**, 개정 1 **FAIL**. 모델의 A_c는 림(얕은 gap) 영역과 소성 유동에 지배돼 Cu 두께에 둔감하다: Lhostis의 두께 효과(중심 팽창 u ∝ h가 2d를 넘느냐)를 접촉면적 분율로는 재현하지 못한다. d0 미상, SiO2 공정 보정 부재, 접촉 FEM에 확산 항 없음이 한계. r50 비 0.67은 보고용 수치로 유지(판정 아님).
+
+### 13.10 예측: 공정창과 불확실도 (D; `src/stage2/stage2_window.py`, `window_summary.json`, 그림 `s2_window_0.54um.png`, `s2_window_0.30um.png`, `s2_factor_ranking.png`)
+**모델 동결(A–C 후).** 탄성 u_el = b·k(E_z)·(T − 25)(bonded, 배열 셀; 1 µm·1.26–3.06 µm에서 검증 통과, 0.54 µm는 +46 % → b 범위) + 확산 h_d = s_ox·a_liner·0.0022·(θ_eff − 90°)·D·f(ω)·[1 − e^(−t/τ)](θ_eff 119°, f(ω) 탐색 라운드 2, τ₀ 60 s, Q 20.7; DM2026 ≥ 250 °C에서만 실측 일치, 200 °C 큰 패드 과소 = 보수적) 단순합(가정). recess N(2.5, 0.5²)/패드, 방위 구면 균일, 창 = P ≥ 0.99, 불확실 집합 b {0.60, 0.69, 0.93, 1.0} × τ₀ {20, 60, 100} × Q {20.7, 15} → 바뀌는 셀 빗금.
+**0.54 µm(기준).** 청정: 창 7/15(모든 불확실 조합에서 열림 6): 300°C/30min, 300°C/120min, 350°C/30min, 350°C/120min, 400°C/5min, 400°C/30min, 400°C/120min; 빗금 200°C/120min, 250°C/30min, 250°C/120min, 300°C/5min, 300°C/30min, 350°C/5min. **최소 레시피 300 °C x 30 min**(400 °C는 5 min). 산화(민감도): 300°C/120min, 350°C/30min, 350°C/120min, 400°C/5min, 400°C/30min, 400°C/120min, 최소 300 °C x 120 min. **imec 점검:** imec의 접합 어닐(250 °C SiCN 접합 후 350 °C Cu–Cu; DM2023 "typically 350 °C"), 청정 표면, recess 2–3 nm → 350 °C 30/120 min P = 0.999/0.999 → **일관** → 300 nm 예측 진행.
+**300 nm(목표).** 청정: 창 9/15(항상 9): 250°C/120min, 300°C/30min, 300°C/120min, 350°C/5min, 350°C/30min, 350°C/120min, 400°C/5min, 400°C/30min, 400°C/120min; 빗금 200°C/120min, 250°C/30min, 300°C/5min. **최소 레시피 250 °C x 120 min 또는 300 °C x 30 min.** 산화(민감도): 300°C/120min, 350°C/30min, 350°C/120min, 400°C/5min, 400°C/30min, 400°C/120min, 최소 300 °C x 120 min. 탄성 항만으로는 어느 셀도 열리지 않는다(u_el 패드당 ≈ 1 nm vs recess 합 ≈ 5 nm). 접촉 셀의 연결 단계(§9, E25–E28, 0.30 µm 350 °C): recess 1–2 nm/패드에서 A_c 1.0–0.95, 평균 접촉압력 317–403 MPa(벌크 항복 기준 상한; ×3이면 A_c 더 낮음).
+**인자 순위(청정 표면, 창에서 바뀌는 셀 수; 0.54 / 0.30 µm).** mechanism 7; diffusion kinetics tau0 20 -> 100 s 3; orientation 2; liner 2; elastic factor b 2; surface 1; liner 1; recess spread 1; recess mean 1; diffusion Q 20.7 -> 15 kcal/mol 1 ‖ mechanism 9; surface 3; orientation 2; liner 2; liner 2; diffusion kinetics tau0 20 -> 100 s 2; diffusion Q 20.7 -> 15 kcal/mol 2; recess spread 0; recess mean 0; elastic factor b 0. 산화 표면: mechanism 6; diffusion kinetics tau0 20 -> 100 s 4; liner 3; recess mean 3; orientation 1; surface 1; liner 0; recess spread 0; elastic factor b 0; diffusion Q 20.7 -> 15 kcal/mol 0 ‖ mechanism 6; liner 6; recess mean 6; orientation 3; surface 3; liner 3; diffusion kinetics tau0 20 -> 100 s 3; elastic factor b 2; diffusion Q 20.7 -> 15 kcal/mol 2; recess spread 0. 읽기: 1 µm 아래에서는 **지배 기구(탄성 → 표면확산)**가 창을 열고, 그다음이 확산 동역학(τ₀)·방위(<111> facet)·라이너 접촉각·b이며, 표면 산화와 recess 평균은 산화 표면에서 더 크게 작용한다. 방위는 탄성 항(4 %)이 아니라 확산 항을 통해 들어온다(§13.8).
+
+
 ### 13.6 오버레이 (범위 밖)
 Van Huylenbroeck et al.(IEEE ECTC 2026, 200 nm 피치 W2W 하이브리드 본딩)은 W2W 오버레이와 recess 산포가 수율을 지배함을 보인다. 이 보고서의 모델은 **접촉 기준(u + h_d ≥ recess 합)**만 다루며, 오버레이로 인한 접촉 면적 감소·Cu/유전체 접촉·수율 통계는 범위 밖이다. 오버레이는 레시피 변수가 아니라 정렬 장비·공정의 변수로 남긴다.
 
 ### 13.7 참고문헌 추가
 DM2026: J. De Messemaeker et al., "Understanding Scaling and Temperature Limits in Cu Bulge-Out Mechanism for Hybrid Wafer-to-Wafer Bonding," IEEE ECTC 2026, doi:10.1109/ECTC51846.2026.00355. Van Huylenbroeck et al., "Wafer-to-Wafer Hybrid Bonding Technology with 200nm Interconnect Pitch," IEEE ECTC 2026. Okudur et al., "Thermomechanical aspects of wafer-to-wafer copper-dielectric hybrid bonding for 3D integrated circuits," Int. Conf. Wafer Bonding, Leuven, 2017(초록; DM2023 Fig 1의 원 출처; 공개 파일 없음).
+
+## 14. 최종 주장 수위와 검증 상태 요약 (2026-10-15)
+
+| 모델 부분 | 상태 | 근거 |
+|---|---|---|
+| 탄성 u(bonded, 배열 셀, 공정별 유전체) | **검증 통과**: NYCU 1 µm, imec 1.80 µm, 0.54·1.26 µm 100–200 °C; 측벽 접합 판별 | 사전등록 B/Br 그룹 |
+| 탄성 u 0.54 µm 300–400 °C | **검증 실패**(+46 %, 원인 미상; 결정 민감도 OPEN) | b 범위로 보고 |
+| Ayoub ε′zz | 3 µm 부호 일치(SC), 300 nm 부호 불일치(미해결), 크기 주장 없음 | 사전등록 SC, V5 |
+| 확산 h_d(고정형·개정 1) | **NOT VALIDATED**(2/17 → 11/17); ≥ 250 °C PPA-Cu·≤ 140 nm는 일치 | 사전등록 Phase 3 |
+| 확산 h_d 방위 f(ω) | 탐색 라운드 2(미검증): 분포 폭 재현, 저온 중앙값 미개선 | B |
+| 연결 단계 접촉 FEM | Lhostis 두께 시험 FAIL(사전등록·개정 1), r_open 미결, r50 보고용 | C, Phase 4 |
+| 공정창 | **예측**(불확실 구간 포함); imec 0.54 µm 접합 조건과 일관 | D |
+
+**주장 수위:** "검증 통과 범위의 탄성 모델 + 실측으로 점검한(검증되지 않은) 확산 모델로 본 공정창 예측(불확실도 포함)". "검증된 레시피"가 아니다. 핵심 기여: 1 µm 아래에서 지배 기구가 탄성 → 표면확산으로 바뀌고, 레시피 변수가 어닐 T·시간·표면 상태·라이너(·방위)로 옮겨간다는 정량 결과와, 그 결론이 0.54 µm 탄성 오차(b 범위)에 거의 무관하다는 민감도 결과. 남는 한계: 0.54 µm 원인(원 데이터 부재), 300 nm 부호, 200 °C 확산 동역학(Q_eff)·미세구조, 연결 단계 두께 효과, 오버레이(범위 밖), R61.

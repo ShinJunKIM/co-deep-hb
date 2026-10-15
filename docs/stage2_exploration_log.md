@@ -455,3 +455,14 @@
 ### C. Lhostis TEM 두께 시험 (2026-10-15; E52–E57; 규칙 6696562)
 - A_c(400 °C) h 0.65 / 0.22: r 2 → 0.92/0.91, r 4 → 0.51/0.40, r 6 → 0.36/0.23. (i) 분리 0.01–0.13 < 0.30 실패, (ii) 0.51 < 0.90 실패 → **FAIL**. 원인: A_c가 림 영역·벌크 소성에 지배돼 두께 무감.
 - 개정 1(재실행 전 커밋): 항복 ×3(E58–E63). 예상: 여전히 FAIL 가능성 높음.
+- 2026-10-15 21:20 **E58** (E) contact Lhostis TEM REV1 yield x3 w0.36 um h0.65 um r2 nm/pad T400 SiO2 -> exit 0, wall 48 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.399 p=552MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 21:20 **E59** (E) contact Lhostis TEM REV1 yield x3 w0.36 um h0.65 um r4 nm/pad T400 SiO2 -> exit 0, wall 48 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.190 p=656MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 21:21 **E60** (E) contact Lhostis TEM REV1 yield x3 w0.36 um h0.65 um r6 nm/pad T400 SiO2 -> exit 0, wall 51 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.098 p=916MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 21:22 **E61** (E) contact Lhostis TEM REV1 yield x3 w0.36 um h0.22 um r2 nm/pad T400 SiO2 -> exit 0, wall 37 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.319 p=530MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 21:23 **E62** (E) contact Lhostis TEM REV1 yield x3 w0.36 um h0.22 um r4 nm/pad T400 SiO2 -> exit 0, wall 38 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.144 p=637MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 21:23 **E63** (E) contact Lhostis TEM REV1 yield x3 w0.36 um h0.22 um r6 nm/pad T400 SiO2 -> exit 0, wall 39 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.098 p=768MPa; T25: Ac/A=0.000 p=0MPa
+
+### C 개정 1 결과 (2026-10-15; E58–E63 항복 ×3)
+- A_c h 0.65/0.22: r 2 → 0.40/0.32, r 4 → 0.19/0.14, r 6 → 0.10/0.10 → **FAIL**(예상대로). 연결 단계 두께 효과는 모델 한계로 보고.
+### E. 최종 문서 (2026-10-15)
+- 보고서 §13.8–§14(B·C·D 결과, 검증 상태 요약표, 주장 수위), 논증 문서 체크포인트 21–23, HANDOFF, CHANGELOG 갱신. 그림: s2_diffusion_fit.png, s2_window_0.54um/0.30um.png, s2_factor_ranking.png, s2_process_window_*.png, s2_size_scaling.png.

@@ -2,6 +2,17 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-15 — Stage 2 end-to-end: SC sign test, Phases 1–4, B–E (orientation diffusion, Lhostis TEM, process windows)
+
+- **Round SC** (pre-reg 63869bb): 3 µm pad ε′zz negative like Ayoub → sign-convention reversal rejected; 300 nm sign mismatch unresolved; no magnitude claim.
+- **Phase 1** (2acfd92): decision sensitivity OPEN (0.54 µm oxidised boundary, 2 cells); τ₀ 7× more sensitive than b; clean surface = main recipe, oxidised = sensitivity case.
+- **Phase 3** (9c6bc29): DM2026 digitized (`inputs/dm2026_digitized.json`); diffusion term NOT VALIDATED (2/17 → revision 1 θ_eff 113.6° 11/17); rule 9 → orientation-dependent term recommended.
+- **Phase 4 / A**: Lhostis extension E30–E51; r_open undefined for spherical-cap dishing → UNDETERMINED; r50 0.67 reported only.
+- **B** (6696562, exploratory round 2): f(ω) facet amplitude; medians 11/17, IQR 10/17; diffusion term dominates orientation spread. Bug: refinement loop drifted outside pre-registered ranges (found by range check; fixed d722e67).
+- **C** (6696562): Lhostis TEM thickness test FAIL; revision 1 (yield ×3, dced86f) FAIL; contact-area metric insensitive to Cu thickness.
+- **D**: `stage2_window.py` windows with b × τ₀ × Q hatching; 0.54 µm 300 °C x 30 min (imec 350 °C consistent); 300 nm 250 °C x 120 min; factor ranking.
+- **E**: report §13.8–§14, paper argument checkpoints 17–23, REFERENCES (DM2023/2024/2026, VH2026, Okudur 2017). `.venv` recreated (README recipe); matplotlib/scipy/pillow added to the venv for figures and digitization.
+
 ## 2026-10-13 — Stage 2 baseline pre-registered (docs/stage2_baseline_preregistration.md)
 
 - **Why.** Research question: what must additionally be considered below ~1 µm (target 300 nm) and what recipe is optimal. Baseline must reproduce measured sub-µm data before any recipe work.

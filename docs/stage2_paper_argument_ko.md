@@ -86,11 +86,15 @@
 | **17** | 3 µm 부호 판정(라운드 SC) | **완료: 규약 반전 기각** | stage2_round_sc_wide_pad_sign.md, ayoub_sc_wide.csv | 사전등록(63869bb) |
 | **18** | 결정 민감도 시험(b vs τ₀) | **완료: OPEN**(산화 표면 경계 셀; τ₀가 7배 민감) → 0.54 µm 원인 규명 필수 | stage2_decision_sensitivity.md | 사전등록(2acfd92) |
 | **19** | 확산 항 검증(DM2026) | **완료: NOT VALIDATED**(고정형 2/17; 개정 1 θ_eff 113.6° 11/17) | stage2_diffusion_preregistration.md, diffusion_validation*.csv | 사전등록(9c6bc29) / 개정 1(eb347c1) |
-| **20** | Lhostis 상대 시험 확장(recess ≥ 10 nm) | 진행 중(E30+) | stage2_lhostis_ext.py, lhostis_ext.json | 사전등록(비 0.79 ± 0.15) |
+| **20** | Lhostis 상대 시험 확장(recess ≥ 10 nm) | **완료: UNDETERMINED**(r_open이 구면 캡 dishing에서 정의 불가; r50 비 0.67은 보고용) | stage2_lhostis_ext.py, lhostis_ext.json | 사전등록(비 0.79 ± 0.15) |
+| **21** | 방위 의존 확산 항 f(ω) | **완료**(탐색 라운드 2): 중앙값 11/17, IQR 10/17; 확산 항이 방위 산포 지배 | stage2_orient_diffusion_round2.md | 탐색 라운드 2 |
+| **22** | Lhostis TEM 두께 시험 | **완료: FAIL**(사전등록 FAIL, 개정 1 FAIL) | stage2_lhostis_tem_preregistration.md | 사전등록 + 개정 1 |
+| **23** | 공정창 예측(0.54 µm 기준·300 nm 목표, 불확실 빗금, 인자 순위) | **완료**: 0.54 µm 300 °C x 30 min, 300 nm 250 °C x 120 min/300 °C x 30 min; imec 점검 일관 | window_summary.json, s2_window_*.png | 예측 |
 
 ## 4. 남은 것 중 무엇이 결론을 바꾸나
 - 12번: 취소됐다. 0.54 µm는 "미해결 한계"이되, 18번(OPEN)에 따라 원인 규명이 **필수 과제**다(영향은 산화 표면 레시피 한 단계).
 - 14번(부호 질문): 규약 반전은 17번으로 기각됐으므로 회신은 측정 정의 확인용이다. 300 nm 부호 불일치는 미해결로 보고한다.
 - 19번: 확산 항이 검증되지 않았으므로 공정창의 T·시간 축 주장은 250 °C 이상·PPA-Cu 범위로 줄인다. 200 °C 큰 패드는 과소(보수적).
 - 20번: Lhostis 비가 나오면 연결 단계 상대 시험의 판정이 정해진다.
+- 21–23번: 공정창은 예측이며 레시피의 근거 범위(≥ 250 °C, 청정 표면)와 불확실 구간을 함께 쓴다. 주장 수위: "검증 통과 범위의 탄성 모델 + 실측으로 점검한 확산 모델로 본 공정창 예측" — 검증된 레시피가 아니다.
 - 13·15·16번: 바꾸지 않는다. 정리·완성 작업.

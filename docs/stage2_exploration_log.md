@@ -470,3 +470,7 @@
 - 2026-10-15 22:28 **SD3** (SD) S2-SD pad 3 elastic, circle, cap, Ta 13 nm, adopted SiO2, SLIDING sidewall -> exit 0, wall 86 s, all_conv True; eps'zz 30 C +1.525e-03 (meas -1.851e-03, ratio -0.824), slope 30-350 -6.224e-06 (meas +7.300e-06, ratio -0.853); s_x/s_z(30) 262/372 MPa; u_ctr(400) 1.69 nm
 - 2026-10-15 22:30 **SD10N** (SD) S2-SD pad 10 elastic, circle, NO cap, Ta 13 nm, adopted SiO2, SLIDING sidewall -> exit 0, wall 81 s, all_conv True; eps'zz 30 C -6.935e-04 (meas -1.197e-03, ratio 0.579), slope 30-350 +2.808e-06 (meas +4.660e-06, ratio 0.603); s_x/s_z(30) 155/-0 MPa; u_ctr(400) 5.86 nm
 - 2026-10-15 22:32 **SD3N** (SD) S2-SD pad 3 elastic, circle, NO cap, Ta 13 nm, adopted SiO2, SLIDING sidewall -> exit 0, wall 80 s, all_conv True; eps'zz 30 C -1.684e-03 (meas -1.851e-03, ratio 0.910), slope 30-350 +6.872e-06 (meas +7.300e-06, ratio 0.941); s_x/s_z(30) 121/-0 MPa; u_ctr(400) 7.18 nm
+
+### 라운드 SD 해석 (2026-10-15; 사후; SD10/SD3/SD10N/SD3N)
+- 측벽 미끄럼만(캡 접합 유지): 부호 여전히 반대(비 −0.78/−0.82) — 캡이 상면 둘레를 묶어 σz 461 MPa 유지. 캡 비전달 + 미끄럼: 부호 일치, 패드 3 0.91/0.94, 패드 10 0.58/0.60; 방위 비 0.41(측정 0.64, 접합 모델 거울상 0.64).
+- 결론: "계면 상태 차이" 가설은 캡·측벽 둘 다 이완이어야 성립하고, 패드 10 크기·방위 비는 남는다. 보고서 §7·논증 문서에 반영(가설로만).

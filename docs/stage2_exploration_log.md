@@ -466,3 +466,7 @@
 - A_c h 0.65/0.22: r 2 → 0.40/0.32, r 4 → 0.19/0.14, r 6 → 0.10/0.10 → **FAIL**(예상대로). 연결 단계 두께 효과는 모델 한계로 보고.
 ### E. 최종 문서 (2026-10-15)
 - 보고서 §13.8–§14(B·C·D 결과, 검증 상태 요약표, 주장 수위), 논증 문서 체크포인트 21–23, HANDOFF, CHANGELOG 갱신. 그림: s2_diffusion_fit.png, s2_window_0.54um/0.30um.png, s2_factor_ranking.png, s2_process_window_*.png, s2_size_scaling.png.
+- 2026-10-15 22:27 **SD10** (SD) S2-SD pad 10 elastic, circle, cap, Ta 13 nm, adopted SiO2, SLIDING sidewall -> exit 0, wall 84 s, all_conv True; eps'zz 30 C +9.367e-04 (meas -1.197e-03, ratio -0.783), slope 30-350 -3.792e-06 (meas +4.660e-06, ratio -0.814); s_x/s_z(30) 252/461 MPa; u_ctr(400) 2.26 nm
+- 2026-10-15 22:28 **SD3** (SD) S2-SD pad 3 elastic, circle, cap, Ta 13 nm, adopted SiO2, SLIDING sidewall -> exit 0, wall 86 s, all_conv True; eps'zz 30 C +1.525e-03 (meas -1.851e-03, ratio -0.824), slope 30-350 -6.224e-06 (meas +7.300e-06, ratio -0.853); s_x/s_z(30) 262/372 MPa; u_ctr(400) 1.69 nm
+- 2026-10-15 22:30 **SD10N** (SD) S2-SD pad 10 elastic, circle, NO cap, Ta 13 nm, adopted SiO2, SLIDING sidewall -> exit 0, wall 81 s, all_conv True; eps'zz 30 C -6.935e-04 (meas -1.197e-03, ratio 0.579), slope 30-350 +2.808e-06 (meas +4.660e-06, ratio 0.603); s_x/s_z(30) 155/-0 MPa; u_ctr(400) 5.86 nm
+- 2026-10-15 22:32 **SD3N** (SD) S2-SD pad 3 elastic, circle, NO cap, Ta 13 nm, adopted SiO2, SLIDING sidewall -> exit 0, wall 80 s, all_conv True; eps'zz 30 C -1.684e-03 (meas -1.851e-03, ratio 0.910), slope 30-350 +6.872e-06 (meas +7.300e-06, ratio 0.941); s_x/s_z(30) 121/-0 MPa; u_ctr(400) 7.18 nm

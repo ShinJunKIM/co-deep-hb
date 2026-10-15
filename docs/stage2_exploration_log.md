@@ -389,3 +389,9 @@
 - DM2026 디지타이징 29점(inputs/dm2026_digitized.json; 600 dpi, 색 분류, 눈금 보정, 오차 0.3–1.1 nm; fg-Cu 이동량이 논문 표기 +4/+6/+2 nm와 일치해 자체 점검 통과).
 - τ₀ 보정(400 nm·350 °C 1 h) = 1259 s → held-out 2/17, 포화 실패, T 경향 통과 → **NOT VALIDATED**. 원인: 보정점이 포화 상태라 τ₀ 미식별, 진폭 오차(18.2 vs 13.0 nm)가 τ₀로 흡수돼 저온 예측 붕괴.
 - 개정 1 결정(재실행 전 커밋): 보정 파라미터를 θ_eff로 바꾸고 τ₀ = 60 s 고정. 예상: 통과율 55–65 %, 여전히 NOT VALIDATED 가능성 높음(200 °C 250·300 nm 패드 과소). 사전등록 §6.
+- 2026-10-15 20:06 **E34** (E) contact Lhostis EXT w0.72 um r14 nm/pad T400 -> exit 1, wall 103 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.438 p=311MPa; T25: Ac/A=0.000 p=0MPa
+
+### Phase 3 결과 2차 — 개정 1 (2026-10-15; results/stage2/diffusion_validation_rev1.csv)
+- θ_eff = 113.6°(τ₀ 60 s 고정) → held-out **11/17(65 %)**, T 경향 통과, 포화 실패(D250 R_pred 1.00 vs 1.13 ± 0.11) → **NOT VALIDATED(개정 후에도)**, 예상대로. 실패 6점은 모두 과소예측: 200 °C의 D ≥ 250 nm(PPA 500 nm 2 h/4 h; 자가 어닐 250·300 nm)와 자가 어닐 300 nm 250 °C. 250 °C 이상 PPA-Cu 전부 + ≤ 140 nm 패드 200 °C는 10/10 통과.
+- 해석: Butrymowicz Q(20.7 kcal/mol)·D^3.7 동역학이 200 °C에서 너무 느림(측정 2 h→4 h 증가율로 τ(200 °C) ≈ 3 h → Q_eff ≈ 8 kcal/mol); 미세구조(PPA vs 자가 어닐) 변수 부재; 350→450 °C +13 %(400 nm)는 진폭의 약한 T 의존. 다음 사전등록 과제로 기록, 지금 조정 안 함.
+- Phase 1 재계산(보고용, θ_eff 113.6°): 여전히 OPEN, τ₀ 민감도 17.9 % vs b 2.8 %; 권고 레시피는 τ₀ 60 s에서 유지. decision_sensitivity_rev1_*.

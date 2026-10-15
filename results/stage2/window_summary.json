@@ -1,0 +1,691 @@
+{
+ "settings": {
+  "theta_eff": 119.0,
+  "omega_c": 5.0,
+  "d_omega": 19.5,
+  "main": {
+   "b": 0.69,
+   "tau0": 60,
+   "Q": 20.7,
+   "liner": "Ta_123"
+  },
+  "uncertainty": {
+   "b": [
+    0.6,
+    0.69,
+    0.93,
+    1.0
+   ],
+   "tau0": [
+    20.0,
+    60.0,
+    100.0
+   ],
+   "Q": [
+    20.7,
+    15.0
+   ]
+  },
+  "P_window": 0.99,
+  "recess": "N(2.5,0.5^2) per pad",
+  "orientation_term": "exploratory round 2 (not validated)",
+  "n": 200000
+ },
+ "0.54um": {
+  "clean": {
+   "P_main": {
+    "200C_5min": 0.0,
+    "200C_30min": 0.0,
+    "200C_120min": 8.5e-05,
+    "250C_5min": 2e-05,
+    "250C_30min": 0.04156,
+    "250C_120min": 0.969295,
+    "300C_5min": 0.09232,
+    "300C_30min": 0.99057,
+    "300C_120min": 0.99862,
+    "350C_5min": 0.986115,
+    "350C_30min": 0.99887,
+    "350C_120min": 0.99933,
+    "400C_5min": 0.998605,
+    "400C_30min": 0.999375,
+    "400C_120min": 0.99941
+   },
+   "window_main": [
+    [
+     300,
+     30
+    ],
+    [
+     300,
+     120
+    ],
+    [
+     350,
+     30
+    ],
+    [
+     350,
+     120
+    ],
+    [
+     400,
+     5
+    ],
+    [
+     400,
+     30
+    ],
+    [
+     400,
+     120
+    ]
+   ],
+   "window_always": [
+    [
+     300,
+     120
+    ],
+    [
+     350,
+     30
+    ],
+    [
+     350,
+     120
+    ],
+    [
+     400,
+     5
+    ],
+    [
+     400,
+     30
+    ],
+    [
+     400,
+     120
+    ]
+   ],
+   "window_any": [
+    [
+     200,
+     120
+    ],
+    [
+     250,
+     30
+    ],
+    [
+     250,
+     120
+    ],
+    [
+     300,
+     5
+    ],
+    [
+     300,
+     30
+    ],
+    [
+     300,
+     120
+    ],
+    [
+     350,
+     5
+    ],
+    [
+     350,
+     30
+    ],
+    [
+     350,
+     120
+    ],
+    [
+     400,
+     5
+    ],
+    [
+     400,
+     30
+    ],
+    [
+     400,
+     120
+    ]
+   ],
+   "hatched_cells": [
+    [
+     200,
+     120
+    ],
+    [
+     250,
+     30
+    ],
+    [
+     250,
+     120
+    ],
+    [
+     300,
+     5
+    ],
+    [
+     300,
+     30
+    ],
+    [
+     350,
+     5
+    ]
+   ],
+   "factor_cells_changed": {
+    "mechanism: diffusion off (elastic only)": 7,
+    "orientation: no <111> faceting (f=1)": 2,
+    "surface: other state": 1,
+    "liner: theta 107 (better-wetting liner)": 1,
+    "liner: theta 149": 2,
+    "recess spread: sigma 0.5 -> 1.0 nm": 1,
+    "recess mean: 2.5 -> 3.5 nm": 1,
+    "elastic factor b: 0.60 -> 1.0 (range)": 2,
+    "diffusion kinetics tau0 20 -> 100 s": 3,
+    "diffusion Q 20.7 -> 15 kcal/mol": 1,
+    "time/temperature axis: open cells at main setting": 7
+   },
+   "recipe_min_time_per_T": [
+    "300 \u00b0C x 30 min",
+    "350 \u00b0C x 30 min",
+    "400 \u00b0C x 5 min"
+   ],
+   "P_faceted_pair": 0.030135
+  },
+  "oxidised": {
+   "P_main": {
+    "200C_5min": 0.0,
+    "200C_30min": 0.0,
+    "200C_120min": 0.0,
+    "250C_5min": 1e-05,
+    "250C_30min": 0.000625,
+    "250C_120min": 0.50236,
+    "300C_5min": 0.003085,
+    "300C_30min": 0.88435,
+    "300C_120min": 0.99548,
+    "350C_5min": 0.793395,
+    "350C_30min": 0.996855,
+    "350C_120min": 0.998615,
+    "400C_5min": 0.99493,
+    "400C_30min": 0.9988,
+    "400C_120min": 0.99888
+   },
+   "window_main": [
+    [
+     300,
+     120
+    ],
+    [
+     350,
+     30
+    ],
+    [
+     350,
+     120
+    ],
+    [
+     400,
+     5
+    ],
+    [
+     400,
+     30
+    ],
+    [
+     400,
+     120
+    ]
+   ],
+   "window_always": [
+    [
+     350,
+     30
+    ],
+    [
+     350,
+     120
+    ],
+    [
+     400,
+     30
+    ],
+    [
+     400,
+     120
+    ]
+   ],
+   "window_any": [
+    [
+     250,
+     120
+    ],
+    [
+     300,
+     30
+    ],
+    [
+     300,
+     120
+    ],
+    [
+     350,
+     5
+    ],
+    [
+     350,
+     30
+    ],
+    [
+     350,
+     120
+    ],
+    [
+     400,
+     5
+    ],
+    [
+     400,
+     30
+    ],
+    [
+     400,
+     120
+    ]
+   ],
+   "hatched_cells": [
+    [
+     250,
+     120
+    ],
+    [
+     300,
+     30
+    ],
+    [
+     300,
+     120
+    ],
+    [
+     350,
+     5
+    ],
+    [
+     400,
+     5
+    ]
+   ],
+   "factor_cells_changed": {
+    "mechanism: diffusion off (elastic only)": 6,
+    "orientation: no <111> faceting (f=1)": 1,
+    "surface: other state": 1,
+    "liner: theta 107 (better-wetting liner)": 3,
+    "liner: theta 149": 0,
+    "recess spread: sigma 0.5 -> 1.0 nm": 0,
+    "recess mean: 2.5 -> 3.5 nm": 3,
+    "elastic factor b: 0.60 -> 1.0 (range)": 0,
+    "diffusion kinetics tau0 20 -> 100 s": 4,
+    "diffusion Q 20.7 -> 15 kcal/mol": 0,
+    "time/temperature axis: open cells at main setting": 6
+   },
+   "recipe_min_time_per_T": [
+    "300 \u00b0C x 120 min",
+    "350 \u00b0C x 30 min",
+    "400 \u00b0C x 5 min"
+   ],
+   "P_faceted_pair": 0.030135
+  }
+ },
+ "0.30um": {
+  "clean": {
+   "P_main": {
+    "200C_5min": 0.0,
+    "200C_30min": 5e-06,
+    "200C_120min": 0.50894,
+    "250C_5min": 0.000395,
+    "250C_30min": 0.96151,
+    "250C_120min": 0.996625,
+    "300C_5min": 0.962405,
+    "300C_30min": 0.99767,
+    "300C_120min": 0.998335,
+    "350C_5min": 0.99728,
+    "350C_30min": 0.99845,
+    "350C_120min": 0.99845,
+    "400C_5min": 0.99852,
+    "400C_30min": 0.998565,
+    "400C_120min": 0.998565
+   },
+   "window_main": [
+    [
+     250,
+     120
+    ],
+    [
+     300,
+     30
+    ],
+    [
+     300,
+     120
+    ],
+    [
+     350,
+     5
+    ],
+    [
+     350,
+     30
+    ],
+    [
+     350,
+     120
+    ],
+    [
+     400,
+     5
+    ],
+    [
+     400,
+     30
+    ],
+    [
+     400,
+     120
+    ]
+   ],
+   "window_always": [
+    [
+     250,
+     120
+    ],
+    [
+     300,
+     30
+    ],
+    [
+     300,
+     120
+    ],
+    [
+     350,
+     5
+    ],
+    [
+     350,
+     30
+    ],
+    [
+     350,
+     120
+    ],
+    [
+     400,
+     5
+    ],
+    [
+     400,
+     30
+    ],
+    [
+     400,
+     120
+    ]
+   ],
+   "window_any": [
+    [
+     200,
+     120
+    ],
+    [
+     250,
+     30
+    ],
+    [
+     250,
+     120
+    ],
+    [
+     300,
+     5
+    ],
+    [
+     300,
+     30
+    ],
+    [
+     300,
+     120
+    ],
+    [
+     350,
+     5
+    ],
+    [
+     350,
+     30
+    ],
+    [
+     350,
+     120
+    ],
+    [
+     400,
+     5
+    ],
+    [
+     400,
+     30
+    ],
+    [
+     400,
+     120
+    ]
+   ],
+   "hatched_cells": [
+    [
+     200,
+     120
+    ],
+    [
+     250,
+     30
+    ],
+    [
+     300,
+     5
+    ]
+   ],
+   "factor_cells_changed": {
+    "mechanism: diffusion off (elastic only)": 9,
+    "orientation: no <111> faceting (f=1)": 2,
+    "surface: other state": 3,
+    "liner: theta 107 (better-wetting liner)": 2,
+    "liner: theta 149": 2,
+    "recess spread: sigma 0.5 -> 1.0 nm": 0,
+    "recess mean: 2.5 -> 3.5 nm": 0,
+    "elastic factor b: 0.60 -> 1.0 (range)": 0,
+    "diffusion kinetics tau0 20 -> 100 s": 2,
+    "diffusion Q 20.7 -> 15 kcal/mol": 2,
+    "time/temperature axis: open cells at main setting": 9
+   },
+   "recipe_min_time_per_T": [
+    "250 \u00b0C x 120 min",
+    "300 \u00b0C x 30 min",
+    "350 \u00b0C x 5 min",
+    "400 \u00b0C x 5 min"
+   ],
+   "P_faceted_pair": 0.030135
+  },
+  "oxidised": {
+   "P_main": {
+    "200C_5min": 0.0,
+    "200C_30min": 0.0,
+    "200C_120min": 0.0011,
+    "250C_5min": 0.0,
+    "250C_30min": 0.358845,
+    "250C_120min": 0.98127,
+    "300C_5min": 0.37956,
+    "300C_30min": 0.988995,
+    "300C_120min": 0.99356,
+    "350C_5min": 0.98632,
+    "350C_30min": 0.99433,
+    "350C_120min": 0.994335,
+    "400C_5min": 0.99475,
+    "400C_30min": 0.99502,
+    "400C_120min": 0.99502
+   },
+   "window_main": [
+    [
+     300,
+     120
+    ],
+    [
+     350,
+     30
+    ],
+    [
+     350,
+     120
+    ],
+    [
+     400,
+     5
+    ],
+    [
+     400,
+     30
+    ],
+    [
+     400,
+     120
+    ]
+   ],
+   "window_always": [
+    [
+     300,
+     120
+    ],
+    [
+     350,
+     30
+    ],
+    [
+     350,
+     120
+    ],
+    [
+     400,
+     5
+    ],
+    [
+     400,
+     30
+    ],
+    [
+     400,
+     120
+    ]
+   ],
+   "window_any": [
+    [
+     250,
+     30
+    ],
+    [
+     250,
+     120
+    ],
+    [
+     300,
+     30
+    ],
+    [
+     300,
+     120
+    ],
+    [
+     350,
+     5
+    ],
+    [
+     350,
+     30
+    ],
+    [
+     350,
+     120
+    ],
+    [
+     400,
+     5
+    ],
+    [
+     400,
+     30
+    ],
+    [
+     400,
+     120
+    ]
+   ],
+   "hatched_cells": [
+    [
+     250,
+     30
+    ],
+    [
+     250,
+     120
+    ],
+    [
+     300,
+     30
+    ],
+    [
+     350,
+     5
+    ]
+   ],
+   "factor_cells_changed": {
+    "mechanism: diffusion off (elastic only)": 6,
+    "orientation: no <111> faceting (f=1)": 3,
+    "surface: other state": 3,
+    "liner: theta 107 (better-wetting liner)": 6,
+    "liner: theta 149": 3,
+    "recess spread: sigma 0.5 -> 1.0 nm": 0,
+    "recess mean: 2.5 -> 3.5 nm": 6,
+    "elastic factor b: 0.60 -> 1.0 (range)": 2,
+    "diffusion kinetics tau0 20 -> 100 s": 3,
+    "diffusion Q 20.7 -> 15 kcal/mol": 2,
+    "time/temperature axis: open cells at main setting": 6
+   },
+   "recipe_min_time_per_T": [
+    "300 \u00b0C x 120 min",
+    "350 \u00b0C x 30 min",
+    "400 \u00b0C x 5 min"
+   ],
+   "P_faceted_pair": 0.030135
+  }
+ },
+ "imec_check_0.54um": {
+  "condition": "imec post-bond anneal 350 C (DM2023; ECTC sub-2um: 250 C then 350 C), clean activated surface, recess 2-3 nm/pad",
+  "cells": [
+   "350C_120min",
+   "350C_30min"
+  ],
+  "P": [
+   0.99933,
+   0.99887
+  ],
+  "consistent": true
+ }
+}

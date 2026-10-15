@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(C:\\\\Users\\\\USER\\\\.claude-science\\\\conda\\\\envs\\\\ansys\\\\python.exe:*)"
+    ]
+  }
+}

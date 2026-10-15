@@ -38,3 +38,6 @@ configs/machine.json
 .venv/
 __pycache__/
 *.pyc
+# ---- paper page-check exports (local only) ----
+docs/paper/_check/
+docs/paper/*.new.docx

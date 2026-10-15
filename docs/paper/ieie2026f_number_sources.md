@@ -60,3 +60,21 @@ Text: `src/paper/build_docx.py`. Figures: `src/paper/make_figures.py`, which rea
 6. The draft ranking was "기구 ≫ 확산 동역학 ≈ 방위 ≈ 라이너 > 표면 > recess·b". The file (300 nm, clean) gives surface 3 > τ0, Q, facet, liner 2. The text follows the file.
 7. The draft said "최적 어닐에서도 ≈ 1.4 × 10⁻³". The file gives 1.4 × 10⁻³ at 400 °C and 2.3–3.4 × 10⁻³ at the recommended cells; both are stated.
 8. The draft gave Ayoub 3 µm "−0.35…−2 × 10⁻³". The source header gives −0.9…−0.35 × 10⁻³ before anneal (Fig. 2.6) and −2…−0.5 × 10⁻³ after anneal (Fig. 2.10a). The text uses the after-anneal range.
+
+## Two versions (decided 2026-10-16)
+
+- **Proceedings** (`ieie2026f_proceedings_final.docx`, 5 pages): detailed text; Figs 1–6; Tables 1–3; Table 3 with commit hashes; 15 references.
+- **Blind** (`ieie2026f_blind_final.docx`, target 4 pages): compressed text, the same numbers. Figures and tables are renumbered:
+
+| Blind | Source figure / table |
+|---|---|
+| Fig. 1 | fig2_transition |
+| Fig. 2 | fig3_diffusion |
+| Fig. 3 | fig4_window300 |
+| Fig. 4 | fig5_recess_spec |
+| Fig. 5 | fig6_factors |
+| Table 1 | elastic test |
+| Table 2 | model status, no commits |
+
+- The blind version has 9 references. ASME V&V 10-2019 is named in the text but not listed, to fit the page limit.
+- References [6], [8], [10] and [15] were completed from details the user confirmed.

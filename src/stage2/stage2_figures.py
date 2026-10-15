@@ -116,6 +116,40 @@ def fig_contact_map():
         fig.savefig(FIG / f"s2_contact_map_{label}.png", dpi=300, bbox_inches="tight"); plt.close(fig)
 
 
+def fig_process_window():
+    """Phase 1 process window (T x anneal time, IRPS recess, theta 123, tau0 60 s, b 0.69) with the b-dependent cells
+    hatched as an uncertainty band (docs/stage2_decision_sensitivity.md, PI decision 2026-10-15).
+    Left panel = main recipe (clean surface, standard pre-bond cleaning/activation); right = sensitivity case
+    (surface oxide not controlled, s_ox 0.45)."""
+    import csv
+    f = OUT / "decision_sensitivity.csv"
+    if not f.exists():
+        return
+    rows = list(csv.DictReader(open(f)))
+    Ts = (200, 250, 300, 350, 400); ts = (5, 30, 120); bs = ("0.6", "0.69", "0.93", "1")   # as written by %.4g
+    for size in ("0.54", "0.3"):
+        fig, axs = plt.subplots(1, 2, figsize=(7, 2.9), sharey=True)
+        for ax, surf, title in zip(axs, ("clean", "oxidised"),
+                                   ("main recipe: clean surface", "sensitivity: surface oxide not controlled (s_ox 0.45)")):
+            sel = [r for r in rows if r["size_um"] == size and r["surface"] == surf and float(r["tau0_s"]) == 60.0]
+            P = np.array([[float(next(r["P_contact"] for r in sel if int(r["T_C"]) == T and int(r["t_min"]) == t and r["b"] == "0.69"))
+                           for T in Ts] for t in ts])
+            band = np.array([[len({next(r["in_window"] for r in sel if int(r["T_C"]) == T and int(r["t_min"]) == t and r["b"] == b)
+                                   for b in bs}) > 1 for T in Ts] for t in ts])
+            im = ax.imshow(P, origin="lower", vmin=0, vmax=1, cmap="Blues", aspect="auto", extent=[-0.5, 4.5, -0.5, 2.5])
+            for i, t in enumerate(ts):
+                for j, T in enumerate(Ts):
+                    ax.text(j, i, f"{P[i, j]:.2f}", ha="center", va="center", fontsize=6.5, color="w" if P[i, j] > 0.6 else "k")
+                    if band[i, j]:
+                        ax.add_patch(plt.Rectangle((j - 0.5, i - 0.5), 1, 1, fill=False, hatch="///", edgecolor="#d62728", lw=1.2))
+            ax.set_xticks(range(5)); ax.set_xticklabels([str(T) for T in Ts]); ax.set_yticks(range(3)); ax.set_yticklabels([str(t) for t in ts])
+            ax.set_title(title, fontsize=7.5); ax.set_xlabel("anneal T (°C)")
+        axs[0].set_ylabel("anneal time (min)")
+        cb = fig.colorbar(im, ax=axs, shrink=0.9); cb.set_label("P(contact), b 0.69, τ₀ 60 s, IRPS recess")
+        fig.suptitle(f"{size} µm: hatched = window membership depends on the elastic factor b (0.60–1.00)", fontsize=7.5)
+        fig.savefig(FIG / f"s2_process_window_{size}um.png", dpi=300, bbox_inches="tight"); plt.close(fig)
+
+
 def fig_contact_fem():
     import csv
     f = OUT / "contact_summary.csv"
@@ -137,7 +171,7 @@ def fig_contact_fem():
 
 
 if __name__ == "__main__":
-    for fn in (fig_validation, fig_size_scaling, fig_contact_map, fig_contact_fem):
+    for fn in (fig_validation, fig_size_scaling, fig_contact_map, fig_process_window, fig_contact_fem):
         try:
             fn(); print("ok", fn.__name__)
         except Exception as exc:

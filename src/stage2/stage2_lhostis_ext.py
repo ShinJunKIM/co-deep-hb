@@ -112,10 +112,11 @@ def status(verbose=True):
     a50, b50 = res["0.4"]["r50_nm"], res["0.72"]["r50_nm"]
     if a50 == a50 and b50 == b50:
         res["ratio50_400_over_720"] = a50 / b50
-        res["pass_r50_post_hoc"] = bool(abs(a50 / b50 - 0.79) <= 0.15)
+        res["r50_note"] = ("reported number only, NOT a verdict (PI decision 2026-10-15, strict option): r50 was computed before "
+                           "the metric choice; the pre-registered metric r_open is undefined for spherical-cap dishing")
         if verbose:
-            print(f"r50: 0.40 um {a50:.2f} nm, 0.72 um {b50:.2f} nm, ratio {a50 / b50:.3f} vs 0.79 +/- 0.15 -> "
-                  f"{'PASS' if res['pass_r50_post_hoc'] else 'FAIL'} (substitute metric, post hoc)")
+            print(f"r50 (reported, non-verdict): 0.40 um {a50:.2f} nm, 0.72 um {b50:.2f} nm, ratio {a50 / b50:.3f} "
+                  f"(pre-registered band 0.79 +/- 0.15 shown for reference only)")
     a, b = res["0.4"]["r_open_nm"], res["0.72"]["r_open_nm"]
     if a == a and b == b:
         ratio = a / b

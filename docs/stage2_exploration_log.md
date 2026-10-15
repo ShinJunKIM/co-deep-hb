@@ -412,3 +412,13 @@
 ### Phase 4 판정 (2026-10-15; PI 결정)
 - r_open(A_c → 0)은 구면 캡 dishing(림 recess 0)에서 도달 불가(A_c ∝ r^−1.2…−1.4; A_c 0.05는 외삽 50–86 nm). PI 결정: **r50(A_c = 0.5)으로 대체, 사후 지표로 표기**; 격자(r ≤ 32 nm)는 끝까지 진행(보고용).
 - r50: 0.72 µm 12.3 nm, 0.40 µm 8.3 nm → 비 **0.67**, 0.79 ± 0.15 안 → **PASS(사후)**. lhostis_ext.json.
+- 2026-10-15 20:18 **E40** (E) contact Lhostis EXT w0.72 um r20 nm/pad T400 -> exit 1, wall 103 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.277 p=294MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 20:19 **E41** (E) contact Lhostis EXT w0.4 um r20 nm/pad T400 -> exit 1: results not readable (FileNotFoundError: C:\Users\USER\co-deep-hb\results\E41\contact.txt not found.)
+- 2026-10-15 20:21 **E42** (E) contact Lhostis EXT w0.72 um r24 nm/pad T400 -> exit 1, wall 87 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.234 p=261MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 20:22 **E43** (E) contact Lhostis EXT w0.4 um r20 nm/pad T400 -> exit 1: results not readable (FileNotFoundError: C:\Users\USER\co-deep-hb\results\E43\contact.txt not found.)
+- 2026-10-15 20:24 **E44** (E) contact Lhostis EXT w0.72 um r28 nm/pad T400 -> exit 1, wall 72 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.190 p=241MPa; T25: Ac/A=0.000 p=0MPa
+
+### PI 결정 반영 (2026-10-15, 커밋 fd3139f 정정)
+- Phase 1: OPEN 유지, 규칙 완화·산화 사례 삭제 없음. 보고 문장: "공정창은 0.54 µm 산화 표면 경계(τ₀ 60 s에서 셀 2개)를 제외하면 b에 무관; 0.54 µm 오차 원인은 Okudur 2017 부재로 미해결." 주 레시피 = 청정 표면, 산화 표면 = 민감도 사례(둘 다 모든 표 유지). 그림 s2_process_window_{0.54,0.3}um.png에 b 의존 셀 빗금(불확실 구간).
+- Phase 4: **엄격 옵션 → UNDETERMINED**(r_open이 구면 캡 dishing에서 정의되지 않음). r50 비 0.67은 지표 선택 전에 계산된 보고용 수치이며 판정이 아니다. fd3139f의 "PASS(사후)" 표기는 이 커밋으로 철회.
+- 2026-10-15 20:25 **E45** (E) contact Lhostis EXT w0.4 um r20 nm/pad T400 -> exit 1: results not readable (FileNotFoundError: C:\Users\USER\co-deep-hb\results\E45\contact.txt not found.)

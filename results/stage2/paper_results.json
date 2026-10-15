@@ -1,0 +1,128 @@
+{
+ "mechanism_transition": {
+  "recess_sum_nm": 5.0,
+  "size_where_elastic_pair_closes_model_um": 0.6561882061711365,
+  "size_model_b069_um": 1.0560440886066724,
+  "size_measured_um": 0.6995698932677451,
+  "fbar": 0.8493340656650474,
+  "h_sat_per_pad_nm": {
+   "0.115": 6.2315640397844545,
+   "0.14": 7.586251874520205,
+   "0.25": 13.54687834735751,
+   "0.3": 16.256254016829008,
+   "0.54": 29.261257230292223,
+   "1": 54.18751338943004,
+   "1.26": 68.27626687068185,
+   "1.8": 97.53752410097407,
+   "3.06": 165.81379097165592
+  },
+  "note": "h_d scaling with D is measurement-checked only for D <= 300 nm (DM2026); larger sizes are extrapolation"
+ },
+ "recess_spec_sum_nm_300nm": {
+  "clean": {
+   "200C_5min": 0.0,
+   "200C_30min": 0.0,
+   "200C_120min": 1.5,
+   "250C_5min": 0.0,
+   "250C_30min": 3.0,
+   "250C_120min": 7.5,
+   "300C_5min": 3.0,
+   "300C_30min": 9.0,
+   "300C_120min": 11.0,
+   "350C_5min": 8.0,
+   "350C_30min": 11.0,
+   "350C_120min": 11.5,
+   "400C_5min": 11.5,
+   "400C_30min": 11.5,
+   "400C_120min": 11.5
+  },
+  "oxidised": {
+   "200C_5min": 0.0,
+   "200C_30min": 0.0,
+   "200C_120min": 0.0,
+   "250C_5min": 0.0,
+   "250C_30min": 1.5,
+   "250C_120min": 3.5,
+   "300C_5min": 1.5,
+   "300C_30min": 4.5,
+   "300C_120min": 5.5,
+   "350C_5min": 4.0,
+   "350C_30min": 6.0,
+   "350C_120min": 6.0,
+   "400C_5min": 6.0,
+   "400C_30min": 6.0,
+   "400C_120min": 6.0
+  }
+ },
+ "orientation_floor_300nm": {
+  "200C_5min": {
+   "P_open_facet": 1.0,
+   "P_open_no_facet": 1.0
+  },
+  "200C_30min": {
+   "P_open_facet": 0.99999,
+   "P_open_no_facet": 0.99997
+  },
+  "200C_120min": {
+   "P_open_facet": 0.49149,
+   "P_open_no_facet": 0.19838999999999996
+  },
+  "250C_5min": {
+   "P_open_facet": 0.9995725,
+   "P_open_no_facet": 0.99922
+  },
+  "250C_30min": {
+   "P_open_facet": 0.038575000000000026,
+   "P_open_no_facet": 0.0
+  },
+  "250C_120min": {
+   "P_open_facet": 0.0034450000000000314,
+   "P_open_no_facet": 0.0
+  },
+  "300C_5min": {
+   "P_open_facet": 0.03759749999999995,
+   "P_open_no_facet": 0.0
+  },
+  "300C_30min": {
+   "P_open_facet": 0.0023050000000000015,
+   "P_open_no_facet": 0.0
+  },
+  "300C_120min": {
+   "P_open_facet": 0.0016500000000000403,
+   "P_open_no_facet": 0.0
+  },
+  "350C_5min": {
+   "P_open_facet": 0.0027724999999999556,
+   "P_open_no_facet": 0.0
+  },
+  "350C_30min": {
+   "P_open_facet": 0.0014999999999999458,
+   "P_open_no_facet": 0.0
+  },
+  "350C_120min": {
+   "P_open_facet": 0.0014999999999999458,
+   "P_open_no_facet": 0.0
+  },
+  "400C_5min": {
+   "P_open_facet": 0.001395000000000035,
+   "P_open_no_facet": 0.0
+  },
+  "400C_30min": {
+   "P_open_facet": 0.001354999999999995,
+   "P_open_no_facet": 0.0
+  },
+  "400C_120min": {
+   "P_open_facet": 0.001354999999999995,
+   "P_open_no_facet": 0.0
+  }
+ },
+ "fraction_pads_f_below_0p5": 0.1321025,
+ "settings": {
+  "theta_eff": 119.0,
+  "omega_c": 5.0,
+  "d_omega": 19.5,
+  "b": 0.69,
+  "tau0": 60,
+  "Q": 20.7
+ }
+}

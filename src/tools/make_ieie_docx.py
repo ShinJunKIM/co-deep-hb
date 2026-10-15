@@ -11,6 +11,7 @@ import sys
 from pathlib import Path
 
 import docx
+import docx.oxml
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 from docx.shared import Pt
@@ -110,7 +111,13 @@ def add_par(doc, text, size=9, bold=False, align=None, style=None, font="HY신�
 
 def add_table(doc, title, rows, size=7.5, font="HY신명조"):
     add_par(doc, title, size=8, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER, font=font)
-    t = doc.add_table(rows=len(rows), cols=len(rows[0])); t.style = "Table Grid"
+    t = doc.add_table(rows=len(rows), cols=len(rows[0]))
+    tblPr = t._element.tblPr
+    borders = docx.oxml.OxmlElement("w:tblBorders")
+    for edge in ("top", "left", "bottom", "right", "insideH", "insideV"):
+        el = docx.oxml.OxmlElement(f"w:{edge}"); el.set(qn("w:val"), "single"); el.set(qn("w:sz"), "4"); el.set(qn("w:color"), "000000")
+        borders.append(el)
+    tblPr.append(borders)
     for i, row in enumerate(rows):
         for j, c in enumerate(row):
             cell = t.cell(i, j); cell.text = ""

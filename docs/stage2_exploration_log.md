@@ -480,3 +480,9 @@
 
 ### 확산 항 라운드 3 (2026-10-16; 사전등록 db29b8e → DM2023 Fig. 7·9 디지타이징; inputs/dm2023_digitized.json)
 - 사전등록 규칙(진폭 D = cavity): **0/7 NOT VALIDATED**(예측 2–4배 과소; 5 min = 2 h 포화는 램프 46 min 때문). 개정 1(진폭 D = pad, 이유 선커밋): **4/7 NOT VALIDATED**. 결론: 등크기(cavity/pad ≥ 0.7) 확산 항은 불균등(≤ 0.5) 구조로 전이되지 않음 → 공정창 적용 범위를 등크기 접합으로 한정(한계 명세). 모델·창 불변.
+- 2026-10-16 00:31 **E67** (E) contact Lhostis R2 thickness rule SLIDING w0.36 h0.22 r2 nm T400 SiO2 -> exit 0, wall 52 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.859 p=292MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-16 00:33 **E68** (E) contact Lhostis R2 thickness rule SLIDING w0.36 h0.65 r4 nm T400 SiO2 -> exit 1, wall 129 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.774 p=430MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-16 00:34 **E69** (E) contact Lhostis R2 thickness rule SLIDING w0.36 h0.22 r4 nm T400 SiO2 -> exit 0, wall 49 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.474 p=340MPa; T25: Ac/A=0.000 p=0MPa
+
+### 연결 단계 라운드 2 결과 (2026-10-16; E64–E69; 규칙 4b2a45e)
+- 규칙 A(폭, held-out, 접합): V(0.11 µm) 0.62 vs V(0.36) 0.10 → **PASS**. 규칙 B(두께, 미끄럼): 650 nm V 0.000/0.24, 220 nm 0.15/0.54 (r0 2/4) → **PASS**. 판정 A&B PASS: Lhostis 폭 효과 = 접합 모델, 두께 효과 = 이완 계면 → ST/Leti 계면 이완 가설이 Ayoub 부호와 Lhostis 두께 두 관찰과 일관; 계면 상태는 공정 입력.

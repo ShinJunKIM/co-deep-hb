@@ -31,6 +31,17 @@ def h_model(t_s, T_C, D_nm, tau0, theta, Q):
     return 0.0022 * (theta - 90.0) * D_nm * (1.0 - math.exp(-t_s / tau))
 
 
+def calibrate_theta(cal_pts, tau0, Q):
+    """Revision 1 (pre-registration section 6): amplitude theta_eff calibrated at the 350 C point, tau0 fixed."""
+    grid = np.linspace(90.0, 180.0, 9001)
+    def sse(th):
+        return sum((h_model(p["t_h"] * 3600, p["T_C"], p["D_nm"], tau0, th, Q) - p["median_nm"]) ** 2 for p in cal_pts)
+    s = np.array([sse(t) for t in grid]); i = int(np.argmin(s))
+    tol = max(p["err_nm"] for p in cal_pts)
+    ok = grid[np.sqrt(s / len(cal_pts)) <= tol]
+    return float(grid[i]), float(math.sqrt(s[i] / len(cal_pts))), (float(ok.min()), float(ok.max())) if len(ok) else None
+
+
 def calibrate(cal_pts, theta, Q):
     grid = np.logspace(0, 5, 2001)
     def sse(t0):
@@ -95,10 +106,18 @@ def main(argv=None):
     ap.add_argument("--theta", type=float, default=123.0)
     ap.add_argument("--Q", type=float, default=20.7)
     ap.add_argument("--tag", default="")
+    ap.add_argument("--calibrate", choices=("tau0", "theta"), default="tau0",
+                    help="tau0: pre-registered (theta fixed); theta: revision 1 (tau0 fixed at --tau0)")
+    ap.add_argument("--tau0", type=float, default=60.0, help="fixed tau0 (s) for --calibrate theta")
     a = ap.parse_args(argv)
     data = json.loads(Path(a.data).read_text(encoding="utf-8"))
     cal = [p for p in data["points"] if p["role"] == "calibration"]
-    tau0, rms, ident = calibrate(cal, a.theta, a.Q)
+    if a.calibrate == "theta":
+        theta_eff, rms, ident = calibrate_theta(cal, a.tau0, a.Q)
+        a.theta, tau0 = theta_eff, a.tau0
+        print(f"revision 1: theta_eff = {theta_eff:.1f} deg (identifiable {ident}), tau0 fixed {tau0:g} s")
+    else:
+        tau0, rms, ident = calibrate(cal, a.theta, a.Q)
     rows = evaluate(data, tau0, a.theta, a.Q)
     held = [r for r in rows if r["role"] == "held-out" and r["cu"] == "std"]
     n_pass = sum(r["passed"] for r in held)

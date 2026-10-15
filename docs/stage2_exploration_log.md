@@ -380,3 +380,12 @@
 
 ### Phase 3 결정(값 읽기 전): θ_eff 보정 여부 (2026-10-15)
 - DM2026 Fig. 2 범례: 200 °C 2 h / 200 °C 4 h / 250 °C 2 h / 350 °C 1 h / 450 °C 1 h. 보정점(400 nm 피치, 350 °C)의 어닐 시간은 1 h 하나 → 규칙 1에 따라 **τ₀만 보정, θ_eff 미보정(123° 고정)**. 데이터 분류와 비교량(Δh_max 중앙값)은 사전등록 §4.1에 기록. 디지타이징은 이 커밋 뒤에 시작.
+- 2026-10-15 19:56 **E30** (E) contact Lhostis EXT w0.72 um r10 nm/pad T400 -> exit 1, wall 115 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.640 p=332MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 19:59 **E31** (E) contact Lhostis EXT w0.4 um r10 nm/pad T400 -> exit 1, wall 211 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.438 p=288MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 20:01 **E32** (E) contact Lhostis EXT w0.72 um r12 nm/pad T400 -> exit 1, wall 111 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.510 p=327MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 20:04 **E33** (E) contact Lhostis EXT w0.4 um r12 nm/pad T400 -> exit 1, wall 185 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.360 p=268MPa; T25: Ac/A=0.000 p=0MPa
+
+### Phase 3 결과 1차 (2026-10-15; 사전등록 모델; results/stage2/diffusion_validation.csv)
+- DM2026 디지타이징 29점(inputs/dm2026_digitized.json; 600 dpi, 색 분류, 눈금 보정, 오차 0.3–1.1 nm; fg-Cu 이동량이 논문 표기 +4/+6/+2 nm와 일치해 자체 점검 통과).
+- τ₀ 보정(400 nm·350 °C 1 h) = 1259 s → held-out 2/17, 포화 실패, T 경향 통과 → **NOT VALIDATED**. 원인: 보정점이 포화 상태라 τ₀ 미식별, 진폭 오차(18.2 vs 13.0 nm)가 τ₀로 흡수돼 저온 예측 붕괴.
+- 개정 1 결정(재실행 전 커밋): 보정 파라미터를 θ_eff로 바꾸고 τ₀ = 60 s 고정. 예상: 통과율 55–65 %, 여전히 NOT VALIDATED 가능성 높음(200 °C 250·300 nm 패드 과소). 사전등록 §6.

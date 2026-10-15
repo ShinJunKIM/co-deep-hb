@@ -436,3 +436,10 @@
 
 ### B. 방위 의존 확산 항 (탐색 라운드 2; 규칙 6696562 → 계산; orient_diffusion_round2.*)
 - 보정(500 nm·350 °C 분위수): θ_eff 120.0°, ω_c -3.5°, Δω 36.5°, facet 분율 0.0%. 검증 중앙값 12/17, IQR 13/17, T 경향 ok, 포화 fail → 불일치(규칙). 새 결과 = 분포 폭·lagging tail 재현. 200 °C 과소는 그대로(Q_eff 탐색 17–14 kcal/mol, 미세구조). 방위 산포: 확산 항 지배(0.54 µm 폭 15 vs 0.04 nm; 0.30 µm 11 vs 0.03 nm).
+- 2026-10-15 20:43 **E53** (E) contact Lhostis TEM w0.36 um h0.65 um r4 nm/pad T400 SiO2 -> exit 1, wall 115 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.510 p=307MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 21:14 **E54** (E) contact Lhostis TEM w0.36 um h0.65 um r6 nm/pad T400 SiO2 -> exit 1, wall 1860 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.360 p=298MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 21:15 **E55** (E) contact Lhostis TEM w0.36 um h0.22 um r2 nm/pad T400 SiO2 -> exit 1, wall 46 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.910 p=241MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 21:16 **E56** (E) contact Lhostis TEM w0.36 um h0.22 um r4 nm/pad T400 SiO2 -> exit 1, wall 75 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.399 p=301MPa; T25: Ac/A=0.000 p=0MPa
+
+### B 정정 (2026-10-15): 보정 루프 버그 → 범위 안 재계산
+- bf3f792의 수치(ω_c −3.5°, Δω 36.5°, 12/17, 13/17)는 정밀화 루프가 범위 밖으로 흘러나간 버그 결과라 무효. 고정 후: θ_eff 119.0°, ω_c 5.0°, Δω 19.5°, facet 분율 1.5%; 중앙값 11/17, IQR 10/17, T 경향 ok, 포화 fail → 불일치(탐색 라운드 2). 결론(분포 폭 재현, 저온 중앙값 미개선, 확산 항이 방위 산포 지배)은 그대로.

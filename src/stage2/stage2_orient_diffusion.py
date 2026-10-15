@@ -66,15 +66,18 @@ def calibrate(omega, meas_q, D_nm, T_C, t_h):
                 if best is None or sse < best[0]:
                     best = (sse, theta, oc, dw)
     sse, theta, oc, dw = best
-    # local refinement
-    for theta2 in np.arange(theta - 1, theta + 1.01, 0.25):
-        for oc2 in np.arange(oc - 1, oc + 1.01, 0.25):
-            for dw2 in np.arange(max(0, dw - 2), dw + 2.01, 0.5):
+    # local refinement inside the pre-registered ranges (omega_c 5-20 deg, d_omega 0-30 deg); ranges fixed from the
+    # grid optimum (a first version re-evaluated the ranges from the running optimum and drifted outside: bug, logged)
+    th0, oc0, dw0 = theta, oc, dw
+    for theta2 in np.arange(th0 - 1, th0 + 1.01, 0.25):
+        for oc2 in np.clip(np.arange(oc0 - 1, oc0 + 1.01, 0.25), 5.0, 20.0):
+            for dw2 in np.clip(np.arange(dw0 - 2, dw0 + 2.01, 0.5), 0.0, 30.0):
                 q = quantiles(h_samples(omega, theta2, oc2, dw2, D_nm, T_C, t_h))
                 s = float(np.sum((q - meas_q) ** 2))
                 if s < sse:
                     sse, theta, oc, dw = s, theta2, oc2, dw2
-    return dict(theta_eff=float(theta), omega_c=float(oc), d_omega=float(dw), rms_nm=math.sqrt(sse / len(QS)))
+    return dict(theta_eff=float(theta), omega_c=float(oc), d_omega=float(dw), rms_nm=math.sqrt(sse / len(QS)),
+                ranges="omega_c 5-20 deg, d_omega 0-30 deg (pre-registered), theta 100-160 deg")
 
 
 def main(argv=None):

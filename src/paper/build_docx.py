@@ -31,7 +31,7 @@ OUT_B = ROOT / "docs" / "paper" / "ieie2026f_blind_final.docx"
 COLW = Cm(7.95)
 
 TITLE_KO = "서브마이크론 Cu 하이브리드 본딩 패드의 접촉 기구 전환과 300 nm 공정창 예측: 사전등록 검증 기반 열탄성–표면확산 모델"
-TITLE_KO_LINES = ["서브마이크론 Cu 하이브리드 본딩 패드의 접촉 기구 전환과", "300 nm 공정창 예측: 사전등록 검증 기반 열탄성–표면확산 모델"]
+TITLE_KO_LINES = ["서브마이크론 Cu 하이브리드 본딩 패드의", "접촉 기구 전환과 300 nm 공정창 예측:", "사전등록 검증 기반 열탄성–표면확산 모델"]  # template: 18 pt bold
 TITLE_EN_LINES = ["Mechanism Transition and 300 nm Process-Window Prediction for Sub-Micron Cu",
                   "Hybrid-Bonding Pads: A Pre-Registered Thermo-Elastic/Surface-Diffusion Model"]
 
@@ -142,7 +142,7 @@ REFS = [
     "B. Ayoub et al., \"In-situ characterization of thermomechanical behavior of copper nano-interconnect for 3D integration,\" <i>Microelectron. Eng.</i>, vol. 261, 111809, 2022.",
     "H.-E. Lin et al., \"Revealing challenges of downscaling effects on Cu thermal expansion in advanced hybrid bonding using in-situ AFM,\" <i>Appl. Surf. Sci.</i>, vol. 689, 162539, 2025.",
     "P.-L. Chen and C. Chen, \"Effect of dimension on thermal expansion of Cu pads in SiO_{2} vias for 3D IC fine-pitch hybrid bonding,\" in <i>Proc. IEEE 75th Electron. Compon. Technol. Conf. (ECTC)</i>, Dallas, TX, USA, May 2025, doi:10.1109/ECTC51687.2025.00329.",
-    "J. De Messemaeker, K. Van Sever, Y. W. Tsau, B. Zhang, K. Croes, and E. Beyne, \"Simulation of bulge-out mechanism enabling sub-0.5 µm scaling of hybrid wafer-to-wafer bonding,\" in <i>Proc. IEEE ECTC</i>, 2024.",
+    "J. De Messemaeker et al., \"Simulation of bulge-out mechanism enabling sub-0.5 µm scaling of hybrid wafer-to-wafer bonding,\" in <i>Proc. IEEE ECTC</i>, 2024.",
     "Y. W. Tsau, J. De Messemaeker, A. Salahouelhadj, M. Gonzalez, L. Witters, B. Zhang, M. Seefeldt, E. Beyne, and I. De Wolf, \"Simulation of Cu pad expansion in wafer-to-wafer Cu/SiCN hybrid bonding,\" <i>Microelectron. Reliab.</i>, vol. 138, Art. no. 114716, 2022, doi:10.1016/j.microrel.2022.114716.",
     "D. B. Butrymowicz, J. R. Manning, and M. E. Read, \"Diffusion in copper and copper alloys, Part I,\" <i>J. Phys. Chem. Ref. Data</i>, vol. 2, pp. 643–655, 1973.",
     "S. Van Huylenbroeck et al., \"Wafer to wafer hybrid bonding pitch scaling challenges (Invited),\" in <i>Proc. IEEE Int. Reliab. Phys. Symp. (IRPS)</i>, Tucson, AZ, USA, Mar. 2026, doi:10.1109/IRPS61424.2026.11499286.",
@@ -300,10 +300,14 @@ def build_proceedings():
     t_title, t_auth = d.tables[0], d.tables[1]
     # title
     ps = [p for c in t_title._cells for p in c.paragraphs if p.text.strip()]
-    for p, line in zip(ps, TITLE_KO_LINES):
+    # template has two title paragraphs; lines 2-3 share the second one (line break)
+    groups = [TITLE_KO_LINES[:1], TITLE_KO_LINES[1:]]
+    for p, lines in zip(ps, groups):
         for r in p.runs[1:]:
             r._element.getparent().remove(r._element)
-        p.runs[0].text = line; p.runs[0].font.size = Pt(15)
+        r0 = p.runs[0]; r0.text = lines[0]; r0.font.size = Pt(18)
+        for extra in lines[1:]:
+            r0.add_break(); r0.add_text(extra)
     # authors / English title (placeholders)
     for c in t_auth._cells:
         for p in c.paragraphs:
@@ -409,6 +413,7 @@ def build_proceedings():
         fill(p, r, "Times New Roman", 7.5, east=F, cite=False)
     d.core_properties.author = ""; d.core_properties.last_modified_by = ""; d.core_properties.title = ""
     d.core_properties.comments = ""
+    _strip_caption_periods(d)
     d.save(str(OUT_P))
     _scrub_app(OUT_P)
 
@@ -601,6 +606,7 @@ def build_blind():
     cp = d.core_properties
     for k in ("author", "last_modified_by", "title", "subject", "keywords", "comments", "category"):
         setattr(cp, k, "")
+    _strip_caption_periods(d)
     d.save(str(OUT_B))
     _scrub_app(OUT_B)
 
@@ -630,6 +636,22 @@ def _scrub_app(path):
                 data = s.encode("utf-8")
             zout.writestr(item, data)
     shutil.move(str(tmp), str(path))
+
+
+_CAP_RE = re.compile(r"^(Fig\.|Table)\s?\d+\.\s")
+
+
+def _strip_caption_periods(d):
+    """Template rule '(마침표삭제)': no full stop at the end of a figure/table caption."""
+    n = 0
+    for p in d.paragraphs:
+        if _CAP_RE.match(p.text) and p.text.rstrip().endswith("."):
+            for r in reversed(p.runs):
+                if r.text.strip():
+                    r.text = r.text.rstrip().rstrip(".")
+                    n += 1
+                    break
+    return n
 
 
 if __name__ == "__main__":

@@ -11,7 +11,7 @@
 1. `docs/paper/ieie2026f_plan_and_draft_ko.md` — 기획, 핵심 메시지, 기여 3개, 절 구성, 그림·표 목록, 전문 초안, 참고문헌. **이 문서의 §1 핵심 메시지와 기여 3개를 그대로 쓴다.**
 2. `docs/stage2_baseline_report_ko.md` §13–§14 — 결과와 모델 부분별 검증 상태(검증 통과/실패/탐색 등급).
 3. 수치 원본: `results/stage2/paper_results.json`(기구 전환 크기, recess 허용 사양, 방위 하한, transition_vs_recess), `results/stage2/window_summary.json`(공정창·빗금 셀·인자 순위), `results/stage2/orient_diffusion_round2.json/.csv`(확산 항 적합·검증 점), `results/stage2/validation_rev1.csv`와 `results/stage2/adopted_rev.json`(탄성 학습·테스트), `inputs/dm2026_digitized.json`(DM2026 판독값과 오차), `results/stage2/diffusion_validation_rev1.csv`.
-4. 양식: `논문양식.docx`(프로시딩, Double column 1–5쪽), `서면 심사용 논문 양식.docx`(논문지 양식 4쪽, 저자·소속 삭제), `논문 경진대회 안내.txt`. 현재 초안 docx: `docs/paper/ieie2026f_proceedings_draft.docx`, `docs/paper/ieie2026f_blind_review_draft.docx`(placeholder 포함; 네가 완성본으로 대체한다).
+4. 양식(저장소 `docs/paper/templates/`): `논문양식.docx`(프로시딩, Double column 1–5쪽), `서면 심사용 논문 양식.docx`(논문지 양식 4쪽, 저자·소속 삭제), `논문 경진대회 안내.txt`. 현재 초안 docx: `docs/paper/ieie2026f_proceedings_draft.docx`, `docs/paper/ieie2026f_blind_review_draft.docx`(placeholder 포함; 네가 완성본으로 대체한다).
 5. 참고문헌 상세: `docs/REFERENCES.md`.
 
 ## 산출물

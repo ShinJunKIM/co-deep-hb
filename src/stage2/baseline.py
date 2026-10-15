@@ -557,8 +557,9 @@ def load(rid):
 def build_contact_deck(run):
     """2D axisymmetric, two mirrored wafers; dielectric faces share nodes; Cu-Cu frictional contact.
     Dishing: spherical cap of depth r0 at the pad centre, zero at the pad edge (Lhostis Fig 10 definition)."""
-    base = dict(run); base["side"] = "bonded"
+    base = dict(run)            # side "bonded" (default) or "sliding" (round-2 Lhostis test: relaxed sidewall, both wafers)
     msh = mesh_2d(base)
+    ce_bot = msh["ce"]          # (dup_cu_node, dielectric_node, n_r, n_z) sidewall normal ties; empty when bonded
     g = msh["g"]; nodes = msh["nodes"].copy(); els = msh["els"]; mats = msh["mats"]
     nr, nz, i_pad, nid = msh["nr"], msh["nz"], msh["i_pad"], msh["nid"]
     k_pb, k_pt = msh["k"]["k_pb"], msh["k"]["k_pt"]
@@ -585,6 +586,9 @@ def build_contact_deck(run):
                 m = N0 + n
                 top_map[n] = m
                 new_nodes.append((m, nodes[n - 1, 1], 2 * zb - nodes[n - 1, 2]))
+    for (nd, n, nr_, nz_) in ce_bot:              # mirror the duplicated (sliding) Cu sidewall nodes as well
+        m = N0 + nd; top_map[nd] = m
+        new_nodes.append((m, nodes[nd - 1, 1], 2 * zb - nodes[nd - 1, 2]))
     all_nodes = np.vstack([nodes, np.array(new_nodes)])
     els_top = np.array([[top_map[int(v)] for v in e[::-1]] for e in els])
     mats_top = np.where(mats == 1, 6, mats)
@@ -615,8 +619,20 @@ def build_contact_deck(run):
         sel = els_top[mats_top == m]
         if len(sel):
             d.append(f"MAT,{m}"); d += ["E," + ",".join(str(int(v)) for v in e) for e in sel]
-    bot_cu = [nid(i, nz) for i in range(i_pad + 1)]
-    top_cu = [top_map[nid(i, nz)] for i in range(i_pad + 1)]
+    dup_map = {n: nd for (nd, n, _, _) in ce_bot}
+    bot_cu = [dup_map.get(nid(i, nz), nid(i, nz)) for i in range(i_pad + 1)]
+    top_cu = [top_map[n] for n in bot_cu]
+    if ce_bot:
+        d.append("! ---- sliding sidewall (both wafers): Cu-side duplicate tied to the dielectric node by the normal displacement only")
+        q = 0
+        for (nd, n, nr_, nz_) in ce_bot:
+            for (a, b, nzs) in ((nd, n, nz_), (top_map[nd], top_map[n], -nz_)):
+                q += 1
+                terms = [(a, "UX", nr_), (a, "UY", nzs), (b, "UX", -nr_), (b, "UY", -nzs)]
+                terms = [tm for tm in terms if abs(tm[2]) > 1e-12]
+                d.append(f"CE,{q},0," + ",".join(f"{nn},{lab},{_f(cf)}" for nn, lab, cf in terms[:3]))
+                if len(terms) > 3:
+                    d.append(f"CE,{q},," + ",".join(f"{nn},{lab},{_f(cf)}" for nn, lab, cf in terms[3:]))
     d += ["! ---- contact pair: target = bottom Cu top surface, contact = top Cu surface", "ESEL,S,MAT,,1", "NSEL,NONE"]
     d += [f"NSEL,A,NODE,,{n}" for n in bot_cu]
     d += ["TYPE,2", "REAL,1", "MAT,1", "ESURF", "ALLSEL,ALL", "ESEL,S,MAT,,6", "NSEL,NONE"]

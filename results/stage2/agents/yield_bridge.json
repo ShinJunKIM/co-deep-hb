@@ -1,0 +1,209 @@
+{
+ "status": "exploratory (orientation term round 2, not validated); independence of links assumed; no overlay/corrosion in p_open",
+ "p_open": [
+  {
+   "surface": "clean",
+   "T_C": 250,
+   "t_min": 120,
+   "p_open_facet": 0.0034450000000000314,
+   "p_open_nofacet": 0.0,
+   "p_open_band": [
+    0.0014925000000000077,
+    0.006762500000000005
+   ],
+   "N_half_yield_facet": 200.85705307228477,
+   "N_half_yield_nofacet": Infinity
+  },
+  {
+   "surface": "clean",
+   "T_C": 300,
+   "t_min": 30,
+   "p_open_facet": 0.0023050000000000015,
+   "p_open_nofacet": 0.0,
+   "p_open_band": [
+    0.001307500000000017,
+    0.003947499999999993
+   ],
+   "N_half_yield_facet": 300.3679050706207,
+   "N_half_yield_nofacet": Infinity
+  },
+  {
+   "surface": "clean",
+   "T_C": 350,
+   "t_min": 30,
+   "p_open_facet": 0.0014999999999999458,
+   "p_open_nofacet": 0.0,
+   "p_open_band": [
+    0.0011324999999999807,
+    0.0016699999999999493
+   ],
+   "N_half_yield_facet": 461.75146007459165,
+   "N_half_yield_nofacet": Infinity
+  },
+  {
+   "surface": "clean",
+   "T_C": 400,
+   "t_min": 30,
+   "p_open_facet": 0.001354999999999995,
+   "p_open_nofacet": 0.0,
+   "p_open_band": [
+    0.0009824999999999973,
+    0.0014925000000000077
+   ],
+   "N_half_yield_facet": 511.2010828193676,
+   "N_half_yield_nofacet": Infinity
+  },
+  {
+   "surface": "oxidised",
+   "T_C": 250,
+   "t_min": 120,
+   "p_open_facet": 0.018722499999999975,
+   "p_open_nofacet": 0.0,
+   "p_open_band": [
+    0.0056675000000000475,
+    0.06576499999999996
+   ],
+   "N_half_yield_facet": 36.67448349169788,
+   "N_half_yield_nofacet": Infinity
+  },
+  {
+   "surface": "oxidised",
+   "T_C": 300,
+   "t_min": 30,
+   "p_open_facet": 0.010802500000000048,
+   "p_open_nofacet": 0.0,
+   "p_open_band": [
+    0.004667500000000047,
+    0.02325250000000001
+   ],
+   "N_half_yield_facet": 63.81824042421974,
+   "N_half_yield_nofacet": Infinity
+  },
+  {
+   "surface": "oxidised",
+   "T_C": 350,
+   "t_min": 30,
+   "p_open_facet": 0.005685000000000051,
+   "p_open_nofacet": 0.0,
+   "p_open_band": [
+    0.003877499999999978,
+    0.006542500000000007
+   ],
+   "N_half_yield_facet": 121.57872252276243,
+   "N_half_yield_nofacet": Infinity
+  },
+  {
+   "surface": "oxidised",
+   "T_C": 400,
+   "t_min": 30,
+   "p_open_facet": 0.004987500000000034,
+   "p_open_nofacet": 0.0,
+   "p_open_band": [
+    0.0031174999999999953,
+    0.0056675000000000475
+   ],
+   "N_half_yield_facet": 138.63001590748055,
+   "N_half_yield_nofacet": Infinity
+  }
+ ],
+ "literature_inversion": [
+  {
+   "src": "imec IEDM 2017 (Scalable sub-2um), 360/720 nm pads, 1.08/1.44 um pitch, 25 % Cu density, anneal 250 then 350 C",
+   "N": 70000,
+   "Y": 0.45,
+   "pad_nm": 360,
+   "note": "longest serial links ~70,000: ~45 % yield; loss varies centre-to-edge (CMP blamed)",
+   "p_open_implied": 1.1407187740619662e-05
+  },
+  {
+   "src": "imec ECTC (Novel Cu/SiCN topography), 270/540 nm pads, 1.08 um pitch, 70,866 links",
+   "N": 70866,
+   "Y": 0.925,
+   "pad_nm": 270,
+   "note": "'90-95 % yield from 5 um to 1 um pitch'; 34,200 chains; x10-resistance outliers excluded",
+   "p_open_implied": 1.1001255691978074e-06
+  },
+  {
+   "src": "imec IEDM 2017, 180/540 nm pads, 0.72 um pitch",
+   "N": 1,
+   "Y": 0.5,
+   "pad_nm": 180,
+   "note": "'50 % yield of contacts' with overlay tolerance 180 nm below the 250 nm overlay accuracy (overlay blamed)",
+   "p_open_implied": 0.5
+  }
+ ],
+ "overlay_model": [
+  {
+   "overlay": "2017 bonder (250 nm overlay accuracy)",
+   "sigma_nm": 76.7990815817796,
+   "D_nm": 115.0,
+   "p_open_crit1": 0.32591327690752075,
+   "p_open_crit0p5": 0.7555714046055187,
+   "mean_overlap_delta_over_D": 0.8359189580484182
+  },
+  {
+   "overlay": "2017 bonder (250 nm overlay accuracy)",
+   "sigma_nm": 76.7990815817796,
+   "D_nm": 180.0,
+   "p_open_crit1": 0.06414252472186646,
+   "p_open_crit0p5": 0.5032531623109532,
+   "mean_overlap_delta_over_D": 0.5340593343087116
+  },
+  {
+   "overlay": "2017 bonder (250 nm overlay accuracy)",
+   "sigma_nm": 76.7990815817796,
+   "D_nm": 300.0,
+   "p_open_crit1": 0.0004858663325350688,
+   "p_open_crit0p5": 0.1484667499371428,
+   "mean_overlap_delta_over_D": 0.32043560058522697
+  },
+  {
+   "overlay": "ECTC 2025 300 nm pitch (<25 nm for 95 % dies)",
+   "sigma_nm": 10.213474566340874,
+   "D_nm": 115.0,
+   "p_open_crit1": 2.952604598125911e-28,
+   "p_open_crit0p5": 1.3108449428791593e-07,
+   "mean_overlap_delta_over_D": 0.11116847808210269
+  },
+  {
+   "overlay": "ECTC 2025 300 nm pitch (<25 nm for 95 % dies)",
+   "sigma_nm": 10.213474566340874,
+   "D_nm": 180.0,
+   "p_open_crit1": 3.5859565643836824e-68,
+   "p_open_crit0p5": 1.3761039966817826e-17,
+   "mean_overlap_delta_over_D": 0.07102430544134339
+  },
+  {
+   "overlay": "ECTC 2025 300 nm pitch (<25 nm for 95 % dies)",
+   "sigma_nm": 10.213474566340874,
+   "D_nm": 300.0,
+   "p_open_crit1": 4.4841550858397914e-188,
+   "p_open_crit0p5": 1.4551915228367157e-47,
+   "mean_overlap_delta_over_D": 0.04261458326480603
+  },
+  {
+   "overlay": "ECTC 2026 200 nm pitch (<40 nm for 100 % dies)",
+   "sigma_nm": 12.287853053084737,
+   "D_nm": 115.0,
+   "p_open_crit1": 9.562004463575103e-20,
+   "p_open_crit0p5": 1.758479199389113e-05,
+   "mean_overlap_delta_over_D": 0.1337470332877469
+  },
+  {
+   "overlay": "ECTC 2026 200 nm pitch (<40 nm for 100 % dies)",
+   "sigma_nm": 12.287853053084737,
+   "D_nm": 180.0,
+   "p_open_crit1": 2.5359611019826447e-47,
+   "p_open_crit0p5": 2.2440661094800835e-12,
+   "mean_overlap_delta_over_D": 0.08544949348939385
+  },
+  {
+   "overlay": "ECTC 2026 200 nm pitch (<40 nm for 100 % dies)",
+   "sigma_nm": 12.287853053084737,
+   "D_nm": 300.0,
+   "p_open_crit1": 3.690309097848706e-130,
+   "p_open_crit0p5": 4.3829416200782824e-33,
+   "mean_overlap_delta_over_D": 0.05126969609363631
+  }
+ ]
+}

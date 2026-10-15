@@ -406,3 +406,9 @@
 ### Phase 4 진행 (2026-10-15)
 - E17–E24 exit 1 진단: 소성 반복 중 일시 발산 ERROR(UX > 1e6) 후 이분법 복구, 전 하중단계 완료·RUN COMPLETED → MAPDL이 ERROR 존재 시 종료 코드 1 반환. 설정 오류 아님, 수정 없음.
 - 확장 런(같은 모델, r 10 → 2 nm 간격): E30/E31 r10 (0.640/0.438), E32/E33 r12 (0.510/0.360), E34/E35 r14 (0.438/0.277), E36 r16 0.72 µm 0.360 … 진행 중(A_c = 0 후 ±0.5 nm 이분법).
+- 2026-10-15 20:14 **E38** (E) contact Lhostis EXT w0.72 um r18 nm/pad T400 -> exit 1, wall 97 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.319 p=297MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-15 20:16 **E39** (E) contact Lhostis EXT w0.4 um r18 nm/pad T400 -> exit 1, wall 133 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.234 p=222MPa; T25: Ac/A=0.000 p=0MPa
+
+### Phase 4 판정 (2026-10-15; PI 결정)
+- r_open(A_c → 0)은 구면 캡 dishing(림 recess 0)에서 도달 불가(A_c ∝ r^−1.2…−1.4; A_c 0.05는 외삽 50–86 nm). PI 결정: **r50(A_c = 0.5)으로 대체, 사후 지표로 표기**; 격자(r ≤ 32 nm)는 끝까지 진행(보고용).
+- r50: 0.72 µm 12.3 nm, 0.40 µm 8.3 nm → 비 **0.67**, 0.79 ± 0.15 안 → **PASS(사후)**. lhostis_ext.json.

@@ -100,6 +100,22 @@ def status(verbose=True):
         if verbose:
             print(f"w {w:.2f} um: " + ", ".join(f"r{p[0]:g}->{p[1]:.3f}({p[2]})" for p in points(w)) +
                   f" | r_open {ro:.2f} nm bracket {br} next {next_recess(w)}")
+    # substitute metric (PI decision 2026-10-15, post hoc): r50 = recess at which A_c(400 C) = 0.5, linear interpolation.
+    # r_open is unreachable with the spherical-cap dishing (rim recess = 0 -> rim contact at every recess, A_c ~ r^-1.2..-1.4).
+    for w in PADS:
+        pts = points(w); r50 = float("nan")
+        for i in range(1, len(pts)):
+            if pts[i][1] < 0.5 <= pts[i - 1][1]:
+                x0, y0, x1, y1 = pts[i - 1][0], pts[i - 1][1], pts[i][0], pts[i][1]
+                r50 = x0 + (x1 - x0) * (y0 - 0.5) / (y0 - y1)
+        res[str(w)]["r50_nm"] = r50
+    a50, b50 = res["0.4"]["r50_nm"], res["0.72"]["r50_nm"]
+    if a50 == a50 and b50 == b50:
+        res["ratio50_400_over_720"] = a50 / b50
+        res["pass_r50_post_hoc"] = bool(abs(a50 / b50 - 0.79) <= 0.15)
+        if verbose:
+            print(f"r50: 0.40 um {a50:.2f} nm, 0.72 um {b50:.2f} nm, ratio {a50 / b50:.3f} vs 0.79 +/- 0.15 -> "
+                  f"{'PASS' if res['pass_r50_post_hoc'] else 'FAIL'} (substitute metric, post hoc)")
     a, b = res["0.4"]["r_open_nm"], res["0.72"]["r_open_nm"]
     if a == a and b == b:
         ratio = a / b

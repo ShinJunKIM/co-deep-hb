@@ -6,7 +6,7 @@
 범위를 측벽 접합 공정으로 한정(초안 커밋 1413f19, 근거 `docs/paper/reduction_v5_bonded_scope_ko.md`). 아래 A.3(계면 평가표), 표의 8번(ST/Leti 문장), A.8의 '기여 세 가지'는 v5로 대체된다: 계면은 2.2 설계 서술 + 3.1 접합 판별만, ST/Leti·Lhostis 비교와 미끄럼 결과는 쓰지 않음, 기여 두 가지, 3장은 3.1–3.3, Ayoub 300 nm 부호는 한계 한 줄, 요인 이동에서 계면 항목 삭제, Lhostis 참고문헌 삭제.
 
 ## A. 추가로 바뀐 것 (v4)
-1. 제목: "서브마이크론 Cu 하이브리드 본딩의 접촉 결정 요인과 300 nm 공정창: 열탄성 접촉 한계와 표면확산을 결합한 모델의 사전등록 검증" / "What Determines Cu–Cu Contact in Sub-Micron Hybrid Bonding: Elastic Contact Limit and a Pre-Registered Thermo-Elastic/Surface-Diffusion Process Window at 300 nm". 방위를 연구 질문의 중심에 두지 않는다: "패드마다 통제할 수 없는 무작위 요인(recess 산포, 결정방위 등)"으로 일반화하고, 방위는 "수율 하위 꼬리를 정하는 요인"으로만 쓴다.
+1. 제목: "서브마이크론 Cu 하이브리드 본딩의 접촉 결정 요인과 300 nm 공정창: 열탄성 접촉 한계와 표면확산을 결합한 모델의 학습·테스트 검증" / "What Determines Cu–Cu Contact in Sub-Micron Hybrid Bonding: Elastic Contact Limit and a Thermo-Elastic/Surface-Diffusion Process Window at 300 nm Tested Against Measurements" (v5.1, 4b69f7f). 방위를 연구 질문의 중심에 두지 않는다: "패드마다 통제할 수 없는 무작위 요인(recess 산포, 결정방위 등)"으로 일반화하고, 방위는 "수율 하위 꼬리를 정하는 요인"으로만 쓴다.
 2. 두 경계 구분: 탄성 접촉 한계 0.70 µm(400 °C, R 5 nm; 3/8 nm → 0.55/1.0 µm; 대리식 0.76 µm; 350/300/250 °C → 0.90/1.14/1.62 µm). 기여도 역전 = 외삽 예측 0.74 µm(250 °C 2 h)–2.45 µm(400 °C 2 h). 출처 `results/stage2/boundaries.json`.
 3. ~~계면: 같은 설정 평가표~~ (v5에서 삭제; 이하 기록용)(초안 Table 3, `docs/stage2_v2_consistency_preregistration.md`). E70(미끄럼 폭 효과 0.35 vs 0.15), SC5/SC6(3 µm 미끄럼 −1.27/−1.23e-3).
 4. 확산: ≥ 250 °C PPA-Cu 5/5, 전체 8/9(이전 "10/10" 삭제); β = 1/4 2.3σ 배척; DM2023 0/7 → 적용 범위 등크기·≥ 250 °C.

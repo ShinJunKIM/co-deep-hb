@@ -1,0 +1,124 @@
+{
+ "ez_vs_hkl_sliding_cells_differing": {
+  "clean": [],
+  "oxidised": []
+ },
+ "sliding_b1_regions": {
+  "clean": {
+   "200C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+   "200C_30min": "3 undetermined (depends on variant/b/tau0/Q)",
+   "200C_120min": "3 undetermined (depends on variant/b/tau0/Q)",
+   "250C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+   "250C_30min": "2 needs diffusion, closes for all (probability)",
+   "250C_120min": "2 needs diffusion, closes for all (probability)",
+   "300C_5min": "1 elastic alone closes",
+   "300C_30min": "1 elastic alone closes",
+   "300C_120min": "1 elastic alone closes",
+   "350C_5min": "1 elastic alone closes",
+   "350C_30min": "1 elastic alone closes",
+   "350C_120min": "1 elastic alone closes",
+   "400C_5min": "1 elastic alone closes",
+   "400C_30min": "1 elastic alone closes",
+   "400C_120min": "1 elastic alone closes"
+  },
+  "oxidised": {
+   "200C_5min": "4 does not close for any combination",
+   "200C_30min": "3 undetermined (depends on variant/b/tau0/Q)",
+   "200C_120min": "3 undetermined (depends on variant/b/tau0/Q)",
+   "250C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+   "250C_30min": "2 needs diffusion, closes for all (probability)",
+   "250C_120min": "2 needs diffusion, closes for all (probability)",
+   "300C_5min": "1 elastic alone closes",
+   "300C_30min": "1 elastic alone closes",
+   "300C_120min": "1 elastic alone closes",
+   "350C_5min": "1 elastic alone closes",
+   "350C_30min": "1 elastic alone closes",
+   "350C_120min": "1 elastic alone closes",
+   "400C_5min": "1 elastic alone closes",
+   "400C_30min": "1 elastic alone closes",
+   "400C_120min": "1 elastic alone closes"
+  }
+ },
+ "sliding_b1_worst_clean": {
+  "200C_5min": [
+   -2.88,
+   -2.32,
+   "fails in worst orientation for all combos"
+  ],
+  "200C_30min": [
+   -2.88,
+   -0.26,
+   "fails in worst orientation for all combos"
+  ],
+  "200C_120min": [
+   -2.88,
+   2.19,
+   "worst-orientation undetermined"
+  ],
+  "250C_5min": [
+   -1.81,
+   0.08,
+   "worst-orientation undetermined"
+  ],
+  "250C_30min": [
+   -1.81,
+   3.24,
+   "worst-orientation undetermined"
+  ],
+  "250C_120min": [
+   -1.81,
+   3.68,
+   "worst-orientation undetermined"
+  ],
+  "300C_5min": [
+   -0.73,
+   3.26,
+   "worst-orientation undetermined"
+  ],
+  "300C_30min": [
+   -0.73,
+   4.75,
+   "worst-orientation undetermined"
+  ],
+  "300C_120min": [
+   -0.73,
+   4.75,
+   "worst-orientation undetermined"
+  ],
+  "350C_5min": [
+   0.34,
+   5.63,
+   "closes in worst orientation for all combos"
+  ],
+  "350C_30min": [
+   0.34,
+   5.83,
+   "closes in worst orientation for all combos"
+  ],
+  "350C_120min": [
+   0.34,
+   5.83,
+   "closes in worst orientation for all combos"
+  ],
+  "400C_5min": [
+   1.42,
+   6.9,
+   "closes in worst orientation for all combos"
+  ],
+  "400C_30min": [
+   1.42,
+   6.9,
+   "closes in worst orientation for all combos"
+  ],
+  "400C_120min": [
+   1.42,
+   6.9,
+   "closes in worst orientation for all combos"
+  ]
+ },
+ "sliding_ez_coef": [
+  2.823424606006274e-07,
+  -0.00010902443391487698,
+  0.021506532321730595
+ ]
+}

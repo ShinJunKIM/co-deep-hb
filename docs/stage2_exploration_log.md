@@ -662,3 +662,8 @@
 - 2026-10-16 16:32 **E72** (E) contact v2 boundary SLIDING 0.30 um r3 nm T250 -> exit 1, wall 121 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T250: Ac/A=0.544 p=483MPa; T25: Ac/A=0.000 p=0MPa
 - 2026-10-16 16:35 **E73** (E) contact v2 boundary SLIDING 0.30 um r3 nm T300 -> exit 1, wall 175 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=0.750 p=461MPa; T25: Ac/A=0.000 p=0MPa
 - 2026-10-16 16:37 **E74** (E) contact v2 boundary SLIDING 0.30 um r4 nm T300 -> exit 1, wall 114 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=0.640 p=458MPa; T25: Ac/A=0.000 p=0MPa
+
+## 2026-10-16 v4.4 촘촘한 격자 공정창 (탐색, ANSYS 없음)
+- `src/v2/boundary_curves.py`: T 200–400 °C 5 °C 간격 × t 1–240 min 로그 40점, P ≥ 0.99 경계를 온도별 최소 시간으로. 기존 탄성(hkl 대리모델)·f(ω) 6종·MC 설정 그대로, 새 데이터 없음.
+- 버그 수정(실행 전): 확산 진폭을 정렬 후 순열해 같은 패드의 탄성·확산 상관이 끊기던 문제 → 정렬 없이 같은 패드 순서 유지.
+- 결과: 청정 주 설정 30 min 253 / 2 h 220 °C; 모든 조합 5 min 342 / 30 min 285 / 2 h 248 °C; 산화 모든 조합 30 min 334 / 2 h 295 °C. 요인 이동은 RESEARCH_SUMMARY_v4 §7. 셀 수 순위(v4.3)는 격자 의존이라 대체.

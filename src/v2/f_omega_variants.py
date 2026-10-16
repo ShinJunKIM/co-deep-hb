@@ -136,7 +136,7 @@ def fit_variant(name, om, z, meas_q, tail_rng=None):
             for th in thetas:
                 q = (th - 90.0) * qb
                 frac = float(np.searchsorted(bs, 6.5 / (th - 90.0)) / len(bs))
-                pen = 0.0 if tail_rng[0] <= frac <= tail_rng[1] else 400.0 * min(abs(frac - tail_rng[0]), abs(frac - tail_rng[1]))
+                pen = 0.0 if tail_rng[0] <= frac <= tail_rng[1] else 1.0e4 * min(abs(frac - tail_rng[0]), abs(frac - tail_rng[1]))
                 sse = float(np.sum(((q - meas_q) * W_Q) ** 2)) + pen
                 if best is None or sse < best[0]:
                     best = (sse, tuple(float(x) for x in p), float(sig), float(th), q, frac)
@@ -215,6 +215,16 @@ def worst_margin(dirs, k_fn, fam, p, theta, sig, D, T, t_s, s_ox, b, tau0, Q, R_
     return float(2 * tot[i] - R_sum), float(2 * u.min() - R_sum), float(omd[i])
 
 
+def hkl_k_fn(side="bonded"):
+    """Accepted orientation surrogate k(x, y) [nm/K per pad], x = k/h, y = l/h of the sorted direction (300 nm, imec stack)."""
+    import json as _json
+    study = _json.loads((OUT / "orientation_study.json").read_text())
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import orient_window as _OW
+    k_fn, _ = _OW.make_k_fn(study, side)
+    return k_fn
+
+
 def run_windows(size_label, size_um, variants_fit, n, seed, k_fn=None):
     """k_fn(v): per-pad elastic coefficient (nm/K) for unit direction vectors v (N, 3); default = Ez quadratic fit (placeholder)."""
     rng = np.random.default_rng(seed)
@@ -291,6 +301,7 @@ def run_windows(size_label, size_um, variants_fit, n, seed, k_fn=None):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(); ap.add_argument("--n", type=int, default=100_000); ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--ezfit", action="store_true", help="use the Ez quadratic fit for 300 nm (comparison run)"); ap.add_argument("--tag", default="")
     a = ap.parse_args(argv)
     rng = np.random.default_rng(a.seed)
     pts, cal, meas_q, tail = load()
@@ -314,17 +325,21 @@ def main(argv=None):
     use = {k: v for k, v in fits.items() if v["consistent"]} or fits
     win = {}
     for label, size in (("0.30um", 0.30), ("0.54um", 0.54)):
-        win[label] = run_windows(label, size, use, max(20_000, a.n // 2), a.seed)
+        # option (a), 2026-10-16: 300 nm elastic term = hkl surrogate from the 154-run orientation study (bonded sidewall,
+        # results/stage2/v2/orientation_study.json, pre-registered acceptance passed); 0.54 um keeps the Ez fit (no hkl study)
+        kf = hkl_k_fn("bonded") if (label == "0.30um" and not a.ezfit) else None
+        win[label] = run_windows(label, size, use, max(20_000, a.n // 2), a.seed, k_fn=kf)
     json.dump(dict(status="exploratory (DM2026 data already seen); uniform orientation is an assumption; MC sample counts are not data",
                    tail_readout=tail, tail_fraction_range_used=tail_rng, fits={k: {kk: vv for kk, vv in v.items() if kk != "heldout_rows"} for k, v in fits.items()},
-                   variants_used_for_windows=list(use), beta_check=beta, windows=win), open(OUT / "f_omega_variants.json", "w"), indent=1, default=float)
+                   variants_used_for_windows=list(use), beta_check=beta, windows=win), open(OUT / f"f_omega_variants{a.tag}.json", "w"), indent=1, default=float)
     for label in win:
         for surf in SURF:
             regs = {}
             for c, d in win[label]["surfaces"][surf].items():
                 regs.setdefault(d["region"], []).append(c)
             print(label, surf, {k: len(v) for k, v in regs.items()})
-    figures(fits, meas_q, om, z, win)
+    if not a.ezfit:
+        figures(fits, meas_q, om, z, win)
     return 0
 
 

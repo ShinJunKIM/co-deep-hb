@@ -7,7 +7,7 @@
 2. 두 경계 구분: 탄성 접촉 한계 0.70 µm(400 °C, R 5 nm; 3/8 nm → 0.55/1.0 µm; 대리식 0.76 µm; 350/300/250 °C → 0.90/1.14/1.62 µm). 기여도 역전 = 외삽 예측 0.74 µm(250 °C 2 h)–2.45 µm(400 °C 2 h). 출처 `results/stage2/boundaries.json`.
 3. 계면: 같은 설정 평가표(초안 Table 3, `docs/stage2_v2_consistency_preregistration.md`). E70(미끄럼 폭 효과 0.35 vs 0.15), SC5/SC6(3 µm 미끄럼 −1.27/−1.23e-3).
 4. 확산: ≥ 250 °C PPA-Cu 5/5, 전체 8/9(이전 "10/10" 삭제); β = 1/4 2.3σ 배척; DM2023 0/7 → 적용 범위 등크기·≥ 250 °C.
-5. 방위 꼬리: "1.4 × 10⁻³" 삭제. f(ω) 4종 집합. 확률 기준 300 nm 청정 (B) 9셀 / (C) 5셀 / (A) 0셀; 최악 방위 기준은 f(0) 의존(0 → 닫히지 않음, 허용 0.5–0.9 nm/패드; 0.25 → 300 °C 2 h·350 °C 30 min 이상, 2.4–3.6 nm/패드). 확률 기준 허용 recess 3.5–9 nm/패드. 출처 `results/stage2/v2/f_omega_variants.json`, `docs/v2/diffusion_f_omega.md`.
+5. 방위 꼬리: "1.4 × 10⁻³" 삭제. f(ω) 6종 집합. 확률 기준 300 nm 청정 (B) 9셀 / (C) 5셀 / (A) 0셀; 최악 방위 기준은 f(0) 의존(0 → 닫히지 않음, 허용 0.5–0.9 nm/패드; 0.25 → 300 °C 2 h·350 °C 30 min 이상, 2.4–3.6 nm/패드). 확률 기준 허용 recess 3.5–9 nm/패드. 출처 `results/stage2/v2/f_omega_variants.json`, `docs/v2/diffusion_f_omega.md`.
 6. 데이지체인 상한(≈ 500 링크) 문장은 꼬리 가정 의존이므로 본문에서 빼거나 "f(ω) 꼬리 가정 시 0–9 × 10⁻³ → 체인 상한은 가정 의존"으로만.
 7. 그림: Fig. 2 → `results/figures/s2_boundaries.png`(두 경계, 외삽 음영), Fig. 4 → `results/figures/v2/three_region_map_0.30um.png`, Fig. 5 → `results/figures/v2/worst_margin_0.30um.png`. 기존 `s2_mechanism_transition.png` 제목은 "elastic contact limit"으로 재생성됨.
 
@@ -31,3 +31,4 @@
 | 12 | `stage2_diffusion_round3_preregistration.md` §1(b), draft §3.2 마스터 커브 문장 | "Mullins 스케일링(특성 길이 ∝ (Bt)^{1/4})에 따른 stretched exponential β = 1/4" | "β = 1/4는 시간 두 배 증가율 상한 2^{1/4} = 1.189를 갖는데, DM2026 200 °C 2 h→4 h 중앙값 비는 1.48 ± 0.20(400 nm)·1.50 ± 0.18(500 nm)로 상한을 1.5σ·1.8σ 넘는다(판독 오차만 반영). t^{1/4} 길이 법칙만으로 β = 1/4를 정당화할 수 없다" |
 | 13 | 보고서 §15 리뷰 행, draft §3.4 | "P ≥ 0.99 창은 <111> 꼬리 모양이 정함" | 유지하되 "f(ω)는 탐색 라운드 2(미검증); 완전 facet 분율(f = 0, 기준 1.5 %)과 lagging-tail 분율(h < 6.5 nm, 기준 8.3 %, 실측 ≈ 10 %)을 구분" 추가 |
 8. 구성(v4.2): 서론은 필요성·목적·논문 구성으로 끝내고 기여 목록을 넣지 않는다. 기여 세 가지는 IV장 '고찰 및 결론'의 4.1 기여에 선행연구 대비로 쓴다(초안 §4 그대로). 서면 심사용 4쪽에서도 같은 배치.
+9. (v4.3) 3.4절: 탄성 항은 154런 hkl 대리모델 사용을 명시(초안 문단 그대로). Fig. 6은 `results/figures/s2_factor_ranking_v4.png`로 교체(파랑 = 공정 변수, 빨강 = 패드별 무작위 요인). 최악 조건 허용 recess 2.4–4.2 nm(f(0) > 0).

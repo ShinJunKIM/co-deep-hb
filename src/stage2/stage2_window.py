@@ -42,7 +42,7 @@ def kin(D_nm, T_C, t_min, tau0, Q):
 
 
 class Pairs:
-    def __init__(self, n, seed, fit_coef, oc, dw, recess=(2.5, 0.5), facet=True):
+    def __init__(self, n, seed, fit_coef, oc, dw, recess=(2.5, 0.5), facet=True, k_fn=None):
         rng = np.random.default_rng(seed)
         self.rng = rng
         c11, c12, c44 = 168400.0, 121400.0, 75400.0
@@ -53,7 +53,7 @@ class Pairs:
             l, m, nn = np.abs(v).T
             ez = 1.0 / (s11 - 2 * (s11 - s12 - s44 / 2) * (l * l * m * m + m * m * nn * nn + nn * nn * l * l)) / 1000.0
             om = np.degrees(np.arccos(np.clip(np.abs(v @ O.V111.T).max(axis=1), -1, 1)))
-            self.k.append(np.polyval(fit_coef, ez))
+            self.k.append(k_fn(v) if k_fn is not None else np.polyval(fit_coef, ez))
             self.f.append(O.f_of(om, oc, dw) if facet else np.ones(n))
         self.g = rng.normal(recess[0], recess[1], n) + rng.normal(recess[0], recess[1], n)
         self.ksum = self.k[0] + self.k[1]; self.fsum = self.f[0] + self.f[1]

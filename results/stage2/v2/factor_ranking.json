@@ -1,0 +1,101 @@
+{
+ "main_window": [
+  [
+   250,
+   120
+  ],
+  [
+   300,
+   30
+  ],
+  [
+   300,
+   120
+  ],
+  [
+   350,
+   5
+  ],
+  [
+   350,
+   30
+  ],
+  [
+   350,
+   120
+  ],
+  [
+   400,
+   5
+  ],
+  [
+   400,
+   30
+  ],
+  [
+   400,
+   120
+  ]
+ ],
+ "n_main": 9,
+ "factors": {
+  "mechanism: surface diffusion off (elastic only)": 9,
+  "anneal kinetics: tau0 20 vs 100 s": 3,
+  "anneal kinetics: Q 20.7 vs 13.4 kcal/mol": 3,
+  "surface: clean vs oxidised (s_ox 0.45)": 0,
+  "liner wetting: theta 107 vs 149 deg": 2,
+  "interface: bonded vs sliding sidewall (height-sum basis)": 2,
+  "random: recess spread sigma 0.5 vs 1.0 nm/pad": 0,
+  "random: recess mean 2.5 vs 3.5 nm/pad": 0,
+  "random: orientation tail present vs absent (f = 1)": 2,
+  "elastic factor b: 0.60 vs 1.0": 2,
+  "orientation-tail shape: spread over 6 consistent f(omega)": 0
+ },
+ "factor_range_over_variants": {
+  "mechanism: surface diffusion off (elastic only)": [
+   9,
+   9
+  ],
+  "anneal kinetics: tau0 20 vs 100 s": [
+   2,
+   3
+  ],
+  "anneal kinetics: Q 20.7 vs 13.4 kcal/mol": [
+   2,
+   3
+  ],
+  "surface: clean vs oxidised (s_ox 0.45)": [
+   0,
+   3
+  ],
+  "liner wetting: theta 107 vs 149 deg": [
+   2,
+   4
+  ],
+  "interface: bonded vs sliding sidewall (height-sum basis)": [
+   2,
+   2
+  ],
+  "random: recess spread sigma 0.5 vs 1.0 nm/pad": [
+   0,
+   0
+  ],
+  "random: recess mean 2.5 vs 3.5 nm/pad": [
+   0,
+   0
+  ],
+  "random: orientation tail present vs absent (f = 1)": [
+   2,
+   2
+  ],
+  "elastic factor b: 0.60 vs 1.0": [
+   0,
+   2
+  ],
+  "orientation-tail shape: spread over 6 consistent f(omega)": [
+   0,
+   0
+  ]
+ },
+ "note": "cells = anneal recipes (5 T x 3 t = 15) whose verdict P>=0.99 flips; interface row uses the height-sum criterion, which agrees with contact FEM only for bonded sidewalls (E71-E74: sliding gives rim contact only)"
+}

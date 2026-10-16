@@ -31,7 +31,7 @@
 - 초안 `docs/paper/ieie2026f_plan_and_draft_ko.md`의 §1(v4)·§4(v4)·Table 3이 바뀌었다. **두 docx를 v4 본문으로 다시 만든다.** 문단별 수정 목록은 `docs/paper/corrections_v4.md`.
 - 0.7 µm는 '기구 전환'이 아니라 **탄성 접촉 한계**(u_t+u_b = recess 합). 기여도 역전은 외삽 예측(0.74–2.45 µm). 제목·요약·3.1·Fig. 2 캡션·결론의 '기구 전환/Mechanism transition'을 모두 바꾼다.
 - 계면: (v5로 대체) 설계 서술과 접합 판별만. ST/Leti 비교표는 쓰지 않는다.
-- 방위 꼬리: '1.4 × 10⁻³ 미접촉 하한'과 '라운드 2 f(ω)' 삭제. f(ω) 4종 집합, 확률 기준(9셀 유지/5셀 판정 갈림)과 최악 방위 기준(f(0) 의존)을 함께. β = 1/4 언급 시 2.3σ 배척 명시.
+- 방위 꼬리: '1.4 × 10⁻³ 미접촉 하한'과 '라운드 2 f(ω)' 삭제. f(ω) 4종 집합, 확률 기준(5 °C 간격 경계 곡선; v4.4 절 숫자)과 최악 방위 기준(f(0) 의존)을 함께. β = 1/4 언급 시 2.3σ 배척 명시.
 - Fig. 4를 three-region map(`results/figures/v2/three_region_map_0.30um.png`)으로, Fig. 5를 확률 vs 최악 방위 허용 recess(`results/figures/v2/worst_margin_0.30um.png`)로 교체 권장. Fig. 2는 `results/figures/s2_boundaries.png`(두 경계) 또는 기존 그림 제목 수정.
 
 ## 2026-10-16 갱신 — 추가 결과(반드시 반영)
@@ -74,9 +74,9 @@ D. 체크리스트 보고: 쪽수, 모든 숫자의 출처 파일, 식별 문구
 - Fig. 1 (새로 작도): (a) 패드 쌍 단면 — recess r, u, h_d, 접촉 여유 m; (b) V&V 흐름 — 수치 검증 → 학습(큰 패드) → 테스트(held-out) → 예측(MC), "기준 커밋" 표시.
 - Fig. 2: `paper_results.json` mechanism_transition + transition_vs_recess; 데이터 점: 탄성 실측(imec 0.54/1.26/1.80/3.06 µm, 400 °C: 1.40/5.00/5.40/7.85 nm ×2), 모델(2.04/4.04/4.99/6.32 ×2, ×0.69 점선), 확산 포화 진폭(≤ 300 nm 실선, 0.54 µm까지 점선 "외삽"), recess 합 5 nm 수평선, 교차 ≈ 0.7 µm 화살표. 인셋: 전환 폭 vs recess 합(3→10 nm).
 - Fig. 3: `orient_diffusion_round2.csv`: (a) Fig. 3 400/500 nm 피치 중앙값+IQR(실측) vs 모델 중앙값, 조건별; 실패 점은 빈 기호; (b) 250 °C 1 h 크기 의존(115/140/250/300 nm); (c) f(ω) 곡선(ω_c 5°, Δω 19.5°)과 facet 분율.
-- Fig. 4: `window_summary.json` "0.30um" clean/oxidised P_contact 격자, hatched_cells 빗금, 권고 셀(250 °C×120 min, 300 °C×30 min) 테두리.
+- Fig. 4: (v4.4로 대체) `results/figures/s2_boundary_curves_300nm.png` 그대로 사용. 격자·빗금·권고 셀 그림은 쓰지 않는다.
 - Fig. 5: `paper_results.json` recess_spec_sum_nm_300nm clean/oxidised 격자(nm 숫자 표기).
-- Fig. 6: (a) `window_summary.json` factor_cells_changed(0.54/0.30 µm, clean) 막대; (b) `paper_results.json` orientation_floor_300nm P_open facet vs no-facet 로그 막대.
+- Fig. 6: (v4.5로 대체) `results/figures/s2_factor_shift_300nm.png` 그대로 사용((a) 경계 온도 이동, (b) 시간 배수). 셀 수 막대·방위 하한 막대는 쓰지 않는다.
 - 모든 그림: 영문, 색각 안전 팔레트, 단위 표기, 캡션은 초안 §3 표의 영문 캡션 사용.
 
 ## 표

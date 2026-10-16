@@ -1,0 +1,2493 @@
+{
+ "status": "exploratory window recomputation; uniform orientation assumed; MC counts are not data",
+ "sides": {
+  "bonded": {
+   "surrogate": "poly2",
+   "windows": {
+    "size_um": 0.3,
+    "R_q99_sum": 6.644730373039909,
+    "surfaces": {
+     "clean": {
+      "200C_5min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "4 does not close for any combination",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.0,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 0.0,
+        "V6 step facet, Fig5a tail": 0.0
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.819584247096476,
+        "V3 ramp + scatter": -5.812093235594515,
+        "V4 floor 0.25 + scatter": -5.786929282259152,
+        "V6 step facet, Fig5a tail": -5.824388895785052
+       },
+       "P_range": [
+        0.0,
+        0.3211333333333333
+       ],
+       "m_min_range": [
+        -5.931389958035686,
+        -4.882822882761099
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "200C_30min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.0,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 0.0,
+        "V6 step facet, Fig5a tail": 0.0
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.819584247096476,
+        "V3 ramp + scatter": -5.812093235594515,
+        "V4 floor 0.25 + scatter": -5.637178454008414,
+        "V6 step facet, Fig5a tail": -5.824388895785052
+       },
+       "P_range": [
+        0.0,
+        0.9996
+       ],
+       "m_min_range": [
+        -5.931389958035686,
+        -2.8251734777667545
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "200C_120min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.4316,
+        "V3 ramp + scatter": 0.4798,
+        "V4 floor 0.25 + scatter": 0.4691666666666667,
+        "V6 step facet, Fig5a tail": 0.44205
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.819584247096476,
+        "V3 ramp + scatter": -5.812093235594515,
+        "V4 floor 0.25 + scatter": -5.13131737499744,
+        "V6 step facet, Fig5a tail": -5.824388895785052
+       },
+       "P_range": [
+        0.0175,
+        1.0
+       ],
+       "m_min_range": [
+        -5.931389958035686,
+        -0.36883315495984803
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "250C_5min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.0005833333333333334,
+        "V3 ramp + scatter": 0.0006,
+        "V4 floor 0.25 + scatter": 0.0005833333333333334,
+        "V6 step facet, Fig5a tail": 0.0005166666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.583828211112637,
+        "V3 ramp + scatter": -5.574196910610118,
+        "V4 floor 0.25 + scatter": -5.33616139849145,
+        "V6 step facet, Fig5a tail": -5.590005616569379
+       },
+       "P_range": [
+        0.0,
+        0.9985833333333334
+       ],
+       "m_min_range": [
+        -5.727578410891622,
+        -3.2119494840224214
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "250C_30min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9614,
+        "V3 ramp + scatter": 0.9830833333333333,
+        "V4 floor 0.25 + scatter": 0.9832166666666666,
+        "V6 step facet, Fig5a tail": 0.9119166666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.583828211112637,
+        "V3 ramp + scatter": -5.574196910610118,
+        "V4 floor 0.25 + scatter": -4.266482002190892,
+        "V6 step facet, Fig5a tail": -5.590005616569379
+       },
+       "P_range": [
+        0.7150833333333333,
+        1.0
+       ],
+       "m_min_range": [
+        -5.727578410891622,
+        -0.05224120003331567
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "250C_120min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9986666666666667,
+        "V3 ramp + scatter": 0.9998666666666667,
+        "V4 floor 0.25 + scatter": 0.9999666666666667,
+        "V6 step facet, Fig5a tail": 0.9904666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.583828211112637,
+        "V3 ramp + scatter": -5.574196910610118,
+        "V4 floor 0.25 + scatter": -1.9292811563648717,
+        "V6 step facet, Fig5a tail": -5.590005616569379
+       },
+       "P_range": [
+        0.99,
+        1.0
+       ],
+       "m_min_range": [
+        -5.727578410891622,
+        0.3814608286661789
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "300C_5min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9624,
+        "V3 ramp + scatter": 0.9836,
+        "V4 floor 0.25 + scatter": 0.9838,
+        "V6 step facet, Fig5a tail": 0.9153166666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.348072175128799,
+        "V3 ramp + scatter": -5.336300585625719,
+        "V4 floor 0.25 + scatter": -4.0912204980914195,
+        "V6 step facet, Fig5a tail": -5.355622337353706
+       },
+       "P_range": [
+        0.7107333333333333,
+        1.0
+       ],
+       "m_min_range": [
+        -5.523766863747558,
+        -0.7678499612989604
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "300C_30min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9987166666666667,
+        "V3 ramp + scatter": 0.9999833333333333,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9904666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.348072175128799,
+        "V3 ramp + scatter": -5.336300585625719,
+        "V4 floor 0.25 + scatter": -1.0162196253295726,
+        "V6 step facet, Fig5a tail": -5.355622337353706
+       },
+       "P_range": [
+        0.9904666666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -5.523766863747558,
+        0.7220391887278907
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "300C_120min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9987166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9904666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.348072175128799,
+        "V3 ramp + scatter": -5.336300585625719,
+        "V4 floor 0.25 + scatter": 0.1293147539993491,
+        "V6 step facet, Fig5a tail": -5.355622337353706
+       },
+       "P_range": [
+        0.9904666666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -5.523766863747558,
+        0.7242625979784778
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "350C_5min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 1.6666666666666667e-05
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9987166666666667,
+        "V3 ramp + scatter": 0.9999333333333333,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9904666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.112316139144961,
+        "V3 ramp + scatter": -5.0984042606413205,
+        "V4 floor 0.25 + scatter": -1.4212742012935546,
+        "V6 step facet, Fig5a tail": -5.121239058138032
+       },
+       "P_range": [
+        0.9903166666666666,
+        1.0
+       ],
+       "m_min_range": [
+        -5.319955316603495,
+        0.8736899885316856
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "350C_30min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 1.6666666666666667e-05
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9987166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9904666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.112316139144961,
+        "V3 ramp + scatter": -5.0984042606413205,
+        "V4 floor 0.25 + scatter": 0.3697342945691293,
+        "V6 step facet, Fig5a tail": -5.121239058138032
+       },
+       "P_range": [
+        0.9904666666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -5.319955316603495,
+        1.0668494985223154
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "350C_120min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 1.6666666666666667e-05
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9987166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9904666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.112316139144961,
+        "V3 ramp + scatter": -5.0984042606413205,
+        "V4 floor 0.25 + scatter": 0.37653688329262724,
+        "V6 step facet, Fig5a tail": -5.121239058138032
+       },
+       "P_range": [
+        0.9904666666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -5.319955316603495,
+        1.0668495089865289
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "400C_5min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 8.333333333333333e-05,
+        "1.0": 0.00028333333333333335
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9987166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9904666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -4.876560103161123,
+        "V3 ramp + scatter": -4.860507935656923,
+        "V4 floor 0.25 + scatter": 0.4975074273350497,
+        "V6 step facet, Fig5a tail": -4.886855778922359
+       },
+       "P_range": [
+        0.9904666666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -5.1161437694594305,
+        1.4093853148960136
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "400C_30min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 8.333333333333333e-05,
+        "1.0": 0.00028333333333333335
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9987166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9904666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -4.876560103161123,
+        "V3 ramp + scatter": -4.860507935656923,
+        "V4 floor 0.25 + scatter": 0.6129218514248791,
+        "V6 step facet, Fig5a tail": -4.886855778922359
+       },
+       "P_range": [
+        0.9904666666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -5.1161437694594305,
+        1.4094364199944316
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "400C_120min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 8.333333333333333e-05,
+        "1.0": 0.00028333333333333335
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9987166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9904666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -4.876560103161123,
+        "V3 ramp + scatter": -4.860507935656923,
+        "V4 floor 0.25 + scatter": 0.6129218519010582,
+        "V6 step facet, Fig5a tail": -4.886855778922359
+       },
+       "P_range": [
+        0.9904666666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -5.1161437694594305,
+        1.4094364199944316
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      }
+     },
+     "oxidised": {
+      "200C_5min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "4 does not close for any combination",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.0,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 0.0,
+        "V6 step facet, Fig5a tail": 0.0
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.819584247096476,
+        "V3 ramp + scatter": -5.812093235594515,
+        "V4 floor 0.25 + scatter": -5.807416639424939,
+        "V6 step facet, Fig5a tail": -5.824388895785052
+       },
+       "P_range": [
+        0.0,
+        0.0014833333333333332
+       ],
+       "m_min_range": [
+        -5.937461438414742,
+        -5.1923921987242325
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 54.735610317245346,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "200C_30min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "4 does not close for any combination",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.0,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 0.0,
+        "V6 step facet, Fig5a tail": 0.0
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.819584247096476,
+        "V3 ramp + scatter": -5.812093235594515,
+        "V4 floor 0.25 + scatter": -5.7362909449294905,
+        "V6 step facet, Fig5a tail": -5.824388895785052
+       },
+       "P_range": [
+        0.0,
+        0.9738833333333333
+       ],
+       "m_min_range": [
+        -5.931389958035686,
+        -4.266449966476777
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "200C_120min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.0019166666666666666,
+        "V3 ramp + scatter": 0.0016833333333333333,
+        "V4 floor 0.25 + scatter": 0.0016,
+        "V6 step facet, Fig5a tail": 0.0016
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.819584247096476,
+        "V3 ramp + scatter": -5.812093235594515,
+        "V4 floor 0.25 + scatter": -5.5086534593745515,
+        "V6 step facet, Fig5a tail": -5.824388895785052
+       },
+       "P_range": [
+        0.0,
+        0.9992666666666666
+       ],
+       "m_min_range": [
+        -5.931389958035686,
+        -3.16109682121367
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "250C_5min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "4 does not close for any combination",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.0,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 0.0,
+        "V6 step facet, Fig5a tail": 0.0
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.583828211112637,
+        "V3 ramp + scatter": -5.574196910610118,
+        "V4 floor 0.25 + scatter": -5.470821537219358,
+        "V6 step facet, Fig5a tail": -5.590005616569379
+       },
+       "P_range": [
+        0.0,
+        0.9006
+       ],
+       "m_min_range": [
+        -5.727578410891622,
+        -4.252076368237482
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "250C_30min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.30533333333333335,
+        "V3 ramp + scatter": 0.34026666666666666,
+        "V4 floor 0.25 + scatter": 0.33268333333333333,
+        "V6 step facet, Fig5a tail": 0.31048333333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.583828211112637,
+        "V3 ramp + scatter": -5.574196910610118,
+        "V4 floor 0.25 + scatter": -4.989465808884106,
+        "V6 step facet, Fig5a tail": -5.590005616569379
+       },
+       "P_range": [
+        0.011266666666666666,
+        0.9995
+       ],
+       "m_min_range": [
+        -5.727578410891622,
+        -2.830207640442384
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "250C_120min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9814333333333334,
+        "V3 ramp + scatter": 0.9947166666666667,
+        "V4 floor 0.25 + scatter": 0.9952166666666666,
+        "V6 step facet, Fig5a tail": 0.9614666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.583828211112637,
+        "V3 ramp + scatter": -5.574196910610118,
+        "V4 floor 0.25 + scatter": -3.9377254282623975,
+        "V6 step facet, Fig5a tail": -5.590005616569379
+       },
+       "P_range": [
+        0.8778166666666667,
+        0.99965
+       ],
+       "m_min_range": [
+        -5.727578410891622,
+        -2.6350417275276117
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "300C_5min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.3258333333333333,
+        "V3 ramp + scatter": 0.3622166666666667,
+        "V4 floor 0.25 + scatter": 0.35413333333333336,
+        "V6 step facet, Fig5a tail": 0.33068333333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.348072175128799,
+        "V3 ramp + scatter": -5.336300585625719,
+        "V4 floor 0.25 + scatter": -4.780586399311845,
+        "V6 step facet, Fig5a tail": -5.355622337353706
+       },
+       "P_range": [
+        0.01385,
+        0.9988166666666667
+       ],
+       "m_min_range": [
+        -5.523766863747558,
+        -2.963808781957578
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "300C_30min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9935333333333334,
+        "V3 ramp + scatter": 0.9982666666666666,
+        "V4 floor 0.25 + scatter": 0.9983666666666666,
+        "V6 step facet, Fig5a tail": 0.9846666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.348072175128799,
+        "V3 ramp + scatter": -5.336300585625719,
+        "V4 floor 0.25 + scatter": -3.3968360065690137,
+        "V6 step facet, Fig5a tail": -5.355622337353706
+       },
+       "P_range": [
+        0.9464833333333333,
+        0.9997666666666667
+       ],
+       "m_min_range": [
+        -5.523766863747558,
+        -2.2933586644454955
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "300C_120min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 0.0
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9980166666666667,
+        "V3 ramp + scatter": 0.9992666666666666,
+        "V4 floor 0.25 + scatter": 0.99955,
+        "V6 step facet, Fig5a tail": 0.99
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.348072175128799,
+        "V3 ramp + scatter": -5.336300585625719,
+        "V4 floor 0.25 + scatter": -2.881345535870999,
+        "V6 step facet, Fig5a tail": -5.355622337353706
+       },
+       "P_range": [
+        0.9896,
+        0.9997666666666667
+       ],
+       "m_min_range": [
+        -5.523766863747558,
+        -2.2923581302827305
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "350C_5min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 1.6666666666666667e-05
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9891166666666666,
+        "V3 ramp + scatter": 0.9971,
+        "V4 floor 0.25 + scatter": 0.9972166666666666,
+        "V6 step facet, Fig5a tail": 0.97705
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.112316139144961,
+        "V3 ramp + scatter": -5.0984042606413205,
+        "V4 floor 0.25 + scatter": -3.4490988330253067,
+        "V6 step facet, Fig5a tail": -5.121239058138032
+       },
+       "P_range": [
+        0.9076333333333333,
+        0.9998166666666667
+       ],
+       "m_min_range": [
+        -5.319955316603495,
+        -2.0366930034794413
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "350C_30min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 1.6666666666666667e-05
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9982166666666666,
+        "V3 ramp + scatter": 0.9995,
+        "V4 floor 0.25 + scatter": 0.99965,
+        "V6 step facet, Fig5a tail": 0.9902333333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.112316139144961,
+        "V3 ramp + scatter": -5.0984042606413205,
+        "V4 floor 0.25 + scatter": -2.6431450098870988,
+        "V6 step facet, Fig5a tail": -5.121239058138032
+       },
+       "P_range": [
+        0.9899666666666667,
+        0.99985
+       ],
+       "m_min_range": [
+        -5.319955316603495,
+        -1.9497712239836575
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "350C_120min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 0.0,
+        "1.0": 1.6666666666666667e-05
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9982166666666666,
+        "V3 ramp + scatter": 0.9995,
+        "V4 floor 0.25 + scatter": 0.99965,
+        "V6 step facet, Fig5a tail": 0.9902333333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -5.112316139144961,
+        "V3 ramp + scatter": -5.0984042606413205,
+        "V4 floor 0.25 + scatter": -2.6400838449615254,
+        "V6 step facet, Fig5a tail": -5.121239058138032
+       },
+       "P_range": [
+        0.99005,
+        0.99985
+       ],
+       "m_min_range": [
+        -5.319955316603495,
+        -1.949771219274762
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "400C_5min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 8.333333333333333e-05,
+        "1.0": 0.00028333333333333335
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9983666666666666,
+        "V3 ramp + scatter": 0.9995333333333334,
+        "V4 floor 0.25 + scatter": 0.9997,
+        "V6 step facet, Fig5a tail": 0.9903
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -4.876560103161123,
+        "V3 ramp + scatter": -4.860507935656923,
+        "V4 floor 0.25 + scatter": -2.455635367414936,
+        "V6 step facet, Fig5a tail": -4.886855778922359
+       },
+       "P_range": [
+        0.9864166666666667,
+        0.9999333333333333
+       ],
+       "m_min_range": [
+        -5.1161437694594305,
+        -1.6072073055611469
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "400C_30min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 8.333333333333333e-05,
+        "1.0": 0.00028333333333333335
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9983833333333333,
+        "V3 ramp + scatter": 0.9995833333333334,
+        "V4 floor 0.25 + scatter": 0.9997333333333334,
+        "V6 step facet, Fig5a tail": 0.9903333333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -4.876560103161123,
+        "V3 ramp + scatter": -4.860507935656923,
+        "V4 floor 0.25 + scatter": -2.403698876574513,
+        "V6 step facet, Fig5a tail": -4.886855778922359
+       },
+       "P_range": [
+        0.9902333333333333,
+        0.9999333333333333
+       ],
+       "m_min_range": [
+        -5.1161437694594305,
+        -1.6071843082668593
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      },
+      "400C_120min": {
+       "P_elastic": {
+        "0.6": 0.0,
+        "0.69": 0.0,
+        "0.93": 8.333333333333333e-05,
+        "1.0": 0.00028333333333333335
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9983833333333333,
+        "V3 ramp + scatter": 0.9995833333333334,
+        "V4 floor 0.25 + scatter": 0.9997333333333334,
+        "V6 step facet, Fig5a tail": 0.9903333333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -4.876560103161123,
+        "V3 ramp + scatter": -4.860507935656923,
+        "V4 floor 0.25 + scatter": -2.4036988763602327,
+        "V6 step facet, Fig5a tail": -4.886855778922359
+       },
+       "P_range": [
+        0.9902333333333333,
+        0.9999333333333333
+       ],
+       "m_min_range": [
+        -5.1161437694594305,
+        -1.6071843082668593
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 7.489702617339764,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 5.249172930575297,
+        "V6 step facet, Fig5a tail": 12.490387096978669
+       }
+      }
+     }
+    },
+    "allowable_recess_clean": {
+     "V2 step facet + scatter": {
+      "250C_120min": {
+       "r_per_pad_prob99": 4.5,
+       "r_per_pad_worst": 0.5304510809636359
+      },
+      "300C_30min": {
+       "r_per_pad_prob99": 5.0,
+       "r_per_pad_worst": 0.648329098955555
+      },
+      "350C_30min": {
+       "r_per_pad_prob99": 6.5,
+       "r_per_pad_worst": 0.7662071169474741
+      },
+      "400C_30min": {
+       "r_per_pad_prob99": 6.5,
+       "r_per_pad_worst": 0.8840851349393932
+      }
+     },
+     "V3 ramp + scatter": {
+      "250C_120min": {
+       "r_per_pad_prob99": 5.5,
+       "r_per_pad_worst": 0.535266731214896
+      },
+      "300C_30min": {
+       "r_per_pad_prob99": 6.5,
+       "r_per_pad_worst": 0.6542148937070952
+      },
+      "350C_30min": {
+       "r_per_pad_prob99": 8.5,
+       "r_per_pad_worst": 0.7731630561992943
+      },
+      "400C_30min": {
+       "r_per_pad_prob99": 8.5,
+       "r_per_pad_worst": 0.8921112186914933
+      }
+     },
+     "V4 floor 0.25 + scatter": {
+      "250C_120min": {
+       "r_per_pad_prob99": 5.5,
+       "r_per_pad_worst": 2.3577246083375187
+      },
+      "300C_30min": {
+       "r_per_pad_prob99": 7.0,
+       "r_per_pad_worst": 2.8142553738551683
+      },
+      "350C_30min": {
+       "r_per_pad_prob99": 8.5,
+       "r_per_pad_worst": 3.5072323338045193
+      },
+      "400C_30min": {
+       "r_per_pad_prob99": 8.5,
+       "r_per_pad_worst": 3.628826112232394
+      }
+     },
+     "V6 step facet, Fig5a tail": {
+      "250C_120min": {
+       "r_per_pad_prob99": 3.5,
+       "r_per_pad_worst": 0.5273623782352651
+      },
+      "300C_30min": {
+       "r_per_pad_prob99": 4.0,
+       "r_per_pad_worst": 0.6445540178431017
+      },
+      "350C_30min": {
+       "r_per_pad_prob99": 5.5,
+       "r_per_pad_worst": 0.7617456574509384
+      },
+      "400C_30min": {
+       "r_per_pad_prob99": 5.5,
+       "r_per_pad_worst": 0.8789372970587751
+      }
+     }
+    },
+    "pair_dependence_sensitivity_clean": {
+     "variant": "V2 step facet + scatter",
+     "cells": {
+      "250C_120min": {
+       "independent": 0.9990833333333333,
+       "same_rank": 0.9647833333333333,
+       "opposite_rank": 1.0
+      },
+      "300C_30min": {
+       "independent": 0.9990833333333333,
+       "same_rank": 0.9647833333333333,
+       "opposite_rank": 1.0
+      },
+      "350C_30min": {
+       "independent": 0.9990833333333333,
+       "same_rank": 0.9647833333333333,
+       "opposite_rank": 1.0
+      }
+     }
+    }
+   },
+   "regions": {
+    "clean": {
+     "200C_5min": "4 does not close for any combination",
+     "200C_30min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "200C_120min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "250C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "250C_30min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "250C_120min": "2 needs diffusion, closes for all (probability)",
+     "300C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "300C_30min": "2 needs diffusion, closes for all (probability)",
+     "300C_120min": "2 needs diffusion, closes for all (probability)",
+     "350C_5min": "2 needs diffusion, closes for all (probability)",
+     "350C_30min": "2 needs diffusion, closes for all (probability)",
+     "350C_120min": "2 needs diffusion, closes for all (probability)",
+     "400C_5min": "2 needs diffusion, closes for all (probability)",
+     "400C_30min": "2 needs diffusion, closes for all (probability)",
+     "400C_120min": "2 needs diffusion, closes for all (probability)"
+    },
+    "oxidised": {
+     "200C_5min": "4 does not close for any combination",
+     "200C_30min": "4 does not close for any combination",
+     "200C_120min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "250C_5min": "4 does not close for any combination",
+     "250C_30min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "250C_120min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "300C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "300C_30min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "300C_120min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "350C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "350C_30min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "350C_120min": "2 needs diffusion, closes for all (probability)",
+     "400C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "400C_30min": "2 needs diffusion, closes for all (probability)",
+     "400C_120min": "2 needs diffusion, closes for all (probability)"
+    }
+   },
+   "cells_changed_vs_Ez_fit": {
+    "clean": [],
+    "oxidised": [
+     "300C_120min",
+     "350C_30min"
+    ]
+   },
+   "region_counts": {
+    "clean": {
+     "3 undetermined (depends on variant/b/tau0/Q)": 5,
+     "2 needs diffusion, closes for all (probability)": 9,
+     "4 does not close for any combination": 1
+    },
+    "oxidised": {
+     "3 undetermined (depends on variant/b/tau0/Q)": 9,
+     "2 needs diffusion, closes for all (probability)": 3,
+     "4 does not close for any combination": 3
+    }
+   }
+  },
+  "sliding": {
+   "surrogate": "poly3",
+   "windows": {
+    "size_um": 0.3,
+    "R_q99_sum": 6.644730373039909,
+    "surfaces": {
+     "clean": {
+      "200C_5min": {
+       "P_elastic": {
+        "0.6": 0.00075,
+        "0.69": 0.0049833333333333335,
+        "0.93": 0.14103333333333334,
+        "1.0": 0.25676666666666664
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.010083333333333333,
+        "V3 ramp + scatter": 0.010416666666666666,
+        "V4 floor 0.25 + scatter": 0.0104,
+        "V6 step facet, Fig5a tail": 0.0102
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -4.049291114236692,
+        "V3 ramp + scatter": -4.030391807351645,
+        "V4 floor 0.25 + scatter": -4.018837413540019,
+        "V6 step facet, Fig5a tail": -4.049291114236692
+       },
+       "P_range": [
+        0.0014833333333333332,
+        0.9924333333333333
+       ],
+       "m_min_range": [
+        -4.387826669732764,
+        -2.3203708991101806
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 2.5224261060835587,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "200C_30min": {
+       "P_elastic": {
+        "0.6": 0.00075,
+        "0.69": 0.0049833333333333335,
+        "0.93": 0.14103333333333334,
+        "1.0": 0.25676666666666664
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.13781666666666667,
+        "V3 ramp + scatter": 0.15,
+        "V4 floor 0.25 + scatter": 0.14848333333333333,
+        "V6 step facet, Fig5a tail": 0.13965
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -4.049291114236692,
+        "V3 ramp + scatter": -3.995766318057211,
+        "V4 floor 0.25 + scatter": -3.8690865852892817,
+        "V6 step facet, Fig5a tail": -4.049291114236692
+       },
+       "P_range": [
+        0.013233333333333333,
+        1.0
+       ],
+       "m_min_range": [
+        -4.387826669732764,
+        -0.2627214941158371
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "200C_120min": {
+       "P_elastic": {
+        "0.6": 0.00075,
+        "0.69": 0.0049833333333333335,
+        "0.93": 0.14103333333333334,
+        "1.0": 0.25676666666666664
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9503666666666667,
+        "V3 ramp + scatter": 0.96415,
+        "V4 floor 0.25 + scatter": 0.9626666666666667,
+        "V6 step facet, Fig5a tail": 0.9047666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -4.049291114236692,
+        "V3 ramp + scatter": -3.995766318057211,
+        "V4 floor 0.25 + scatter": -3.363225506278307,
+        "V6 step facet, Fig5a tail": -4.049291114236692
+       },
+       "P_range": [
+        0.5678333333333333,
+        1.0
+       ],
+       "m_min_range": [
+        -4.387826669732764,
+        2.1936188286910703
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "250C_5min": {
+       "P_elastic": {
+        "0.6": 0.019866666666666668,
+        "0.69": 0.09065,
+        "0.93": 0.6774833333333333,
+        "1.0": 0.8294666666666667
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.6908833333333333,
+        "V3 ramp + scatter": 0.70585,
+        "V4 floor 0.25 + scatter": 0.7014,
+        "V6 step facet, Fig5a tail": 0.6743
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -3.307737040292916,
+        "V3 ramp + scatter": -3.2389194452050116,
+        "V4 floor 0.25 + scatter": -3.0629004244239932,
+        "V6 step facet, Fig5a tail": -3.307737040292916
+       },
+       "P_range": [
+        0.19461666666666666,
+        1.0
+       ],
+       "m_min_range": [
+        -3.7429970402164368,
+        0.08263163781447247
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "250C_30min": {
+       "P_elastic": {
+        "0.6": 0.019866666666666668,
+        "0.69": 0.09065,
+        "0.93": 0.6774833333333333,
+        "1.0": 0.8294666666666667
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.99815,
+        "V3 ramp + scatter": 0.9994333333333333,
+        "V4 floor 0.25 + scatter": 0.9995333333333334,
+        "V6 step facet, Fig5a tail": 0.9902166666666666
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -3.307737040292916,
+        "V3 ramp + scatter": -3.2389194452050116,
+        "V4 floor 0.25 + scatter": -1.9932210281234353,
+        "V6 step facet, Fig5a tail": -3.307737040292916
+       },
+       "P_range": [
+        0.9606833333333333,
+        1.0
+       ],
+       "m_min_range": [
+        -3.7429970402164368,
+        3.242339921803577
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "250C_120min": {
+       "P_elastic": {
+        "0.6": 0.019866666666666668,
+        "0.69": 0.09065,
+        "0.93": 0.6774833333333333,
+        "1.0": 0.8294666666666667
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9987166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9906166666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -3.307737040292916,
+        "V3 ramp + scatter": -3.2389194452050116,
+        "V4 floor 0.25 + scatter": 0.3439798177025848,
+        "V6 step facet, Fig5a tail": -3.307737040292916
+       },
+       "P_range": [
+        0.9905166666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -3.7429970402164368,
+        3.6760419505030733
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "300C_5min": {
+       "P_elastic": {
+        "0.6": 0.15953333333333333,
+        "0.69": 0.43578333333333336,
+        "0.93": 0.9696166666666667,
+        "1.0": 0.9927666666666667
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.99875,
+        "V3 ramp + scatter": 0.9997333333333334,
+        "V4 floor 0.25 + scatter": 0.9998166666666667,
+        "V6 step facet, Fig5a tail": 0.9915833333333334
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -2.56618296634914,
+        "V3 ramp + scatter": -2.482072572352812,
+        "V4 floor 0.25 + scatter": -1.3127904186756387,
+        "V6 step facet, Fig5a tail": -2.56618296634914
+       },
+       "P_range": [
+        0.9822666666666666,
+        1.0
+       ],
+       "m_min_range": [
+        -3.0981674107001096,
+        3.25886029872391
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "300C_30min": {
+       "P_elastic": {
+        "0.6": 0.15953333333333333,
+        "0.69": 0.43578333333333336,
+        "0.93": 0.9696166666666667,
+        "1.0": 0.9927666666666667
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.99885,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9916166666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -2.56618296634914,
+        "V3 ramp + scatter": -2.482072572352812,
+        "V4 floor 0.25 + scatter": 1.7622104540862082,
+        "V6 step facet, Fig5a tail": -2.56618296634914
+       },
+       "P_range": [
+        0.9907666666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -3.0981674107001096,
+        4.748749448750761
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "300C_120min": {
+       "P_elastic": {
+        "0.6": 0.15953333333333333,
+        "0.69": 0.43578333333333336,
+        "0.93": 0.9696166666666667,
+        "1.0": 0.9927666666666667
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.99885,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9916166666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -2.56618296634914,
+        "V3 ramp + scatter": -2.482072572352812,
+        "V4 floor 0.25 + scatter": 2.90774483341513,
+        "V6 step facet, Fig5a tail": -2.56618296634914
+       },
+       "P_range": [
+        0.9907666666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -3.0981674107001096,
+        4.750972858001347
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "350C_5min": {
+       "P_elastic": {
+        "0.6": 0.5027666666666667,
+        "0.69": 0.8237166666666667,
+        "0.93": 0.9993,
+        "1.0": 0.9999333333333333
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9992166666666666,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9949666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -1.8246288924053635,
+        "V3 ramp + scatter": -1.725225699500613,
+        "V4 floor 0.25 + scatter": 1.8623249834705486,
+        "V6 step facet, Fig5a tail": -1.8246288924053635
+       },
+       "P_range": [
+        0.9920333333333333,
+        1.0
+       ],
+       "m_min_range": [
+        -2.453337781183782,
+        5.632529386740533
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "350C_30min": {
+       "P_elastic": {
+        "0.6": 0.5027666666666667,
+        "0.69": 0.8237166666666667,
+        "0.93": 0.9993,
+        "1.0": 0.9999333333333333
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9992166666666666,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9949666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -1.8246288924053635,
+        "V3 ramp + scatter": -1.725225699500613,
+        "V4 floor 0.25 + scatter": 3.6533334793332344,
+        "V6 step facet, Fig5a tail": -1.8246288924053635
+       },
+       "P_range": [
+        0.9920333333333333,
+        1.0
+       ],
+       "m_min_range": [
+        -2.453337781183782,
+        5.825688896731162
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "350C_120min": {
+       "P_elastic": {
+        "0.6": 0.5027666666666667,
+        "0.69": 0.8237166666666667,
+        "0.93": 0.9993,
+        "1.0": 0.9999333333333333
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9992166666666666,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9949666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -1.8246288924053635,
+        "V3 ramp + scatter": -1.725225699500613,
+        "V4 floor 0.25 + scatter": 3.6601360680567314,
+        "V6 step facet, Fig5a tail": -1.8246288924053635
+       },
+       "P_range": [
+        0.9920333333333333,
+        1.0
+       ],
+       "m_min_range": [
+        -2.453337781183782,
+        5.825688907195374
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "400C_5min": {
+       "P_elastic": {
+        "0.6": 0.8294666666666667,
+        "0.69": 0.9753666666666667,
+        "0.93": 1.0,
+        "1.0": 1.0
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9997166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9984833333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -1.0830748184615873,
+        "V3 ramp + scatter": -0.9683788266484132,
+        "V4 floor 0.25 + scatter": 4.286275717447477,
+        "V6 step facet, Fig5a tail": -1.0830748184615873
+       },
+       "P_range": [
+        0.9950166666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -1.8085081516674553,
+        6.900353851290838
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "400C_30min": {
+       "P_elastic": {
+        "0.6": 0.8294666666666667,
+        "0.69": 0.9753666666666667,
+        "0.93": 1.0,
+        "1.0": 1.0
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9997166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9984833333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -1.0830748184615873,
+        "V3 ramp + scatter": -0.9683788266484132,
+        "V4 floor 0.25 + scatter": 4.401690141537307,
+        "V6 step facet, Fig5a tail": -1.0830748184615873
+       },
+       "P_range": [
+        0.9950166666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -1.8085081516674553,
+        6.900404956389256
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "400C_120min": {
+       "P_elastic": {
+        "0.6": 0.8294666666666667,
+        "0.69": 0.9753666666666667,
+        "0.93": 1.0,
+        "1.0": 1.0
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9997166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9984833333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -1.0830748184615873,
+        "V3 ramp + scatter": -0.9683788266484132,
+        "V4 floor 0.25 + scatter": 4.401690142013486,
+        "V6 step facet, Fig5a tail": -1.0830748184615873
+       },
+       "P_range": [
+        0.9950166666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -1.8085081516674553,
+        6.900404956389256
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      }
+     },
+     "oxidised": {
+      "200C_5min": {
+       "P_elastic": {
+        "0.6": 0.00075,
+        "0.69": 0.0049833333333333335,
+        "0.93": 0.14103333333333334,
+        "1.0": 0.25676666666666664
+       },
+       "region": "4 does not close for any combination",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.007,
+        "V3 ramp + scatter": 0.007066666666666666,
+        "V4 floor 0.25 + scatter": 0.00705,
+        "V6 step facet, Fig5a tail": 0.006983333333333334
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -4.049291114236692,
+        "V3 ramp + scatter": -4.0401303828426425,
+        "V4 floor 0.25 + scatter": -4.035586948923189,
+        "V6 step facet, Fig5a tail": -4.049291114236692
+       },
+       "P_range": [
+        0.00105,
+        0.8751333333333333
+       ],
+       "m_min_range": [
+        -4.387826669732764,
+        -2.629940215073315
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 2.899450715179101,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "200C_30min": {
+       "P_elastic": {
+        "0.6": 0.00075,
+        "0.69": 0.0049833333333333335,
+        "0.93": 0.14103333333333334,
+        "1.0": 0.25676666666666664
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.028283333333333334,
+        "V3 ramp + scatter": 0.030766666666666668,
+        "V4 floor 0.25 + scatter": 0.030616666666666667,
+        "V6 step facet, Fig5a tail": 0.028733333333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -4.049291114236692,
+        "V3 ramp + scatter": -4.0088613377839035,
+        "V4 floor 0.25 + scatter": -3.9681990762103574,
+        "V6 step facet, Fig5a tail": -4.049291114236692
+       },
+       "P_range": [
+        0.0029,
+        0.9996333333333334
+       ],
+       "m_min_range": [
+        -4.387826669732764,
+        -1.70399798282586
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 1.354379393856759,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "200C_120min": {
+       "P_elastic": {
+        "0.6": 0.00075,
+        "0.69": 0.0049833333333333335,
+        "0.93": 0.14103333333333334,
+        "1.0": 0.25676666666666664
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.4580666666666667,
+        "V3 ramp + scatter": 0.48645,
+        "V4 floor 0.25 + scatter": 0.4804333333333333,
+        "V6 step facet, Fig5a tail": 0.45595
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -4.049291114236692,
+        "V3 ramp + scatter": -3.995766318057211,
+        "V4 floor 0.25 + scatter": -3.7405615906554193,
+        "V6 step facet, Fig5a tail": -4.049291114236692
+       },
+       "P_range": [
+        0.062016666666666664,
+        1.0
+       ],
+       "m_min_range": [
+        -4.387826669732764,
+        -0.5986448375627518
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "250C_5min": {
+       "P_elastic": {
+        "0.6": 0.019866666666666668,
+        "0.69": 0.09065,
+        "0.93": 0.6774833333333333,
+        "1.0": 0.8294666666666667
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "fails in worst orientation for all combos",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.31705,
+        "V3 ramp + scatter": 0.3277,
+        "V4 floor 0.25 + scatter": 0.32595,
+        "V6 step facet, Fig5a tail": 0.31533333333333335
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -3.307737040292916,
+        "V3 ramp + scatter": -3.2541125061865332,
+        "V4 floor 0.25 + scatter": -3.197560563151901,
+        "V6 step facet, Fig5a tail": -3.307737040292916
+       },
+       "P_range": [
+        0.06523333333333334,
+        0.9998833333333333
+       ],
+       "m_min_range": [
+        -3.7429970402164368,
+        -0.9574952464005877
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 1.354379393856759,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "250C_30min": {
+       "P_elastic": {
+        "0.6": 0.019866666666666668,
+        "0.69": 0.09065,
+        "0.93": 0.6774833333333333,
+        "1.0": 0.8294666666666667
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.97535,
+        "V3 ramp + scatter": 0.98405,
+        "V4 floor 0.25 + scatter": 0.9837166666666667,
+        "V6 step facet, Fig5a tail": 0.9483333333333334
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -3.307737040292916,
+        "V3 ramp + scatter": -3.2389194452050116,
+        "V4 floor 0.25 + scatter": -2.71620483481665,
+        "V6 step facet, Fig5a tail": -3.307737040292916
+       },
+       "P_range": [
+        0.74045,
+        1.0
+       ],
+       "m_min_range": [
+        -3.7429970402164368,
+        0.4643734813945093
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "250C_120min": {
+       "P_elastic": {
+        "0.6": 0.019866666666666668,
+        "0.69": 0.09065,
+        "0.93": 0.6774833333333333,
+        "1.0": 0.8294666666666667
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9986166666666667,
+        "V3 ramp + scatter": 0.9997,
+        "V4 floor 0.25 + scatter": 0.9997666666666667,
+        "V6 step facet, Fig5a tail": 0.99055
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -3.307737040292916,
+        "V3 ramp + scatter": -3.2389194452050116,
+        "V4 floor 0.25 + scatter": -1.664464454194941,
+        "V6 step facet, Fig5a tail": -3.307737040292916
+       },
+       "P_range": [
+        0.98675,
+        1.0
+       ],
+       "m_min_range": [
+        -3.7429970402164368,
+        0.6595393943092818
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "300C_5min": {
+       "P_elastic": {
+        "0.6": 0.15953333333333333,
+        "0.69": 0.43578333333333336,
+        "0.93": 0.9696166666666667,
+        "1.0": 0.9927666666666667
+       },
+       "region": "3 undetermined (depends on variant/b/tau0/Q)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9934333333333333,
+        "V3 ramp + scatter": 0.99635,
+        "V4 floor 0.25 + scatter": 0.9964666666666666,
+        "V6 step facet, Fig5a tail": 0.9825166666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -2.56618296634914,
+        "V3 ramp + scatter": -2.482072572352812,
+        "V4 floor 0.25 + scatter": -2.0021563198960646,
+        "V6 step facet, Fig5a tail": -2.56618296634914
+       },
+       "P_range": [
+        0.88615,
+        1.0
+       ],
+       "m_min_range": [
+        -3.0981674107001096,
+        1.0629014780652923
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "300C_30min": {
+       "P_elastic": {
+        "0.6": 0.15953333333333333,
+        "0.69": 0.43578333333333336,
+        "0.93": 0.9696166666666667,
+        "1.0": 0.9927666666666667
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.99885,
+        "V3 ramp + scatter": 0.9999833333333333,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9916166666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -2.56618296634914,
+        "V3 ramp + scatter": -2.482072572352812,
+        "V4 floor 0.25 + scatter": -0.6184059271532334,
+        "V6 step facet, Fig5a tail": -2.56618296634914
+       },
+       "P_range": [
+        0.9906833333333334,
+        1.0
+       ],
+       "m_min_range": [
+        -3.0981674107001096,
+        1.7333515955773748
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "300C_120min": {
+       "P_elastic": {
+        "0.6": 0.15953333333333333,
+        "0.69": 0.43578333333333336,
+        "0.93": 0.9696166666666667,
+        "1.0": 0.9927666666666667
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.99885,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9916166666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -2.56618296634914,
+        "V3 ramp + scatter": -2.482072572352812,
+        "V4 floor 0.25 + scatter": -0.10291545645521882,
+        "V6 step facet, Fig5a tail": -2.56618296634914
+       },
+       "P_range": [
+        0.9907666666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -3.0981674107001096,
+        1.7343521297401399
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "350C_5min": {
+       "P_elastic": {
+        "0.6": 0.5027666666666667,
+        "0.69": 0.8237166666666667,
+        "0.93": 0.9993,
+        "1.0": 0.9999333333333333
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9992166666666666,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9949666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -1.8246288924053635,
+        "V3 ramp + scatter": -1.725225699500613,
+        "V4 floor 0.25 + scatter": -0.16549964826120345,
+        "V6 step facet, Fig5a tail": -1.8246288924053635
+       },
+       "P_range": [
+        0.9920166666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -2.453337781183782,
+        2.722146394729405
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "350C_30min": {
+       "P_elastic": {
+        "0.6": 0.5027666666666667,
+        "0.69": 0.8237166666666667,
+        "0.93": 0.9993,
+        "1.0": 0.9999333333333333
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9992166666666666,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9949666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -1.8246288924053635,
+        "V3 ramp + scatter": -1.725225699500613,
+        "V4 floor 0.25 + scatter": 0.6404541748770054,
+        "V6 step facet, Fig5a tail": -1.8246288924053635
+       },
+       "P_range": [
+        0.9920333333333333,
+        1.0
+       ],
+       "m_min_range": [
+        -2.453337781183782,
+        2.809068174225189
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "350C_120min": {
+       "P_elastic": {
+        "0.6": 0.5027666666666667,
+        "0.69": 0.8237166666666667,
+        "0.93": 0.9993,
+        "1.0": 0.9999333333333333
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9992166666666666,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9949666666666667
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -1.8246288924053635,
+        "V3 ramp + scatter": -1.725225699500613,
+        "V4 floor 0.25 + scatter": 0.6435153398025788,
+        "V6 step facet, Fig5a tail": -1.8246288924053635
+       },
+       "P_range": [
+        0.9920333333333333,
+        1.0
+       ],
+       "m_min_range": [
+        -2.453337781183782,
+        2.8090681789340852
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "400C_5min": {
+       "P_elastic": {
+        "0.6": 0.8294666666666667,
+        "0.69": 0.9753666666666667,
+        "0.93": 1.0,
+        "1.0": 1.0
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9997166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9984833333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -1.0830748184615873,
+        "V3 ramp + scatter": -0.9683788266484132,
+        "V4 floor 0.25 + scatter": 1.3331329226974917,
+        "V6 step facet, Fig5a tail": -1.0830748184615873
+       },
+       "P_range": [
+        0.9950166666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -1.8085081516674553,
+        3.8837612308336773
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "400C_30min": {
+       "P_elastic": {
+        "0.6": 0.8294666666666667,
+        "0.69": 0.9753666666666667,
+        "0.93": 1.0,
+        "1.0": 1.0
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9997166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9984833333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -1.0830748184615873,
+        "V3 ramp + scatter": -0.9683788266484132,
+        "V4 floor 0.25 + scatter": 1.3850694135379147,
+        "V6 step facet, Fig5a tail": -1.0830748184615873
+       },
+       "P_range": [
+        0.9950166666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -1.8085081516674553,
+        3.883784228127965
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      },
+      "400C_120min": {
+       "P_elastic": {
+        "0.6": 0.8294666666666667,
+        "0.69": 0.9753666666666667,
+        "0.93": 1.0,
+        "1.0": 1.0
+       },
+       "region": "2 needs diffusion, closes for all (probability)",
+       "worst_region": "worst-orientation undetermined",
+       "P_main_by_variant": {
+        "V2 step facet + scatter": 0.9997166666666667,
+        "V3 ramp + scatter": 1.0,
+        "V4 floor 0.25 + scatter": 1.0,
+        "V6 step facet, Fig5a tail": 0.9984833333333333
+       },
+       "m_min_main_by_variant": {
+        "V2 step facet + scatter": -1.0830748184615873,
+        "V3 ramp + scatter": -0.9683788266484132,
+        "V4 floor 0.25 + scatter": 1.3850694137521948,
+        "V6 step facet, Fig5a tail": -1.0830748184615873
+       },
+       "P_range": [
+        0.9950166666666667,
+        1.0
+       ],
+       "m_min_range": [
+        -1.8085081516674553,
+        3.883784228127965
+       ],
+       "worst_omega_main": {
+        "V2 step facet + scatter": 3.3973573763015263,
+        "V3 ramp + scatter": 0.0,
+        "V4 floor 0.25 + scatter": 3.3973573763015263,
+        "V6 step facet, Fig5a tail": 3.3973573763015263
+       }
+      }
+     }
+    },
+    "allowable_recess_clean": {
+     "V2 step facet + scatter": {
+      "250C_120min": {
+       "r_per_pad_prob99": 5.5,
+       "r_per_pad_worst": 1.6684966663734966
+      },
+      "300C_30min": {
+       "r_per_pad_prob99": 7.0,
+       "r_per_pad_worst": 2.0392737033453847
+      },
+      "350C_30min": {
+       "r_per_pad_prob99": 8.5,
+       "r_per_pad_worst": 2.410050740317273
+      },
+      "400C_30min": {
+       "r_per_pad_prob99": 9.0,
+       "r_per_pad_worst": 2.780827777289161
+      }
+     },
+     "V3 ramp + scatter": {
+      "250C_120min": {
+       "r_per_pad_prob99": 7.0,
+       "r_per_pad_worst": 1.7029054639174488
+      },
+      "300C_30min": {
+       "r_per_pad_prob99": 8.5,
+       "r_per_pad_worst": 2.0813289003435487
+      },
+      "350C_30min": {
+       "r_per_pad_prob99": 10.5,
+       "r_per_pad_worst": 2.459752336769648
+      },
+      "400C_30min": {
+       "r_per_pad_prob99": 11.0,
+       "r_per_pad_worst": 2.838175773195748
+      }
+     },
+     "V4 floor 0.25 + scatter": {
+      "250C_120min": {
+       "r_per_pad_prob99": 7.0,
+       "r_per_pad_worst": 3.494355095371247
+      },
+      "300C_30min": {
+       "r_per_pad_prob99": 8.5,
+       "r_per_pad_worst": 4.203470413563059
+      },
+      "350C_30min": {
+       "r_per_pad_prob99": 10.5,
+       "r_per_pad_worst": 5.149031926186572
+      },
+      "400C_30min": {
+       "r_per_pad_prob99": 11.0,
+       "r_per_pad_worst": 5.523210257288608
+      }
+     },
+     "V6 step facet, Fig5a tail": {
+      "250C_120min": {
+       "r_per_pad_prob99": 5.0,
+       "r_per_pad_worst": 1.6684966663734966
+      },
+      "300C_30min": {
+       "r_per_pad_prob99": 6.0,
+       "r_per_pad_worst": 2.0392737033453847
+      },
+      "350C_30min": {
+       "r_per_pad_prob99": 7.0,
+       "r_per_pad_worst": 2.410050740317273
+      },
+      "400C_30min": {
+       "r_per_pad_prob99": 7.5,
+       "r_per_pad_worst": 2.780827777289161
+      }
+     }
+    },
+    "pair_dependence_sensitivity_clean": {
+     "variant": "V2 step facet + scatter",
+     "cells": {
+      "250C_120min": {
+       "independent": 0.9990833333333333,
+       "same_rank": 0.9752666666666666,
+       "opposite_rank": 1.0
+      },
+      "300C_30min": {
+       "independent": 0.9992,
+       "same_rank": 1.0,
+       "opposite_rank": 1.0
+      },
+      "350C_30min": {
+       "independent": 0.9996,
+       "same_rank": 1.0,
+       "opposite_rank": 1.0
+      }
+     }
+    }
+   },
+   "regions": {
+    "clean": {
+     "200C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "200C_30min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "200C_120min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "250C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "250C_30min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "250C_120min": "2 needs diffusion, closes for all (probability)",
+     "300C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "300C_30min": "2 needs diffusion, closes for all (probability)",
+     "300C_120min": "2 needs diffusion, closes for all (probability)",
+     "350C_5min": "2 needs diffusion, closes for all (probability)",
+     "350C_30min": "2 needs diffusion, closes for all (probability)",
+     "350C_120min": "2 needs diffusion, closes for all (probability)",
+     "400C_5min": "2 needs diffusion, closes for all (probability)",
+     "400C_30min": "2 needs diffusion, closes for all (probability)",
+     "400C_120min": "2 needs diffusion, closes for all (probability)"
+    },
+    "oxidised": {
+     "200C_5min": "4 does not close for any combination",
+     "200C_30min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "200C_120min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "250C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "250C_30min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "250C_120min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "300C_5min": "3 undetermined (depends on variant/b/tau0/Q)",
+     "300C_30min": "2 needs diffusion, closes for all (probability)",
+     "300C_120min": "2 needs diffusion, closes for all (probability)",
+     "350C_5min": "2 needs diffusion, closes for all (probability)",
+     "350C_30min": "2 needs diffusion, closes for all (probability)",
+     "350C_120min": "2 needs diffusion, closes for all (probability)",
+     "400C_5min": "2 needs diffusion, closes for all (probability)",
+     "400C_30min": "2 needs diffusion, closes for all (probability)",
+     "400C_120min": "2 needs diffusion, closes for all (probability)"
+    }
+   },
+   "cells_changed_vs_Ez_fit": {
+    "clean": [
+     "200C_5min"
+    ],
+    "oxidised": [
+     "200C_30min",
+     "250C_5min",
+     "300C_30min",
+     "350C_5min",
+     "400C_5min"
+    ]
+   },
+   "region_counts": {
+    "clean": {
+     "3 undetermined (depends on variant/b/tau0/Q)": 6,
+     "2 needs diffusion, closes for all (probability)": 9
+    },
+    "oxidised": {
+     "3 undetermined (depends on variant/b/tau0/Q)": 6,
+     "2 needs diffusion, closes for all (probability)": 8,
+     "4 does not close for any combination": 1
+    }
+   }
+  }
+ }
+}

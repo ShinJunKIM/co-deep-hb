@@ -1,0 +1,15 @@
+
+
+
+ SOLUTION HISTORY INFORMATION FOR JOB: VS055.mntr                                                                                                                                                                                                                                                          
+ ANSYS RELEASE 2026 R1          BUILD 26.1        15:59:14    10/16/2026
+
+  LOAD   SUB-  NO.  NO.    TOTL  INCREMENT    TOTAL         VARIAB 1     VARIAB 2     VARIAB 3     VARIAB 4     VARIAB 5
+  STEP   STEP ATTMP ITER   ITER  TIME/LFACT   TIME/LFACT    MONITOR      MONITOR      MONITOR      MONITOR      MONITOR
+                                                             Elap(s)      Mem(GB)      MxDs         MxPl         MxRe   
+
+     1      1    1     1      1    1.0000       1.0000       8.4605       1.7749       0.0000      0.78886E-30   0.0000    
+     2      1    1     1      2    1.0000       2.0000       13.329       1.7801      0.11336E-02  0.78886E-30   0.0000    
+     3      1    1     1      3    1.0000       3.0000       18.197       1.7801      0.26450E-02  0.78886E-30   0.0000    
+     4      1    1     1      4    1.0000       4.0000       22.967       1.7801      0.41564E-02  0.78886E-30   0.0000    
+     5      1    1     1      5    1.0000       5.0000       27.777       1.7801      0.56678E-02  0.78886E-30   0.0000    

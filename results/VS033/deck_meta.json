@@ -1,0 +1,72 @@
+{
+ "run": {
+  "id": "VS033",
+  "group": "V2",
+  "ds": "imec",
+  "w": 0.3,
+  "h": 0.6,
+  "note": "V2 T 0.30 um 3D (1,0.875,0.5) ang 0 sliding",
+  "dim": 3,
+  "cu": "aniso",
+  "orient": [
+   1.0,
+   0.875,
+   0.5
+  ],
+  "side": "sliding",
+  "plastic": false,
+  "cell_factor": 2.0,
+  "taper": 0.0,
+  "refine": 1,
+  "z_ox": 0.5,
+  "t_liner": 0.006,
+  "diel": "SiCN",
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "temps": [
+   25.0,
+   100.0,
+   200.0,
+   300.0,
+   400.0
+  ],
+  "cu_alpha": 1.65e-05,
+  "afm_field": 8.0,
+  "cu_angle": 0.0,
+  "v2_set": "T",
+  "v2_x": 0.875,
+  "v2_y": 0.5
+ },
+ "geometry": {
+  "w": 0.3,
+  "h": 0.6,
+  "A": 0.15,
+  "L": 0.6,
+  "R": 0.3,
+  "t_si": 0.6,
+  "zpb": 0.5,
+  "zpt": 1.1,
+  "theta": 0.0,
+  "a_bot": 0.15,
+  "t_l": 0.006
+ },
+ "n_nodes": 20662,
+ "n_elems": 17908,
+ "n_ce": 560,
+ "temps": [
+  25.0,
+  100.0,
+  200.0,
+  300.0,
+  400.0
+ ],
+ "T_ref": 25.0,
+ "mat": {
+  "Ez_GPa": 158.91000060103576,
+  "E_d": 120000.0,
+  "a_d": 2e-06,
+  "nu_d": 0.2,
+  "t_liner": 0.006
+ },
+ "physics_sha256": "3946a4c5c0acfdcca371f082ffa8876aa988bcf67631260277550e2c6c499bb0"
+}

@@ -1,0 +1,56 @@
+{
+ "run": "R61",
+ "segments": [
+  {
+   "n": 1,
+   "method": "batch",
+   "exit_code": 1,
+   "wall_s": 1413.6143365999997,
+   "stopped": {
+    "reason": "NONLINEAR KEYWORD ON THE ABT FILE",
+    "t_last": 0.18201,
+    "ls": 1,
+    "at_end": false
+   }
+  },
+  {
+   "n": 2,
+   "method": "batch-resume",
+   "input": "R61_resume2.dat",
+   "exit_code": 1,
+   "wall_s": 146.96071400000073,
+   "host": "laptop",
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R61 -j R61 -i C:\\Users\\USER\\co-deep-hb\\results\\R61\\R61_resume2.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R61\\R61.out",
+   "stopped": {
+    "reason": "NONLINEAR KEYWORD ON THE ABT FILE",
+    "t_last": 0.19201,
+    "ls": 1,
+    "at_end": false
+   }
+  },
+  {
+   "n": 3,
+   "method": "batch-resume",
+   "input": "R61_resume3.dat",
+   "exit_code": 1,
+   "wall_s": 6075.153353200003,
+   "host": "laptop",
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\USER\\co-deep-hb\\results\\R61 -j R61 -i C:\\Users\\USER\\co-deep-hb\\results\\R61\\R61_resume3.dat -o C:\\Users\\USER\\co-deep-hb\\results\\R61\\R61.out",
+   "stopped": {
+    "reason": "NONLINEAR KEYWORD ON THE ABT FILE",
+    "t_last": 0.25201,
+    "ls": 1,
+    "at_end": false
+   }
+  },
+  {
+   "n": 4,
+   "method": "batch-resume",
+   "input": "R61_resume4.dat",
+   "exit_code": 1,
+   "wall_s": 517.0056928999984,
+   "host": "desktop",
+   "cmd": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe -b -smp -np 4 -dir C:\\Users\\user\\co-deep-hb\\results\\R61 -j R61 -i C:\\Users\\user\\co-deep-hb\\results\\R61\\R61_resume4.dat -o C:\\Users\\user\\co-deep-hb\\results\\R61\\R61.out"
+  }
+ ]
+}

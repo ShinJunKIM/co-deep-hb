@@ -1,0 +1,139 @@
+{
+ "run": {
+  "model": "plastic",
+  "variant": 1,
+  "mesh": "L2",
+  "shape": "circle",
+  "cap": false,
+  "sliding": false,
+  "cte": "const",
+  "angle": 0.0,
+  "t_si": 2.0,
+  "layers": true,
+  "el_input": "HILL",
+  "solver_aid": true,
+  "id": "R62",
+  "pad": 3,
+  "step": 14,
+  "note": "PLAS-B2 diagnostic: R61 with ISOTROPIC Hill Cu elastic (convergence check only)"
+ },
+ "T_sf": 275.0,
+ "T_sf_src": "paper Sec. 3.2/Fig. 4: stress-free at ~275 C (FEM curve Fig. 3b crosses 0 at 275.7 C)",
+ "n_nodes": 49000,
+ "n_elems": 45084,
+ "probes": {
+  "cu_top_center": 48388,
+  "cu_top_edge": 48393,
+  "cu_bottom_center": 28788,
+  "si_top_corner": 18376,
+  "surface_corner": 47776,
+  "surface_center": 48388,
+  "surface_edge_mid": 48371
+ },
+ "n_sidewall": 680,
+ "n_ce": 0,
+ "mat": {
+  "hkl_sorted": [
+   1,
+   0.1,
+   0.02
+  ],
+  "Ez_GPa": 68.0432522820041,
+  "sources": [
+   "variant 1: temperature independent"
+  ],
+  "hill_E_nu": [
+   127350.3833140841,
+   0.3451478802114736
+  ],
+  "cte": "constant 1.65e-05 1/K",
+  "plastic": true,
+  "flow_rule": "pad 3 own curve",
+  "shear_ratios": {},
+  "sigma0_MPa": 143.0,
+  "miso_scale": {
+   "30.0": 1.0
+  }
+ },
+ "history": [
+  {
+   "ls": 1,
+   "tag": "LS0_cool_Tsf_to_30",
+   "branch": "init",
+   "T": 30.0
+  },
+  {
+   "ls": 2,
+   "tag": "h100",
+   "branch": "heating",
+   "T": 100.0
+  },
+  {
+   "ls": 3,
+   "tag": "h150",
+   "branch": "heating",
+   "T": 150.0
+  },
+  {
+   "ls": 4,
+   "tag": "h200",
+   "branch": "heating",
+   "T": 200.0
+  },
+  {
+   "ls": 5,
+   "tag": "h250",
+   "branch": "heating",
+   "T": 250.0
+  },
+  {
+   "ls": 6,
+   "tag": "h300",
+   "branch": "heating",
+   "T": 300.0
+  },
+  {
+   "ls": 7,
+   "tag": "h350",
+   "branch": "heating",
+   "T": 350.0
+  },
+  {
+   "ls": 8,
+   "tag": "h400",
+   "branch": "heating",
+   "T": 400.0
+  },
+  {
+   "ls": 9,
+   "tag": "hold400_2h",
+   "branch": "hold",
+   "T": 400.0
+  },
+  {
+   "ls": 10,
+   "tag": "c300",
+   "branch": "cooling",
+   "T": 300.0
+  },
+  {
+   "ls": 11,
+   "tag": "c200",
+   "branch": "cooling",
+   "T": 200.0
+  },
+  {
+   "ls": 12,
+   "tag": "c100",
+   "branch": "cooling",
+   "T": 100.0
+  },
+  {
+   "ls": 13,
+   "tag": "c030",
+   "branch": "cooling",
+   "T": 30.0
+  }
+ ],
+ "physics_sha256": "0363f215a8314870dc35dcb87ba00a1bd0ca8a6f0406a37d4c63818a588a3271"
+}

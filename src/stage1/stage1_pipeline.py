@@ -16,8 +16,12 @@ USAGE (from the repository root, in your own terminal; ANSYS cannot run inside t
     .venv\Scripts\python.exe src\stage1\stage1_pipeline.py --case R01,R02      # several runs, in order
     .venv\Scripts\python.exe src\stage1\stage1_pipeline.py --step 1            # one step of the run order
     .venv\Scripts\python.exe src\stage1\stage1_pipeline.py --dry-run --case all
+    .venv\Scripts\python.exe src\stage1\stage1_pipeline.py --pause R61         # 2nd terminal: stop cleanly
+    .venv\Scripts\python.exe src\stage1\stage1_pipeline.py --resume R61        # continue (here or on another PC)
 
 Options: --mode auto|batch|pymapdl (default batch), --np N, --exe PATH, --force, --recollect.
+Pause/resume uses MAPDL multiframe restart; to move a paused run, copy the whole results/<RUN> folder
+to the other PC (same MAPDL release) and run --resume there.
 Machine settings (MAPDL path, cores) come from configs/machine.json if present
 (copy configs/machine.example.json), else the MAPDL_EXE environment variable, else the
 Student v261 default path. All other paths are relative to the repository root.
@@ -34,6 +38,7 @@ import hashlib
 import json
 import math
 import os
+import platform
 import re
 import subprocess
 import sys
@@ -621,7 +626,12 @@ def run_status(run):
             cte_table()
     except (FileNotFoundError, ValueError) as exc:
         return "BLOCKED", str(exc).split(".")[0]
-    done = (RESULTS / run["id"] / "hist_disp.txt").exists()
+    outdir = RESULTS / run["id"]
+    done = (outdir / "hist_disp.txt").exists()
+    if not done:
+        stop = paused_point(outdir, run["id"])
+        if stop is not None:
+            return "PAUSED", f"{stop['reason']} at t = {stop['t_last']:g} (LS{stop['ls']}); use --resume {run['id']}"
     return ("DONE" if done else "READY"), ""
 
 
@@ -757,15 +767,20 @@ def convergence_from_files(outdir, rid):
     """Per-load-step completion from <job>.mntr; failure strings from the .out log.
 
     MAPDL's *GET,...,SOLU,CNVG returns 0 for linear (single-iteration) solutions, so it is
-    recorded only as cnvg_flag_raw and not used for the verdict."""
+    recorded only as cnvg_flag_raw and not used for the verdict.
+
+    A run continued with --resume has one monitor per segment (<job>_seg<n>.mntr copies plus
+    <job>.mntr); their load steps are merged. Only the last segment's log (<job>.out) is scanned
+    for failures: earlier segments ended by a pause, not by the solver."""
     per_ls, bad = {}, []
-    mntr = next((p for p in outdir.glob("*.mntr")), None)
-    if mntr is not None:
-        for line in mntr.read_text(errors="replace").splitlines():
-            parts = line.split()
-            if len(parts) > 6 and parts[0].isdigit() and parts[1].isdigit():
-                per_ls[int(parts[0])] = True
-    out = next((p for p in outdir.glob("*.out")), None)
+    mntrs = sorted(outdir.glob("*.mntr"))
+    for mntr in mntrs:
+        for parts in _mntr_rows(mntr):
+            per_ls[int(parts[0])] = True
+    mntr = mntrs[0] if mntrs else None
+    out = outdir / f"{rid}.out"
+    if not out.exists():
+        out = next((p for p in outdir.glob("*.out")), None)
     if out is not None:
         txt = out.read_text(errors="replace")
         for pat in ("SOLUTION NOT CONVERGED", "not converged", "Solution not converged", "*** ERROR ***"):
@@ -796,7 +811,7 @@ def write_aggregate():
     with open(RESULTS / "results.csv", "w", newline="") as fh:
         w = csv.writer(fh); w.writerow(cols)
         for r in recs:
-            if not r.get("ok"):
+            if not r.get("ok") or "model" not in r["deck"]["run"]:   # lin13.py records share results/
                 continue
             run = r["deck"]["run"]
             base = [r["id"], run["pad"], r["deck"]["mat"]["Ez_GPa"], run["model"], run["variant"],
@@ -807,6 +822,215 @@ def write_aggregate():
             for row in r["rows"]:
                 w.writerow(base + [row.get(c, "") for c in cols[len(base):]])
     return len(recs)
+
+
+def _report(rid, info, rec, outdir):
+    if rec["ok"]:
+        h400 = next(r for r in rec["rows"] if r["tag"] == "h400")
+        print(f"[{rid}] exit {info['exit_code']}, wall {info['wall_s']:.1f} s, converged {rec['all_converged']}; "
+              f"u_center(30->400) = {h400['u_center_nm']:.3f} nm, eps'_zz(400) = {1e3 * h400['eps_dev_zz']:+.3f}e-3")
+        print(f"[{rid}]   at 400 C: Cu sigma_z vol-avg = {h400['s_z']:.1f} MPa, mid-height sigma_z = "
+              f"{h400.get('sz_cu_mid_layer', float('nan')):.1f} MPa, pad lengthening = {h400['u_center_rel_padbottom_nm']:.3f} nm")
+    else:
+        print(f"[{rid}] FAILED (exit {info['exit_code']}): {rec.get('error')} - see {outdir / (rid + '.out')}")
+
+
+# ================================================================ pause / resume (MAPDL multiframe restart)
+# --pause RID writes <job>.abt; MAPDL stops at the next equilibrium iteration and keeps the last converged
+# substep as a restart point (<job>.rdb, .ldhi, .rNNN, .rst). --resume RID continues from that point with
+# ANTYPE,,RESTART, solves the remaining load steps of the saved deck and runs its post-processing block.
+# To move a paused run to another PC, copy the whole results/<RUN> folder (same MAPDL release required).
+# Decks of normal runs are unchanged.
+RESUME_LOG = "resume_log.json"
+
+
+def _mntr_rows(path):
+    rows = []
+    for line in path.read_text(errors="replace").splitlines():
+        parts = line.split()
+        if len(parts) > 6 and parts[0].isdigit() and parts[1].isdigit():
+            rows.append(parts)
+    return rows
+
+
+def _restart_info(out):
+    """Last 'RESTART INFORMATION' block of a MAPDL log (printed when a run stops early), or None."""
+    if not out.exists():
+        return None
+    with open(out, "rb") as fh:
+        fh.seek(max(0, out.stat().st_size - 400_000))
+        tail = fh.read().decode(errors="replace")
+    i = tail.rfind("R E S T A R T   I N F O R M A T I O N")
+    if i < 0:
+        return None
+    blk = tail[i:i + 3000]
+    pats = dict(reason=r"REASON FOR TERMINATION[ .]*(.+)", t_last=r"TIME OF LAST SOLUTION[ .]*(\S+)",
+                t_start=r"TIME AT START OF THE LOAD STEP[ .]*(\S+)", t_end=r"TIME AT END OF THE LOAD STEP[ .]*(\S+)")
+    info = {}
+    for k, p in pats.items():
+        m = re.search(p, blk)
+        if m is None:
+            return None
+        info[k] = m.group(1).strip()
+    return info
+
+
+def _deck_ls(lines):
+    """Load-step blocks of a saved deck: [dict(n, i0, i1, t_end, T)] with lines[i0:i1] = block n."""
+    starts = [i for i, s in enumerate(lines) if s.startswith("! ---- LS")]
+    fin = next(i for i in range(starts[-1], len(lines)) if lines[i] == "FINISH")
+    blocks = []
+    for j, i0 in enumerate(starts):
+        i1 = starts[j + 1] if j + 1 < len(starts) else fin
+        blk = lines[i0:i1]
+        t_end = float(next(s for s in blk if s.startswith("TIME,")).split(",")[1])
+        T = next(s for s in blk if s.startswith("TUNIF,")).split(",")[1]
+        blocks.append(dict(n=j + 1, i0=i0, i1=i1, t_end=t_end, T=T))
+    return blocks
+
+
+def _restart_files(outdir, rid):
+    return sorted(outdir.glob(f"{rid}.r[0-9][0-9][0-9]"))
+
+
+def paused_point(outdir, rid):
+    """Where a stopped run can be resumed: dict(reason, by_pause, t_last, ls, at_end), else None.
+
+    ls is the load step holding the last converged substep; at_end means that load step is finished."""
+    if (outdir / f"{rid}.lock").exists() or (outdir / "hist_disp.txt").exists():
+        return None
+    if not ((outdir / f"{rid}.rdb").exists() and (outdir / f"{rid}.ldhi").exists() and _restart_files(outdir, rid)):
+        return None
+    info = _restart_info(outdir / f"{rid}.out")
+    deck = outdir / f"{rid}.dat"
+    if info is None or not deck.exists():
+        return None
+    blocks = _deck_ls(deck.read_text().splitlines())
+    t_last, t_start, t_end = (float(info[k]) for k in ("t_last", "t_start", "t_end"))
+    k = min(blocks, key=lambda b: abs(b["t_end"] - t_end) / max(1.0, b["t_end"]))["n"]
+    if info["t_last"] == info["t_start"] or t_last <= t_start:   # stopped before the first substep of LS k
+        k, at_end = k - 1, True
+    else:
+        at_end = info["t_last"] == info["t_end"] or t_last >= t_end
+    if k < 1:   # no converged substep yet: nothing worth resuming
+        return None
+    return dict(reason=info["reason"], by_pause="UNCONVERGED" not in info["reason"].upper(),
+                t_last=t_last, ls=k, at_end=at_end)
+
+
+def _clear_pause_files(outdir, rid):
+    """A fresh solve starts over: drop the abort file and the logs of earlier paused segments."""
+    for pat in (f"{rid}.abt", f"{rid}_seg*.out", f"{rid}_seg*.mntr", f"{rid}_resume*.dat", RESUME_LOG):
+        for f in outdir.glob(pat):
+            f.unlink()
+
+
+def build_resume_deck(lines, stop, seg):
+    """Deck that continues a saved deck from a restart point (see paused_point)."""
+    blocks = _deck_ls(lines)
+    nls = len(blocks)
+    i_post = lines.index("/POST1", blocks[-1]["i1"])
+    done = stop["ls"] if stop["at_end"] else stop["ls"] - 1          # load steps finished before the stop
+    d = [f"{lines[0]} - resume {seg}", lines[1], "/SOLU", "ANTYPE,,RESTART",
+         # APDL parameters are not part of the restart files: re-create the per-load-step arrays if missing
+         "*GET,PT_,PARM,CPUL,TYPE", "*IF,PT_,LT,0,THEN",
+         f"*DIM,CPUL,ARRAY,{nls}", f"*DIM,CNVL,ARRAY,{nls}", f"*DIM,TLS,ARRAY,{nls}", "*ENDIF"]
+    for b in blocks[:done]:   # finished earlier; raw CNVG flag -1 = not carried over the pause
+        d += [f"TLS({b['n']})={b['T']}", f"TMP_=CNVL({b['n']})", "*IF,TMP_,EQ,0,THEN", f"CNVL({b['n']})=-1", "*ENDIF"]
+    if not stop["at_end"]:    # finish the interrupted load step: its loads come from the .ldhi file
+        b = blocks[done]
+        blk = lines[b["i0"]:b["i1"]]
+        j = blk.index("SOLVE")
+        assert blk[j - 1].startswith("*GET,TC0_"), blk[j - 1]
+        d += [f"! ---- LS{b['n']} continued after t = {stop['t_last']:g}"] + blk[j - 1:]
+    for b in blocks[done + (0 if stop["at_end"] else 1):]:
+        d += lines[b["i0"]:b["i1"]]
+    d += ["FINISH", "", "/POST1", "ALLSEL,ALL", "*GET,NELEM,ELEM,0,COUNT", "*GET,NNODE,NODE,0,COUNT", "FINISH"]
+    d += lines[i_post:]
+    return "\n".join(d).rstrip("\n") + "\n/EXIT,NOSAVE\n"
+
+
+def pause_run(rid, wait_min):
+    outdir = RESULTS / rid
+    lock = outdir / f"{rid}.lock"
+    if not lock.exists():
+        print(f"[{rid}] no running MAPDL job ({lock.name} not found); nothing to pause")
+        return 1
+    if not (outdir / f"{rid}.rdb").exists():   # linear solves write no restart files: a stop would lose the run
+        print(f"[{rid}] this solve writes no restart files ({rid}.rdb missing; linear run?); not pausing")
+        return 1
+    abt = outdir / f"{rid}.abt"
+    abt.write_text("nonlinear\n")
+    print(f"[{rid}] {abt.name} written; MAPDL stops at its next equilibrium iteration. Waiting ...")
+    t0 = time.time()
+    while lock.exists() and time.time() - t0 < 60 * wait_min:
+        time.sleep(5)
+    if lock.exists():
+        print(f"[{rid}] still running after {wait_min} min; {abt.name} stays in place")
+        return 1
+    abt.unlink(missing_ok=True)
+    stop = paused_point(outdir, rid)
+    if stop is None:
+        print(f"[{rid}] MAPDL has stopped but no restart point was found - see {outdir / (rid + '.out')}")
+        return 1
+    rows = _mntr_rows(outdir / f"{rid}.mntr") if (outdir / f"{rid}.mntr").exists() else []
+    last = f" (last substep: LS{rows[-1][0]} substep {rows[-1][1]})" if rows else ""
+    print(f"[{rid}] paused: {stop['reason']} at t = {stop['t_last']:g}{last}. "
+          f"Continue with --resume {rid} (here, or on another PC after copying {outdir})")
+    return 0
+
+
+def resume_run(rid, nproc, force):
+    run = RUN_BY_ID[rid]
+    outdir = RESULTS / rid
+    stop = paused_point(outdir, rid)
+    if stop is None:
+        print(f"[{rid}] nothing to resume (no restart point, still running, or already finished)")
+        return 2
+    if not stop["by_pause"] and not force:
+        print(f"[{rid}] stopped by the solver ({stop['reason']}), not by --pause; "
+              f"resuming would repeat the failure (--force to try anyway)")
+        return 2
+    meta = json.loads((outdir / "deck_meta.json").read_text())
+    lines = (outdir / f"{rid}.dat").read_text().splitlines()
+    if hashlib.sha256(("\n".join(lines[1:]) + "\n").encode()).hexdigest() != meta["physics_sha256"]:
+        print(f"[{rid}] {rid}.dat no longer matches deck_meta.json; refusing to resume")
+        return 2
+    log_f = outdir / RESUME_LOG
+    segs = json.loads(log_f.read_text())["segments"] if log_f.exists() else []
+    if not segs:   # segment 1 = the original solve, as recorded by execute()
+        rec0 = json.loads((outdir / "record.json").read_text()) if (outdir / "record.json").exists() else {}
+        ex = rec0.get("exec", {})
+        segs.append(dict(n=1, method=ex.get("method", "?"), exit_code=ex.get("exit_code"), wall_s=ex.get("wall_s")))
+    segs[-1]["stopped"] = dict(reason=stop["reason"], t_last=stop["t_last"], ls=stop["ls"], at_end=stop["at_end"])
+    prev, seg = segs[-1]["n"], segs[-1]["n"] + 1
+    (outdir / f"{rid}.out").replace(outdir / f"{rid}_seg{prev}.out")
+    if (outdir / f"{rid}.mntr").exists():
+        (outdir / f"{rid}_seg{prev}.mntr").write_bytes((outdir / f"{rid}.mntr").read_bytes())
+    (outdir / f"{rid}.abt").unlink(missing_ok=True)
+    inp = outdir / f"{rid}_resume{seg}.dat"
+    inp.write_text(build_resume_deck(lines, stop, seg))
+    where = f"LS{stop['ls']} {'end' if stop['at_end'] else 'mid-step'}, t = {stop['t_last']:g}"
+    print(f"{_dt.datetime.now():%Y-%m-%d %H:%M:%S}  [{rid}] resume {seg} from {where}  np={nproc}  exe={EXE}")
+    cmd = [str(EXE), "-b", "-smp", "-np", str(nproc), "-dir", str(outdir), "-j", rid,
+           "-i", str(inp), "-o", str(outdir / f"{rid}.out")]
+    t0 = time.perf_counter()
+    p = subprocess.run(cmd, capture_output=True, text=True, errors="replace")
+    segs.append(dict(n=seg, method="batch-resume", input=inp.name, exit_code=p.returncode,
+                     wall_s=time.perf_counter() - t0, host=platform.node(), cmd=" ".join(cmd)))
+    log_f.write_text(json.dumps(dict(run=rid, segments=segs), indent=1, default=float))
+    again = paused_point(outdir, rid)
+    if again is not None and again["by_pause"]:
+        print(f"[{rid}] paused again: {again['reason']} at t = {again['t_last']:g} (LS{again['ls']}); "
+              f"--resume {rid} continues")
+        return 0
+    info = dict(method="batch-resume", exit_code=p.returncode, wall_s=sum(s.get("wall_s") or 0.0 for s in segs),
+                cmd=" ".join(cmd), segments=segs)
+    rec = collect(run, outdir, info)
+    (outdir / "record.json").write_text(json.dumps(rec, indent=1, default=float))
+    _report(rid, info, rec, outdir)
+    print(f"aggregate: {write_aggregate()} run records -> {RESULTS / 'results.csv'}")
+    return 0
 
 
 def execute(run_ids, mode, nproc, dry, force):
@@ -822,6 +1046,9 @@ def execute(run_ids, mode, nproc, dry, force):
         if st == "DONE" and not force and not dry:
             print(f"[{rid}] already done (use --force to re-run)")
             continue
+        if st == "PAUSED" and not force:
+            print(f"[{rid}] PAUSED: {why} (--force discards the paused state and starts over)")
+            continue
         text, meta = _write_case(run, outdir)
         print(f"[{rid}] {run['note']}: {meta['n_nodes']} nodes, {meta['n_elems']} elements, "
               f"E_z = {meta['mat']['Ez_GPa']:.2f} GPa, T_sf = {meta['T_sf']:g} C, plastic = {meta['mat']['plastic']}")
@@ -835,6 +1062,7 @@ def execute(run_ids, mode, nproc, dry, force):
                 continue
         if dry:
             continue
+        _clear_pause_files(outdir, rid)
         if mode in ("auto", "pymapdl"):
             try:
                 info = run_pymapdl(run, outdir, nproc)
@@ -847,14 +1075,7 @@ def execute(run_ids, mode, nproc, dry, force):
             info = run_batch(run, outdir, nproc)
         rec = collect(run, outdir, info)
         (outdir / "record.json").write_text(json.dumps(rec, indent=1, default=float))
-        if rec["ok"]:
-            h400 = next(r for r in rec["rows"] if r["tag"] == "h400")
-            print(f"[{rid}] exit {info['exit_code']}, wall {info['wall_s']:.1f} s, converged {rec['all_converged']}; "
-                  f"u_center(30->400) = {h400['u_center_nm']:.3f} nm, eps'_zz(400) = {1e3 * h400['eps_dev_zz']:+.3f}e-3")
-            print(f"[{rid}]   at 400 C: Cu sigma_z vol-avg = {h400['s_z']:.1f} MPa, mid-height sigma_z = "
-                  f"{h400.get('sz_cu_mid_layer', float('nan')):.1f} MPa, pad lengthening = {h400['u_center_rel_padbottom_nm']:.3f} nm")
-        else:
-            print(f"[{rid}] FAILED (exit {info['exit_code']}): {rec.get('error')} - see {outdir / (rid + '.out')}")
+        _report(rid, info, rec, outdir)
     if not dry:
         n = write_aggregate()
         print(f"aggregate: {n} run records -> {RESULTS / 'results.csv'}")
@@ -876,12 +1097,24 @@ def main(argv=None):
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--recollect", action="store_true", help="re-parse finished runs (no solve)")
+    ap.add_argument("--pause", metavar="RUN", default=None,
+                    help="stop a running solve cleanly at a restart point (run from a second terminal)")
+    ap.add_argument("--resume", metavar="RUN", default=None, help="continue a paused run from its restart point")
+    ap.add_argument("--wait-min", type=float, default=30.0, help="--pause: minutes to wait for MAPDL to stop")
     a = ap.parse_args(argv)
     global EXE
     if a.exe:
         EXE = Path(a.exe)
     if a.list:
         list_runs(); return 0
+    if a.pause:
+        return pause_run(a.pause, a.wait_min)
+    if a.resume:
+        if a.resume not in RUN_BY_ID:
+            ap.error(f"unknown run id {a.resume}")
+        if not EXE.exists():
+            print(f"MAPDL executable not found: {EXE}"); return 2
+        return resume_run(a.resume, a.nproc, a.force)
     if a.recollect:
         for dd in sorted(RESULTS.glob("R*")):
             if (dd / "hist_disp.txt").exists() and dd.name in RUN_BY_ID:

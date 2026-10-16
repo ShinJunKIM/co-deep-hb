@@ -658,3 +658,7 @@
 
 ### 정합성 라운드 (2026-10-16; 규칙 83bf8e3)
 - E70(미끄럼 폭 효과) V 0.35 vs 0.15 → 통과; SC5/SC6(3 µm 미끄럼) −1.27/−1.23e-3 → 부호 일치. 같은 설정 평가: 접합 2/4, 미끄럼+접합 캡 2/4, 미끄럼+캡 비전달 4/4(정성). 두 경계 분리(탄성 접촉 한계 0.70 µm vs 기여도 역전 0.74–2.45 µm 외삽 예측). f(ω) 4종·β 배척(2.3σ)·확률 vs 최악 방위 창(docs/v2). 논문 초안 v4, corrections_v4.md. 방위 전수 계산은 브랜치 v2-orientation.
+- 2026-10-16 16:30 **E71** (E) contact v2 boundary SLIDING 0.30 um r2 nm T250 -> exit 0, wall 95 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T250: Ac/A=0.698 p=439MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-16 16:32 **E72** (E) contact v2 boundary SLIDING 0.30 um r3 nm T250 -> exit 1, wall 121 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T250: Ac/A=0.544 p=483MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-16 16:35 **E73** (E) contact v2 boundary SLIDING 0.30 um r3 nm T300 -> exit 1, wall 175 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=0.750 p=461MPa; T25: Ac/A=0.000 p=0MPa
+- 2026-10-16 16:37 **E74** (E) contact v2 boundary SLIDING 0.30 um r4 nm T300 -> exit 1, wall 114 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T300: Ac/A=0.640 p=458MPa; T25: Ac/A=0.000 p=0MPa

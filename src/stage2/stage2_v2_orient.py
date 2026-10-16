@@ -94,6 +94,14 @@ def make_runs():
 RUNS = make_runs()
 B.register([r for r in RUNS if r["id"] not in B.RUN_BY_ID])
 
+# contact-boundary check (docs/v2_contact_boundary_preregistration.md): sliding sidewall, 0.30 um, imec stack
+import stage2_contact_runs as _C  # noqa: E402
+CONTACT = []
+for _rid, _r, _T in (("E71", 2.0, 250), ("E72", 3.0, 250), ("E73", 3.0, 300), ("E74", 4.0, 300)):
+    _run_c = _C._c(_rid, 0.30, 0.6, _r, _T, f"contact v2 boundary SLIDING 0.30 um r{_r:g} nm T{_T}")
+    _run_c.update(side="sliding"); CONTACT.append(_run_c)
+B.register([r for r in CONTACT if r["id"] not in B.RUN_BY_ID])
+
 
 def k_of(rid):
     rec = B.load(rid)

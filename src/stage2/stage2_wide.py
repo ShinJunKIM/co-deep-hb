@@ -70,6 +70,11 @@ RUNS = {
     "SC4": S._run("SC4", 30, STEP, "S2-SC 3 um pad, Hill Cu, mesh WB (coarser; mesh check)",
                   mesh="WB", el_input="HILL", **_COMMON),
 }
+# same-model matrix (docs/stage2_v2_consistency_preregistration.md): the 3 um pad under the two relaxed scenarios
+RUNS["SC5"] = S._run("SC5", 30, STEP, "S2-SC 3 um pad, Hill Cu, SLIDING sidewall, bonded cap, Ta 13 nm, mesh WA",
+                     mesh="WA", el_input="HILL", shape="circle", cap=True, sliding=True, t_liner=0.013, layers=True)
+RUNS["SC6"] = S._run("SC6", 30, STEP, "S2-SC 3 um pad, Hill Cu, SLIDING sidewall, NO cap, Ta 13 nm, mesh WA",
+                     mesh="WA", el_input="HILL", shape="circle", cap=False, sliding=True, t_liner=0.013, layers=True)
 S61_HASH = json.loads((REPO / "results" / "S61" / "deck_meta.json").read_text())["physics_sha256"]
 
 

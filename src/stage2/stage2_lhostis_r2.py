@@ -38,6 +38,8 @@ RUNS = [
     _mk("E67", 0.36, 0.22, 2.0, "contact Lhostis R2 thickness rule SLIDING w0.36 h0.22 r2 nm T400 SiO2", side="sliding"),
     _mk("E68", 0.36, 0.65, 4.0, "contact Lhostis R2 thickness rule SLIDING w0.36 h0.65 r4 nm T400 SiO2", side="sliding"),
     _mk("E69", 0.36, 0.22, 4.0, "contact Lhostis R2 thickness rule SLIDING w0.36 h0.22 r4 nm T400 SiO2", side="sliding"),
+    # same-model matrix (docs/stage2_v2_consistency_preregistration.md): width rule under the sliding scenario
+    _mk("E70", 0.11, 0.22, 2.0, "contact Lhostis width rule under SLIDING w0.11 um h0.22 r2 nm T400 SiO2", side="sliding"),
 ]
 B.register([r for r in RUNS if r["id"] not in B.RUN_BY_ID])
 

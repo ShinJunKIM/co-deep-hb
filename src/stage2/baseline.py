@@ -289,13 +289,17 @@ def material_lines(run, hill):
         d += ["! ---- MAT 1: Cu isotropic Hill average", f"MP,EX,1,{_f(hill['E_MPa'])}", f"MP,PRXY,1,{_f(hill['nu'])}"]
         info["Ez_GPa"] = hill["E_MPa"] / 1000.0
     else:
-        hkl = L13.ORIENT[run["orient"]]
-        D = S.rotated_D(hkl, 0.0)
+        # orient: key of L13.ORIENT or an explicit (h, k, l) tuple; cu_angle: in-plane rotation about z (deg, default 0)
+        hkl = L13.ORIENT[run["orient"]] if isinstance(run["orient"], str) else tuple(float(v) for v in run["orient"])
+        ang = float(run.get("cu_angle", 0.0))
+        D = S.rotated_D(hkl, ang)
         vals = [D[i, j] for j in range(6) for i in range(j, 6)]
-        d += [f"! ---- MAT 1: Cu anisotropic (paper constants), z || [{run['orient']}]", "TB,ANEL,1,1,,0", "TBTEMP,25"]
+        lab = run["orient"] if isinstance(run["orient"], str) else "{:.4g} {:.4g} {:.4g}".format(*hkl)
+        d += [f"! ---- MAT 1: Cu anisotropic (paper constants), z || [{lab}]" + (f", in-plane {ang:g} deg" if ang else ""),
+              "TB,ANEL,1,1,,0", "TBTEMP,25"]
         for s_ in range(0, 21, 6):
             d.append(f"TBDATA,{s_ + 1}," + ",".join(_f(v) for v in vals[s_:s_ + 6]))
-        info["Ez_GPa"] = S.Ez_check(S.sorted_hkl(hkl), 0.0) / 1000.0
+        info["Ez_GPa"] = S.Ez_check(S.sorted_hkl(hkl), ang) / 1000.0
     a = run["cu_alpha"]
     aip = run.get("cu_alpha_ip")
     if aip is None:

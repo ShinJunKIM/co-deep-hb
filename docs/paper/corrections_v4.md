@@ -3,7 +3,7 @@
 원칙: 두 docx(`ieie2026f_proceedings_final.docx`, `ieie2026f_blind_final.docx`)를 초안 v4(`docs/paper/ieie2026f_plan_and_draft_ko.md` §1·§4·Table 3)로 다시 만든다. 아래는 현재 docx의 문단별 문제 목록(감독 감사 `docs/v2/supervision.md` §1.2 그대로)과 v4에서 추가로 바뀐 점이다.
 
 ## A. 추가로 바뀐 것 (v4)
-1. 제목: "결정방위를 모르는 서브마이크론 Cu 하이브리드 본딩의 접촉 판정: 열탄성 접촉 한계와 표면확산을 고려한 300 nm 공정창의 사전등록 검증" / "Contact Prediction for Sub-Micron Cu Hybrid Bonding under Unknown Crystal Orientation: Elastic Contact Limit and a Pre-Registered Thermo-Elastic/Surface-Diffusion Process Window at 300 nm".
+1. 제목: "서브마이크론 Cu 하이브리드 본딩의 접촉 결정 요인과 300 nm 공정창: 열탄성 접촉 한계와 표면확산을 결합한 모델의 사전등록 검증" / "What Determines Cu–Cu Contact in Sub-Micron Hybrid Bonding: Elastic Contact Limit and a Pre-Registered Thermo-Elastic/Surface-Diffusion Process Window at 300 nm". 방위를 연구 질문의 중심에 두지 않는다: "패드마다 통제할 수 없는 무작위 요인(recess 산포, 결정방위 등)"으로 일반화하고, 방위는 "수율 하위 꼬리를 정하는 요인"으로만 쓴다.
 2. 두 경계 구분: 탄성 접촉 한계 0.70 µm(400 °C, R 5 nm; 3/8 nm → 0.55/1.0 µm; 대리식 0.76 µm; 350/300/250 °C → 0.90/1.14/1.62 µm). 기여도 역전 = 외삽 예측 0.74 µm(250 °C 2 h)–2.45 µm(400 °C 2 h). 출처 `results/stage2/boundaries.json`.
 3. 계면: 같은 설정 평가표(초안 Table 3, `docs/stage2_v2_consistency_preregistration.md`). E70(미끄럼 폭 효과 0.35 vs 0.15), SC5/SC6(3 µm 미끄럼 −1.27/−1.23e-3).
 4. 확산: ≥ 250 °C PPA-Cu 5/5, 전체 8/9(이전 "10/10" 삭제); β = 1/4 2.3σ 배척; DM2023 0/7 → 적용 범위 등크기·≥ 250 °C.

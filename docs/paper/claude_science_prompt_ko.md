@@ -7,6 +7,13 @@
 ## 역할과 목표
 너는 이 연구의 논문 제작 담당이다. 저장소 `co-deep-hb`(main)에 있는 결과 파일과 문서만을 근거로, 2026 대한전자공학회 추계학술대회 **학부생 논문경진대회** 제출물 두 개와 그림 6장을 만든다. 마감 2026-10-19. 목표는 1차 서면(블라인드) 통과와 수상이다. 숫자·주장은 저장소 파일에서만 가져오고, 없는 숫자는 만들지 않는다. 불확실하면 "[확인 필요]"로 표시한다.
 
+## 2026-10-16 v4 정정 — 최우선 (아래 이전 갱신보다 우선)
+- 초안 `docs/paper/ieie2026f_plan_and_draft_ko.md`의 §1(v4)·§4(v4)·Table 3이 바뀌었다. **두 docx를 v4 본문으로 다시 만든다.** 문단별 수정 목록은 `docs/paper/corrections_v4.md`.
+- 0.7 µm는 '기구 전환'이 아니라 **탄성 접촉 한계**(u_t+u_b = recess 합). 기여도 역전은 외삽 예측(0.74–2.45 µm). 제목·요약·3.1·Fig. 2 캡션·결론의 '기구 전환/Mechanism transition'을 모두 바꾼다.
+- 계면: 네 ST/Leti 관측을 같은 설정으로 평가한 표(Table 3)로 서술. '폭은 접합, 두께는 이완'처럼 관측마다 다른 설정을 고르는 문장 금지.
+- 방위 꼬리: '1.4 × 10⁻³ 미접촉 하한'과 '라운드 2 f(ω)' 삭제. f(ω) 4종 집합, 확률 기준(9셀 유지/5셀 판정 갈림)과 최악 방위 기준(f(0) 의존)을 함께. β = 1/4 언급 시 2.3σ 배척 명시.
+- Fig. 4를 three-region map(`results/figures/v2/three_region_map_0.30um.png`)으로, Fig. 5를 확률 vs 최악 방위 허용 recess(`results/figures/v2/worst_margin_0.30um.png`)로 교체 권장. Fig. 2는 `results/figures/s2_boundaries.png`(두 경계) 또는 기존 그림 제목 수정.
+
 ## 2026-10-16 갱신 — 추가 결과(반드시 반영)
 - 초안 §1이 v3로 바뀌었다(핵심 메시지 네 결론: 전환 규칙+대리식, 계면 상태 = 공정 입력, <111> 꼬리가 창을 정함, Q_eff 13·적용 범위). `docs/stage2_baseline_report_ko.md` §15와 `docs/agents/*.md`, `results/stage2/{round_x2.json, lhostis_round2.json, diffusion_round3.json, window_sensitivity_review.json, agents/*.json}`을 읽어라.
 - 추가 그림 후보: Fig. 2(b) 구속 계수 C(h/w)(`results/figures/agents/constraint_factor.png`, X35–X38 통과점 포함), Fig. 3(d) 마스터 커브(`master_curve.png`), Fig. 6(c) 체인 수율(`yield_vs_chain_length.png`), 연결 단계 두께·폭 효과 표(라운드 2). 쪽수 안에서 Fig. 2(b)와 라운드 2 표를 우선.
@@ -15,7 +22,7 @@
 ## 반드시 먼저 읽을 파일 (순서대로)
 1. `docs/paper/ieie2026f_plan_and_draft_ko.md` — 기획, 핵심 메시지, 기여 3개, 절 구성, 그림·표 목록, 전문 초안, 참고문헌. **이 문서의 §1 핵심 메시지와 기여 3개를 그대로 쓴다.**
 2. `docs/stage2_baseline_report_ko.md` §13–§14 — 결과와 모델 부분별 검증 상태(검증 통과/실패/탐색 등급).
-3. 수치 원본: `results/stage2/paper_results.json`(기구 전환 크기, recess 허용 사양, 방위 하한, transition_vs_recess), `results/stage2/window_summary.json`(공정창·빗금 셀·인자 순위), `results/stage2/orient_diffusion_round2.json/.csv`(확산 항 적합·검증 점), `results/stage2/validation_rev1.csv`와 `results/stage2/adopted_rev.json`(탄성 학습·테스트), `inputs/dm2026_digitized.json`(DM2026 판독값과 오차), `results/stage2/diffusion_validation_rev1.csv`.
+3. 수치 원본: `results/stage2/paper_results.json`(탄성 접촉 한계 — JSON 키 이름 mechanism_transition은 유지되지만 의미는 '탄성 접촉 한계', recess 허용 사양, 방위 하한, transition_vs_recess), `results/stage2/window_summary.json`(공정창·빗금 셀·인자 순위), `results/stage2/orient_diffusion_round2.json/.csv`(확산 항 적합·검증 점), `results/stage2/validation_rev1.csv`와 `results/stage2/adopted_rev.json`(탄성 학습·테스트), `inputs/dm2026_digitized.json`(DM2026 판독값과 오차), `results/stage2/diffusion_validation_rev1.csv`.
 4. 양식(저장소 `docs/paper/templates/`): `논문양식.docx`(프로시딩, Double column 1–5쪽), `서면 심사용 논문 양식.docx`(논문지 양식 4쪽, 저자·소속 삭제), `논문 경진대회 안내.txt`. 현재 초안 docx: `docs/paper/ieie2026f_proceedings_draft.docx`, `docs/paper/ieie2026f_blind_review_draft.docx`(placeholder 포함; 네가 완성본으로 대체한다).
 5. 참고문헌 상세: `docs/REFERENCES.md`.
 
@@ -27,7 +34,7 @@ D. 체크리스트 보고: 쪽수, 모든 숫자의 출처 파일, 식별 문구
 
 ## 심사위원이 10초 안에 읽어야 하는 것 (글의 우선순위)
 1. 문제: 1 µm 아래에서 열탄성 팽창(패드당 ≈ 1 nm)으로는 CMP recess 합(≈ 5 nm)을 못 닫는다.
-2. 새로움 한 줄: **세 연구그룹 실측으로 사전등록 검증한 열탄성–표면확산 결합 모델**로 (a) 접촉 기구 전환 폭을 recess 조건부 규칙으로 정량화하고(recess 합 3/5/8 nm → 0.55/0.70/1.0 µm), (b) sub-µm에서 결정 방위의 효과가 탄성 항(4 %)이 아니라 표면확산 항(<111> facet, 폭 10배)을 통해 들어옴을 보여 Ayoub의 [111] 기준 recess 사양을 정정하고, (c) 300 nm 공정창·CMP recess 허용 합·방위 미접촉 하한·인자 순위를 불확실도와 함께 준다.
+2. 새로움 한 줄: **세 연구그룹 실측으로 사전등록 검증한 열탄성–표면확산 결합 모델**로 (a) 탄성 접촉 한계 폭을 recess 조건부 규칙으로 정량화하고(recess 합 3/5/8 nm → 0.55/0.70/1.0 µm), (b) sub-µm에서 결정 방위의 효과가 탄성 항(4 %)이 아니라 표면확산 항(<111> facet, 폭 10배)을 통해 들어옴을 보여 Ayoub의 [111] 기준 recess 사양을 정정하고, (c) 300 nm 공정창·CMP recess 허용 합·방위 미접촉 하한·인자 순위를 불확실도와 함께 준다.
 3. 신뢰성: ASME V&V 10 순서, 결과 보기 전 기준 커밋, 실패도 보고(Table 3).
 4. 한계를 숨기지 않음: 0.54 µm +46 %(원인 미상), 확산 항은 ≥ 250 °C에서만 실측 일치(200 °C 과소 = 보수적), 방위 항은 탐색 등급, 300 nm 돌출 실측 없음.
 

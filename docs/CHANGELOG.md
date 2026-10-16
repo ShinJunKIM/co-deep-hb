@@ -2,6 +2,13 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-16 — Consistency round (paper v4) and v2 orientation branch
+
+- Same-setting interface evaluation (E70, SC5, SC6; pre-reg 83bf8e3). Two boundaries separated (`src/stage2/stage2_boundaries.py`). f(ω) variant set and worst-orientation margin (`src/v2/f_omega_variants.py`). Supervisor audit (`docs/v2/supervision.md`). Draft v4 + `docs/paper/corrections_v4.md`.
+- `baseline.material_lines` accepts hkl tuples and in-plane angle `cu_angle` (existing decks unchanged).
+- Corrections: 0.7 µm renamed elastic contact limit; '≥250 °C 10/10' → 5/5 PPA, 8/9 all; '1.4e-3 floor' removed (came from an f(ω) inconsistent with the lower quantiles); β = 1/4 shown to contradict existing data (2.3σ).
+- Branch `v2-orientation`: 154-run orientation study (pre-reg 13a580f).
+
 ## 2026-10-16 — Agent rounds: review, diffusion r3, connection r2, X2, master curve, yield bridge, scaling collapse
 
 - **Connection round 2** (`docs/stage2_lhostis_round2_preregistration.md`, E64–E69): void-fraction metric V = (r_in/A)²; width rule (held-out) PASS, thickness rule PASS only with sliding (relaxed) interfaces → interface state is a process input (ST/Leti relaxed; imec/NYCU bonded). `baseline.build_contact_deck` gained `side="sliding"` (existing decks byte-identical).

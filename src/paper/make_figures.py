@@ -26,12 +26,13 @@ SOURCES = {
     "fig2": ["results/stage2/paper_results.json (mechanism_transition, transition_vs_recess_um)",
              "results/stage2/adopted_rev.json (imec train residuals 1.80/3.06 um, 400 C)",
              "results/stage2/validation_rev1.csv (V1/V2: 1.26/0.54 um, 400 C)"],
-    "fig3": ["results/stage2/orient_diffusion_round2.csv", "results/stage2/orient_diffusion_round2.json (fit, faceted_fraction)",
-             "results/stage2/paper_results.json (fraction_pads_f_below_0p5)"],
-    "fig4": ["results/stage2/window_summary.json ['0.30um'] clean/oxidised P_main, hatched_cells"],
-    "fig5": ["results/stage2/paper_results.json (recess_spec_sum_nm_300nm)"],
-    "fig6": ["results/stage2/window_summary.json (factor_cells_changed, clean, 0.54/0.30 um; settings.n)",
-             "results/stage2/paper_results.json (orientation_floor_300nm)"],
+    "fig3": ["results/stage2/diffusion_validation_rev1.csv (revision 1: median_nm, q25, q75, pred_nm, pass, role)",
+             "results/stage2/v2/f_omega_variants.json (variants_used_for_windows, fits[*].params)"],
+    "fig4": ["results/stage2/v2/boundary_curves.json (T, surfaces.clean/oxidised main, band_min, band_max, T_at_*min.robust; "
+             "worst_orientation V4/V5 boundary)"],
+    "fig5": ["results/stage2/v2/f_omega_variants.json (windows['0.30um'].allowable_recess_clean: r_per_pad_prob99, r_per_pad_worst)"],
+    "fig6": ["results/stage2/v2/boundary_curves.json (factor_shift_C: 30min, 120min, time_ratio_250C; "
+             "interface and mechanism entries excluded)"],
 }
 W = 8.0 / 2.54                      # single column width (in)
 BLUE, ORANGE, SKY, GREEN, GREY, BLACK = "#0072B2", "#E69F00", "#56B4E9", "#009E73", "#7F7F7F", "#000000"
@@ -92,7 +93,7 @@ def fig1():
     letter(ax, "a", x=0.06, y=0.97)
     bx = fig.add_axes([0.52, 0.0, 0.48, 0.93]); bx.set_xlim(0, 10); bx.set_ylim(0, 10); bx.axis("off")
     steps = [("Verification", "units, mesh, cell, 3D vs 2D"), ("Train (large pads)", "dielectric E, α in literature range"),
-             ("Test (held-out)", "rules committed first"), ("Prediction (Monte Carlo)", "300 nm window, recess spec")]
+             ("Test (held-out)", "evaluated once"), ("Prediction (Monte Carlo)", "300 nm window, recess spec")]
     ys = [8.75, 6.45, 3.55, 1.25]
     for (t, sub), y in zip(steps, ys):
         test = "Test" in t
@@ -103,7 +104,7 @@ def fig1():
     for y0, y1 in zip(ys[:-1], ys[1:]):
         bx.annotate("", xy=(5.0, y1 + 0.87), xytext=(5.0, y0 - 0.87), arrowprops=dict(arrowstyle="-|>", lw=0.6, color="k"))
     bx.plot([0.2, 9.8], [5.0, 5.0], color=BLUE, lw=0.8, ls=(0, (4, 2)))
-    bx.text(9.8, 5.06, "pre-registered", fontsize=7, color=BLUE, ha="right", va="bottom")
+    bx.text(9.8, 5.06, "criteria fixed in advance", fontsize=7, color=BLUE, ha="right", va="bottom")
     letter(bx, "b", x=0.04, y=0.97)
     return save(fig, "fig1_architecture")
 
@@ -152,187 +153,199 @@ def fig2():
         pts = [(float(k), tv[k][key]) for k in gs if tv[k][key] is not None and np.isfinite(tv[k][key])]
         ins.plot([p[0] for p in pts], [p[1] for p in pts], ls, color=col, marker="o" if key == "meas" else None, ms=2.2, lw=0.9, label=lab)
     ins.set_xlim(2.5, 10.5); ins.set_ylim(0.4, 2.6); ins.set_xticks([3, 5, 8, 10])
-    ins.set_xlabel("Recess sum (nm)", fontsize=7, labelpad=1); ins.set_ylabel("Transition (µm)", fontsize=7, labelpad=1)
+    ins.set_xlabel("Recess sum (nm)", fontsize=7, labelpad=1); ins.set_ylabel("Elastic limit (µm)", fontsize=7, labelpad=1)
     ins.tick_params(labelsize=7, pad=1)
     ins.legend(fontsize=7, loc="upper left", handlelength=1.2, borderaxespad=0.1, labelspacing=0.15)
     return save(fig, "fig2_transition")
 
 
 # ------------------------------------------------------------------ Fig 3
+F_OMEGA = {   # family and fitted parameters of the six f(omega) variants (src/v2/f_omega_variants.py, fits[...]["params"])
+    "V2 step facet + scatter": "ramp", "V3 ramp + scatter": "ramp", "V4 floor 0.25 + scatter": "floor",
+    "V5 sigmoid": "sigmoid", "V6 step facet, Fig5a tail": "ramp", "V7 ramp, Fig5a tail": "ramp"}
+F_LABEL = {"V2 step facet + scatter": "V2 step", "V3 ramp + scatter": "V3 ramp", "V4 floor 0.25 + scatter": "V4 floor",
+           "V5 sigmoid": "V5 sigmoid", "V6 step facet, Fig5a tail": "V6 step*", "V7 ramp, Fig5a tail": "V7 ramp*"}
+F_COL = {"V2 step facet + scatter": GREY, "V3 ramp + scatter": BLACK, "V4 floor 0.25 + scatter": ORANGE,
+         "V5 sigmoid": BLUE, "V6 step facet, Fig5a tail": SKY, "V7 ramp, Fig5a tail": GREEN}
+
+
+def f_omega(fam, om, p):
+    def ramp(o, q):
+        oc, dw = q
+        return (o > oc).astype(float) if dw <= 1e-9 else np.clip((o - oc) / dw, 0, 1)
+    if fam == "ramp":
+        return ramp(om, p)
+    if fam == "floor":
+        return p[0] + (1 - p[0]) * ramp(om, p[1:])
+    return 1.0 / (1.0 + np.exp(-(om - p[0]) / max(p[1], 1e-6)))
+
+
 def fig3():
-    rows = list(csv.DictReader(open(S2 / "orient_diffusion_round2.csv", encoding="utf-8")))
-    od = jload("orient_diffusion_round2.json"); pr = jload("paper_results.json")
+    rows = list(csv.DictReader(open(S2 / "diffusion_validation_rev1.csv", encoding="utf-8")))
+    fv = jload("v2/f_omega_variants.json")
 
     def f(r, k):
         return float(r[k]) if r[k] not in ("", "nan", "NaN") else np.nan
-    fig = plt.figure(figsize=(W, 4.3))
-    a = fig.add_axes([0.13, 0.595, 0.85, 0.355])
+    fig = plt.figure(figsize=(W, 4.2))
+    a = fig.add_axes([0.13, 0.60, 0.85, 0.35])
     conds = [(200, 2), (200, 4), (250, 2), (350, 1), (450, 1)]
     for pitch, col, dx, D in ((400, BLACK, -0.14, 250), (500, GREY, 0.10, 300)):
         for i, (T, t) in enumerate(conds):
             r = next(r for r in rows if r["figure"] == "Fig.3" and int(r["pitch_nm"]) == pitch and int(r["T_C"]) == T
                      and float(r["t_h"]) == t)
-            med, q25, q75 = f(r, "meas_median"), f(r, "meas_q25"), f(r, "meas_q75")
+            med, q25, q75 = f(r, "median_nm"), f(r, "q25"), f(r, "q75")
             a.errorbar(i + dx, med, yerr=[[med - q25], [q75 - med]], fmt="o", color=col, ms=3.2, lw=0.7, capsize=1.5,
                        label=f"imec, D = {D} nm" if i == 0 else None)
-            ok = r["pass_median"] == "True"; cal = r["role"] == "calibration"
-            a.plot(i + dx + 0.08, f(r, "pred_median"), marker="*" if cal else "D", ms=5 if cal else 3.0, color=ORANGE,
-                   mfc=ORANGE if ok else "white", mew=0.8, ls="none")
-    a.plot([], [], "D", color=ORANGE, ms=3, label="model (pass)")
-    a.plot([], [], "D", color=ORANGE, mfc="white", mew=0.8, ms=3, label="model (fail)")
-    a.plot([], [], "*", color=ORANGE, ms=5, label="model (calibration)")
+            ok = r["pass"] == "True"; cal = r["role"] == "calibration"
+            a.plot(i + dx + 0.08, f(r, "pred_nm"), marker="*" if cal else "D", ms=5 if cal else 3.0, color=ORANGE,
+                   mfc=ORANGE if (ok or cal) else "white", mew=0.8, ls="none")
+    a.plot([], [], "D", color=ORANGE, ms=3, label="model, pass")
+    a.plot([], [], "D", color=ORANGE, mfc="white", mew=0.8, ms=3, label="model, fail")
+    a.plot([], [], "*", color=ORANGE, ms=5, label="model, training point")
     a.set_xticks(range(len(conds))); a.set_xticklabels([f"{T} °C, {t} h" for T, t in conds])
     a.set_xlim(-0.5, len(conds) - 0.5)
-    a.set_ylabel("Bulge-out Δ$h_{max}$ (nm)"); a.set_ylim(0, 28)
+    a.set_ylabel("Bulge-out Δ$h_{max}$ (nm)"); a.set_ylim(0, 26)
     h, l = a.get_legend_handles_labels(); hd = dict(zip(l, h))
     k1 = [k for k in l if k.startswith("imec")]; k2 = [k for k in l if k.startswith("model")]
     lg = a.legend([hd[k] for k in k1], k1, loc="upper left", handlelength=1.0, borderaxespad=0.1, handletextpad=0.3)
     a.add_artist(lg)
-    a.legend([hd[k] for k in k2], k2, loc="upper left", bbox_to_anchor=(0.40, 1.0), handlelength=1.0, borderaxespad=0.1, handletextpad=0.3)
+    a.legend([hd[k] for k in k2], k2, loc="upper left", bbox_to_anchor=(0.40, 1.0), handlelength=1.0, borderaxespad=0.1,
+             handletextpad=0.3)
     letter(a, "a", x=-0.09)
-    b = fig.add_axes([0.15, 0.11, 0.32, 0.32])
-    sel = sorted([r for r in rows if int(r["T_C"]) == 250 and float(r["t_h"]) == 1 and r["history"] == "self-anneal"],
-                 key=lambda r: int(r["D_nm"]))
+    b = fig.add_axes([0.15, 0.10, 0.31, 0.33])
+    sel = sorted([r for r in rows if int(r["T_C"]) == 250 and float(r["t_h"]) == 1 and r["history"] == "self-anneal"
+                  and r["cu"] == "std" and r["role"] == "held-out"], key=lambda r: int(r["D_nm"]))
     D = np.array([int(r["D_nm"]) for r in sel])
-    med = np.array([f(r, "meas_median") for r in sel]); q25 = np.array([f(r, "meas_q25") for r in sel])
-    q75 = np.array([f(r, "meas_q75") for r in sel])
+    med = np.array([f(r, "median_nm") for r in sel]); q25 = np.array([f(r, "q25") for r in sel])
+    q75 = np.array([f(r, "q75") for r in sel])
     b.errorbar(D, med, yerr=[med - q25, q75 - med], fmt="o", color=BLACK, ms=3.2, lw=0.7, capsize=1.5)
     for r in sel:
-        ok = r["pass_median"] == "True"
-        b.plot(int(r["D_nm"]) + 7, f(r, "pred_median"), "D", color=ORANGE, mfc=ORANGE if ok else "white", mew=0.8, ms=3.0)
+        ok = r["pass"] == "True"
+        b.plot(int(r["D_nm"]) + 7, f(r, "pred_nm"), "D", color=ORANGE, mfc=ORANGE if ok else "white", mew=0.8, ms=3.0)
     b.set_xlabel("Pad diameter D (nm)"); b.set_ylabel("Δ$h_{max}$ (nm)")
     b.set_xlim(90, 330); b.set_ylim(0, 16); b.set_xticks([100, 200, 300]); b.set_yticks([0, 5, 10, 15])
     b.set_title("250 °C, 1 h", fontsize=7, pad=2)
     letter(b, "b", x=-0.24)
-    c = fig.add_axes([0.63, 0.11, 0.35, 0.32])
-    fit = od["fit"]; wc, dw = fit["omega_c"], fit["d_omega"]
-    om = np.linspace(0, 54.74, 400); fo = np.clip((om - wc) / dw, 0, 1)
-    c.plot(om, fo, color=ORANGE, lw=1.3)
-    c.axvspan(0, wc, color=ORANGE, alpha=0.18, lw=0)
-    c.text(13, 0.02, f"$f$ = 0: {100 * od['faceted_fraction']:.1f} % of pads", fontsize=7, va="bottom")
-    c.text(27, 0.50, f"$f$ < 0.5:\n{100 * pr['fraction_pads_f_below_0p5']:.0f} % of pads", fontsize=7, va="center")
+    c = fig.add_axes([0.62, 0.10, 0.36, 0.33])
+    om = np.linspace(0, 54.74, 600)
+    for name in fv["variants_used_for_windows"]:
+        p = fv["fits"][name]["params"]
+        c.plot(om, f_omega(F_OMEGA[name], om, p), color=F_COL[name], lw=1.0, label=F_LABEL[name])
     c.set_xlabel("ω to nearest <111> (°)"); c.set_ylabel("Amplitude factor $f$(ω)")
     c.set_xlim(0, 55); c.set_ylim(-0.03, 1.08); c.set_xticks([0, 15, 30, 45])
-    c.set_title(f"ω$_c$ = {wc:g}°, Δω = {dw:g}°", fontsize=7, pad=2)
+    c.legend(loc="lower right", fontsize=7, handlelength=1.0, handletextpad=0.3, borderaxespad=0.0, labelspacing=0.1)
+    c.set_title("six $f$(ω) variants", fontsize=7, pad=2)
     letter(c, "c", x=-0.24)
     return save(fig, "fig3_diffusion")
 
 
-# ------------------------------------------------------------------ Fig 4 / Fig 5 heat grids
-def _grid(ax, vals, fmt, hatched=(), boxed=(), vmin=0.0, vmax=1.0, cmap="Blues", classes=None):
-    Z = np.array([[vals[f"{T}C_{t}min"] for t in TIMES] for T in TEMPS])
-    if classes is not None:   # discrete classes: list of (lower bound, colour), ascending
-        from matplotlib.colors import ListedColormap, BoundaryNorm
-        bounds = [c[0] for c in classes] + [np.inf]
-        ax.imshow(Z, cmap=ListedColormap([c[1] for c in classes]), norm=BoundaryNorm(bounds, len(classes)),
-                  origin="lower", aspect="auto")
-        vmin, vmax = 0.0, 10.0   # keeps all cell text black
-    else:
-        ax.imshow(Z, cmap=cmap, vmin=vmin, vmax=vmax, origin="lower", aspect="auto")
-    for i, T in enumerate(TEMPS):
-        for j, t in enumerate(TIMES):
-            z = Z[i, j]; frac = (z - vmin) / (vmax - vmin)
-            ax.text(j, i, fmt(z), ha="center", va="center", fontsize=7, color="white" if frac > 0.6 else "black")
-            if (T, t) in hatched:
-                ax.add_patch(Rectangle((j - 0.5, i - 0.5), 1, 1, fill=False, hatch="///", ec="#9A9A9A", lw=0))
-                ax.text(j, i, fmt(z), ha="center", va="center", fontsize=7, color="black",
-                        bbox=dict(boxstyle="square,pad=0.1", fc="white", ec="none", alpha=0.85))
-            if (T, t) in boxed:
-                ax.add_patch(Rectangle((j - 0.45, i - 0.45), 0.9, 0.9, fill=False, ec=ORANGE, lw=1.6))
-    ax.set_xticks(range(3)); ax.set_xticklabels([f"{t}" for t in TIMES])
-    ax.set_yticks(range(5)); ax.set_yticklabels([f"{T}" for T in TEMPS])
-    ax.set_xlabel("Anneal time (min)")
-    for s in ax.spines.values():
-        s.set_visible(False)
-    ax.tick_params(length=0)
-
-
-def _pfmt(z):
-    if z >= 0.95:
-        return f"{np.floor(z * 1000) / 1000:.3f}"   # truncate so a value < 0.99 never prints as 0.99
-    if z >= 0.005:
-        return f"{z:.2f}"
-    return "0"
+# ------------------------------------------------------------------ Fig 4 (boundary curves, JSON only)
+def _clip_top(v, top):
+    a = np.array(v, dtype=float)
+    return np.where(np.isfinite(a), a, top)
 
 
 def fig4():
-    ws = jload("window_summary.json")["0.30um"]
-    fig, axs = plt.subplots(1, 2, figsize=(W, 2.8), sharey=True)
-    fig.subplots_adjust(left=0.13, right=0.98, bottom=0.33, top=0.90, wspace=0.08)
+    bc = jload("v2/boundary_curves.json")
+    T = np.array(bc["T"]); top = 1e4
+    fig, axs = plt.subplots(1, 2, figsize=(W, 2.45), sharey=True)
+    fig.subplots_adjust(left=0.13, right=0.97, bottom=0.17, top=0.80, wspace=0.07)
     for ax, key, title in ((axs[0], "clean", "Clean surface"), (axs[1], "oxidised", "Oxidised surface")):
-        d = ws[key]; hat = {tuple(x) for x in d["hatched_cells"]}
-        boxed = {(250, 120), (300, 30)} if key == "clean" else set()
-        _grid(ax, d["P_main"], _pfmt, hatched=hat, boxed=boxed,
-              classes=[(-1.0, "#FFFFFF"), (0.5, "#DEEBF7"), (0.99, "#6BAED6")])
-        ax.set_title(title, fontsize=8, pad=3)
-    axs[0].set_ylabel("Anneal temperature (°C)")
-    fig.text(0.02, 0.10, "Cell: P(contact). Shading: ≥ 0.99 (window), 0.5–0.99, < 0.5.", fontsize=7, ha="left", va="bottom")
-    fig.text(0.02, 0.02, "Hatched: changes within b × τ$_0$ × Q.  Orange box: recommended.", fontsize=7, ha="left", va="bottom")
+        s = bc["surfaces"][key]
+        lo = np.array(s["band_min"], float); hi = _clip_top(s["band_max"], top)
+        ok = np.isfinite(lo)
+        ax.fill_between(T[ok], lo[ok], hi[ok], color=SKY, alpha=0.35, lw=0, label="all model combinations")
+        ax.plot(T, hi, color=BLUE, lw=0.8)
+        ax.plot(T, np.array(s["main"], float), color=BLACK, lw=1.2, label="main setting")
+        if key == "clean":
+            for name, col, lab in (("V4 floor 0.25 + scatter", ORANGE, "worst orient., V4"),
+                                   ("V5 sigmoid", GREEN, "worst orient., V5")):
+                wo = bc["worst_orientation"][name]
+                ax.plot(T, np.array(wo["boundary"], float), color=col, lw=0.9, ls=(0, (3, 1.5)), label=lab)
+        for tm, kk in ((5, "T_at_5min"), (30, "T_at_30min"), (120, "T_at_120min")):
+            Tr = s[kk]["robust"]
+            if Tr is not None and np.isfinite(Tr):
+                ax.plot(Tr, tm, "o", color=BLUE, ms=2.8, mfc="white", mew=0.8, zorder=5)
+                ax.text(Tr - 2, tm * 1.12, f"{Tr:.0f}", fontsize=7, color=BLUE, ha="right", va="bottom")
+        ax.axvspan(200, 250, color="#E6E6E6", lw=0, zorder=0)
+        ax.text(225, 1.25, "outside\ndata", fontsize=7, color=GREY, ha="center", va="bottom")
+        ax.set_xlim(200, 400); ax.set_yscale("log"); ax.set_ylim(1, 240)
+        ax.set_xticks([200, 300, 400] if key == "clean" else [300, 400]); ax.set_xticks([250, 350], minor=True)
+        ax.set_title(title, fontsize=7, pad=2)
+        ax.set_xlabel("Anneal T (°C)")
+    axs[0].set_yticks([1, 5, 30, 120]); axs[0].set_yticklabels(["1", "5", "30", "120"])
+    from matplotlib.ticker import NullFormatter
+    axs[0].yaxis.set_minor_formatter(NullFormatter())
+    axs[0].set_ylabel("Min. anneal time for P ≥ 0.99 (min)")
+    h, l = axs[0].get_legend_handles_labels()
+    fig.legend(h, l, loc="upper center", ncol=2, fontsize=7, handlelength=1.6, borderaxespad=0.1, labelspacing=0.15,
+               columnspacing=1.0, bbox_to_anchor=(0.55, 1.0))
+    letter(axs[0], "a", x=-0.02); letter(axs[1], "b", x=-0.02)
     return save(fig, "fig4_window300")
 
 
+# ------------------------------------------------------------------ Fig 5 (allowable recess per pad)
+RECIPES = [("250C_120min", "250 °C\n2 h"), ("300C_30min", "300 °C\n30 min"), ("350C_30min", "350 °C\n30 min"),
+           ("400C_30min", "400 °C\n30 min")]
+
+
 def fig5():
-    rs = jload("paper_results.json")["recess_spec_sum_nm_300nm"]
-    fig, axs = plt.subplots(1, 2, figsize=(W, 2.6), sharey=True)
-    fig.subplots_adjust(left=0.13, right=0.98, bottom=0.24, top=0.89, wspace=0.08)
-    vmax = max(max(rs["clean"].values()), max(rs["oxidised"].values()))
-    for ax, key, title in ((axs[0], "clean", "Clean surface"), (axs[1], "oxidised", "Oxidised surface")):
-        _grid(ax, rs[key], lambda z: f"{z:g}", vmin=0.0, vmax=vmax, cmap="Greens")
-        ax.set_title(title, fontsize=8, pad=3)
-    axs[0].set_ylabel("Anneal temperature (°C)")
-    fig.text(0.02, 0.02, "Cell value: allowable recess sum $r_t+r_b$ (nm) for P ≥ 0.99", fontsize=7,
-             ha="left", va="bottom")
+    fv = jload("v2/f_omega_variants.json")
+    ar = fv["windows"]["0.30um"]["allowable_recess_clean"]
+    fig, ax = plt.subplots(figsize=(W, 2.15))
+    fig.subplots_adjust(left=0.13, right=0.985, bottom=0.22, top=0.97)
+    x = np.arange(len(RECIPES))
+    groups = (("probability (P ≥ 0.99)", "r_per_pad_prob99", lambda k: True, BLUE, "o", -0.22),
+              ("worst orientation, $f$(0) > 0", "r_per_pad_worst", lambda k: k.startswith(("V4", "V5")), ORANGE, "s", 0.0),
+              ("worst orientation, $f$(0) = 0", "r_per_pad_worst", lambda k: not k.startswith(("V4", "V5")), GREY, "v", 0.22))
+    for lab, key, sel, col, mk, dx in groups:
+        for i, (rk, _) in enumerate(RECIPES):
+            vals = [ar[k][rk][key] for k in ar if sel(k)]
+            ax.plot([i + dx, i + dx], [min(vals), max(vals)], color=col, lw=2.2, alpha=0.45, solid_capstyle="butt")
+            ax.plot([i + dx] * len(vals), vals, mk, color=col, ms=2.6, mfc="white" if mk != "o" else col, mew=0.7,
+                    label=lab if i == 0 else None)
+    ax.set_xticks(x); ax.set_xticklabels([r[1] for r in RECIPES])
+    ax.set_xlim(-0.5, len(RECIPES) - 0.5); ax.set_ylim(0, 10)
+    ax.set_ylabel("Allowable recess per pad (nm)")
+    ax.legend(loc="upper left", handlelength=1.0, borderaxespad=0.1, labelspacing=0.2)
     return save(fig, "fig5_recess_spec")
 
 
-# ------------------------------------------------------------------ Fig 6
-SHORT = {"mechanism: diffusion off (elastic only)": "diffusion off",
-         "orientation: no <111> faceting (f=1)": "no <111> facet (f = 1)",
-         "surface: other state": "surface state",
-         "liner: theta 107 (better-wetting liner)": "liner θ = 107°",
-         "liner: theta 149": "liner θ = 149°",
-         "recess spread: sigma 0.5 -> 1.0 nm": "recess σ 0.5 → 1 nm",
-         "recess mean: 2.5 -> 3.5 nm": "recess mean +1 nm",
-         "elastic factor b: 0.60 -> 1.0 (range)": "elastic factor b",
-         "diffusion kinetics tau0 20 -> 100 s": "kinetics τ$_0$ 20 → 100 s",
-         "diffusion Q 20.7 -> 15 kcal/mol": "kinetics Q 20.7 → 15"}
+# ------------------------------------------------------------------ Fig 6 (factor shifts, JSON only)
+F6 = [("anneal kinetics: Q 20.7 vs 13.4 kcal/mol", "activation energy $Q$"),
+      ("anneal kinetics: tau0 100 vs 20 s", "rate constant τ$_0$"),
+      ("liner wetting: theta 107 vs 149 deg", "liner contact angle"),
+      ("surface: oxidised (s_ox 0.45) vs clean", "surface oxide"),
+      ("orientation-tail shape: spread over 6 f(omega)", "tail shape, $f$(ω)"),
+      ("random: recess mean 3.5 vs 2.5 nm/pad", "recess mean"),
+      ("random: orientation tail present vs absent (f = 1)", "orientation tail"),
+      ("random: recess spread sigma 1.0 vs 0.5 nm/pad", "recess spread σ"),
+      ("elastic factor b: 0.60 vs 1.0", "elastic factor $b$")]
 
 
 def fig6():
-    ws = jload("window_summary.json"); pr = jload("paper_results.json")
-    fc54, fc30 = ws["0.54um"]["clean"]["factor_cells_changed"], ws["0.30um"]["clean"]["factor_cells_changed"]
-    base = "time/temperature axis: open cells at main setting"
-    names = sorted([k for k in fc30 if k != base], key=lambda k: (fc30[k], fc54[k]))
-    fig = plt.figure(figsize=(W, 4.0))
-    a = fig.add_axes([0.47, 0.55, 0.50, 0.40])
-    y = np.arange(len(names))
-    a.barh(y + 0.19, [fc30[k] for k in names], height=0.36, color=BLUE, label="0.30 µm")
-    a.barh(y - 0.19, [fc54[k] for k in names], height=0.36, color=SKY, label="0.54 µm")
-    for yy, k in zip(y, names):
-        for val, off in ((fc30[k], 0.19), (fc54[k], -0.19)):
-            if val == 0:
-                a.plot(0.06, yy + off, "|", color=GREY, ms=3)
-    a.set_yticks(y); a.set_yticklabels([SHORT.get(k, k) for k in names])
-    a.set_xlabel("Window cells changed (of 15)")
-    a.set_xlim(0, 10); a.legend(loc="lower right")
-    letter(a, "a", x=-0.76)
-    of = pr["orientation_floor_300nm"]; n = ws["settings"]["n"]
-    cells = [(T, t) for T in TEMPS for t in TIMES if T >= 250]
-    b = fig.add_axes([0.17, 0.15, 0.80, 0.27])
-    x = np.arange(len(cells)); floor = 1.0 / n
-    pf = [of[f"{T}C_{t}min"]["P_open_facet"] for T, t in cells]
-    pn = [of[f"{T}C_{t}min"]["P_open_no_facet"] for T, t in cells]
-    b.plot(x, pf, "o", color=ORANGE, ms=3.5, label="with <111> facet term")
-    b.plot(x, [p if p > 0 else floor for p in pn], "v", color=GREEN, ms=3.5, mfc="white", mew=0.8,
-           label=f"no facet term (0 of {n // 1000}k drawn at 1/n)")
-    b.axhline(floor, color=GREY, lw=0.5, ls=":")
-    b.set_yscale("log"); b.set_ylim(floor * 0.5, 2.0)
-    b.set_yticks([1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1])
-    b.set_yticklabels(["10$^{-5}$", "10$^{-4}$", "10$^{-3}$", "10$^{-2}$", "0.1", "1"])
-    b.set_xticks(x); b.set_xticklabels([f"{T}\n{t}" for T, t in cells])
-    b.set_xlabel("Anneal T (°C) / time (min), 300 nm pads"); b.set_ylabel("Open pairs")
-    b.legend(loc="upper right", handlelength=1.0, borderaxespad=0.1)
-    letter(b, "b", x=-0.06)
+    fs = jload("v2/boundary_curves.json")["factor_shift_C"]
+    keys = sorted([k for k, _ in F6], key=lambda k: -fs[k]["120min"])
+    lab = dict(F6)
+    fig = plt.figure(figsize=(W, 2.55))
+    a = fig.add_axes([0.335, 0.17, 0.39, 0.76]); b = fig.add_axes([0.75, 0.17, 0.21, 0.76], sharey=a)
+    y = np.arange(len(keys))[::-1]
+    a.barh(y + 0.19, [fs[k]["30min"] for k in keys], height=0.36, color=SKY, label="30 min")
+    a.barh(y - 0.19, [fs[k]["120min"] for k in keys], height=0.36, color=BLUE, label="2 h")
+    a.set_yticks(y); a.set_yticklabels([lab[k] for k in keys])
+    a.set_xlim(0, 52); a.set_xticks([0, 20, 40])
+    a.set_xlabel("Boundary shift (°C)")
+    a.legend(loc="lower right", handlelength=1.0, borderaxespad=0.1)
+    r = [fs[k]["time_ratio_250C"] for k in keys]
+    b.barh(y, r, height=0.5, color=GREY, left=0)
+    b.set_xscale("log"); b.set_xlim(1, 9); b.set_xticks([1, 2, 5]); b.set_xticklabels(["1", "2", "5"])
+    from matplotlib.ticker import NullFormatter
+    b.xaxis.set_minor_formatter(NullFormatter())
+    for yy, v in zip(y, r):
+        b.text(v * 1.04, yy, f"×{v:.1f}", fontsize=7, va="center", ha="left")
+    b.tick_params(axis="y", labelleft=False, length=0)
+    b.set_xlabel("Time ratio, 250 °C")
+    letter(a, "a", x=-0.02); letter(b, "b", x=-0.02)
     return save(fig, "fig6_factors")
 
 

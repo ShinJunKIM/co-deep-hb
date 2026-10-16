@@ -19,3 +19,7 @@
 | Tsau2022 | Y. W. Tsau, J. De Messemaeker, A. Salahouelhadj, M. Gonzalez, L. Witters, B. Zhang, M. Seefeldt, E. Beyne, I. De Wolf, "Simulation of Cu pad expansion in wafer-to-wafer Cu/SiCN hybrid bonding," *Microelectron. Reliab.* 138, 114716 (2022), doi:10.1016/j.microrel.2022.114716 | bulk-property FEM fails sub-µm data, paper [8] | user-confirmed from PDF first page |
 | VanHuylenbroeck2026IRPS | S. Van Huylenbroeck et al., "Wafer to wafer hybrid bonding pitch scaling challenges (Invited)," Proc. IEEE IRPS, Tucson, AZ, USA, Mar. 2026, doi:10.1109/IRPS61424.2026.11499286 | recess distribution input, paper [10] | user-confirmed from PDF first page |
 | Okoro2008 | C. Okoro, Y. Yang, B. Vandevelde, B. Swinnen, D. Vandepitte, B. Verlinden, I. De Wolf, "Extraction of the appropriate material property for realistic modeling of through-silicon-vias using µ-Raman spectroscopy," Proc. IEEE IITC, San Francisco, CA, USA, Jun. 2008, pp. 16–18 | Cu σy(T) for connection-stage plasticity, paper [15] | user-confirmed (Tsau 2022 reference list, imec publication list) |
+
+
+## Hooge2024ECTC
+J. Hooge, C. Jois, C. Netzband, and I. Son, "Modeling of copper hybrid bonding anneal," in Proc. IEEE 74th Electronic Components and Technology Conference (ECTC), Denver, CO, USA, May 2024, pp. 1231–1235. (Bibliographic data from the ECTC 2024 table of contents; DOI not verified. Cited in the IEIE 2026f paper as the prior coupled thermal-expansion/surface-diffusion anneal model.)

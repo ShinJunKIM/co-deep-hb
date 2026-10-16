@@ -8,18 +8,16 @@
   "results/stage2/validation_rev1.csv (V1/V2: 1.26/0.54 um, 400 C)"
  ],
  "fig3": [
-  "results/stage2/orient_diffusion_round2.csv",
-  "results/stage2/orient_diffusion_round2.json (fit, faceted_fraction)",
-  "results/stage2/paper_results.json (fraction_pads_f_below_0p5)"
+  "results/stage2/diffusion_validation_rev1.csv (revision 1: median_nm, q25, q75, pred_nm, pass, role)",
+  "results/stage2/v2/f_omega_variants.json (variants_used_for_windows, fits[*].params)"
  ],
  "fig4": [
-  "results/stage2/window_summary.json ['0.30um'] clean/oxidised P_main, hatched_cells"
+  "results/stage2/v2/boundary_curves.json (T, surfaces.clean/oxidised main, band_min, band_max, T_at_*min.robust; worst_orientation V4/V5 boundary)"
  ],
  "fig5": [
-  "results/stage2/paper_results.json (recess_spec_sum_nm_300nm)"
+  "results/stage2/v2/f_omega_variants.json (windows['0.30um'].allowable_recess_clean: r_per_pad_prob99, r_per_pad_worst)"
  ],
  "fig6": [
-  "results/stage2/window_summary.json (factor_cells_changed, clean, 0.54/0.30 um; settings.n)",
-  "results/stage2/paper_results.json (orientation_floor_300nm)"
+  "results/stage2/v2/boundary_curves.json (factor_shift_C: 30min, 120min, time_ratio_250C; interface and mechanism entries excluded)"
  ]
 }

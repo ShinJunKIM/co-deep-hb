@@ -652,3 +652,9 @@
 - 2026-10-16 16:19 **VS075** (V2) V2 R 0.30 um 3D (1,1,0.5) ang 45 sliding -> exit 0, wall 57 s, LS ok True; du_c50 4.271 | du_ctr 4.278 | du_full 4.273 nm
 - 2026-10-16 16:20 **VS076** (V2) V2 R 0.30 um 3D (1,1,1) ang 22.5 sliding -> exit 0, wall 56 s, LS ok True; du_c50 4.071 | du_ctr 4.083 | du_full 4.068 nm
 - 2026-10-16 16:21 **VS077** (V2) V2 R 0.30 um 3D (1,1,1) ang 45 sliding -> exit 0, wall 57 s, LS ok True; du_c50 4.071 | du_ctr 4.083 | du_full 4.068 nm
+- 2026-10-16 14:35 **E70** (E) contact Lhostis width rule under SLIDING w0.11 um h0.22 r2 nm T400 SiO2 -> exit 1, wall 319 s, LS ok True; T25: Ac/A=0.000 p=0MPa; T400: Ac/A=0.669 p=435MPa; T25: Ac/A=0.669 p=435MPa
+- 2026-10-16 14:38 **SC5** (SC) S2-SC 3 um pad, Hill Cu, SLIDING sidewall, bonded cap, Ta 13 nm, mesh WA -> exit 0, wall 183 s, all_conv True; eps'zz 30 C -1.269e-03, 350 C +1.119e-03, slope(30-350) +7.463e-06; s_x/s_z(30) 225/44 MPa; u_ctr(400) 8.28 nm
+- 2026-10-16 14:41 **SC6** (SC) S2-SC 3 um pad, Hill Cu, SLIDING sidewall, NO cap, Ta 13 nm, mesh WA -> exit 0, wall 177 s, all_conv True; eps'zz 30 C -1.230e-03, 350 C +1.085e-03, slope(30-350) +7.236e-06; s_x/s_z(30) 175/0 MPa; u_ctr(400) 9.13 nm
+
+### 정합성 라운드 (2026-10-16; 규칙 83bf8e3)
+- E70(미끄럼 폭 효과) V 0.35 vs 0.15 → 통과; SC5/SC6(3 µm 미끄럼) −1.27/−1.23e-3 → 부호 일치. 같은 설정 평가: 접합 2/4, 미끄럼+접합 캡 2/4, 미끄럼+캡 비전달 4/4(정성). 두 경계 분리(탄성 접촉 한계 0.70 µm vs 기여도 역전 0.74–2.45 µm 외삽 예측). f(ω) 4종·β 배척(2.3σ)·확률 vs 최악 방위 창(docs/v2). 논문 초안 v4, corrections_v4.md. 방위 전수 계산은 브랜치 v2-orientation.

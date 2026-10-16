@@ -127,18 +127,18 @@
  },
  "transition_vs_recess_um": {
   "2": {
-   "meas": NaN,
-   "model": NaN,
-   "model_b069": NaN
+   "meas": null,
+   "model": null,
+   "model_b069": null
   },
   "3": {
    "meas": 0.5528602135819811,
-   "model": NaN,
+   "model": null,
    "model_b069": 0.5715210166885627
   },
   "4": {
    "meas": 0.6219038194186697,
-   "model": NaN,
+   "model": null,
    "model_b069": 0.7768857002084875
   },
   "5": {
@@ -159,7 +159,8 @@
   "10": {
    "meas": 1.2599999999999998,
    "model": 1.8071957798833076,
-   "model_b069": Infinity
+   "model_b069": null
   }
- }
+ },
+ "mechanism_transition_note": "key name kept for compatibility; the quantity is the ELASTIC CONTACT LIMIT (u_t+u_b = recess sum), not a mechanism crossover (see boundaries.json)"
 }

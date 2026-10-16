@@ -95,7 +95,7 @@ def main():
     ax.axhline(RECESS_SUM, color="gray", lw=1); ax.text(0.12, RECESS_SUM + 0.3, "recess sum 5 nm (IRPS 2026)", fontsize=6.5, color="gray")
     ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlabel("pad width (µm)"); ax.set_ylabel("top + bottom protrusion at 400 °C (nm)")
     ax.set_xticks([0.1, 0.3, 0.54, 1, 3]); ax.set_xticklabels(["0.1", "0.3", "0.54", "1", "3"]); ax.minorticks_off()
-    ax.legend(fontsize=5.5, frameon=False, loc="lower right"); ax.set_title("mechanism transition: elastic closes the recess only above ≈ %.1f µm" % D_el_meas, fontsize=7)
+    ax.legend(fontsize=5.5, frameon=False, loc="lower right"); ax.set_title("elastic contact limit: the elastic pair reaches the 5 nm recess sum at ≈ %.1f µm (400 °C, imec data)" % D_el_meas, fontsize=6.5)
     fig.tight_layout(); fig.savefig(FIG / "s2_mechanism_transition.png", dpi=300); plt.close(fig)
     fig, axs = plt.subplots(1, 2, figsize=(7, 2.9), sharey=True)
     for ax, surf, title in zip(axs, ("clean", "oxidised"), ("clean surface (main)", "surface oxide not controlled")):

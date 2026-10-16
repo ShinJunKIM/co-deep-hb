@@ -28,7 +28,8 @@ import f_omega_variants as F  # noqa: E402
 
 OUT = F.OUT
 FIG = REPO / "results" / "figures"
-TG = np.arange(200.0, 400.1, 5.0)
+TG = np.arange(100.0, 400.1, 5.0)    # computed from 100 C only so that boundaries just below 200 C are not clamped at the grid edge
+                                     # (v4.4 had 200 C: the 2 h shifts of tau0 and Q were clamped). Below 250 C = outside data; no recipe claim.
 TMIN = np.logspace(0, math.log10(240.0), 40)             # minutes
 D = 300.0
 P_WIN = 0.99
@@ -127,7 +128,13 @@ def main():
     base_tb = t_boundary(P_grid(m["variant"], m["b"], m["tau0"], m["Q"]))
     def shift(tb_a, tb_b=None):
         tb_b = base_tb if tb_b is None else tb_b
-        return {f"{tf}min": (T_at(tb_a, tf) - T_at(tb_b, tf)) for tf in (30, 120)}
+        out = {f"{tf}min": (T_at(tb_a, tf) - T_at(tb_b, tf)) for tf in (30, 120)}
+        # same factor as a multiplier of the minimum anneal time at fixed T (worse / better); constant in T for factors that
+        # rescale the kinetics, T-dependent for Q (pivot at the 350 C reference)
+        for Tq in (220.0, 250.0, 285.0, 320.0):
+            i = int(np.argmin(abs(TG - Tq)))
+            out[f"time_ratio_{Tq:.0f}C"] = float(tb_a[i] / tb_b[i]) if np.isfinite(tb_a[i]) and np.isfinite(tb_b[i]) else float("inf")
+        return out
     var_tb = {v: t_boundary(P_grid(v, m["b"], m["tau0"], m["Q"])) for v in fits}
     fac = {
         "mechanism: surface diffusion off (elastic only)": {f"{tf}min": (float("inf") if math.isnan(T_at(t_boundary(P_grid(m['variant'], m['b'], m['tau0'], m['Q'], diffusion=False)), tf)) else 0.0) for tf in (30, 120)},
@@ -143,6 +150,10 @@ def main():
         "orientation-tail shape: spread over 6 f(omega)": {f"{tf}min": (np.nanmax([T_at(v, tf) for v in var_tb.values()]) - np.nanmin([T_at(v, tf) for v in var_tb.values()])) for tf in (30, 120)},
         "elastic factor b: 0.60 vs 1.0": shift(t_boundary(P_grid(m["variant"], 0.60, m["tau0"], m["Q"])), t_boundary(P_grid(m["variant"], 1.0, m["tau0"], m["Q"]))),
     }
+    ts = fac["orientation-tail shape: spread over 6 f(omega)"]
+    for Tq in (220.0, 250.0, 285.0, 320.0):     # slowest / fastest variant at fixed T
+        i = int(np.argmin(abs(TG - Tq))); col = np.array([v[i] for v in var_tb.values()])
+        ts[f"time_ratio_{Tq:.0f}C"] = float(col.max() / col.min()) if np.all(np.isfinite(col)) else float("inf")
     # the same factors evaluated for every variant as main -> range of the shift
     res["factor_shift_C"] = fac
     res["base_T_at"] = {f"{tf}min": T_at(base_tb, tf) for tf in (5, 30, 120)}
@@ -168,7 +179,7 @@ def main():
     res["worst_orientation"] = worst
     json.dump(res, open(OUT / "boundary_curves.json", "w"), indent=1, default=lambda x: None if (isinstance(x, float) and not math.isfinite(x)) else float(x))
     # figures
-    import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
+    import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt; import matplotlib.ticker
     fig, axs = plt.subplots(1, 2, figsize=(7.2, 3.1), sharey=True)
     for ax, surf, title in zip(axs, ("clean", "oxidised"), ("clean surface", "surface oxide not controlled (s_ox 0.45)")):
         s = res["surfaces"][surf]
@@ -185,18 +196,26 @@ def main():
         ax.axvspan(200, 250, color="0.92", zorder=0); ax.text(202, 1.3, "below data (conservative)", fontsize=5.5, color="0.4")
         ax.set_yscale("log"); ax.set_ylim(1, 240); ax.set_xlim(200, 400); ax.set_xlabel("anneal T (°C)"); ax.set_title(title, fontsize=8)
         ax.legend(fontsize=5.2, frameon=False, loc="upper right")
-    axs[0].set_ylabel("minimum anneal time for P(contact) ≥ 0.99 (min)")
+    axs[0].set_ylabel("min. anneal time, P(contact) ≥ 0.99 (min)", fontsize=7)
     fig.suptitle("300 nm pads, bonded sidewall: boundary of the contact window (above/right of curve = contact)", fontsize=7.5)
     fig.tight_layout(); fig.savefig(FIG / "s2_boundary_curves_300nm.png", dpi=300); plt.close(fig)
     fig, ax = plt.subplots(figsize=(6.4, 3.3))
-    items = [(k, v["30min"], v["120min"]) for k, v in fac.items() if not k.startswith("mechanism")]
+    # interface row omitted from the figure: paper scope is bonded sidewalls (draft v5); it stays in the JSON
+    items = [(k, v["30min"], v["120min"], v["time_ratio_250C"]) for k, v in fac.items() if not k.startswith(("mechanism", "interface"))]
     items.sort(key=lambda r: -abs(np.nan_to_num(r[2])))
     y = np.arange(len(items))
+    plt.close(fig); fig, (ax, ax2) = plt.subplots(1, 2, figsize=(7.2, 3.3), sharey=True, gridspec_kw=dict(width_ratios=[1.5, 1]))
+    ax2.barh(y, [r[3] for r in items], 0.5, color="0.45"); ax2.axvline(1, color="k", lw=0.6)
+    for yy, r in zip(y, items):
+        ax2.text(r[3] * 1.03, yy, f"×{r[3]:.1f}", va="center", fontsize=5.5)
+    ax2.set_xscale("log"); ax2.set_xlim(0.9, 7); ax2.set_xticks([1, 2, 3, 5]); ax2.set_xticklabels(["1", "2", "3", "5"], fontsize=6.5)
+    ax2.xaxis.set_minor_locator(matplotlib.ticker.NullLocator()); ax2.set_xlabel("× minimum anneal time at fixed T (250 °C)", fontsize=6.5)
+    ax2.set_title("same factors in time units", fontsize=7)
     ax.barh(y - 0.18, [abs(np.nan_to_num(r[1])) for r in items], 0.36, label="at 30 min")
     ax.barh(y + 0.18, [abs(np.nan_to_num(r[2])) for r in items], 0.36, label="at 2 h")
     ax.set_yticks(y); ax.set_yticklabels([r[0] for r in items], fontsize=6.2); ax.invert_yaxis()
-    ax.set_xlabel("|shift of the boundary temperature| (°C), 300 nm, clean")
-    ax.set_title("surface diffusion off: no closure at any T ≤ 400 °C (not shown)", fontsize=7)
+    ax.set_xlabel("shift of the boundary temperature (°C), 300 nm, clean", fontsize=6.5); ax.tick_params(axis="x", labelsize=6.5)
+    ax.set_title("surface diffusion off: no closure at any T ≤ 400 °C (not shown)", fontsize=7); ax.tick_params(axis="y", labelsize=6.2)
     ax.legend(fontsize=6.5, frameon=False); fig.tight_layout(); fig.savefig(FIG / "s2_factor_shift_300nm.png", dpi=300); plt.close(fig)
 
 
